@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
   <title>Inicio</title>
   <link rel="stylesheet" href="css/materialize.min.css">
   <!-- Estilos propios -->
@@ -13,10 +14,11 @@
 
 <body>
   <!--Header--->
+  <!--Intento 1
   <div>
 
       <div  class="row">
-        <div class="col s12 m4">Logo imagen</div>
+        <div class="col s12 m4"><img src="img/logo01.png" alt="" class="responsive-img"/></div>
 
         <div class="col s12 m4 offset-m4">
           <a href="Nosotros.php">Nosotros</a>
@@ -31,6 +33,24 @@
             <div >Telefono : 1234567890</div>
           </div>
       </div>
+  </div>
+  -->
+  <div>
+    <div class="row blue lighten-4">
+      <div class="col s12 m4"><img src="img/logo01.png" alt="" class="responsive-img"/></div>
+      <div class="col s12 m4"></div>
+      <div class="col s12 m4">
+        <div class="row teal lighten-2">
+        <a href="Nosotros.php">Nosotros</a>
+            <a href="Emplero.php">Empleo</a>
+            <a href="Contacto.php">Contacto</a>
+            <a href="Ayuda.php">Ayuda</a>
+        </div>
+        <div class="row blue">
+          Telefono : 1234567891011
+        </div>
+      </div>
+    </div>    
   </div>
 
 
