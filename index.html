@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <title>Inicio</title>
+  <!--<link rel="stylesheet" href="css/materialize.min.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+  <!--Fonts-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/header.css">
+</head>
+
+<body>
+  <!--Header--->
+  <div class="row">
+    <div class="col s12 m3 offset-m1"><img src="img/logo01.png" alt="" class="responsive-img"></div>
+    <!--No tocar-->
+    <div class="col s12 m3"></div>
+
+    <div class="col s12 m3 offset-m2">
+      <div class="row">
+        <div id="links-superiores">
+          <ul class="hide-on-small-and-down">
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Emplero.html">Empleo</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+            <li><a href="Ayuda.html">Ayuda</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 0px; /*Quita espacio entre el div del logo*/">
+        <div>
+          <span>Telefono : 1234567891011</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Menu de navegación principal-->
+  <div class="row">
+    <div class="navbar-fixed">
+      <nav>
+
+        <div class="nav-wrapper blue lighten-2">
+          <div class="container">
+
+            <div class="nav-wrapper">
+
+              <a href="index.html" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+              <ul>
+                <li><a href="tratamientos.html">Tratamientos</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="clinicas.html">Clínicas</a></li>
+                <li><a href="hacer-cita.html">Reservar Cita</a></li>
+              </ul>
+            </div>
+
+            <ul class="right hide-on-med-and-down">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="index.html">Iniciar sesión</a></li>
+            </ul>
+          </div>
+
+      </nav>
+    </div>
+  </div>
+
+  <!--Menu de navegacion Mobil -->
+  <ul class="side-nav" id="mobile-menu">
+    <li><a href="index.html" class="blue-text">Inicio</a></li>
+    <li><a href="index.html">Iniciar sesión</a></li>
+  </ul>
+
+
+  <div class="container">
+
+  </div>
+
+
+  <!--<script src="js/jquery.min.js"></script>-->
+  <!--<script src="js/materialize.min.js"></script>-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <script>
+    $("document").ready(function () {
+      $(".button-collapse").sideNav();
+    });
+  </script>
+</body>
+
+</html>
