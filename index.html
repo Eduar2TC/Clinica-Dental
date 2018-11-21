@@ -9,92 +9,481 @@
   <title>Inicio</title>
   <!--<link rel="stylesheet" href="css/materialize.min.css">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/jquery.parallaxer.min.css">
   <!--Fonts-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous"> -->
+  <!--<link rel="stylesheet" href="./fonts/fontawesome/css/all.css"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Estilos propios -->
   <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/cuerpo.css">
 </head>
 
 <body>
-  <!--Header--->
+  <!--INICIO DEL HEADER--->
   <div class="row">
-    <div class="col s12 m3 offset-m1"><img src="img/logo01.png" alt="" class="responsive-img"></div>
+    <div id="imagenLogo" class="col s12 m4 offset-m1"><img src="img/logo01.png" alt="logo.png" class="responsive-img"></div>
     <!--No tocar-->
-    <div class="col s12 m3"></div>
+    <div class="col s12 m4"></div>
 
-    <div class="col s12 m3 offset-m2">
+    <div class="col s12 m4 offset-m3">
       <div class="row">
         <div id="links-superiores">
-          <ul class="hide-on-small-and-down">
-            <li><a href="Nosotros.html">Nosotros</a></li>
-            <li><a href="Emplero.html">Empleo</a></li>
-            <li><a href="Contacto.html">Contacto</a></li>
-            <li><a href="Ayuda.html">Ayuda</a></li>
+          <ul class="left hide-on-small-and-down">
+            <li><a class="link" href="nosotros.html">Nosotros</a></li>
+            <li><a class="link" href="empleo.html">Empleo</a></li>
+            <li><a class="link" href="contacto.html">Contacto</a></li>
+            <li><a class="link" href="ayuda.html">Ayuda</a></li>
           </ul>
         </div>
       </div>
       <div class="row" style="margin-bottom: 0px; /*Quita espacio entre el div del logo*/">
-        <div>
-          <span>Telefono : 1234567891011</span>
+        <div class="left hide-on-med-and-down">
+          <span class="flow-text"><a href="tel:1234567891011">Telefono : 1234567891011</span></a>
         </div>
       </div>
     </div>
   </div>
-
   <!--Menu de navegación principal-->
-  <div class="row">
-    <div class="navbar-fixed">
-      <nav>
+  <div id="navegacionPrincipal" class="row">
+    <div class="navbar">
+      <nav class="target">
 
         <div class="nav-wrapper blue lighten-2">
           <div class="container">
-
             <div class="nav-wrapper">
 
               <a href="index.html" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-              <ul>
+              <ul class="hide-on-small-and-down">
                 <li><a href="tratamientos.html">Tratamientos</a></li>
                 <li><a href="precios.html">Precios</a></li>
                 <li><a href="clinicas.html">Clínicas</a></li>
-                <li><a href="hacer-cita.html">Reservar Cita</a></li>
+                <li><a href="hacer-cita.html" class=" blue-text waves-effect waves-yellow blue lighten-5 btn"><span>Reservar
+                      Cita</span></a></li>
               </ul>
             </div>
 
-            <ul class="right hide-on-med-and-down">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="index.html">Iniciar sesión</a></li>
+            <ul class="right hide-on-med-and-down fa-ul">
+              <li><a href="index.html"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login médico</a></li>
+              <!--<li><a href="index.html"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
+                  médico</a></li> -->
             </ul>
           </div>
-
       </nav>
     </div>
+
+    <!--Menu de navegacion Mobil -->
+    <ul class="side-nav" id="mobile-menu">
+      <li><a href="index.html" class="blue-text">Inicio</a></li>
+      <li><a href="tratamientos.html" class="blue-text">Tratamientos</a></li>
+      <li><a href="precios.html" class="blue-text">Precios</a></li>
+      <li><a href="clinicas.html" class="blue-text">Clínicas</a></li>
+      <li><a href="hacer-cita.html" class="blue-text waves-effect waves-yellow  blue lighten-5 btn">Reservar
+          Cita</a></li>
+      <li><a href="index.html" class="blue-text"><i class="fas fa-sign-in-alt"></i>Login médico</a></li>
+    </ul>
+
   </div>
 
-  <!--Menu de navegacion Mobil -->
-  <ul class="side-nav" id="mobile-menu">
-    <li><a href="index.html" class="blue-text">Inicio</a></li>
-    <li><a href="index.html">Iniciar sesión</a></li>
-  </ul>
-
-
-  <div class="container">
-
+  <!--Inicio del Slider-->
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img class="responsive-img" src="img/dentista.jpg">
+        <div class="caption center-align">
+          <h3>Limpieza gratuita en tu primera cita</h3>
+          <h5 class="light grey-text text-lighten-3">Aplica a niños menores de 15 años</h5>
+        </div>
+      </li>
+      <li>
+        <img class="responsive-img" src="img/doctor.jpg">
+        <div class="caption left-align">
+          <h3>Médicos capacitados</h3>
+          <h5 class="light grey-text text-lighten-3">Hospitalidad, buena atención de nuestro personal</h5>
+        </div>
+      </li>
+      <li>
+        <img class="responsive-img" src="img/ani-kolleshi-640938-unsplash.jpg">
+        <div class="caption right-align">
+          <h3>Este es un título a la derecha!</h3>
+          <h5 class="light grey-text text-lighten-3">Aquí una frase para el slider.</h5>
+        </div>
+      </li>
+      <li>
+        <img class="responsive-img" src="img/yingpis-kalayom-133680-unsplash.jpg">
+        <div class="caption center-align">
+          <h3>Tratamientos a tu medida</h3>
+          <h5 class="light grey-text text-lighten-3">Ortodocia a tus necesidades</h5>
+        </div>
+      </li>
+    </ul>
   </div>
+  <!--Fin del Slider-->
+  <!--FIN DEL HEADER-->
+  <!--CUERPO-->
 
+  <!--Ofertas-->
+  <section class="section section-icons white lighten-4 center ">
+    <div class="container">
+
+      <div class="row renglon1">
+
+        <div class="col s12 m4">
+          <div class="card-panel z-depth-3">
+            <div class="icon-block">
+
+              <i class="far fa-surprise fa-3x blue-text deep-blue-text text-darken-2"></i>
+              <h5 class="grey-text text-darken-4">¡Primera consulta gratuita!</h5>
+              <p class="ligth">Servicio gratuito en tu primera visita, anímate a visitarnos <br><br></p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="card-panel z-depth-3">
+            <div class="icon-block">
+
+              <i class="fas fa-child fa-3x blue-text text-darken-3"></i>
+              <h5 class="grey-text text-darken-4">Limpieza gratuita en niños</h5>
+              <p class="ligth">Si ya eres cliente trae tus hijos y obten la limpieza gratuita de sus dientes</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="card-panel z-depth-3">
+            <div class="icon-block">
+
+              <i class="fas fa-teeth fa-3x blue-text text-darken-3"></i>
+              <h5 class="grey-text text-darken-4">15% de descuento en Ortodoncia</h5>
+              <p class="ligth">Paga con 15% de descuento al iniciar tu tratamiento (Sólo este mes)</p>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+  <!--Fin de Ofertas-->
+
+  <!--Ventajas-->
+  <section class="section section-ventajas grey lighten-4">
+    <div class="container ">
+
+      <div class="row renglon2">
+        <h4 class="center"><span class="blue-text text-darken-2">Ventajas</span></h4>
+        <div class="col s12 m6">
+          <h5>Equipo de <span class="blue-text text-darken-1">alta tecnología</span></h5>
+          <p class="flow-text">Contamos con lo último en materiales para garantizar el mejor servicio y al mejor
+            precio.</p>
+        </div>
+        <div class="col s12 m6">
+          <div>
+            <img src="img/michael-browning-40733-unsplash.jpg" class="circle responsive-img" alt="" />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row renglon3">
+
+        <div class="col s12 m6">
+          <img src="img/dental-checkup_4460x4460.jpg" alt="" class="circle responsive-img" />
+        </div>
+        <div class="col s12 m6">
+          <h5><span class="blue-text text-darken-1">Tratamientos</span> personalizados</h5>
+          <p class="flow-text">Seguiminto y atención personalizada para su mejor comodidad.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!--Fin de Ventajas-->
+
+  <!--Casos de Usuarios-->
+  <section class="section-testimonial grey lighten-4">
+
+    <div class="container">
+      <div class="row renglon4">
+        <div class="col s12">
+
+          <div class="carousel carousel-slider center">
+
+            <div class=" carousel-item" href="#none!">
+
+              <h2>Testimonios</h2>
+              <div class="row">
+
+                <div class="col s12 m6">
+                  <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                      <div class="col s3">
+                        <img src="img/Tom_Cruise.jpg" alt="" class="circle responsive-img">
+                        <!-- notice the "circle" class -->
+                      </div>
+                      <div class="col s10">
+                        <span class="card-title">Paciente de <span class="blue-text text-darken-1">
+                            Peridoncia</span>
+                          <p class="black-text flow-text">
+                            "Cuidar mis dientes es muy importante para mi. Ésta clinica no la cambio por nada"
+                            <em><b>Tom Crouse</b></em>
+                          </p>
+                          <div class="carousel-fixed-item center hide-on-small-and-down">
+                            <a href="#" class="btn grey">Leer mas</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6">
+                  <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                      <div class="col s3">
+                        <img src="img/messi.jpg" alt="" class="circle responsive-img">
+                        <!-- notice the "circle" class -->
+                      </div>
+                      <div class="col s10">
+                        <span class="card-title">Paciente de <span class="blue-text text-darken-1">Limpieza Dental</span>
+                          <p class="black-text">
+                            "Soy muy cuidadoso con mi imagen, y los médicos de ésta clinica me garantizan lucir
+                            excelente"
+                            <em><b>Messi</b></em>
+                          </p>
+                          <div class="carousel-fixed-item center hide-on-small-and-down">
+                            <a href="#" class="btn grey">Leer mas</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+            <div class=" carousel-item" href="#none!">
+
+              <h2>Testimonios</h2>
+              <div class="row">
+
+                <div class="col s12 m6">
+                  <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                      <div class="col s3">
+                        <img src="img/juan-lopez.jpg" alt="" class="circle responsive-img">
+                        <!-- notice the "circle" class -->
+                      </div>
+                      <div class="col s10">
+                        <span class="card-title">Paciente de <span class="blue-text text-darken-1">Limpieza
+                            Dental</span>
+                          <p class="black-text flow-text">
+                            "Un servicio excelente, con calidad humana y respeto"
+                            <em><b>Juan López</b></em>
+                          </p>
+                          <div class="carousel-fixed-item left hide-on-small-and-down">
+                            <a href="#" class="btn grey">Leer mas</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6">
+                  <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                      <div class="col s3">
+                        <img src="img/martha.jpg" alt="" class="circle responsive-img">
+                        <!-- notice the "circle" class -->
+                      </div>
+                      <div class="col s10">
+                        <span class="card-title">Paciente de <span class="blue-text text-darken-1">
+                            Blanqueamiento Dental</span>
+                          <p class="black-text">
+                            "Siempre dan ganas de volver a ésta clínica, el servicio es excelente."
+                            <em><b>Martha Higareda</b></em>
+                          </p>
+                          <div class="carousel-fixed-item center hide-on-small-and-down">
+                            <a href="#" class="btn grey">Leer mas</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+            <div class=" carousel-item" href="#none!">
+
+              <h2>Testimonios</h2>
+              <div class="row">
+
+                <div class="col s12 m6">
+                  <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                      <div class="col s3">
+                        <img src="img/caroline-buckey.jpg" alt="" class="circle responsive-img">
+                        <!-- notice the "circle" class -->
+                      </div>
+                      <div class="col s10">
+                        <span class="card-title">Paciente de <span class="blue-text text-darken-1">Ortodoncia</span></span>
+                        <p class="black-text flow-text">
+                          "Confianza y seguridad en el cuidado de mi sonrisa"
+                          <em><b>Caroline Buckey</b></em>
+                        </p>
+                        <div class="carousel-fixed-item center hide-on-small-and-down">
+                          <a href="#" class="btn grey">Leer mas</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6">
+                  <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                      <div class="col s3">
+                        <img src="img/Emily_Blunt_Hairstyle.jpg" alt="" class="circle responsive-img">
+                        <!-- notice the "circle" class -->
+                      </div>
+                      <div class="col s10">
+                        <span class="card-title">Paciente de <span class="blue-text text-darken-1">Ortodoncia</span></span>
+                        <p class="black-text">
+                          "Muy buen servicio. Siempre traigo a mis hijos a ésta clínica."
+                          <em><b>Emily Blunt</b></em>
+                        </p>
+                        <div class="carousel-fixed-item center hide-on-small-and-down">
+                          <a href="#" class="btn grey">Leer mas</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!--Fin de casos de Usuarios-->
+
+
+  <!--FIN DEL CUERPO-->
+  <!--INICIO DEL FOOTER-->
+  <footer class="page-footer blue lighten-2">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m8 l6">
+          <h5 class="white-text">Primer Contenido del footer</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col s12 m4 l6">
+          <h5 class="white-text">Segundo contenido del footer</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Copyright All Rights Reserved
+        <a class="grey-text text-lighten-4 right" href="#!">Mas links</a>
+      </div>
+    </div>
+  </footer>
+  <!--FIN DEL FOOTER-->
 
   <!--<script src="js/jquery.min.js"></script>-->
   <!--<script src="js/materialize.min.js"></script>-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-  <script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/jquery.parallaxer.min.js""></script>
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script> <script>
     $("document").ready(function () {
       $(".button-collapse").sideNav();
+
+      //para hacer el efecto  sticky Header
+      $('.target').pushpin({
+        top: 430, //94     ---Inicio
+        bottom: 10000, // --Final
+        offset: 0
+      });
+
+      //Inicializacion del header
+      $('.slider').slider({
+        full_width: true,
+        height: 230, // default - height : 400
+        interval: 8000, // default - interval: 6000
+        indicators: true
+      });
+
+      //Paralaxer
+      //$(".parallaxer").parallaxer();
+
+      //Carrusel
+      $('.carousel.carousel-slider').carousel({
+        fullWidth: true
+      }, setTimeout(autoplay, 4500));
+
+      function autoplay() {
+        $('.carousel').carousel('next');
+        setTimeout(autoplay, 4500);
+      }
+
+      //ScrollFire
+      const options = [{
+          selector: '.renglon1',
+          offset: 50,
+          callback: function (el) {
+            Materialize.fadeInImage($(el));
+          }
+        },
+        {
+          selector: '.renglon2',
+          offset: 200,
+          callback: function (el) {
+            Materialize.fadeInImage($(el));
+          }
+        },
+        {
+          selector: '.renglon3',
+          offset: 400,
+          callback: function (el) {
+            Materialize.fadeInImage($(el));
+          }
+        },
+        {
+          selector: '.renglon4',
+          offset: 500,
+          callback: function (el) {
+            Materialize.fadeInImage($(el));
+          }
+        }
+      ];
+
+      Materialize.scrollFire(options);
+
     });
   </script>
+
 </body>
 
 </html>
