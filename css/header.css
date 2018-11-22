@@ -86,6 +86,24 @@
   background-color: #66ccff;
 }
 
+/*Telefono font*/
+#telefono {
+  font-family: 'Tauri', sans-serif;
+  font-size: 23px;
+}
+
+/*Caso de alineacion del icono telefono con el texto*/
+.material-icons {
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: bottom;
+}
+
+/*Corrige el error del navbar  de la sobrposicion de las imagenes*/
+.tarjetaPushpin {
+  z-index: 10000;
+}
+
 /*
 @media only screen and (max-width: 601px) {
   #imagenLogo {

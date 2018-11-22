@@ -1,0 +1,33 @@
+/*Liks del footer*/
+:root {
+    --mainColor: #0d47a1;
+}
+
+
+#idListaLinksFooter li a a {
+    background:
+        linear-gradient(to right,
+        var(--mainColor) 0%,
+        var(--mainColor) 5px,
+        transparent 5px);
+    background-repeat: repeat-x;
+    background-size: 100%;
+    color: #000;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+#idListaLinksFooter li a:hover {
+    background:
+        linear-gradient(to right,
+        var(--mainColor) 0%,
+        var(--mainColor) 5px,
+        transparent);
+}
+
+/*Iconos redes sociales*/
+#social a {
+    padding: 0px 10px;
+    word-wrap: normal;
+    display: inline-block;
+}
