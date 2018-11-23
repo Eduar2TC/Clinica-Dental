@@ -57,9 +57,10 @@
     <!--Menu de navegación principal-->
     <div id="navegacionPrincipal" class="row">
       <div class="navbar">
-        <nav class="target">
+        <nav class="tarjetaPushpin">
 
-          <div class="nav-wrapper blue lighten-2">
+          <div class=" nav-wrapper blue
+          lighten-2">
             <div class="container">
               <div class="nav-wrapper">
 
@@ -457,7 +458,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        © 2018 Copyright All Rights Reserved
+        © 2018 Copyright Todos los derechos reservados
         <a class="grey-text text-lighten-4 right" href="#!">Mas links</a>
       </div>
     </div>
@@ -475,7 +476,7 @@
       $(".button-collapse").sideNav();
 
       //para hacer el efecto  sticky Header
-      $('.target').pushpin({
+      $('.tarjetaPushpin').pushpin({
         top: 430, //94     ---Inicio
         bottom: 10000, // --Final
         offset: 0
@@ -520,7 +521,7 @@
         },
         {
           selector: '.renglon4',
-          offset: 550,
+          offset: 500,
           callback: function (el) {
             Materialize.fadeInImage($(el));
           }

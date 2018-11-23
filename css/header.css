@@ -101,7 +101,7 @@
 
 /*Corrige el error del navbar  de la sobrposicion de las imagenes*/
 .tarjetaPushpin {
-  z-index: 10000;
+  z-index: 10;
 }
 
 /*

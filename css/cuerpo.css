@@ -18,7 +18,7 @@
 
 /*Caurusel anchura*/
 .carousel {
-    max-height: 400px
+    max-height: 400px;
 }
 
 /*ScrollFire*/
@@ -54,7 +54,7 @@
     font-size: 23px;
 }
 
-
+/*Mayusculas a minusculas*/
 .botonMasInformacion {
     text-transform: none;
 }

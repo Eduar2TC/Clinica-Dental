@@ -68,7 +68,7 @@
                                     <li><a href="tratamientos.html">Tratamientos</a></li>
                                     <li><a href="precios.html">Precios</a></li>
                                     <li><a href="sucursales.html">Clínicas</a></li>
-                                    <li><a href="!#" class=" blue-text waves-effect waves-yellow blue lighten-5 btn"><span>Reservar
+                                    <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span>Reservar
                                                 Cita</span></a>
                                     </li>
                                 </ul>
@@ -90,7 +90,7 @@
                 <li><a href="tratamientos.html" class="blue-text">Tratamientos</a></li>
                 <li><a href="precios.html" class="blue-text">Precios</a></li>
                 <li><a href="clinicas.html" class="blue-text">Clínicas</a></li>
-                <li><a href="hacer-cita.html" class="blue-text waves-effect waves-yellow  blue lighten-5 btn">Reservar
+                <li><a href="#formulario-cita" class="blue-text waves-effect waves-yellow  blue lighten-5 btn modal-trigger">Reservar
                         Cita</a></li>
                 <li><a href="index.html" class="blue-text"><i class="fas fa-sign-in-alt"></i>Login médico</a></li>
             </ul>
@@ -192,7 +192,9 @@
                                         </div>
                                     </span>
                                     <div class="right-align">
-                                        <a href="#" class="waves-effect waves-light btn blue">Reservar cita</a></div>
+                                        <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
+                                            cita</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -215,7 +217,9 @@
                                         </div>
                                     </span>
                                     <div class="right-align">
-                                        <a href="#" class="waves-effect waves-light btn blue">Reservar cita</a></div>
+                                        <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
+                                            cita</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col s12 m4">
@@ -262,8 +266,9 @@
                                     </span>
 
                                     <div class="right-align">
-                                        <a href="#" class="waves-effect waves-light btn blue">Reservar
-                                            cita</a></div>
+                                        <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
+                                            cita</a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -289,7 +294,8 @@
                                         </span>
 
                                         <div class="right-align">
-                                            <a href="#" class="waves-effect waves-light btn blue">Reservar cita</a>
+                                            <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
+                                                cita</a>
                                         </div>
                                     </div>
                                 </div>
@@ -337,7 +343,9 @@
                                             </div>
                                         </span>
                                         <div class="right-align">
-                                            <a href="#" class="waves-effect waves-light btn blue">Reservar cita</a></div>
+                                            <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
+                                                cita</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -387,7 +395,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2018 Copyright All Rights Reserved
+                © 2018 Copyright Todos los derechos reservados
                 <a class="grey-text text-lighten-4 right" href="#!">Mas links</a>
             </div>
         </div>
@@ -417,9 +425,12 @@
             <a href="#!" class="modal-close waves-effect waves-blue btn-flat">Bien</a>
         </div>
     </div>
-    <div id="formulario-cita" class="modal">
+    <!--Modal Formulario-citas-->
+    <div id="formulario-cita" class="modal" style=" max-height: 100%;
+     ">
         <div class="container">
             <div class="row">
+                <h5 class="center-align">Llene los <span class="blue-text text-darken-1">datos de la Cita</span></h5>
                 <form>
                     <div class="input-field col s12 l6">
                         <input type="text" id="nombre" class="validate">
@@ -495,7 +506,7 @@
             //para hacer el efecto  sticky Header
             $('.tarjetaPushpin').pushpin({
                 //top: 430, //94     ---Inicio
-                top: $('.tarjetaPushpin ').offset().top,
+                top: 430,
                 bottom: 10000, // --Final
                 offset: 0
             });
