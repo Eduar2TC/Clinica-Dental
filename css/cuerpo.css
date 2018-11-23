@@ -29,13 +29,24 @@
     opacity: 0;
 }
 
-/*Fin Inicio*/
+/*Fin Pagina Inicio*/
 
-/*Seccion tratamientos*/
-
+/*Pagina tratamientos*/
+/*Necesario para alinear el boton mas informacion*/
 #parrafo {
     text-align: justify;
     text-justify: inter-word;
+    display: inherit;
+}
+
+/*Necesario para alinear el boton mas informacion*/
+#boton-dentro-del-parrafo {
+    display: inherit;
+}
+
+#boton-dentro-del-parrafo .btn-flat {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #saludo {
@@ -43,6 +54,12 @@
     font-size: 23px;
 }
 
+
+.botonMasInformacion {
+    text-transform: none;
+}
+
+/*Fin tratamientos*/
 /*Modal pantalla completa
 .modal.open {
     width: 100%;
@@ -53,7 +70,6 @@
 
 
 /*Quita el espacio entre cada elemento seccion*/
-
 header,
 footer,
 section {

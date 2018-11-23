@@ -67,9 +67,9 @@
                 <ul class="hide-on-small-and-down">
                   <li><a href="tratamientos.html">Tratamientos</a></li>
                   <li><a href="precios.html">Precios</a></li>
-                  <li><a href="clinicas.html">Clínicas</a></li>
-                  <li><a href="hacer-cita.html" class=" blue-text waves-effect waves-yellow blue lighten-5 btn"><span>Reservar
-                        Cita</span></a></li>
+                  <li><a href="sucursales.html">Clínicas</a></li>
+                  <li><a href="!#" class=" blue-text waves-effect waves-yellow blue lighten-5 btn"><span>Reservar Cita</span></a>
+                  </li>
                 </ul>
               </div>
 
@@ -100,37 +100,51 @@
       <ul class="slides">
         <li>
           <img class="responsive-img" src="img/dentista.jpg">
+
           <div class="caption center-align">
             <h3>Evaluación sin costo en tu primera cita</h3>
             <h5 class="light grey-text text-lighten-3">Aplica a niños menores de 15 años</h5>
-            <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
+            <div class="hide-on-med-and-down">
+              <a href="#" class="btn btn-medium blue darken-1 ">Saber mas...</a>
+            </div>
           </div>
+
         </li>
         <li>
           <img class="responsive-img" src="img/doctor.jpg">
+
           <div class="caption left-align">
             <h3>Médicos capacitados</h3>
             <h5 class="light grey-text text-lighten-3">Hospitalidad, buena atención de nuestro personal</h5>
-            <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
-
+            <div class="hide-on-med-and-down">
+              <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
+            </div>
           </div>
+
         </li>
         <li>
           <img class="responsive-img" src="img/ani-kolleshi-640938-unsplash.jpg">
+
           <div class="caption right-align">
             <h3>Gran variedad de servicios.</h3>
             <h5 class="light grey-text text-lighten-3">Consulta nuestro Catalogo de Servicios</h5>
-            <a href="tratamientos.html#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber mas...</a>
-
+            <div class="hide-on-med-and-down">
+              <a href="tratamientos.html#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber mas...</a>
+            </div>
           </div>
+
         </li>
         <li>
           <img class="responsive-img" src="img/yingpis-kalayom-133680-unsplash.jpg">
+
           <div class="caption center-align">
             <h3>Tratamientos a tu medida</h3>
             <h5 class="light grey-text text-lighten-3">Ortodocia a tus necesidades</h5>
-            <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
+            <div class="hide-on-med-and-down">
+              <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
+            </div>
           </div>
+
         </li>
       </ul>
     </div>
@@ -421,17 +435,17 @@
           <!--<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
           <div>
             <ul id="idListaLinksFooter">
-              <li><a class="grey-text text-lighten-3" href="#!">Inicio</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!" class="link-footer">Tratamientos</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!" class="link-footer">Clinicas</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!" class="link-footer">Promociones</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!" class="link-footer">Contacto</a></li>
+              <li><a class="grey-text text-lighten-3" href="index.html">Inicio</a></li>
+              <li><a class="grey-text text-lighten-3" href="tratamientos.html" class="link-footer">Tratamientos</a></li>
+              <li><a class="grey-text text-lighten-3" href="sucursales.html" class="link-footer">Clinicas</a></li>
+              <li><a class="grey-text text-lighten-3" href="promociones.html" class="link-footer">Promociones</a></li>
+              <li><a class="grey-text text-lighten-3" href="contacto.html" class="link-footer">Contacto</a></li>
             </ul>
           </div>
         </div>
         <div class="col s12 m3 l4 offset-l5">
           <h5 class="white-text">Redes sociales</h5>
-          <p class="grey-text text-lighten-4">Siguenos por nuestras Redes Sociales</p>
+          <p class="grey-text text-lighten-4">Siguenos en nuestras <b>Redes Sociales</b></p>
           <div id="social">
             <a href="http://www.facebook.com"><i class="fab fa-facebook fa-3x"></i></a>
             <a href="http://www.twitter.com"><i class="fab fa-twitter-square fa-3x"></i></a>
@@ -492,21 +506,21 @@
         },
         {
           selector: '.renglon2',
-          offset: 300,
+          offset: 450,
           callback: function (el) {
             Materialize.fadeInImage($(el));
           }
         },
         {
           selector: '.renglon3',
-          offset: 400,
+          offset: 500,
           callback: function (el) {
             Materialize.fadeInImage($(el));
           }
         },
         {
           selector: '.renglon4',
-          offset: 500,
+          offset: 550,
           callback: function (el) {
             Materialize.fadeInImage($(el));
           }
