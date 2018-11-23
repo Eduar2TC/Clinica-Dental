@@ -55,12 +55,11 @@
       </div>
     </div>
     <!--Menu de navegación principal-->
-    <div id="navegacionPrincipal" class="row">
+    <div class="row" id="navegacionPrincipal">
       <div class="navbar">
         <nav class="tarjetaPushpin">
 
-          <div class=" nav-wrapper blue
-          lighten-2">
+          <div class="nav-wrapper blue lighten-2">
             <div class="container">
               <div class="nav-wrapper">
 
@@ -69,15 +68,17 @@
                   <li><a href="tratamientos.html">Tratamientos</a></li>
                   <li><a href="precios.html">Precios</a></li>
                   <li><a href="sucursales.html">Clínicas</a></li>
-                  <li><a href="!#" class=" blue-text waves-effect waves-yellow blue lighten-5 btn"><span>Reservar Cita</span></a>
+                  <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span>Reservar
+                        Cita</span></a>
                   </li>
                 </ul>
               </div>
 
               <ul class="right hide-on-med-and-down fa-ul">
-                <li><a href="index.html"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login médico</a></li>
+                <li><a href="index.html"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login
+                    médico</a></li>
                 <!--<li><a href="index.html"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
-                    médico</a></li> -->
+                  médico</a></li> -->
               </ul>
             </div>
         </nav>
@@ -89,9 +90,8 @@
         <li><a href="tratamientos.html" class="blue-text">Tratamientos</a></li>
         <li><a href="precios.html" class="blue-text">Precios</a></li>
         <li><a href="clinicas.html" class="blue-text">Clínicas</a></li>
-        <li><a href="hacer-cita.html" class="blue-text waves-effect waves-yellow  blue lighten-5 btn">Reservar
+        <li><a href="#formulario-cita" class="blue-text waves-effect waves-yellow  blue lighten-5 btn modal-trigger">Reservar
             Cita</a></li>
-        <li><a href="index.html" class="blue-text"><i class="fas fa-sign-in-alt"></i>Login médico</a></li>
       </ul>
 
     </div>
@@ -130,7 +130,8 @@
             <h3>Gran variedad de servicios.</h3>
             <h5 class="light grey-text text-lighten-3">Consulta nuestro Catalogo de Servicios</h5>
             <div class="hide-on-med-and-down">
-              <a href="tratamientos.html#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber mas...</a>
+              <a href="tratamientos.html#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
+                mas...</a>
             </div>
           </div>
 
@@ -465,6 +466,70 @@
   </footer>
   <!--FIN DEL FOOTER-->
 
+  <!--      MODALES - INICIO-->
+  <div id="formulario-cita" class="modal" style=" max-height: 100%;">
+    <div class="container">
+      <div class="row">
+        <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
+        <form>
+          <div class="input-field col s12 l6">
+            <input type="text" id="nombre" class="validate">
+            <label for="nombre">Nombre</label>
+          </div>
+          <div class="input-field col s12 l6">
+            <input type="text" id="paterno" class="validate">
+            <label for="paterno">Paterno</label>
+          </div>
+          <div class="input-field col s12 l6">
+            <input type="text" id="paterno" class="validate">
+            <label for="materno">Materno</label>
+          </div>
+          <div class="input-field col s12 l6">
+            <input type="email" id="email" class="validate">
+            <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
+          </div>
+
+          <div class="input-field col s12 l6">
+            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono"
+              class="validate">
+            <label for="telefono">Telefono</label>
+          </div>
+
+          <div class="input-field col s12 l6">
+            <select name="opciones-tratamientos" id="opciones-tratamientos">
+              <option value="disabled selected">Selecciona un Tratamiento</option>
+              <option value="1">Ortodoncia</option>
+              <option value="2">Periodoncia</option>
+              <option value="3">Endodoncia</option>
+              <option value="4">Cirujía Dental</option>
+              <option value="5">Estética Dental</option>
+            </select>
+            <label>Opciones de tratamientos</label>
+          </div>
+
+          <div class="input-field col 12 l6">
+            <input type="text" class="datepicker" id="fecha">
+            <label for="fecha">Fecha de la Cita</label>
+          </div>
+
+          <div class="input-field col 12 l6" id="hora">
+            <input type="text" class="timepicker">
+            <label for="hora">Hora de la Cita</label>
+          </div>
+
+          <div class="input-field col s12">
+            <textarea id="mensaje" class="materialize-textarea"></textarea>
+            <label for="mensaje">Escribenos un Mensaje</label>
+          </div>
+
+          <button class="btn waves-effect waves-light blue" type="submit" name="action">Enviar
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
   <!--<script src="js/jquery.min.js"></script>-->
   <!--<script src="js/materialize.min.js"></script>-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -541,6 +606,33 @@
         $('.carousel').carousel('next');
         setTimeout(autoplay, 5000);
       }
+
+      //Inicializa modal
+      $('.modal').modal();
+
+      //Inicializa el selector de opciones de tratamiento
+      $('#opciones-tratamientos').material_select();
+
+      //Fecha de la consulta
+
+      $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 15,
+        today: 'Hoy',
+        clear: 'Limpiar',
+        close: 'Ok',
+        closeOnSelect: false
+      });
+
+      //Hora de la consulta
+      $('.timepicker').pickatime({
+        default: 'Hoy',
+        twelvehour: false, // change to 12 hour AM/PM clock from 24 hour
+        donetext: 'OK',
+        autoclose: false,
+        vibrate: true // vibrate the device when dragging clock hand
+      });
+
     });
   </script>
 
