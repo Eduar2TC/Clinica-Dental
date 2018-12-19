@@ -82,3 +82,19 @@ section {
     font-size: inherit;
     vertical-align: bottom;
 }
+
+/*CSeccion Medicos*/
+
+/*Colleption*/
+.collection .collection-item.active {
+    background-color: #43a2e2;
+}
+
+.collection .collection a.collection-item {
+
+    color: #0db8d6;
+}
+
+.collection a.collection-item {
+    color: #2673a6;
+}
