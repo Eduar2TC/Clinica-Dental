@@ -31,3 +31,14 @@
     word-wrap: normal;
     display: inline-block;
 }
+
+/*icons hover*/
+.fa-facebook:hover{
+    color: #3b5998;
+}
+.fa-instagram:hover{
+    color:#bc2a8d;
+}
+.fs-twitter:hover{
+    color: #00aced;
+}

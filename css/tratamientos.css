@@ -1,0 +1,110 @@
+header,
+footer,
+section {
+    overflow: auto;
+}
+/*Comportamiento en vista movil Seccion (Tratamienos)*/
+@media only screen and (max-width: 601px) {
+    /*Ajust card position on tratamientos view*/
+    .renglon-ajustar{
+        display: flex;  
+        flex-direction: column;
+    }
+    .col-one{
+        order: 2;
+    }
+    .col-two{
+        order: 1;
+    }
+
+}
+
+/*Tamaño de la imagen parallax como fondo*/
+.parallax-container {
+  height: 200px;
+}
+
+.parallax img {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.parallax img:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+main .row{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+.section-tratamientos .card{
+    border-radius: 2%;
+}
+.card .card-image img{
+    border-radius: 2%;
+}
+.card .card-title{
+    color: #142b3b !important;
+    text-shadow: 6px 1px 3px rgb(233, 178, 27);
+}
+.section-tratamientos .card-panel{
+    height: auto;
+    border-radius: 2%;
+}
+
+
+
+/*Necesario para alinear el boton mas informacion*/
+#parrafo {
+    text-align: justify;
+    text-justify: inter-word;
+    display: inherit;
+}
+
+/*Necesario para alinear el boton mas informacion*/
+#boton-dentro-del-parrafo {
+    display: inherit;
+}
+
+#boton-dentro-del-parrafo .btn-flat {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#saludo {
+    font-family: 'Sacramento', cursive;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+/*Mayusculas a minusculas*/
+.botonMasInformacion {
+    text-transform: none;
+    color: #f0ddaa;
+}
+
+#boton-dentro-del-parrafo a:link {
+  text-decoration: none;
+}
+
+#boton-dentro-del-parrafo a:visited {
+  text-decoration: none;
+}
+
+#boton-dentro-del-parrafo a:hover {
+  text-decoration: underline;
+}
+
+#boton-dentro-del-parrafo a:active {
+  text-decoration: underline;
+}
+/*Eliminar margenes para ocultar los detalles de los tratamientos*/
+.colapsoTratamiento{    
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border-top-width: 0px;
+}
+/*Caracteristicas de los estilos del Modal*/
+.modal{
+    border-radius: 1%;
+}

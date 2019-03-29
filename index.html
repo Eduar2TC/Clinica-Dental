@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Poiret+One|Sacramento|Tauri" rel="stylesheet">
   <!-- Estilos propios -->
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/cuerpo.css">
+  <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/footer.css">
 </head>
 
@@ -207,7 +207,7 @@
 
     <!--Ventajas-->
     <section class="section section-ventajas grey lighten-4">
-      <div class="container ">
+      <div class="container">
 
         <div class="row renglon2">
           <h4 class="center"><span class="blue-text text-darken-2">Ventajas</span></h4>
@@ -224,10 +224,10 @@
 
         <div class="row renglon3">
 
-          <div class="col s12 m6">
+          <div class="col s12 m6" id="col1">
             <img src="img/dental-checkup_4460x4460.jpg" alt="" class="circle responsive-img" />
           </div>
-          <div class="col s12 m6">
+          <div class="col s12 m6" id="col2">
             <h5><span class="blue-text text-darken-1">Tratamientos</span> personalizados</h5>
             <p class="flow-text">Seguiminto y atención personalizada para su mejor comodidad.</p>
           </div>
@@ -560,8 +560,7 @@
         fullWidth: true
       });
       autoplay();
-      //Paralaxer
-      //$(".parallaxer").parallaxer();
+
 
       //ScrollFire
       const options = [{
@@ -605,7 +604,7 @@
       //funcion para hacer que el carrusel se mueva de forma automatica
       function autoplay() {
         $('.carousel').carousel('next');
-        setTimeout(autoplay, 5000);
+        setTimeout(autoplay, 9000);
       }
 
       //Inicializa modal

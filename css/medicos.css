@@ -1,0 +1,27 @@
+/*Quita el espacio entre cada elemento seccion*/
+header,
+footer,
+section {
+    overflow: auto;
+}
+
+/*--Seccion Medicos*/
+
+/*Colleption*/
+.collection .collection-item.active {
+    background-color: #43a2e2;
+}
+
+.collection .collection a.collection-item {
+
+    color: #0db8d6;
+}
+
+.collection a.collection-item {
+    color: #2673a6;
+}
+
+/*Caracteristicas de los estilos del Modal*/
+.modal{
+    border-radius: 1%;
+}

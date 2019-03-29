@@ -16,10 +16,46 @@
     }
 }*/
 
-/*Caurusel anchura*/
+/*--Inicio pagina Principal--*/
+/*(Principal) Tarjetas de ofertas*/
+.renglon1 >.col > .card-panel{
+    height: 250px;
+}
+/*(Principal) Caurusel de tarjetas (anchura)*/
 .carousel {
     max-height: 400px;
 }
+/*(Principal) Anchura del panel de tarjetas de testimonios*/
+.card-panel{
+    height: 176px;
+}
+
+/*Comportamiento en vista movil Seccion Ventajas (Principal)-(Tratamienos)*/
+@media only screen and (max-width: 601px) {
+    /*Ajust card position on tratamientos view*/
+    .renglon-ajustar{
+        display: flex;  
+        flex-direction: column;
+    }
+    .col-one{
+        order: 2;
+    }
+    .col-two{
+        order: 1;
+    }
+    /*Ajust on Principal page*/
+    .renglon3{
+        display: flex;  flex-direction: column;
+    }
+    #col1{
+        order: 2;
+    }
+    #col2{
+        order: 1;
+    }
+
+}
+
 
 /*ScrollFire*/
 .renglo1,
@@ -28,10 +64,57 @@
 .renglon4 {
     opacity: 0;
 }
+/*--Fin Pagina Principal--*/
 
-/*Fin Pagina Inicio*/
 
-/*Pagina tratamientos*/
+
+
+/*--Pagina tratamientos--*/
+
+/*Inicio fondo tratamientos*/
+/*.section-tratamientos{
+    background-image: url("../img/wood-pattern-1920x1080.png");
+   object-fit: cover;
+   object-position: 100% 0;
+   height: 100%;
+}*/
+/*Fin fondo tratamientos*/
+
+/*Tamaño de la imagen parallax como fondo*/
+.parallax-container {
+  height: 200px;
+}
+
+.parallax img {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.parallax img:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+main .row{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+.section-tratamientos .card{
+    border-radius: 2%;
+}
+.card .card-image img{
+    border-radius: 2%;
+}
+.card .card-title{
+    color: #142b3b !important;
+    text-shadow: 6px 1px 3px rgb(233, 178, 27);
+}
+.section-tratamientos .card-panel{
+    height: auto;
+    border-radius: 2%;
+}
+
+
+
 /*Necesario para alinear el boton mas informacion*/
 #parrafo {
     text-align: justify;
@@ -52,14 +135,33 @@
 #saludo {
     font-family: 'Sacramento', cursive;
     font-size: 23px;
+    font-weight: bold;
 }
 
 /*Mayusculas a minusculas*/
 .botonMasInformacion {
     text-transform: none;
+    color: #f0ddaa;
 }
 
-/*Fin tratamientos*/
+#boton-dentro-del-parrafo a:link {
+  text-decoration: none;
+}
+
+#boton-dentro-del-parrafo a:visited {
+  text-decoration: none;
+}
+
+#boton-dentro-del-parrafo a:hover {
+  text-decoration: underline;
+}
+
+#boton-dentro-del-parrafo a:active {
+  text-decoration: underline;
+}
+
+/*--Fin tratamientos*/
+
 /*Modal pantalla completa
 .modal.open {
     width: 100%;
@@ -76,14 +178,14 @@ section {
     overflow: auto;
 }
 
-/*Seccion Clinicas*/
+/*--Seccion Clinicas*/
 /*Alineacion de los iconos*/
 .inline-icon {
     font-size: inherit;
     vertical-align: bottom;
 }
 
-/*CSeccion Medicos*/
+/*--Seccion Medicos*/
 
 /*Colleption*/
 .collection .collection-item.active {
@@ -97,4 +199,9 @@ section {
 
 .collection a.collection-item {
     color: #2673a6;
+}
+
+/*Caracteristicas de los estilos del Modal*/
+.modal{
+    border-radius: 1%;
 }

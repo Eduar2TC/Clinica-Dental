@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
-    <title>Inicio</title>
+    <title>Tratamientos</title>
     <!--<link rel="stylesheet" href="css/materialize.min.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/jquery.parallaxer.min.css">
     <!--Fonts-->
     <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
     crossorigin="anonymous"> -->
@@ -22,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Poiret+One|Sacramento|Tauri" rel="stylesheet">
     <!-- Estilos propios -->
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/cuerpo.css">
+    <link rel="stylesheet" href="css/tratamientos.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
 
@@ -157,15 +156,30 @@
     <!--INICIO CUERPO-->
     <main>
         <!--Tratamietos-->
+        <div class="row">
+            <div class="container">
+                    <div class="parallax-container center valign-wrapper">
+                        <div class="parallax">
+                            <div class="parallax"><img class="responsive-img" src="img/chair-1920.jpg">
+                            </div>
+                            <div class="container white-text">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h1 class="center">Tratamientos</h1>
+                                        <h5>Conoce los tratamientos que ofrecemos</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
         <section class="section section-tratamientos grey lighten-4" id="seccion-tratamientos">
             <div class="container">
 
                 <div class="row">
-                    <div class="col s12">
-
-                        <div class="row">
                             <div class="col s12 m4">
-                                <div class="card">
+                                <div class="card card-resize-height">
                                     <div class="card-image">
                                         <img src="img/rainier-ridao-720108-unsplash.jpg">
                                         <span class="card-title">Ortodoncista</span>
@@ -178,7 +192,7 @@
                                 </div>
                             </div>
                             <div class="col s12 m8">
-                                <div class="card-panel hoverable indigo accent-1">
+                                <div class="card-panel hoverable blue darken-3 card-resize-height">
                                     <h5 class="white-text">Ortodoncia</h5>
                                     <span class="white-text valign-wrapper" id="parrafo">
                                         La ortodoncia es la especialidad odontológica que se especializa en el
@@ -187,7 +201,7 @@
                                         diagnóstico​, la prevención y el tratamiento​, para corregir la posición de los
                                         dientes y mandíbula​.
                                         <div id="boton-dentro-del-parrafo">
-                                            <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow">Mas
+                                            <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-one">Mas
                                                 informacion...</a>
                                         </div>
                                     </span>
@@ -197,11 +211,26 @@
                                     </div>
                                 </div>
                             </div>
+                </div>
+                <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-one" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header" style="display: none;">
                         </div>
-
-                        <div class="row">
-                            <div class="col s12 m8">
-                                <div class="card-panel hoverable indigo accent-1">
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <div class="col m6 s12">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id at beatae voluptatum laboriosam molestias quam provident ex, aperiam quos dolore repudiandae distinctio, quidem dolor? Perferendis earum sint accusantium cumque esse!
+                                    </div>
+                                    <div class="col m6 s12">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, dolore, odio quaerat odit nemo quidem inventore id ad placeat nulla explicabo expedita iure? Cumque at ullam nobis beatae necessitatibus nemo!
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+                <div class="row renglon-ajustar">
+                            <div class="col s12 m8 col-one">
+                                <div class="card-panel hoverable blue darken-3 card-resize-height">
                                     <h5 class="white-text">Peridoncia</h5>
 
                                     <span class="white-text valign-wrapper" id="parrafo">
@@ -212,7 +241,7 @@
                                         su
                                         sonrisa y venga a visitarnos, podemos ayudarle.
                                         <div id="boton-dentro-del-parrafo">
-                                            <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow">Mas
+                                            <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-two">Mas
                                                 informacion...</a>
                                         </div>
                                     </span>
@@ -222,8 +251,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col s12 m4">
-                                <div class="card">
+                            <div class="col s12 m4 col-two">
+                                <div class="card card-resize-height">
                                     <div class="card-image">
                                         <img src="img/dentist-in-office_4460x4460.jpg">
                                         <span class="card-title">Peridontista</span>
@@ -235,11 +264,30 @@
                                     </div>
                                 </div>
                             </div>
+                </div>
+                <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-two"data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header" style="display: none;">
                         </div>
-
-                        <div class="row">
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id at beatae voluptatum laboriosam
+                                    molestias quam provident ex, aperiam quos dolore repudiandae distinctio, quidem dolor? Perferendis
+                                    earum sint accusantium cumque esse!
+                                </div>
+                                <div class="col m6 s12">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, dolore, odio quaerat odit nemo
+                                    quidem inventore id ad placeat nulla explicabo expedita iure? Cumque at ullam nobis beatae
+                                    necessitatibus nemo!
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="row">
                             <div class="col s12 m4">
-                                <div class="card">
+                                <div class="card card-resize-height">
                                     <div class="card-image">
                                         <img class="circle" src="img/woman-doctor-with-gloves_4460x4460.jpg">
                                         <span class="card-title">Endodoncista</span>
@@ -252,7 +300,7 @@
                                 </div>
                             </div>
                             <div class="col s12 m8">
-                                <div class="card-panel hoverable indigo accent-1">
+                                <div class="card-panel hoverable blue darken-3 card-resize-height">
                                     <h5 class="white-text">Endodoncia</h5>
                                     <span class="white-text valign-wrapper" id="parrafo">
                                         La endodoncia es la solución inmediata y definitiva ante las molestias
@@ -260,7 +308,7 @@
                                         dental Dentimex y no pierda su pieza dental. Conservará la apariencia de su
                                         dentadura mientras que el dolor desaparece por completo.
                                         <div id="boton-dentro-del-parrafo">
-                                            <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow">Mas
+                                            <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-tree">Mas
                                                 informacion...</a>
                                         </div>
                                     </span>
@@ -271,52 +319,47 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col s12 m8">
-                                    <div class="card-panel hoverable indigo accent-1">
-                                        <h5 class="white-text">Cirujía Dental</h5>
-
+                            
+                </div>
+                <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-tree" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header" style="display: none;">
+                        </div>
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <div class="col m6 s12">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id at beatae voluptatum laboriosam molestias quam provident ex, aperiam quos dolore repudiandae distinctio, quidem dolor? Perferendis earum sint accusantium cumque esse!
+                                    </div>
+                                    <div class="col m6 s12">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, dolore, odio quaerat odit nemo quidem inventore id ad placeat nulla explicabo expedita iure? Cumque at ullam nobis beatae necessitatibus nemo!
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+                <div class="row renglon-ajustar">
+                                <div class="col s12 m8 col-one">
+                                    <div class="card-panel hoverable blue darken-3 card-resize-height">
+                                        <h5 class="white-text">Estetica Dental</h5>
                                         <span class="white-text valign-wrapper" id="parrafo">
-                                            Implante dental, es un producto sanitario destinado a ser el sustituto
-                                            artificial de la raíz de un diente perdido. Habitualmente tiene forma
-                                            roscada y
-                                            está fabricado con materiales biocompatibles que no producen reacción de
-                                            rechazo y permiten su unión al hueso. La superficie del implante puede
-                                            presentar diferentes texturas y recubrimientos, utilizadas habitualmente
-                                            para
-                                            aumentar su adhesión al hueso (osteointegración si es de titanio y
-                                            biointegración si se trata de un material cerámico).
+                                            La endodoncia es la solución inmediata y definitiva ante las molestias
+                                            dolorosas provocadas por la afectación del nervio. Acuda a cualquier
+                                            clínica
+                                            dental Dentimex y no pierda su pieza dental. Conservará la apariencia de su
+                                            dentadura mientras que el dolor desaparece por completo.
                                             <div id="boton-dentro-del-parrafo">
-                                                <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow">Mas
-                                                    informacion...</a>
+                                            <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-for">Mas
+                                                informacion...</a>
                                             </div>
                                         </span>
-
                                         <div class="right-align">
                                             <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
                                                 cita</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col s12 m4">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <img src="img/doctor-1.jpg">
-                                            <span class="card-title">Cirujano Dental</span>
-                                            <a href="#servicio2" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i
-                                                    class="material-icons">add</i></a>
-                                        </div>
-                                        <div class="card-content">
-                                            <p id="saludo">"Hola, soy Pedro Ramos"</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col s12 m4">
-                                    <div class="card">
+                                <div class="col s12 m4 col-two">
+                                    <div class="card card-resize-height">
                                         <div class="card-image">
                                             <img class="circle" src="img/woman-doctor-with-gloves_4460x4460.jpg">
                                             <span class="card-title">Especialista en Etética Dental</span>
@@ -328,35 +371,90 @@
                                         </div>
                                     </div>
                                 </div>
+                </div>
+                <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-for" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header" style="display: none;">
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id at beatae voluptatum laboriosam
+                                    molestias quam provident ex, aperiam quos dolore repudiandae distinctio, quidem dolor? Perferendis
+                                    earum sint accusantium cumque esse!
+                                </div>
+                                <div class="col m6 s12">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, dolore, odio quaerat odit nemo
+                                    quidem inventore id ad placeat nulla explicabo expedita iure? Cumque at ullam nobis beatae
+                                    necessitatibus nemo!
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="row">
+                                <div class="col s12 m4">
+                                    <div class="card card-resize-height">
+                                        <div class="card-image">
+                                            <img src="img/doctor-1.jpg">
+                                            <span class="card-title">Cirujano Dental</span>
+                                            <a href="#servicio2" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i
+                                                    class="material-icons">add</i></a>
+                                        </div>
+                                        <div class="card-content">
+                                            <p id="saludo">"Hola, soy Pedro Ramos"</p>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col s12 m8">
-                                    <div class="card-panel hoverable indigo accent-1">
-                                        <h5 class="white-text">Estetica Dental</h5>
+                                    <div class="card-panel hoverable blue darken-3 card-resize-height">
+                                        <h5 class="white-text">Cirujía Dental</h5>
+                            
                                         <span class="white-text valign-wrapper" id="parrafo">
-                                            La endodoncia es la solución inmediata y definitiva ante las molestias
-                                            dolorosas provocadas por la afectación del nervio. Acuda a cualquier
-                                            clínica
-                                            dental Dentimex y no pierda su pieza dental. Conservará la apariencia de su
-                                            dentadura mientras que el dolor desaparece por completo.
+                                            Implante dental, es un producto sanitario destinado a ser el sustituto
+                                            artificial de la raíz de un diente perdido. Habitualmente tiene forma
+                                            roscada y
+                                            está fabricado con materiales biocompatibles que no producen reacción de
+                                            rechazo y permiten su unión al hueso. La superficie del implante puede
+                                            presentar diferentes texturas y recubrimientos, utilizadas habitualmente
+                                            para
+                                            aumentar su adhesión al hueso (osteointegración si es de titanio y
+                                            biointegración si se trata de un material cerámico).
                                             <div id="boton-dentro-del-parrafo">
-                                                <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow">Mas
-                                                    informacion...</a>
+                                            <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-five">Mas
+                                                informacion...</a>
                                             </div>
                                         </span>
+                            
                                         <div class="right-align">
                                             <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
                                                 cita</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-
-
                 </div>
+                <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-five" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header" style="display: none;">
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id at beatae voluptatum laboriosam
+                                    molestias quam provident ex, aperiam quos dolore repudiandae distinctio, quidem dolor? Perferendis
+                                    earum sint accusantium cumque esse!
+                                </div>
+                                <div class="col m6 s12">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, dolore, odio quaerat odit nemo
+                                    quidem inventore id ad placeat nulla explicabo expedita iure? Cumque at ullam nobis beatae
+                                    necessitatibus nemo!
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+            </div>
         </section>
         <!--Fin tratamientos-->
     </main>
@@ -495,9 +593,9 @@
     <!--<script src="js/jquery.min.js"></script>-->
     <!--<script src="js/materialize.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/jquery.parallaxer.min.js""></script>
-  <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-        </script> <script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="js/jquery.matchHeight.js" type="text/javascript"></script>
+    <script>
         $("document").ready(function () {
             //Inicializa sidenav
             $(".button-collapse").sideNav();
@@ -544,6 +642,62 @@
                 vibrate: true // vibrate the device when dragging clock hand
             });
 
+            /*Iniciaizar el parallax del baner dek titulo*/
+            $('.parallax').parallax();
+            /*Mismo tamaño entre las tarjetas*/
+            $('.card-resize-height').matchHeight();
+        });
+        //Operaciones con el dropdown
+        function dropDownExpand(centinela, selectorIdMasMenos, selectorIdColapso){
+
+            if (centinela === false) {
+                //personalizar loca cambios de las clases
+                $("#"+selectorIdColapso+" .collapsible-header").addClass("active");
+                $("#"+selectorIdColapso).collapsible({ accordion: true });
+                $('#'+selectorIdMasMenos).html('<a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="'+selectorIdMasMenos+'">Menos...</a>');
+                return true;
+            }
+            else if(centinela === true){
+                $("#"+selectorIdColapso+" .collapsible-header").removeClass(function () {
+                    return "active";
+                });
+                $("#"+selectorIdColapso).collapsible({ accordion: true });
+                $('#'+selectorIdMasMenos).html('<a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="'+selectorIdMasMenos+'">Mas información...</a>');
+                return false;
+            } 
+        }
+        var centinela1 = false; //Global para que funcione
+        var centinela2 = false;
+        var centinela3 = false;
+        var centinela4 = false;
+        var centinela5 = false;
+        $(".botonMasInformacion").click(function (event) {
+            switch(event.target.id){
+                case 'expandir-tratamiento-one':{
+                    centinela1 = dropDownExpand(centinela1, 'expandir-tratamiento-one', $("#colapso-tratamiento-one.colapsoTratamiento").attr('id'));  
+                    break;
+                }
+                case 'expandir-tratamiento-two': {
+                    centinela2 = dropDownExpand(centinela2, 'expandir-tratamiento-two', $("#colapso-tratamiento-two.colapsoTratamiento").attr('id'));
+                    break;
+                }
+                case 'expandir-tratamiento-tree': {
+                    centinela3 = dropDownExpand(centinela3, 'expandir-tratamiento-tree', $("#colapso-tratamiento-tree.colapsoTratamiento").attr('id'));
+                    break;
+                }
+                case 'expandir-tratamiento-for': {
+                    centinela4 = dropDownExpand(centinela4, 'expandir-tratamiento-for', $("#colapso-tratamiento-for.colapsoTratamiento").attr('id'));
+                    break;
+                }
+                case 'expandir-tratamiento-five': {
+                    centinela5 = dropDownExpand(centinela5, 'expandir-tratamiento-five', $("#colapso-tratamiento-five.colapsoTratamiento").attr('id'));
+                    break;
+                }
+                default:{
+                   // centinela = false;
+                    break;
+                }
+            }
         });
     </script>
 

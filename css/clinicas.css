@@ -1,0 +1,13 @@
+/*Quita el espacio entre cada elemento seccion*/
+header,
+footer,
+section {
+    overflow: auto;
+}
+
+/*--Seccion Clinicas*/
+/*Alineacion de los iconos*/
+.inline-icon {
+    font-size: inherit;
+    vertical-align: bottom;
+}
