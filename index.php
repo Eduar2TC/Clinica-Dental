@@ -30,7 +30,7 @@
   <!--INICIO DEL HEADER--->
   <header>
     <div class="row">
-      <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.html"><img src="img/logo01.png" alt="logo.png"
+      <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.php"><img src="img/logo01.png" alt="logo.png"
             class="responsive-img"></a></div>
       <!--No tocar-->
       <div class="col s12 m4"></div>
@@ -39,10 +39,10 @@
         <div class="row">
           <div id="links-superiores">
             <ul class="left hide-on-small-and-down">
-              <li><a class="link" href="nosotros.html">Nosotros</a></li>
-              <li><a class="link" href="empleo.html">Empleo</a></li>
-              <li><a class="link" href="contacto.html">Contacto</a></li>
-              <li><a class="link" href="ayuda.html">Ayuda</a></li>
+              <li><a class="link" href="nosotros.php">Nosotros</a></li>
+              <li><a class="link" href="empleo.php">Empleo</a></li>
+              <li><a class="link" href="contacto.php">Contacto</a></li>
+              <li><a class="link" href="ayuda.php">Ayuda</a></li>
             </ul>
           </div>
         </div>
@@ -63,11 +63,11 @@
             <div class="container">
               <div class="nav-wrapper">
 
-                <a href="index.html" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="index.php" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="hide-on-small-and-down">
-                  <li><a href="tratamientos.html">Tratamientos</a></li>
-                  <li><a href="precios.html">Precios</a></li>
-                  <li><a href="sucursales.html">Clínicas</a></li>
+                  <li><a href="tratamientos.php">Tratamientos</a></li>
+                  <li><a href="precios.php">Precios</a></li>
+                  <li><a href="sucursales.php">Clínicas</a></li>
                   <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span>Reservar
                         Cita</span></a>
                   </li>
@@ -75,9 +75,9 @@
               </div>
 
               <ul class="right hide-on-med-and-down fa-ul">
-                <li><a href="medicos.html"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login
+                <li><a href="medicos.php"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login
                     médico</a></li>
-                <!--<li><a href="index.html"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
+                <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                   médico</a></li> -->
               </ul>
             </div>
@@ -86,10 +86,10 @@
 
       <!--Menu de navegacion Mobil -->
       <ul class="side-nav" id="mobile-menu">
-        <li><a href="index.html" class="blue-text">Inicio</a></li>
-        <li><a href="tratamientos.html" class="blue-text">Tratamientos</a></li>
-        <li><a href="precios.html" class="blue-text">Precios</a></li>
-        <li><a href="clinicas.html" class="blue-text">Clínicas</a></li>
+        <li><a href="index.php" class="blue-text">Inicio</a></li>
+        <li><a href="tratamientos.php" class="blue-text">Tratamientos</a></li>
+        <li><a href="precios.php" class="blue-text">Precios</a></li>
+        <li><a href="clinicas.php" class="blue-text">Clínicas</a></li>
         <li><a href="#formulario-cita" class="blue-text waves-effect waves-yellow  blue lighten-5 btn modal-trigger">Reservar
             Cita</a></li>
       </ul>
@@ -130,7 +130,7 @@
             <h3>Gran variedad de servicios.</h3>
             <h5 class="light grey-text text-lighten-3">Consulta nuestro Catalogo de Servicios</h5>
             <div class="hide-on-med-and-down">
-              <a href="tratamientos.html#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
+              <a href="tratamientos.php#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
                 mas...</a>
             </div>
           </div>
@@ -437,11 +437,11 @@
           <!--<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
           <div>
             <ul id="idListaLinksFooter">
-              <li><a class="grey-text text-lighten-3" href="index.html">Inicio</a></li>
-              <li><a class="grey-text text-lighten-3" href="tratamientos.html" class="link-footer">Tratamientos</a></li>
-              <li><a class="grey-text text-lighten-3" href="sucursales.html" class="link-footer">Clinicas</a></li>
-              <li><a class="grey-text text-lighten-3" href="promociones.html" class="link-footer">Promociones</a></li>
-              <li><a class="grey-text text-lighten-3" href="contacto.html" class="link-footer">Contacto</a></li>
+              <li><a class="grey-text text-lighten-3" href="index.php">Inicio</a></li>
+              <li><a class="grey-text text-lighten-3" href="tratamientos.php" class="link-footer">Tratamientos</a></li>
+              <li><a class="grey-text text-lighten-3" href="sucursales.php" class="link-footer">Clinicas</a></li>
+              <li><a class="grey-text text-lighten-3" href="promociones.php" class="link-footer">Promociones</a></li>
+              <li><a class="grey-text text-lighten-3" href="contacto.php" class="link-footer">Contacto</a></li>
             </ul>
           </div>
         </div>

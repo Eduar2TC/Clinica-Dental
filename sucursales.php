@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
-    <title>Tratamientos</title>
+    <title>Inicio</title>
     <!--<link rel="stylesheet" href="css/materialize.min.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.parallaxer.min.css">
@@ -30,7 +30,7 @@
     <!--INICIO DEL HEADER--->
     <header>
         <div class="row">
-            <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.html"><img src="img/logo01.png" alt="logo.png"
+            <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.php"><img src="img/logo01.png" alt="logo.png"
                         class="responsive-img"></a></div>
             <!--No tocar-->
             <div class="col s12 m4"></div>
@@ -39,10 +39,10 @@
                 <div class="row">
                     <div id="links-superiores">
                         <ul class="left hide-on-small-and-down">
-                            <li><a class="link" href="nosotros.html">Nosotros</a></li>
-                            <li><a class="link" href="empleo.html">Empleo</a></li>
-                            <li><a class="link" href="contacto.html">Contacto</a></li>
-                            <li><a class="link" href="ayuda.html">Ayuda</a></li>
+                            <li><a class="link" href="nosotros.php">Nosotros</a></li>
+                            <li><a class="link" href="empleo.php">Empleo</a></li>
+                            <li><a class="link" href="contacto.php">Contacto</a></li>
+                            <li><a class="link" href="ayuda.php">Ayuda</a></li>
                         </ul>
                     </div>
                 </div>
@@ -63,11 +63,11 @@
                         <div class="container">
                             <div class="nav-wrapper">
 
-                                <a href="index.html" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                                <a href="index.php" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
                                 <ul class="hide-on-small-and-down">
-                                    <li><a href="tratamientos.html">Tratamientos</a></li>
-                                    <li><a href="precios.html">Precios</a></li>
-                                    <li><a href="sucursales.html">Clínicas</a></li>
+                                    <li><a href="tratamientos.php">Tratamientos</a></li>
+                                    <li><a href="precios.php">Precios</a></li>
+                                    <li><a href="sucursales.php">Clínicas</a></li>
                                     <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span>Reservar
                                                 Cita</span></a>
                                     </li>
@@ -75,9 +75,9 @@
                             </div>
 
                             <ul class="right hide-on-med-and-down fa-ul">
-                                <li><a href="medicos.html"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login
+                                <li><a href="medicos.php"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login
                                         médico</a></li>
-                                <!--<li><a href="index.html"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
+                                <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                     médico</a></li> -->
                             </ul>
                         </div>
@@ -86,13 +86,13 @@
 
             <!--Menu de navegacion Mobil -->
             <ul class="side-nav" id="mobile-menu">
-                <li><a href="index.html" class="blue-text">Inicio</a></li>
-                <li><a href="tratamientos.html" class="blue-text">Tratamientos</a></li>
-                <li><a href="precios.html" class="blue-text">Precios</a></li>
-                <li><a href="clinicas.html" class="blue-text">Clínicas</a></li>
+                <li><a href="index.php" class="blue-text">Inicio</a></li>
+                <li><a href="tratamientos.php" class="blue-text">Tratamientos</a></li>
+                <li><a href="precios.php" class="blue-text">Precios</a></li>
+                <li><a href="clinicas.php" class="blue-text">Clínicas</a></li>
                 <li><a href="#formulario-cita" class="blue-text waves-effect waves-yellow  blue lighten-5 btn modal-trigger">Reservar
                         Cita</a></li>
-                <li><a href="index.html" class="blue-text"><i class="fas fa-sign-in-alt"></i>Login médico</a></li>
+                <li><a href="index.php" class="blue-text"><i class="fas fa-sign-in-alt"></i>Login médico</a></li>
             </ul>
 
         </div>
@@ -131,7 +131,7 @@
                         <h3>Gran variedad de servicios.</h3>
                         <h5 class="light grey-text text-lighten-3">Consulta nuestro Catalogo de Servicios</h5>
                         <div class="hide-on-med-and-down">
-                            <a href="tratamientos.html#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
+                            <a href="tratamientos.php#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
                                 mas...</a>
                         </div>
                     </div>
@@ -156,42 +156,74 @@
     <!--FIN DEL HEADER-->
     <!--INICIO CUERPO-->
     <main>
-        <!--Inicio Precios-->
-        <section class="section-precios">
-            
+        <!--Inicio Sucursales-->
+        <section class="section section-sucursales grey lighten-4">
             <div class="container">
                 <div class="row">
-                    <div class="col s12">
-                        <div class="center">
-                            <h4>Los mejores precios para tu bolsillo</h4>
-                        </div>
+                    <div class="col s12 m4">
+
+                        <ul class="collapsible" data-collapsible="accordion">
+
+                            <li onclick="cambiaRutaImagen('img/localizacion1.jpg')">
+                                <div class="collapsible-header">
+                                    <i class="material-icons red-text text-accent-4">place</i>
+                                    Las Margaritas
+                                </div>
+                                <div class="collapsible-body"><span>¡Visitanos ahora!</span>
+                                    <div class="divider"></div><em class="blue-text text-darken-2">
+                                        Av. Las margaritas 1207, Bugambilias.</em>
+                                </div>
+                            </li>
+                            <li onclick="cambiaRutaImagen('img/localizacion2.jpg')">
+                                <div class="collapsible-header"><i class="material-icons red-text text-accent-4">place</i>San
+                                    Manuel</div>
+                                <div class="collapsible-body"><span>¡Visitanos ahora!</span>
+                                    <div class="divider"></div><em class="blue-text text-darken-2">Circumbalación
+                                        907, Col. San Baltazar</em>
+                                </div>
+                            </li>
+                            <li onclick="cambiaRutaImagen('img/localizacion3.jpg')">
+                                <div class="collapsible-header"><i class="material-icons red-text text-accent-4">place</i>Centro</div>
+                                <div class="collapsible-body"><span>¡Visitanos ahora!</span>
+                                    <div class="divider"></div><em class="blue-text text-darken-2">Reforma
+                                        204, Centro.</em>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="col s12 m8 hoverable">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15089.802351366356!2d-98.20489475582863!3d18.999856526418203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sclinicas+odontologicas!5e0!3m2!1ses!2smx!4v1542971908587"
+                            width="100%" height="250px" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
 
-                <div class="row grey darken-2">
-                    <div class="col s12" style=" height: 400px; background-color: cadetblue;">
-
-                        <div class="row">
-                            <div class="col s12" style="height: 200px; background-color:darkorange;">
-
+                <div class="row">
+                    <div class="col s12 m4 center-align">
+                        <img src="img/localizacion1.jpg" alt="" class="circle responsive-img change-imagen" style="height:200px" />
+                    </div>
+                    <div class="col s12 m8">
+                        <div>
+                            <div class="card-panel blue accent-3 hoverable">
+                                <p class="white-text" id="parrafo"><i class="far fa-question-circle fa-1x"></i><span>&nbspLocalice
+                                        la
+                                        clinica mas cercana lo atenderemos con gusto. Puede reservar con
+                                        anticipación para una atención eficiente.</span></p>
+                                <p class="white-text" id="parrafo"><i class="far fa-question-circle fa-1x"></i><span>&nbspPara
+                                        mayor
+                                        información escribanos o llamenos al numero <span class="lime-text text-lime-accent-1"
+                                            style="font-size: 24px;">2228-530-500</span></span></p>
+                                <p class="white-text" id="parrafo"><i class="far fa-question-circle fa-1x"></i><span>&nbspPuede
+                                        cancelar
+                                        cuando quiera (únicamente a los 2 días de anticipación).</span></p>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-                <div class="row">
-                </div>
-                <div class="row">
-                </div>
-                <div class="row">
-                </div>
-
             </div>
-
         </section>
 
-        <!--Fin Precios-->
+        <!--Fin Sucursales-->
     </main>
     <!--FIN DEL CUERPO-->
 
@@ -205,11 +237,11 @@
                     <!--<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
                     <div>
                         <ul id="idListaLinksFooter">
-                            <li><a class="grey-text text-lighten-3" href="index.html">Inicio</a></li>
-                            <li><a class="grey-text text-lighten-3" href="tratamientos.html" class="link-footer">Tratamientos</a></li>
-                            <li><a class="grey-text text-lighten-3" href="sucursales.html" class="link-footer">Clinicas</a></li>
-                            <li><a class="grey-text text-lighten-3" href="promociones.html" class="link-footer">Promociones</a></li>
-                            <li><a class="grey-text text-lighten-3" href="contacto.html" class="link-footer">Contacto</a></li>
+                            <li><a class="grey-text text-lighten-3" href="index.php">Inicio</a></li>
+                            <li><a class="grey-text text-lighten-3" href="tratamientos.php" class="link-footer">Tratamientos</a></li>
+                            <li><a class="grey-text text-lighten-3" href="sucursales.php" class="link-footer">Clinicas</a></li>
+                            <li><a class="grey-text text-lighten-3" href="promociones.php" class="link-footer">Promociones</a></li>
+                            <li><a class="grey-text text-lighten-3" href="contacto.php" class="link-footer">Contacto</a></li>
                         </ul>
                         </ul>
                     </div>
