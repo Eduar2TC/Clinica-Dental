@@ -31,6 +31,40 @@ section {
     }
 
 }
+/*Inicio del Header*/
+/*Inicio Menu de navegacion*/
+  #boton-registro:hover{
+    color:#0f1ccf;
+  }
+  /* label focus color */
+.input-field input[type=password]:focus+label {
+    color:rgb(47, 50, 255) !important;
+}
+.input-field input[type=email]:focus+label {
+    color:rgb(47, 50, 255) !important;
+}
+/*Fin menu navegacion*/
+/*Fin del Header*/
+/*Cuerpo*/
+/*Inicio Titulo de las secciones*/
+.seccion-titulo{
+    padding: 1% !important;
+}
+.seccion-titulo h4{
+    font-family: Josefin,sans-serif;;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 1%;
+    margin: 0%;
+}
+.seccion-titulo span{
+    font-family: Tauri, sans-serif;;
+    font-size: 20px;
+    padding: 1%;
+    margin: 0%;
+}
+/*Fin Titulo de las secciones*/
+/*Cuerpo*/
 
 /*Caracteristicas de los estilos del Modal*/
 .modal{

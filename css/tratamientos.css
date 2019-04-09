@@ -3,7 +3,7 @@ footer,
 section {
     overflow: auto;
 }
-/*Comportamiento en vista movil Seccion (Tratamienos)*/
+/*Comportamiento en vista movil Seccion (Tratamienos) en vista mobil*/
 @media only screen and (max-width: 601px) {
     /*Ajust card position on tratamientos view*/
     .renglon-ajustar{
@@ -16,8 +16,17 @@ section {
     .col-two{
         order: 1;
     }
-
 }
+/*Inicio Header*/
+
+/*Fin Header*/
+/*Inicio Menu de navegacion*/
+  #boton-registro:hover{
+    color:#0f1ccf;
+  }
+/*Fin menu navegacion*/
+
+/*Inicio del Cuerpo*/
 
 /*Tamaño de la imagen parallax como fondo*/
 .parallax-container {
@@ -33,10 +42,13 @@ section {
   opacity: 1.0;
   filter: alpha(opacity=100); /* For IE8 and earlier */
 }
+
+/*Card Medico*/
 main .row{
     margin-top: 0%;
     margin-bottom: 0%;
 }
+/*Incio de Tratamiento*/
 .section-tratamientos .card{
     border-radius: 2%;
 }
@@ -47,12 +59,17 @@ main .row{
     color: #142b3b !important;
     text-shadow: 6px 1px 3px rgb(233, 178, 27);
 }
+/*Saludo del medico*/
+#saludo {
+    font-family: 'Sacramento', cursive;
+    font-size: 23px;
+    font-weight: bold;
+}
+/*Detalles tratamiento*/
 .section-tratamientos .card-panel{
     height: auto;
     border-radius: 2%;
 }
-
-
 
 /*Necesario para alinear el boton mas informacion*/
 #parrafo {
@@ -69,12 +86,6 @@ main .row{
 #boton-dentro-del-parrafo .btn-flat {
     padding-left: 0px;
     padding-right: 0px;
-}
-
-#saludo {
-    font-family: 'Sacramento', cursive;
-    font-size: 23px;
-    font-weight: bold;
 }
 
 /*Mayusculas a minusculas*/
@@ -104,6 +115,11 @@ main .row{
     margin-top: 0px;
     border-top-width: 0px;
 }
+
+/*Fin de Tratamiento*/
+
+/*Fin del Cuerpo*/
+
 /*Caracteristicas de los estilos del Modal*/
 .modal{
     border-radius: 1%;

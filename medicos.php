@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="img/favicon.png" />
-    <title>Inicio</title>
-    <!--<link rel="stylesheet" href="css/materialize.min.css">-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/jquery.parallaxer.min.css">
-    <!--Fonts-->
-    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-    crossorigin="anonymous"> -->
-    <!--<link rel="stylesheet" href="./fonts/fontawesome/css/all.css"> -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Poiret+One|Sacramento|Tauri" rel="stylesheet">
-    <!-- Estilos propios -->
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/medicos.css">
-    <link rel="stylesheet" href="css/footer.css">
-</head>
+<?php
+$nombrePagina = "Clinica-Medicos"; //Nombre de la página 
+require_once("includes/header.php"); // Solicitud del header
+?>
 
 <body>
     <!--INICIO DEL HEADER--->
     <header>
         <div class="row">
-            <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.php"><img src="img/logo01.png" alt="logo.png"
-                        class="responsive-img"></a></div>
+            <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.php"><img src="img/logo01.png" alt="logo.png" class="responsive-img"></a></div>
             <!--No tocar-->
             <div class="col s12 m4"></div>
 
@@ -300,72 +276,7 @@
         </div>
     </footer>
     <!--FIN DEL FOOTER-->
-    <!--                    ->  INICIO MODALES   <-               -->
-    <!--                    ->  fIN MODALES   <-               -->
-
-    <!--Fin Modal-->
-
-    <!--<script src="js/jquery.min.js"></script>-->
-    <!--<script src="js/materialize.min.js"></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/jquery.parallaxer.min.js""></script>
-  <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-        </script> <script>
-        $("document").ready(function () {
-            //Inicializa sidenav
-            $(".button-collapse").sideNav();
-
-            //para hacer el efecto  sticky Header
-            $('.tarjetaPushpin').pushpin({
-                //top: 430, //94     ---Inicio
-                top: 430,
-                bottom: 10000, // --Final
-                offset: 0
-            });
-
-            //Inicializacion del header
-            $('.slider').slider({
-                full_width: true,
-                height: 230, // default - height : 400
-                interval: 8000, // default - interval: 6000
-                indicators: true
-            });
-
-            //Inicializa modal
-            $('.modal').modal();
-
-            //Inicializa el selector de opciones de tratamiento
-            $('#opciones-tratamientos').material_select();
-
-            //Fecha de la consulta
-
-            $('.datepicker').pickadate({
-                selectMonths: true,
-                selectYears: 15,
-                today: 'Hoy',
-                clear: 'Limpiar',
-                close: 'Ok',
-                closeOnSelect: false
-            });
-
-            //Hora de la consulta
-            $('.timepicker').pickatime({
-                default: 'Hoy',
-                twelvehour: false, // change to 12 hour AM/PM clock from 24 hour
-                donetext: 'OK',
-                autoclose: false,
-                vibrate: true // vibrate the device when dragging clock hand
-            });
-
-            //Inicializacion del Collapsible
-            $('.collapsible').collapsible();
-
-            $('.materialboxed').materialbox();
-
-
-        });
-    </script>
-
+    <?php require_once("includes/footer.php"); ?>
 </body>
 
 </html>

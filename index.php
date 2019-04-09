@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="img/favicon.png" />
-  <title>Inicio</title>
-  <!--<link rel="stylesheet" href="css/materialize.min.css">-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/jquery.parallaxer.min.css">
-  <!--Fonts-->
-  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-    crossorigin="anonymous"> -->
-  <!--<link rel="stylesheet" href="./fonts/fontawesome/css/all.css"> -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-    crossorigin="anonymous">
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Google Fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Poiret+One|Sacramento|Tauri" rel="stylesheet">
-  <!-- Estilos propios -->
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/footer.css">
-</head>
+<?php
+$nombrePagina = "Inicio Clínica"; //Nombre de la página 
+require_once("includes/header.php"); // Solicitud del header
+?>
 
 <body>
   <!--INICIO DEL HEADER--->
   <header>
     <div class="row">
-      <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.php"><img src="img/logo01.png" alt="logo.png"
-            class="responsive-img"></a></div>
+      <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.php"><img src="img/logo01.png" alt="logo.png" class="responsive-img"></a></div>
       <!--No tocar-->
       <div class="col s12 m4"></div>
 
@@ -68,30 +44,67 @@
                   <li><a href="tratamientos.php">Tratamientos</a></li>
                   <li><a href="precios.php">Precios</a></li>
                   <li><a href="sucursales.php">Clínicas</a></li>
-                  <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span>Reservar
+                  <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar
                         Cita</span></a>
                   </li>
                 </ul>
               </div>
 
               <ul class="right hide-on-med-and-down fa-ul">
-                <li><a href="medicos.php"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login
-                    médico</a></li>
+                <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                 <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                   médico</a></li> -->
               </ul>
             </div>
         </nav>
       </div>
+      <!--Formulario para logearse -->
+      <div id="login-form" class="webui-popover-content">
+        <form class="login-form">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">mail_outline</i>
+              <input class="validate" id="email" type="email">
+              <label for="email" data-error="Ingresa un email válido" data-success="Correcto">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock_outline</i>
+              <input id="password" type="password">
+              <label for="password">Contraseña</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m12 l12">
+              <input type="checkbox" id="remember-me" />
+              <label for="remember-me">Recordarme</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <a href="#" class="btn blue waves-effect waves-light col s12">Login</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6 m6 l6">
+              <p class="margin medium-small"><a href="#">Registrarse!</a></p>
+            </div>
+            <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
+            </div>
+          </div>
 
+        </form>
+      </div>
       <!--Menu de navegacion Mobil -->
       <ul class="side-nav" id="mobile-menu">
         <li><a href="index.php" class="blue-text">Inicio</a></li>
         <li><a href="tratamientos.php" class="blue-text">Tratamientos</a></li>
         <li><a href="precios.php" class="blue-text">Precios</a></li>
         <li><a href="clinicas.php" class="blue-text">Clínicas</a></li>
-        <li><a href="#formulario-cita" class="blue-text waves-effect waves-yellow  blue lighten-5 btn modal-trigger">Reservar
-            Cita</a></li>
+        <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
+        </li>
       </ul>
 
     </div>
@@ -103,8 +116,8 @@
           <img class="responsive-img" src="img/dentista.jpg">
 
           <div class="caption center-align">
-            <h3>Evaluación sin costo en tu primera cita</h3>
-            <h5 class="light grey-text text-lighten-3">Aplica a niños menores de 15 años</h5>
+            <h3 class="blue-text accent-4">Evaluación sin costo en tu primera cita</h3>
+            <h5 class="blue-text text-darken-4">Aplica a niños menores de 15 años</h5>
             <div class="hide-on-med-and-down">
               <a href="#" class="btn btn-medium blue darken-1 ">Saber mas...</a>
             </div>
@@ -115,8 +128,8 @@
           <img class="responsive-img" src="img/doctor.jpg">
 
           <div class="caption left-align">
-            <h3>Médicos capacitados</h3>
-            <h5 class="light grey-text text-lighten-3">Hospitalidad, buena atención de nuestro personal</h5>
+            <h3 class="blue-text accent-4">Médicos capacitados</h3>
+            <h5 class="blue-text text-darken-4">Hospitalidad, buena atención de nuestro personal</h5>
             <div class="hide-on-med-and-down">
               <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
             </div>
@@ -127,8 +140,8 @@
           <img class="responsive-img" src="img/ani-kolleshi-640938-unsplash.jpg">
 
           <div class="caption right-align">
-            <h3>Gran variedad de servicios.</h3>
-            <h5 class="light grey-text text-lighten-3">Consulta nuestro Catalogo de Servicios</h5>
+            <h3 class="blue-text accent-4">Gran variedad de servicios.</h3>
+            <h5 class="blue-text text-darken-4">Consulta nuestro Catalogo de Servicios</h5>
             <div class="hide-on-med-and-down">
               <a href="tratamientos.php#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
                 mas...</a>
@@ -140,8 +153,8 @@
           <img class="responsive-img" src="img/yingpis-kalayom-133680-unsplash.jpg">
 
           <div class="caption center-align">
-            <h3>Tratamientos a tu medida</h3>
-            <h5 class="light grey-text text-lighten-3">Ortodocia a tus necesidades</h5>
+            <h3 class="blue-text accent-4">Tratamientos a tu medida</h3>
+            <h5 class="blue-text text-darken-4">Ortodocia a tus necesidades</h5>
             <div class="hide-on-med-and-down">
               <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
             </div>
@@ -204,13 +217,21 @@
 
     </section>
     <!--Fin de Ofertas-->
-
+    <!--Titulo de la seccion -->
+    <div class="row grey lighten-4">
+      <div class="container">
+        <div class="col s12 m12 l12 blue white-text darken-4 center seccion-titulo">
+          <h4>
+            Ventajas
+          </h4>
+          <span>Algunas de las ventajas que adquieres al tomar tratamiento con nosotros</span>
+        </div>
+      </div>
+    </div>
     <!--Ventajas-->
     <section class="section section-ventajas grey lighten-4">
       <div class="container">
-
         <div class="row renglon2">
-          <h4 class="center"><span class="blue-text text-darken-2">Ventajas</span></h4>
           <div class="col s12 m6">
             <h5>Equipo de <span class="blue-text text-darken-1">alta tecnología</span></h5>
             <p class="flow-text">Contamos con lo último en materiales para garantizar el mejor servicio y al mejor
@@ -251,6 +272,17 @@
     <!--Fin de Ventajas-->
 
     <!--Casos de Usuarios-->
+    <!--Titulo de la seccion -->
+    <div class="row grey lighten-4">
+      <div class="container">
+        <div class="col s12 m12 l12 blue white-text darken-4 center seccion-titulo">
+          <h4>
+            Casos
+          </h4>
+          <span>Opiniones de nuestros Clientes</span>
+        </div>
+      </div>
+    </div>
     <section class="section-testimonial grey lighten-4">
 
       <div class="container">
@@ -261,7 +293,7 @@
 
               <div class=" carousel-item" href="#none!">
 
-                <h2>Testimonios</h2>
+                <h2>Peridoncia y Limpieza dental</h2>
                 <div class="row">
 
                   <div class="col s12 m6">
@@ -314,7 +346,7 @@
               </div>
               <div class=" carousel-item" href="#none!">
 
-                <h2>Testimonios</h2>
+                <h2>Limpieza y Blanqueamiento dental</h2>
                 <div class="row">
 
                   <div class="col s12 m6">
@@ -367,7 +399,7 @@
               </div>
               <div class=" carousel-item" href="#none!">
 
-                <h2>Testimonios</h2>
+                <h2>Ortodocia</h2>
                 <div class="row">
 
                   <div class="col s12 m6">
@@ -424,6 +456,15 @@
 
     </section>
     <!--Fin de casos de Usuarios-->
+
+    <!--Mapa de localización-->
+    <section>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15089.802351366356!2d-98.20489475582863!3d18.999856526418203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sclinicas+odontologicas!5e0!3m2!1ses!2smx!4v1554803997560!5m2!1ses!2smx" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
 
   </main>
   <!--FIN DEL CUERPO-->
@@ -490,8 +531,7 @@
           </div>
 
           <div class="input-field col s12 l6">
-            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono"
-              class="validate">
+            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate">
             <label for="telefono">Telefono</label>
           </div>
 
@@ -530,112 +570,7 @@
       </div>
     </div>
   </div>
-
-  <!--<script src="js/jquery.min.js"></script>-->
-  <!--<script src="js/materialize.min.js"></script>-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="js/jquery.parallaxer.min.js""></script>
-  <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-    </script> <script>
-    $("document").ready(function () {
-      //Inicializa sidennav
-      $(".button-collapse").sideNav();
-
-      //para hacer el efecto  sticky Header
-      $('.tarjetaPushpin').pushpin({
-        top: 430, //94     ---Inicio
-        bottom: 10000, // --Final
-        offset: 0
-      });
-
-      //Inicializacion del header
-      $('.slider').slider({
-        full_width: true,
-        height: 230, // default - height : 400
-        interval: 8000, // default - interval: 6000
-        indicators: true
-      });
-      //Carrusel
-      $('.carousel.carousel-slider').carousel({
-        fullWidth: true
-      });
-      autoplay();
-
-
-      //ScrollFire
-      const options = [{
-          selector: '.renglon1',
-          offset: 50,
-          callback: function (el) {
-            Materialize.fadeInImage($(el));
-          }
-        },
-        {
-          selector: '.renglon2',
-          offset: 450,
-          callback: function (el) {
-            Materialize.fadeInImage($(el));
-          }
-        },
-        {
-          selector: '.renglon3',
-          offset: 500,
-          callback: function (el) {
-            Materialize.fadeInImage($(el));
-          }
-        },
-        {
-          selector: '.renglon4',
-          offset: 500,
-          callback: function (el) {
-            Materialize.fadeInImage($(el));
-          }
-        },
-        {
-          selector: '.renglon5',
-          offset: 600,
-          callback: function (el) {
-            Materialize.fadeInImage($(el));
-          }
-        }
-      ];
-
-      Materialize.scrollFire(options);
-      //funcion para hacer que el carrusel se mueva de forma automatica
-      function autoplay() {
-        $('.carousel').carousel('next');
-        setTimeout(autoplay, 9000);
-      }
-
-      //Inicializa modal
-      $('.modal').modal();
-
-      //Inicializa el selector de opciones de tratamiento
-      $('#opciones-tratamientos').material_select();
-
-      //Fecha de la consulta
-
-      $('.datepicker').pickadate({
-        selectMonths: true,
-        selectYears: 15,
-        today: 'Hoy',
-        clear: 'Limpiar',
-        close: 'Ok',
-        closeOnSelect: false
-      });
-
-      //Hora de la consulta
-      $('.timepicker').pickatime({
-        default: 'Hoy',
-        twelvehour: false, // change to 12 hour AM/PM clock from 24 hour
-        donetext: 'OK',
-        autoclose: false,
-        vibrate: true // vibrate the device when dragging clock hand
-      });
-
-    });
-  </script>
-
+  <?php require_once("includes/footer.php"); ?>
 </body>
 
 </html>
