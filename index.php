@@ -86,12 +86,9 @@ require_once("includes/header.php"); // Solicitud del header
               <a href="#" class="btn blue waves-effect waves-light col s12">Login</a>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s6 m6 l6">
-              <p class="margin medium-small"><a href="#">Registrarse!</a></p>
-            </div>
-            <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
+          <div class="row contrasenia-olvidada">
+            <div class="input-field col s12 m12 l12">
+              <p class="margin center-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
             </div>
           </div>
 
@@ -111,7 +108,7 @@ require_once("includes/header.php"); // Solicitud del header
 
     <!--Inicio del Slider-->
     <div class="slider">
-      <ul class="slides">
+      <ul class="slides z-depth-1">
         <li>
           <img class="responsive-img" src="img/dentista.jpg">
 
@@ -170,7 +167,7 @@ require_once("includes/header.php"); // Solicitud del header
   <!--CUERPO-->
   <main>
     <!--Ofertas-->
-    <section class="section section-icons white lighten-4 center ">
+    <section class="section grey lighten-4 center ">
       <div class="container">
 
         <div class="row renglon1">
@@ -291,7 +288,7 @@ require_once("includes/header.php"); // Solicitud del header
 
             <div class="carousel carousel-slider center">
 
-              <div class=" carousel-item" href="#none!">
+              <div class="carousel-item" href="#none!">
 
                 <h2>Peridoncia y Limpieza dental</h2>
                 <div class="row">
@@ -397,7 +394,7 @@ require_once("includes/header.php"); // Solicitud del header
 
 
               </div>
-              <div class=" carousel-item" href="#none!">
+              <div class="carousel-item" href="#none!">
 
                 <h2>Ortodocia</h2>
                 <div class="row">
@@ -465,7 +462,6 @@ require_once("includes/header.php"); // Solicitud del header
         </div>
       </div>
     </section>
-
   </main>
   <!--FIN DEL CUERPO-->
 
@@ -570,6 +566,20 @@ require_once("includes/header.php"); // Solicitud del header
       </div>
     </div>
   </div>
+  <!--Inicio Chat integrado-->
+  <script type="text/javascript">
+    function add_chatinline() {
+      var hccid = 89387459;
+      var nt = document.createElement("script");
+      nt.async = true;
+      nt.src = "https://www.mylivechat.com/chatinline.aspx?hccid=" + hccid;
+      var ct = document.getElementsByTagName("script")[0];
+      ct.parentNode.insertBefore(nt, ct);
+    }
+    add_chatinline();
+  </script>
+  <!--fin del Chat integrado-->
+  <!--Footer-->
   <?php require_once("includes/footer.php"); ?>
 </body>
 

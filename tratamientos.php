@@ -86,12 +86,9 @@
                               <a href="#" class="btn blue waves-effect waves-light col s12">Login</a>
                           </div>
                       </div>
-                      <div class="row">
-                          <div class="input-field col s6 m6 l6">
-                              <p class="margin medium-small"><a href="#">Registrarse!</a></p>
-                          </div>
-                          <div class="input-field col s6 m6 l6">
-                              <p class="margin right-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
+                      <div class="row contrasenia-olvidada">
+                          <div class="input-field col s12 m12 l12">
+                              <p class="margin center-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
                           </div>
                       </div>
 
@@ -106,14 +103,14 @@
                   <li><a href="clinicas.php" class="blue-text">Clínicas</a></li>
                   <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
                   </li>
-                  <li><a href="index.php" class="blue-text"><i class="fas fa-sign-in-alt"></i>Acceso médico</a></li>
+                  <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
               </ul>
 
           </div>
 
           <!--Inicio del Slider-->
           <div class="slider">
-              <ul class="slides">
+              <ul class="slides z-depth-1">
                   <li>
                       <img class="responsive-img" src="img/dentista.jpg">
 
@@ -171,17 +168,16 @@
       <!--INICIO CUERPO-->
       <main>
           <!--Tratamietos-->
-          <div class="row">
+          <div class="row grey lighten-4">
               <div class="container">
                   <div class="parallax-container center valign-wrapper">
                       <div class="parallax">
-                          <div class="parallax"><img class="responsive-img" src="img/chair-1920.jpg">
-                          </div>
-                          <div class="container white-text">
+                          <img class="responsive-img" src="img/chair-1920.jpg">
+                          <div class="container">
                               <div class="row">
                                   <div class="col s12">
-                                      <h1 class="center blue-grey-text darken-4">Tratamientos</h1>
-                                      <h5 class="blue-grey-text darken-4">Conoce los tratamientos que ofrecemos</h5>
+                                      <h1 class="center blue-text text-darken-4">Tratamientos</h1>
+                                      <span class="blue-text text-darken-3">Conoce los tratamientos que ofrecemos</span>
                                   </div>
                               </div>
                           </div>
@@ -494,9 +490,38 @@
               </div>
           </section>
           <!--Fin tratamientos-->
+          <!---Anuncio llamar-->
+          <div class="section section-llamar grey lighten-4">
+              <div class="container blue accent-1">
+                  <div class="row">
+                      <div class="col s12 m12 l12 center">
+                          <h5 class="white-text text-darken-4">Tu salud dental es lo más importante para nosotros.
+                              Contamos con dentistas para adultos y niños en nuestras sucursales</h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col s12 m12 l12 center" id="boton-llamada">
+                          <a href="tel:2228530500" class="white waves-effect waves-yellow btn"><span class="blue-text text-darken-4">Llamar</span></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </main>
       <!--FIN DEL CUERPO-->
 
+      <!--Inicio Chat integrado-->
+      <script type="text/javascript">
+          function add_chatinline() {
+              var hccid = 89387459;
+              var nt = document.createElement("script");
+              nt.async = true;
+              nt.src = "https://www.mylivechat.com/chatinline.aspx?hccid=" + hccid;
+              var ct = document.getElementsByTagName("script")[0];
+              ct.parentNode.insertBefore(nt, ct);
+          }
+          add_chatinline();
+      </script>
+      <!--fin del Chat integrado-->
 
       <!--INICIO DEL FOOTER-->
       <footer class="page-footer blue lighten-2">

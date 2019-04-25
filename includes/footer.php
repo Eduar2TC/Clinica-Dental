@@ -114,7 +114,9 @@
           /*Mismo tamaño entre las tarjetas*/
           $('.card-resize-height').matchHeight();
           //dezpliega ventana login
-          $('#login').webuiPopover({url:'#login-form'});
+          $('#login').webuiPopover({
+              url: '#login-form'
+          });
           /**->Fin tratamientos.php**/
 
           /**->Inicio mediocos.php **/

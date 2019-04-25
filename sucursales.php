@@ -44,20 +44,58 @@ require_once("includes/header.php"); // Solicitud del header
                                     <li><a href="tratamientos.php">Tratamientos</a></li>
                                     <li><a href="precios.php">Precios</a></li>
                                     <li><a href="sucursales.php">Clínicas</a></li>
-                                    <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span>Reservar
+                                    <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar
                                                 Cita</span></a>
                                     </li>
                                 </ul>
                             </div>
 
                             <ul class="right hide-on-med-and-down fa-ul">
-                                <li><a href="medicos.php"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login
-                                        médico</a></li>
+                                <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                                 <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                     médico</a></li> -->
                             </ul>
                         </div>
                 </nav>
+            </div>
+            <!--Formulario para logearse -->
+            <div id="login-form" class="webui-popover-content">
+                <form class="login-form">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">mail_outline</i>
+                            <input class="validate" id="email" type="email">
+                            <label for="email" data-error="Ingresa un email válido" data-success="Correcto">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock_outline</i>
+                            <input id="password" type="password">
+                            <label for="password">Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <input type="checkbox" id="remember-me" />
+                            <label for="remember-me">Recordarme</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <a href="#" class="btn blue waves-effect waves-light col s12">Login</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6 m6 l6">
+                            <p class="margin medium-small"><a href="#">Registrarse!</a></p>
+                        </div>
+                        <div class="input-field col s6 m6 l6">
+                            <p class="margin right-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
+                        </div>
+                    </div>
+
+                </form>
             </div>
 
             <!--Menu de navegacion Mobil -->
@@ -75,13 +113,13 @@ require_once("includes/header.php"); // Solicitud del header
 
         <!--Inicio del Slider-->
         <div class="slider">
-            <ul class="slides">
+            <ul class="slides z-depth-1">
                 <li>
                     <img class="responsive-img" src="img/dentista.jpg">
 
                     <div class="caption center-align">
-                        <h3>Evaluación sin costo en tu primera cita</h3>
-                        <h5 class="light grey-text text-lighten-3">Aplica a niños menores de 15 años</h5>
+                        <h3 class="blue-text accent-4">Evaluación sin costo en tu primera cita</h3>
+                        <h5 class="light blue-text text-lighten-3">Aplica a niños menores de 15 años</h5>
                         <div class="hide-on-med-and-down">
                             <a href="#" class="btn btn-medium blue darken-1 ">Saber mas...</a>
                         </div>
@@ -92,8 +130,8 @@ require_once("includes/header.php"); // Solicitud del header
                     <img class="responsive-img" src="img/doctor.jpg">
 
                     <div class="caption left-align">
-                        <h3>Médicos capacitados</h3>
-                        <h5 class="light grey-text text-lighten-3">Hospitalidad, buena atención de nuestro personal</h5>
+                        <h3 class="blue-text accent-4">Médicos capacitados</h3>
+                        <h5 class="light blue-text text-lighten-3">Hospitalidad, buena atención de nuestro personal</h5>
                         <div class="hide-on-med-and-down">
                             <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
                         </div>
@@ -104,8 +142,8 @@ require_once("includes/header.php"); // Solicitud del header
                     <img class="responsive-img" src="img/ani-kolleshi-640938-unsplash.jpg">
 
                     <div class="caption right-align">
-                        <h3>Gran variedad de servicios.</h3>
-                        <h5 class="light grey-text text-lighten-3">Consulta nuestro Catalogo de Servicios</h5>
+                        <h3 class="blue-text accent-4">Gran variedad de servicios.</h3>
+                        <h5 class="light blue-text text-lighten-3">Consulta nuestro Catalogo de Servicios</h5>
                         <div class="hide-on-med-and-down">
                             <a href="tratamientos.php#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
                                 mas...</a>
@@ -117,8 +155,8 @@ require_once("includes/header.php"); // Solicitud del header
                     <img class="responsive-img" src="img/yingpis-kalayom-133680-unsplash.jpg">
 
                     <div class="caption center-align">
-                        <h3>Tratamientos a tu medida</h3>
-                        <h5 class="light grey-text text-lighten-3">Ortodocia a tus necesidades</h5>
+                        <h3 class="blue-text accent-4">Tratamientos a tu medida</h3>
+                        <h5 class="light blue-text text-lighten-3">Ortodocia a tus necesidades</h5>
                         <div class="hide-on-med-and-down">
                             <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
                         </div>
@@ -307,6 +345,20 @@ require_once("includes/header.php"); // Solicitud del header
         </div>
     </div>
     <!--Fin Modal-->
+    <!--Inicio Chat integrado-->
+    <script type="text/javascript">
+        function add_chatinline() {
+            var hccid = 89387459;
+            var nt = document.createElement("script");
+            nt.async = true;
+            nt.src = "https://www.mylivechat.com/chatinline.aspx?hccid=" + hccid;
+            var ct = document.getElementsByTagName("script")[0];
+            ct.parentNode.insertBefore(nt, ct);
+        }
+        add_chatinline();
+    </script>
+    <!--fin del Chat integrado-->
+    <!--footer-->
     <?php require_once("includes/footer.php"); ?>
 </body>
 

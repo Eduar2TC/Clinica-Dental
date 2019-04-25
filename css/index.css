@@ -45,7 +45,7 @@ section {
 }
 /*Fin menu navegacion*/
 /*Fin del Header*/
-/*Cuerpo*/
+/*Inicio Cuerpo*/
 /*Inicio Titulo de las secciones*/
 .seccion-titulo{
     padding: 1% !important;
@@ -63,9 +63,22 @@ section {
     padding: 1%;
     margin: 0%;
 }
-/*Fin Titulo de las secciones*/
-/*Cuerpo*/
 
+/*Fin Titulo de las secciones*/
+
+/*Fin del Cuerpo*/
+/*Inicio de los Estilos para el login*/
+.login-form .input-field, p{
+    margin: 0%;
+}
+.login-form .row{
+    margin: 5%;
+}
+[type="checkbox"]:checked+label:before {
+    border-right: 2px solid #2633a6;
+    border-bottom: 2px solid #2633a6;
+}
+/*Fin para los estilos del login*/
 /*Caracteristicas de los estilos del Modal*/
 .modal{
     border-radius: 1%;

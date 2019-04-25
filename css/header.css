@@ -68,10 +68,13 @@
 }
 
 /*Contenedor despues del menu principal*/
-
+.slider{
+  background-color: #f5f5f5;
+  height: 256px !important;
+}
 /*Propiedades del Slider*/
 .slider .indicators {
-  bottom: 40px;
+  bottom: 25px;
   z-index: 100;
   /* text-align: left; */
 }
@@ -97,6 +100,11 @@
   font-size: inherit;
   line-height: inherit;
   vertical-align: bottom;
+}
+
+/*Manda al frente el contenido del parallax*/
+.parallax-container{
+z-index: 1;
 }
 
 /*Corrige el error del navbar  de la sobrposicion de las imagenes*/
