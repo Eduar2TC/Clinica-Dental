@@ -86,12 +86,9 @@ require_once("includes/header.php"); // Solicitud del header
                             <a href="#" class="btn blue waves-effect waves-light col s12">Login</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s6 m6 l6">
-                            <p class="margin medium-small"><a href="#">Registrarse!</a></p>
-                        </div>
-                        <div class="input-field col s6 m6 l6">
-                            <p class="margin right-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
+                    <div class="row contrasenia-olvidada">
+                        <div class="input-field col s12 m12 l12">
+                            <p class="margin center-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
                         </div>
                     </div>
 

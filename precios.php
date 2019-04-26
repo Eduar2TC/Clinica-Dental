@@ -374,50 +374,53 @@
                           </div>
                       </div>
                       <!--renglon2-->
-                      <div class="row">
-                          <div class="carousel carousel-slider">
-                              <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a>
-                              <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
-                              <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
-                              <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
+                      <!--Casos de personas con imagenes-->
+                      <div class="row" id="carousel-ninios">
+                          <div class="center">
+                              <h5>Galería</h5>
                           </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
-          <!--Fin Precios-->
-          <!--Anuncio--->
-          <div class="section section-anuncio">
-              <div class="container">
-                  <div class="row card-panel back-imagen">
-                      <!--Mensaje anuncio-->
-                      <div class="col s12 m10 l10">
-                          <div class="row">
-                              <div class="col s12">
-                                  <div class="left-align">
-                                      <h5 class="center white-text">Contactanos</h5>
+                          <div class="col s12 m12 l12">
+                              <div class="carousel carousel-slider">
+                                  <div class="carousel-fixed-item center">
+                                      <a class="btn btn-small waves-effect blue grey-text text-lighten-5">Ver mas...</a>
                                   </div>
-                              </div>
-                          </div>
-                      </div>
-                      <!--boton anuncio-->
-                      <div class="col s12 m10 l10 ">
-                          <div class="row">
-                              <div class="col s12 m10 l10">
-                                  <div class="center">
-                                      <span class="blue-text text-darken-4">Contamos con todas las especialidades en un mismo lugar y tres socursales en esl estado de Puebla.</span>
+                                  <a class="carousel-item" href="#two!"><img src="img/ninio01.jpg"></a>
+                                  <a class="carousel-item" href="#two!"><img src="img/ninio02.jpg"></a>
+                                  <a class="carousel-item" href="#three!"><img src="img/ninio03.jpg"></a>
+                                  <a class="carousel-item" href="#four!"><img src="img/ninio04.jpg"></a>
+                                  <a class="carousel-item" href="#four!"><img src="img/ninio05.jpg"></a </div> </div> </div> </div> </div> </section> <!--Fin Precios-->
+                                  <!--Anuncio--->
+                                  <div class="section section-anuncio">
+                                      <div class="container">
+                                          <div class="row card-panel back-imagen">
+                                              <!--Mensaje anuncio-->
+                                              <div class="col s12 m10 l10">
+                                                  <div class="row">
+                                                      <div class="col s12">
+                                                          <div class="left-align">
+                                                              <h5 class="center white-text">Contactanos</h5>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <!--boton anuncio-->
+                                              <div class="col s12 m10 l10 ">
+                                                  <div class="row">
+                                                      <div class="col s12 m10 l10">
+                                                          <div class="center">
+                                                              <span class="blue-text text-darken-4">Contamos con todas las especialidades en un mismo lugar y tres socursales en esl estado de Puebla.</span>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col s12 center">
+                                                          <a class="waves-effect waves-light btn blue"><i class="material-icons right white-text">contact_mail</i>Reservar cita</a>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
                                   </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col s12 center">
-                                  <a class="waves-effect waves-light btn blue"><i class="material-icons right white-text">contact_mail</i>Reservar cita</a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
       </main>
       <!--FIN DEL CUERPO-->
 

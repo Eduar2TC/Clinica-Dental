@@ -173,3 +173,11 @@
     }
 
 }
+/*caurusel de imagenes*/
+#carousel-ninios .carousel img{
+    height: 250px !important;
+    width: 100% !important;
+}
+#carousel-ninios a{
+    background-color: #1e59a066 !important;
+}
