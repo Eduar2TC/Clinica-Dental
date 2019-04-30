@@ -1,282 +1,119 @@
-<?php
-$nombrePagina = "Clinica-Medicos"; //Nombre de la página 
-require_once("includes/header.php"); // Solicitud del header
-?>
+  <?php
+    $tituloPagina = "Clinica-Medicos"; //Nombre de la página 
+    $path_logo = "img/";
+    $path_css = "css/";
+    $path_js = "js/";
+    $status_page = "medicos";
+    require_once("includes/header.php"); // Solicitud del header
+    ?>
 
-<body>
-    <!--INICIO DEL HEADER--->
-    <header>
-        <div class="row">
-            <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.php"><img src="img/logo01.png" alt="logo.png" class="responsive-img"></a></div>
-            <!--No tocar-->
-            <div class="col s12 m4"></div>
+  <body>
+      <!--INICIO DEL HEADER--->
+      <header>
+          <div class="navbar-fixed">
+              <nav>
+                  <div class="nav-wrapper blue">
+                      <div class="container">
 
-            <div class="col s12 m4 offset-m3">
-                <div class="row">
-                    <div id="links-superiores">
-                        <ul class="left hide-on-small-and-down">
-                            <li><a class="link" href="nosotros.php">Nosotros</a></li>
-                            <li><a class="link" href="empleo.php">Empleo</a></li>
-                            <li><a class="link" href="contacto.php">Contacto</a></li>
-                            <li><a class="link" href="ayuda.php">Ayuda</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row" style="margin-bottom: 0px; /*Quita espacio entre el div del logo*/">
-                    <div class="left hide-on-med-and-down">
-                        <a href="tel:2228530500"><i class="material-icons" style="font-size: 25px;">phone</i><span id="telefono">Telefono:
-                                2228530500</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Menu de navegación principal-->
-        <div class="row" id="navegacionPrincipal">
-            <div class="navbar">
-                <nav class="tarjetaPushpin">
+                          <span class="hide-on-med-and-down">
+                              <h5 style="display:inline;">Administración de citas</h5>
+                          </span>
+                          <a href="#" class="brand-logo center"><img src="img/logo01.png" alt="" class="circle responsive-img" /></a>
+                          <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
-                    <div class="nav-wrapper blue lighten-2">
-                        <div class="container">
-                            <div class="nav-wrapper">
+                          <ul class="right hide-on-med-and-down">
+                              <li>Conectado: Juan López<i class="material-icons left Tiny green-text text-darken-4">radio_button_checked</i></li>
+                              <!--<li><a href="#">Inicio</a></li>
+                            <li><a href="#">item2</a></li>
+                            <li><a href="#">item3</a></li>
+                            <li><a href="#">item4</a></li>-->
+                          </ul>
 
-                                <a href="index.php" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-                                <ul class="hide-on-small-and-down">
-                                    <li><a href="tratamientos.php">Tratamientos</a></li>
-                                    <li><a href="precios.php">Precios</a></li>
-                                    <li><a href="sucursales.php">Clínicas</a></li>
-                                    <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span>Reservar
-                                                Cita</span></a>
-                                    </li>
-                                </ul>
-                            </div>
+                          <ul class="side-nav white" id="mobile-menu">
+                              <li>
+                                  <div class="user-view">
+                                      <div class="background">
+                                          <img src="img/office.jpg">
+                                      </div>
+                                      <a href="#user"><img class="circle" src="img/profile-doctor02.jpg"></a>
+                                      <a href="#name"><span class="white-text name">Juan López</span></a>
+                                      <a href="#email"><span class="white-text email">j_lopez@gmail.com</span></a>
+                                  </div>
+                              </li>
+                              <li><a class="subheader">Citas</a></li>
+                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Ver Perfil</span></a></li>
+                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Ver Citas</span></a></li>
+                              <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons left">cloud</i><span class="blue-text">Imprimir citas</span></a></li>
 
-                            <ul class="right hide-on-med-and-down fa-ul">
-                                <li><a href="!#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Login
-                                        médico</a></li>
-                                <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
-                    médico</a></li> -->
-                            </ul>
-                        </div>
-                </nav>
-            </div>
+                              <li>
+                                  <div class="divider"></div>
+                              </li>
+                              <li><a class="subheader">Cuenta</a></li>
+                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="Red-text">Salir</span></a></li>
 
-            <!--Menu de navegacion Mobil -->
-            <ul class="side-nav" id="mobile-menu">
-                <li><a href="index.php" class="blue-text">Inicio</a></li>
-                <li><a href="tratamientos.php" class="blue-text">Tratamientos</a></li>
-                <li><a href="precios.php" class="blue-text">Precios</a></li>
-                <li><a href="clinicas.php" class="blue-text">Clínicas</a></li>
-                <li><a href="#formulario-cita" class="blue-text waves-effect waves-yellow  blue lighten-5 btn modal-trigger">Reservar
-                        Cita</a></li>
-                <li><a href="index.php" class="blue-text"><i class="fas fa-sign-in-alt"></i>Login médico</a></li>
-            </ul>
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+          </div>
+      </header>
+      <!--FIN DEL HEADER-->
+      <div class="row">
+          <!---SIDENAV-->
+          <div class="col s12 m3 l3">
+              <ul id="sidenav-navegation" class="side-nav fixed">
+                  <li>
+                      <div class="user-view">
+                          <div class="background">
+                              <img src="img/office.jpg">
+                          </div>
+                          <a href="#user"><img class="circle" src="img/profile-doctor02.jpg"></a>
+                          <a href="#name"><span class="white-text name">Juan López</span></a>
+                          <a href="#email"><span class="white-text email">j_lopez@gmail.com</span></a>
+                      </div>
+                  </li>
+                  <li><a class="subheader">Citas</a></li>
+                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Ver Perfil</span></a></li>
+                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Ver Citas</span></a></li>
+                  <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons left">cloud</i><span class="blue-text">Imprimir citas</span></a></li>
 
-        </div>
+                  <li>
+                      <div class="divider"></div>
+                  </li>
+                  <li><a class="subheader">Cuenta</a></li>
+                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="Red-text">Salir</span></a></li>
 
-        <!--Inicio del Slider-->
-        <div class="slider">
-            <ul class="slides">
-                <li>
-                    <img class="responsive-img" src="img/dentista.jpg">
+              </ul>
+          </div>
 
-                    <div class="caption center-align">
-                        <h3>Evaluación sin costo en tu primera cita</h3>
-                        <h5 class="light grey-text text-lighten-3">Aplica a niños menores de 15 años</h5>
-                        <div class="hide-on-med-and-down">
-                            <a href="#" class="btn btn-medium blue darken-1 ">Saber mas...</a>
-                        </div>
-                    </div>
+          <div class="col s12 m9 l9">
+              <!--INICIO CUERPO-->
+              <main id="main-admin-medico">
+ 
+              </main>
+              <!--FIN DEL CUERPO-->
+          </div>
 
-                </li>
-                <li>
-                    <img class="responsive-img" src="img/doctor.jpg">
-
-                    <div class="caption left-align">
-                        <h3>Médicos capacitados</h3>
-                        <h5 class="light grey-text text-lighten-3">Hospitalidad, buena atención de nuestro personal</h5>
-                        <div class="hide-on-med-and-down">
-                            <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
-                        </div>
-                    </div>
-
-                </li>
-                <li>
-                    <img class="responsive-img" src="img/ani-kolleshi-640938-unsplash.jpg">
-
-                    <div class="caption right-align">
-                        <h3>Gran variedad de servicios.</h3>
-                        <h5 class="light grey-text text-lighten-3">Consulta nuestro Catalogo de Servicios</h5>
-                        <div class="hide-on-med-and-down">
-                            <a href="tratamientos.php#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
-                                mas...</a>
-                        </div>
-                    </div>
-
-                </li>
-                <li>
-                    <img class="responsive-img" src="img/yingpis-kalayom-133680-unsplash.jpg">
-
-                    <div class="caption center-align">
-                        <h3>Tratamientos a tu medida</h3>
-                        <h5 class="light grey-text text-lighten-3">Ortodocia a tus necesidades</h5>
-                        <div class="hide-on-med-and-down">
-                            <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
-                        </div>
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-        <!--Fin del Slider-->
-    </header>
-    <!--FIN DEL HEADER-->
-    <!--INICIO CUERPO-->
-    <main>
-        <!--Inicio Medicos-->
-        <section class="section-medicos">
-            <div class="container">
-                <h4>Administración de Citas</h4>
-                <div class="row">
-                    <div class="col s12 m4">
-
-                        <div class="card-panel blue lighten-5">
-                            <div class="row">
-
-                                <div class="col s12">
-                                    <img src="img/doctor-1.jpg" alt="" class="circle responsive-img" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <h5 class="center">Doctor : <span class="blue-text">Pedro Rámos</span></h5>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col s12 m8">
-                        <h5 class="flow-text center">Seleccione cualquier fecha disponible para poder las Citas
-                            pendientes</h5>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col s12 m4">
-                        <div class="collection">
-                            <a href="#!" class="collection-item"><b>23-11-18 </b> José Ortiz : ortiz@gmail.com</a>
-                            <a href="#!" class="collection-item active"><b> 25-11-18</b>Jonathan Gonzáles :
-                                gonzales@gmail.com</a>
-                            <a href="#!" class="collection-item"><b>27-11-18 </b> Pedro Moreno: moreno10@gmail.com</a>
-                            <a href="#!" class="collection-item"><b>30-11-18 </b> Verónica Cástro: vero-nica@yahoo.com</a>
-                            <a href="#!" class="collection-item"><b>01-12-18 </b> Juan Gabriel: juanga-a@yahoo.com</a>
-                            <a href="#!" class="collection-item"><b>02-12-18 </b> Pedro López: p_lop@yahoo.com</a>
-                            <a href="#!" class="collection-item"><b>03-12-18 </b> Juan Antonio Ortega: ortega@yahoo.com</a>
-                            <a href="#!" class="collection-item"><b>06-12-18 </b> María Félix: m_fx@gmail.com</a>
-                            <a href="#!" class="collection-item"><b>07-12-18 </b> Donal Trump: mr_donalt@gmail.com</a>
-                            <a href="#!" class="collection-item"><b>08-12-18 </b> Lorena Buendía: lbdia@yahoo.com</a>
-                            <a href="#!" class="collection-item"><b>08-12-18 </b> Francisco Fonceca:
-                                fonseca-3@yahoo.com</a>
-                            <a href="#!" class="collection-item"><b>09-12-18 </b> Honorio López Días:
-                                lopez-diaz@yahoo.com</a>
-                        </div>
-                    </div>
-                    <div class="col s12 m8">
-                        <div class=" lime accent-1">
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <div class="divider"></div>
-                            <a class="waves-effect waves-light btn blue white-text">Marcar como atendido</a>
-                            <a class="right-align waves-effect waves-light btn red white-text" style="margin-left: 27%;">Cancelar
-                                Cita</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Botones-->
-                <div class="row">
-
-                </div>
-
-                <div class="row">
-
-                </div>
-
-            </div>
-        </section>
-        <!--Fin Medicos-->
-    </main>
-    <!--FIN DEL CUERPO-->
+      </div>
 
 
-    <!--INICIO DEL FOOTER-->
-    <footer class="page-footer blue lighten-2">
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m9 l3">
-                    <h5 class="white-text">Navegación</h5>
-                    <!--<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
-                    <div>
-                        <ul id="idListaLinksFooter">
-                            <li><a class="grey-text text-lighten-3" href="index.php">Inicio</a></li>
-                            <li><a class="grey-text text-lighten-3" href="tratamientos.php" class="link-footer">Tratamientos</a></li>
-                            <li><a class="grey-text text-lighten-3" href="sucursales.php" class="link-footer">Clinicas</a></li>
-                            <li><a class="grey-text text-lighten-3" href="promociones.php" class="link-footer">Promociones</a></li>
-                            <li><a class="grey-text text-lighten-3" href="contacto.php" class="link-footer">Contacto</a></li>
-                        </ul>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col s12 m3 l4 offset-l5">
-                    <h5 class="white-text">Redes sociales</h5>
-                    <p class="grey-text text-lighten-4">Siguenos en nuestras <b>Redes Sociales</b></p>
-                    <div id="social">
-                        <a href="http://www.facebook.com"><i class="fab fa-facebook fa-3x"></i></a>
-                        <a href="http://www.twitter.com"><i class="fab fa-twitter-square fa-3x"></i></a>
-                        <a href="http://www.instagram.com"><i class="fab fa-instagram fa-3x"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2018 Copyright Todos los derechos reservados
-                <a class="grey-text text-lighten-4 right" href="#!">Mas links</a>
-            </div>
-        </div>
-    </footer>
-    <!--FIN DEL FOOTER-->
-    <?php require_once("includes/footer.php"); ?>
-</body>
+      <!--INICIO DEL FOOTER-->
 
-</html>
+      <footer class="page-footer blue">
+          <div class="container">
+              <div class="row">
+                  <p class="flow-text center">&copy; 2018 Copyright Clínica dental</p>
+              </div>
+          </div>
+          <div class="footer-copyright">
+              <div class="container">
+                  © 2018 Copyright Todos los derechos reservados
+                  <a class="grey-text text-lighten-4 right" href="#!">Mas links</a>
+              </div>
+          </div>
+      </footer>
+      <!--FIN DEL FOOTER-->
+      <?php require_once("includes/footer.php"); ?>
+  </body>
+
+  </html>

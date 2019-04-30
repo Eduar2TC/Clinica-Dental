@@ -5,23 +5,14 @@ section {
     overflow: auto;
 }
 
-/*--Seccion Medicos*/
-
-/*Colleption*/
-.collection .collection-item.active {
-    background-color: #43a2e2;
+#sidenav-overlay{
+    z-index: 1;
+}
+a.brand-logo img{
+    height: 63px !important;
 }
 
-.collection .collection a.collection-item {
-
-    color: #0db8d6;
-}
-
-.collection a.collection-item {
-    color: #2673a6;
-}
-
-/*Caracteristicas de los estilos del Modal*/
-.modal{
-    border-radius: 1%;
+#sidenav-navegation{
+    top: 64px;
+    height: auto;
 }

@@ -147,13 +147,16 @@
     margin: 0%;
 }
 
+/*Fondo de imagen del Banner por default*/
 .back-imagen{
     background-image: url('../img/fondo-mensaje-precios.png');
     background-repeat: no-repeat;
     background-size:100% auto;
     height: auto;
 }
+/*Fondo de imagen del Banner vista movil*/
 @media only screen and (max-width: 601px) {
+    
     .back-imagen{
     background-image: url('../img/fondo-mensaje-precios.png');
     background-repeat: no-repeat;
@@ -162,7 +165,9 @@
     height: auto;
     }
 
+
 }
+/*Fondo de imagen del Banner pantallas medias*/
 @media only screen and (max-width: 835px) {
 
     .back-imagen{
@@ -178,6 +183,13 @@
     height: 250px !important;
     width: 100% !important;
 }
+/*Titulo del slider*/
+#carousel-ninios h5{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 26px;
+    font-weight: bold;
+}
+/*Boton transparente del boton de ver mas imágenes*/
 #carousel-ninios a{
     background-color: #1e59a066 !important;
 }

@@ -67,11 +67,11 @@ section {
 /*Fin Titulo de las secciones*/
 
 /*Fin del Cuerpo*/
-/*Inicio de los Estilos para el login*/
-.login-form .input-field, p{
+/*Inicio de los Estilos para el Login*/
+#formulario-login .input-field, p{
     margin: 0%;
 }
-.login-form .row{
+#formulario-login .row{
     margin: 5%;
 }
 [type="checkbox"]:checked+label:before {
@@ -79,7 +79,22 @@ section {
     border-bottom: 2px solid #2633a6;
 }
 /*Fin para los estilos del login*/
-/*Caracteristicas de los estilos del Modal*/
+/*Caracteristicas de los estilos del Modal GLobal*/
 .modal{
     border-radius: 1%;
 }
+/*Fin de las caracteristicas del modal*/
+
+/*Incio de las caracteristicas del boton flotante del chat*/
+@media only screen and (max-width: 601px) {  /*NOT WORKS ON PLUGIN THIS*/
+    .mylivechat_buttonround {
+        position: relative !important;
+        top:0px !important;
+        bottom: 100px !important;
+        
+        background-color: rgb(224, 20, 20) !important;
+    }
+
+
+}
+/*Fin de las caracteristicas del boton flotante del chat*/

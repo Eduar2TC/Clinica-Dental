@@ -1,5 +1,9 @@
 <?php
-$nombrePagina = "Inicio Clínica"; //Nombre de la página 
+$tituloPagina = "Clínica Principal"; //Nombre de la pági
+$path_logo = "img/";
+$path_css = "css/";
+$path_js = "js/";
+$status_page = "inicio";
 require_once("includes/header.php"); // Solicitud del header
 ?>
 
@@ -60,30 +64,31 @@ require_once("includes/header.php"); // Solicitud del header
       </div>
       <!--Formulario para logearse -->
       <div id="login-form" class="webui-popover-content">
-        <form class="login-form">
+        <form id="formulario-login" method="POST" action="server/login.php">
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mail_outline</i>
-              <input class="validate" id="email" type="email">
+              <input class="validate" id="email-1" type="email" name="email" required>
               <label for="email" data-error="Ingresa un email válido" data-success="Correcto">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">lock_outline</i>
-              <input id="password" type="password">
+              <input class="validate" id="password" type="password" name="password" required>
               <label for="password">Contraseña</label>
             </div>
           </div>
           <div class="row">
             <div class="col s12 m12 l12">
-              <input type="checkbox" id="remember-me" />
+              <input type="checkbox" id="remember-me" name="recordarme" value="Si" required>
               <label for="remember-me">Recordarme</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <a href="#" class="btn blue waves-effect waves-light col s12">Login</a>
+              <button type="submit" name="login" value="accesando" class=" col s12 btn waves-effect waves-light btn-small blue right">Acceder
+                <i class="fas fa-sign-in-alt"></i>
             </div>
           </div>
           <div class="row contrasenia-olvidada">
@@ -99,7 +104,7 @@ require_once("includes/header.php"); // Solicitud del header
         <li><a href="index.php" class="blue-text">Inicio</a></li>
         <li><a href="tratamientos.php" class="blue-text">Tratamientos</a></li>
         <li><a href="precios.php" class="blue-text">Precios</a></li>
-        <li><a href="clinicas.php" class="blue-text">Clínicas</a></li>
+        <li><a href="sucursales.php" class="blue-text">Clínicas</a></li>
         <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
         </li>
       </ul>
@@ -508,26 +513,26 @@ require_once("includes/header.php"); // Solicitud del header
     <div class="container">
       <div class="row">
         <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
-        <form>
+        <form method="POST" action="server/operations/inserta-cita.php">
           <div class="input-field col s12 l6">
-            <input type="text" id="nombre" class="validate">
+            <input type="text" id="nombre" class="validate" name="nombre">
             <label for="nombre">Nombre</label>
           </div>
           <div class="input-field col s12 l6">
-            <input type="text" id="paterno" class="validate">
+            <input type="text" id="paterno" class="validate" name="paterno">
             <label for="paterno">Paterno</label>
           </div>
           <div class="input-field col s12 l6">
-            <input type="text" id="paterno" class="validate">
+            <input type="text" id="materno" class="validate" name="materno">
             <label for="materno">Materno</label>
           </div>
           <div class="input-field col s12 l6">
-            <input type="email" id="email" class="validate">
+            <input type="email" id="email-2" class="validate" name="email">
             <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
           </div>
 
           <div class="input-field col s12 l6">
-            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate">
+            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate" name="telefono">
             <label for="telefono">Telefono</label>
           </div>
 
@@ -544,21 +549,21 @@ require_once("includes/header.php"); // Solicitud del header
           </div>
 
           <div class="input-field col 12 l6">
-            <input type="text" class="datepicker" id="fecha">
+            <input type="text" class="datepicker" id="fecha" name="fecha">
             <label for="fecha">Fecha de la Cita</label>
           </div>
 
           <div class="input-field col 12 l6" id="hora">
-            <input type="text" class="timepicker">
+            <input type="text" class="timepicker" name="hora">
             <label for="hora">Hora de la Cita</label>
           </div>
 
           <div class="input-field col s12">
-            <textarea id="mensaje" class="materialize-textarea"></textarea>
+            <textarea id="mensaje" class="materialize-textarea" name="mensaje"></textarea>
             <label for="mensaje">Escribenos un Mensaje</label>
           </div>
 
-          <button class="btn waves-effect waves-light blue" type="submit" name="action">Enviar
+          <button class="btn waves-effect waves-light blue" type="submit" name="submit" value="submit">Enviar
             <i class="material-icons right">send</i>
           </button>
         </form>

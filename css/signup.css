@@ -1,0 +1,64 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background: rgb(60, 83, 131);
+}
+
+@media (max-width: 601px) { 
+    /*Resize form on mobil view*/
+    #login-page{
+        width: 90%!important;
+    }
+}
+#login-page {  
+   width: 500px;
+}
+
+#login-page .row{ /*Espacio entre los elementos de registro*/
+    margin-bottom: 5px;
+}
+.card {
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     -moz-transform: translate(-50%, -50%)
+     -webkit-transform: translate(-50%, -50%)
+     -ms-transform: translate(-50%, -50%)
+     -o-transform: translate(-50%, -50%)
+     transform: translate(-50%, -50%);
+}
+
+#acepto-terminos{
+    left: 1.5%;
+}
+h5{
+    font-family: 'Boogaloo', cursive;
+}
+
+/*Validation of data*/
+.validation_error{
+    position: relative;
+    left: 43px !important;
+}
+/*nueva posicion del logo*/
+a.brand-logo img{
+    height: 63px !important;
+}
+#sidenav-overlay{
+    z-index: 1 !important;
+}
+
+#label-imagen{
+    
+    left: 200px;
+
+}
