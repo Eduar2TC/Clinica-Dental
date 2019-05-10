@@ -69,7 +69,7 @@ class Main{
     public function main(){
         if (isset($_POST['submit'])) {
             $this->cita = new Cita($_POST['nombre'], $_POST['paterno'], $_POST['materno'], $_POST['email'], $_POST['telefono'], $_POST['opciones-tratamientos'],  $_POST['fecha'], $_POST['hora'], $_POST['mensaje']);
-            if ($this->cita->insertaCita() == true) {
+            if (($this->cita->insertaCita() == true)) {
                 echo "cita agregada!";
                 printf("redirigiendo...");
                 header('Refresh:1 ; url=../../index.php');
@@ -79,6 +79,13 @@ class Main{
         }
     }
 }
-$main = new Main();
-$main->main();
+$contador = 0; 
+if($contador < 1){
+    $main = new Main();
+    $main->main();
+    ++$contador;
+}
+else{
+    echo "termino tu turno";
+}
 ?>

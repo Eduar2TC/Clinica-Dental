@@ -5,6 +5,35 @@
     $path_js = "js/";
     $status_page = "medicos";
     require_once("includes/header.php"); // Solicitud del header
+    require_once("server/operations/database-conection.php");
+    session_start();
+    $instanciaConexion = new Conexion;
+    $conexion = $instanciaConexion->conectarBD();
+    $query = "SELECT * FROM `usuario` WHERE `email` = '{$_SESSION['email']}'";
+
+    if ($resultado = $conexion->query($query)) {
+
+        while ($fila = $resultado->fetch_assoc()) {
+            $idUsuario = $fila['idUsuario'];
+            $usuario = $fila['usuario'];
+            $email = $fila['email'];
+            $idMedico = $fila['medico_idMedico'];
+        }
+    } else {
+        echo "Error: " . $query . "<br>" . mysqli_error($conexion);
+    }
+
+    $query2 = "SELECT * FROM `medico` WHERE `idMedico` = '$idMedico'";
+    if ($resultado2 = $conexion->query($query2)) {
+
+        while ($fila2 = $resultado2->fetch_assoc()) {
+            $nombre = $fila2['nombre'];
+            $paterno = $fila2['paterno'];
+        }
+    } else {
+        echo "Error: " . $query2 . "<br>" . mysqli_error($conexion);
+    }
+
     ?>
 
   <body>
@@ -22,7 +51,7 @@
                           <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
                           <ul class="right hide-on-med-and-down">
-                              <li>Conectado: Juan López<i class="material-icons left Tiny green-text text-darken-4">radio_button_checked</i></li>
+                              <li>Conectado: <?php echo  $nombre; ?><i class="material-icons left Tiny green-text text-darken-4">radio_button_checked</i></li>
                               <!--<li><a href="#">Inicio</a></li>
                             <li><a href="#">item2</a></li>
                             <li><a href="#">item3</a></li>
@@ -35,9 +64,9 @@
                                       <div class="background">
                                           <img src="img/office.jpg">
                                       </div>
-                                      <a href="#user"><img class="circle" src="img/profile-doctor02.jpg"></a>
-                                      <a href="#name"><span class="white-text name">Juan López</span></a>
-                                      <a href="#email"><span class="white-text email">j_lopez@gmail.com</span></a>
+                                      <a href="#user"><img class="circle" src="img/profile-doctor03.jpg"></a>
+                                      <a href="#name"><span class="white-text name"><?php echo  $nombre; ?></span></a>
+                                      <a href="#email"><span class="white-text email"><?php echo  $_SESSION['email']; ?></span></a>
                                   </div>
                               </li>
                               <li><a class="subheader">Citas</a></li>
@@ -67,9 +96,9 @@
                           <div class="background">
                               <img src="img/office.jpg">
                           </div>
-                          <a href="#user"><img class="circle" src="img/profile-doctor02.jpg"></a>
-                          <a href="#name"><span class="white-text name">Juan López</span></a>
-                          <a href="#email"><span class="white-text email">j_lopez@gmail.com</span></a>
+                          <a href="#user"><img class="circle" src="img/profile-doctor03.jpg"></a>
+                          <a href="#name"><span class="white-text name"><?php echo  $nombre . " " . $paterno; ?></span></a>
+                          <a href="#email"><span class="white-text email"><?php echo  $_SESSION['email']; ?></span></a>
                       </div>
                   </li>
                   <li><a class="subheader">Citas</a></li>
@@ -89,7 +118,69 @@
           <div class="col s12 m9 l9">
               <!--INICIO CUERPO-->
               <main id="main-admin-medico">
- 
+
+                  <div class="row">
+                      <div class="col s12 m4">
+                          <div class="collection">
+                              <?php
+
+                                $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
+                                if ($resultado3 = $conexion->query($query2)) {
+
+                                    while ($fila3 = $resultado3->fetch_assoc()) {
+                                        echo "<a href=' #!' class='collection-item'><b>Fecha: </b>{$fila3['fecha']}, <b>{$fila3['nombre']} {$fila3['paterno']}</b></a>";
+                                    }
+                                } else {
+                                    echo "Error: " . $query2 . "<br>" . mysqli_error($conexion);
+                                }
+                                ?>
+                          </div>
+                      </div>
+
+                      <div class="col s12 m8">
+                          <div class=" lime accent-1">
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <div class="divider"></div>
+                              <a class="waves-effect waves-light btn blue white-text">Marcar como atendido</a>
+                              <a class="right-align waves-effect waves-light btn red white-text" style="margin-left: 27%;">Cancelar
+                                  Cita</a>
+                          </div>
+                      </div>
+                  </div>
               </main>
               <!--FIN DEL CUERPO-->
           </div>
