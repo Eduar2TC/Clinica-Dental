@@ -3,6 +3,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="<?php echo $path_js; ?>jquery.matchHeight.js" type="text/javascript"></script>
   <script src="<?php echo $path_js; ?>validin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.8.5/dist/sweetalert2.all.min.js" integrity="sha256-m7hW8Yyirje5pHkEHOZDzM2r8gscxT0nxPDY7rtJwGE=" crossorigin="anonymous"></script>
   <script src="http://www.google.com/recaptcha/api.js"></script>
   <script>
@@ -124,7 +125,10 @@
           /*Mismo tamaño entre las tarjetas*/
           $('.card-resize-height').matchHeight();
           /**->Fin tratamientos.php**/
-
+          //dezpliega ventana login
+          $('#login').webuiPopover({
+              url: '#login-form'
+          });
           /**->Inicio mediocos.php **/
           $('.materialboxed').materialbox();
           /**->Fin medicos.php**/
@@ -155,7 +159,7 @@
                                   'Aceptar',
                                   'success'
                               ).then(function() {
-                                 window.location.href = "medicos.php";
+                                  window.location.href = "medicos.php";
                               });
                           } else {
                               Swal.fire({

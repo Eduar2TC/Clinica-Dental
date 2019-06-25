@@ -55,7 +55,7 @@ require_once("includes/header.php"); // Solicitud del header
               </div>
 
               <ul class="right hide-on-med-and-down fa-ul">
-                <li><a id="login" href="#" onclick="loginShow()"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
+                <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                 <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                   médico</a></li> -->
               </ul>
@@ -63,7 +63,7 @@ require_once("includes/header.php"); // Solicitud del header
         </nav>
       </div>
       <!--Formulario para logearse -->
-      <div id="login-form" class="login_box">
+      <div id="login-form" class="webui-popover-content">
         <form id="formulario-login" method="POST" action="server/login.php">
           <div class="row">
             <div class="input-field col s12">

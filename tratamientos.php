@@ -63,12 +63,12 @@
                   </nav>
               </div>
               <!--Formulario para logearse -->
-              <div id="login-form">
+              <div id="login-form" class="webui-popover-content">
                   <form id="formulario-login" method="POST" action="server/login.php">
                       <div class="row">
                           <div class="input-field col s12">
                               <i class="material-icons prefix">mail_outline</i>
-                              <input class="validate" id="email" type="email" name="email" required>
+                              <input class="validate" id="email-1" type="email" name="email" required>
                               <label for="email" data-error="Ingresa un email válido" data-success="Correcto">Email</label>
                           </div>
                       </div>
@@ -87,7 +87,7 @@
                       </div>
                       <div class="row">
                           <div class="input-field col s12">
-                              <button type="submit" name="login" value="accesando" class=" col s12 btn waves-effect waves-light btn-small blue right">Acceder
+                              <button id="login" type="submit" name="login" value="accesando" class=" col s12 btn waves-effect waves-light btn-small blue right">Acceder
                                   <i class="fas fa-sign-in-alt"></i>
                           </div>
                       </div>
