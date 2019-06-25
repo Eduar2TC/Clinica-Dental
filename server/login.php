@@ -42,7 +42,6 @@ class Login{
 }
 
 class Main{
-    private $conexion;
 
     public function __construct()
     {
@@ -55,33 +54,31 @@ class Main{
     public function main(){
         //Funcion que recibe los datos de acceso
         $conexion = $this->creaConexionBd(); // creacion de la conexion a la bd
-        if( !empty($_POST)){
-
-            if(isset($_POST['login'])){
 
                 $email = mysqli_real_escape_string($conexion, $_POST['email']);
                 $password = mysqli_real_escape_string($conexion, $_POST['password']);
                 $newUser = new Login($email, $password);
                 
-                if($newUser->searchUser($email, $password) == true){
-                    echo '¡Bienvenido!';
+                if($newUser->searchUser($email, $password) === TRUE){
+                   echo '¡Bienvenido!';
                    session_start();
                    $_SESSION['login'] = 'success';
                    $_SESSION['email'] = $email;
-                   header('Refresh:1 ; url=../medicos.php');
+                   header('Refresh:1 ; url=../../medicos.php');
                 }
                 else{
                     echo "usuario o contraseña inválida";
                     header('Refresh:1 ; url=../index.php');
                 }
-
-            }
-        } 
-        else {
-            echo "Datos no enviados"; echo var_dump($_POST);
-        }
     }
 }
-$main = new Main();
-$main->main();
+if (!empty($_POST)) {
+
+    if (isset($_POST['login'])) {
+        $main = new Main();
+        $main->main();
+    } else {
+        echo "Datos no enviados";
+    }
+}
 ?>

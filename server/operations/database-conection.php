@@ -15,15 +15,15 @@
             $conexion = new mysqli($this->host, $this->username, $this->password, $this->dataBase);
 
             /* verificar la conexión */
-            if (mysqli_connect_errno()) {
+            if ($conexion->connect_errno) {
                 printf("Falla de la conexión : %s\n", $conexion->connect_error);
                 exit();
             } else {
                 return $conexion;
                 /* liberar la serie de resultados */
-                $conexion->free();
+                //$conexion->free();
                 /* cerrar la conexión */
-                $conexion->close();
+                //$conexion->close();
             }
         }
     }

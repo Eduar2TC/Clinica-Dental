@@ -55,7 +55,7 @@ require_once("includes/header.php"); // Solicitud del header
               </div>
 
               <ul class="right hide-on-med-and-down fa-ul">
-                <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
+                <li><a id="login" href="#" onclick="loginShow()"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                 <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                   médico</a></li> -->
               </ul>
@@ -63,7 +63,7 @@ require_once("includes/header.php"); // Solicitud del header
         </nav>
       </div>
       <!--Formulario para logearse -->
-      <div id="login-form" class="webui-popover-content">
+      <div id="login-form" class="login_box">
         <form id="formulario-login" method="POST" action="server/login.php">
           <div class="row">
             <div class="input-field col s12">
@@ -87,7 +87,7 @@ require_once("includes/header.php"); // Solicitud del header
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <button type="submit" name="login" value="accesando" class=" col s12 btn waves-effect waves-light btn-small blue right">Acceder
+              <button id="login" type="submit" name="login" value="accesando" class=" col s12 btn waves-effect waves-light btn-small blue right">Acceder
                 <i class="fas fa-sign-in-alt"></i>
             </div>
           </div>
@@ -566,6 +566,7 @@ require_once("includes/header.php"); // Solicitud del header
           <button class="btn waves-effect waves-light blue" type="submit" name="submit" value="submit">Enviar
             <i class="material-icons right">send</i>
           </button>
+          <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->
         </form>
 
       </div>

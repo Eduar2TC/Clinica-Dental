@@ -3,7 +3,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="<?php echo $path_js; ?>jquery.matchHeight.js" type="text/javascript"></script>
   <script src="<?php echo $path_js; ?>validin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.8.5/dist/sweetalert2.all.min.js" integrity="sha256-m7hW8Yyirje5pHkEHOZDzM2r8gscxT0nxPDY7rtJwGE=" crossorigin="anonymous"></script>
   <script src="http://www.google.com/recaptcha/api.js"></script>
   <script>
@@ -89,6 +88,9 @@
 
           //Fecha de la consulta
 
+          $('.datepicker').on('mousedown', function(event) { //corregie bug de cerrarse
+              event.preventDefault();
+          })
           $('.datepicker').pickadate({
               selectMonths: true,
               selectYears: 15,
@@ -99,6 +101,9 @@
           });
 
           //Hora de la consulta
+          $('.timepicker').on('mousedown', function(event) { //corregie bug de cerrarse
+              event.preventDefault();
+          })
           $('.timepicker').pickatime({
               default: 'Hoy',
               twelvehour: false, // change to 12 hour AM/PM clock from 24 hour
@@ -118,10 +123,6 @@
           $('.parallax').parallax();
           /*Mismo tamaño entre las tarjetas*/
           $('.card-resize-height').matchHeight();
-          //dezpliega ventana login
-          $('#login').webuiPopover({
-              url: '#login-form'
-          });
           /**->Fin tratamientos.php**/
 
           /**->Inicio mediocos.php **/
@@ -133,34 +134,34 @@
           /**->Fin:sucursales.php**/
 
           //send ajax
-          $('#formulario--login').submit(function(e) {
+          $('#formulario-login').submit(function(e) {
               var formulario = $('#formulario-login');
               e.preventDefault(); // avoid to execute the actual submit of the form.
               // Call ajax for pass data to other place
               $.ajax({
                   type: formulario.attr('method'),
                   url: formulario.attr('action'),
-                  dataType: "text",
-                  data: $(this).serialize(), // getting filed value in serialize form
+                  data: {
+                      email: $("#email-1").val(),
+                      password: $("#password").val(),
+                      login: $("#login").val()
+                  },
                   success: function(data) {
                       console.log(data);
                       if (data) {
-                          console.log(data);
-                          var respuesta = $.trim(data); //importante (quitas los espacios de la cadena)
-                          if (respuesta === "¡Bienvenido!") {
-                              console.log(respuesta);
+                          if (data === "¡Bienvenido!") {
                               Swal.fire(
-                                  respuesta,
+                                  data,
                                   'Aceptar',
                                   'success'
                               ).then(function() {
-                                  window.location.href = "../medicos.php";
+                                 window.location.href = "medicos.php";
                               });
                           } else {
                               Swal.fire({
                                   type: 'error',
                                   title: 'Oops...',
-                                  text: 'Algo ha pasado: ' + respuesta,
+                                  text: 'Algo ha pasado: ' + data,
                                   footer: '<a href>¿Alguna sugerencia?</a>'
                               });
                           }
@@ -433,5 +434,15 @@
       //habilities button submit "Necesary outside after load principal page"
       function recaptchaCallback() {
           $('#submitButton').removeAttr('disabled');
-      };
+      }
+
+      //Activacion y desactivacion del formulario para logearse
+      function loginShow() {
+          var x = document.getElementById("login-form");
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+      }
   </script>

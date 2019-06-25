@@ -11,6 +11,7 @@ class Cita{
     private $fecha;
     private $hora;
     private $mensaje;
+    private $conexion;
 
     public function __construct($nombre, $paterno, $materno, $email, $telefono, $tratamiento, $fecha, $hora, $mensaje){
         $this->nombre = $nombre;
@@ -22,6 +23,7 @@ class Cita{
         $this->fecha = $fecha;
         $this->hora = $hora;
         $this->mensaje = $mensaje;
+        
     }
 
     public function creaConexion(){
@@ -29,7 +31,7 @@ class Cita{
         return $instanciaBD->conectarBD();
     }
     public function insertaCita(){
-        $conection = $this->creaConexion();
+        $conexion = $this->creaConexion();
         $query = "INSERT INTO `cita`(
                                         `nombre`, 
                                         `paterno`,
@@ -55,37 +57,52 @@ class Cita{
                       '2'
                       )";
 
-        if ($conection->query($query) == true) {
-            $conection->close();
-            return true;
+        if ($conexion->query($query) === TRUE) {
+            $conexion->close();
+            return TRUE;
         } else {
-            echo "Error: " . $query . "<br>" . mysqli_error($conection);
+            echo "Error: " . $query . "<br>" . mysqli_error($this->conexion);
+            $conexion->close();
+            return FALSE;
         }
     }
 
 }
+
 class Main{
-    private $cita;
-    public function main(){
-        if (isset($_POST['submit'])) {
-            $this->cita = new Cita($_POST['nombre'], $_POST['paterno'], $_POST['materno'], $_POST['email'], $_POST['telefono'], $_POST['opciones-tratamientos'],  $_POST['fecha'], $_POST['hora'], $_POST['mensaje']);
-            if (($this->cita->insertaCita() == true)) {
+    private static $cita;
+    private function __construct()
+    {
+        // Your "heavy" initialization stuff here
+    }
+    public static function main(){
+        if (isset($_POST['submit']) && empty(!$_POST['submit'])) {
+
+            self::$cita = new Cita($_POST['nombre'], 
+                                $_POST['paterno'], 
+                                $_POST['materno'], 
+                                $_POST['email'], 
+                                $_POST['telefono'], 
+                                $_POST['opciones-tratamientos'],  
+                                $_POST['fecha'], 
+                                $_POST['hora'], 
+                                $_POST['mensaje']);
+            if (self::$cita->insertaCita() === TRUE) {
                 echo "cita agregada!";
                 printf("redirigiendo...");
                 header('Refresh:1 ; url=../../index.php');
+           
             } else {
                 echo "algo paso";
             }
         }
+        else{
+            echo "datos no enviados";
+        }
     }
 }
-$contador = 0; 
-if($contador < 1){
-    $main = new Main();
-    $main->main();
-    ++$contador;
-}
-else{
-    echo "termino tu turno";
-}
+
+    //$main = new Main;
+    Main::main();  //Unica manera de hace funcionar sin caer en la duplicidad de los registros insertados
+
 ?>

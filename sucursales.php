@@ -63,7 +63,7 @@ require_once("includes/header.php"); // Solicitud del header
                 </nav>
             </div>
             <!--Formulario para logearse -->
-            <div id="login-form" class="webui-popover-content">
+            <div id="login-form">
                 <form class="login-form" method="POST" action="server/login.php">
                     <div class="row">
                         <div class="input-field col s12">
