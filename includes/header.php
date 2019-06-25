@@ -29,6 +29,8 @@
     <!--Medicos-->
     <link rel="stylesheet" href="<?php echo $path_css; ?>medicos.css">
     <!--Precios-->
+    <!--Tables.net -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="<?php echo $path_css; ?>precios.css">
     <link rel="stylesheet" href="
                                 <?php

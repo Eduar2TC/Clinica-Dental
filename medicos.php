@@ -6,6 +6,7 @@
     $status_page = "medicos";
     require_once("includes/header.php"); // Solicitud del header
     require_once("server/operations/database-conection.php");
+    require_once("server/operations/crud-conection.php");
     session_start();
     $instanciaConexion = new Conexion;
     $conexion = $instanciaConexion->conectarBD();
@@ -120,76 +121,99 @@
               <main id="main-admin-medico">
 
                   <div class="row">
-                      <div class="col s12 m4">
-                          <div class="collection">
-                              <?php
-
-                                $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
-                                if ($resultado3 = $conexion->query($query2)) {
-
-                                    while ($fila3 = $resultado3->fetch_assoc()) {
-                                        echo "<a href=' #!' class='collection-item'><b>Fecha: </b>{$fila3['fecha']}, <b>{$fila3['nombre']} {$fila3['paterno']}</b></a>";
-                                    }
-                                } else {
-                                    echo "Error: " . $query2 . "<br>" . mysqli_error($conexion);
-                                }
-                                ?>
-                          </div>
+                      <div class="col s12 12">
+                          <?php
+                            //Peticiones CRUD (puede mejorar)
+                            $object = new Connection();
+                            $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
+                            $connection = $object->Connect();
+                            $result3 = $connection->prepare($query2);
+                            $result3->execute();
+                            $data = $result3->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
+                          <!--Contenido del modal tabla-->
+                          <a data-target="modal1" id="new" class="waves-effect waves-light btn" modal-trigger href="#modal1"> Nueva cita<li class="material-icons rigth">add</li></a>
+                          <br><br>
+                          <table id="tableCitas" class="centered">
+                              <thead>
+                                  <tr>
+                                      <th>Id</th>
+                                      <th>Nombre</th>
+                                      <th>Paterno</th>
+                                      <th>Email</th>
+                                      <th>Telefono</th>
+                                      <th>Tratamiento</th>
+                                      <th>Mensaje</th>
+                                      <th>Operación</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <?php
+                                    foreach ($data as $cita) {
+                                        ?>
+                                      <tr>
+                                          <td><?php echo $cita['idCita'] ?></td>
+                                          <td><?php echo $cita['nombre'] ?></td>
+                                          <td><?php echo $cita['paterno'] ?></td>
+                                          <td><?php echo $cita['email'] ?></td>
+                                          <td><?php echo $cita['telefono'] ?></td>
+                                          <td><?php echo $cita['tratamiento'] ?></td>
+                                          <td><?php echo $cita['mensaje'] ?></td>
+                                          <td style="display:inline-flex"></td>
+                                      </tr>
+                                  <?php } ?>
+                              </tbody>
+                          </table>
                       </div>
-
-                      <div class="col s12 m8">
-                          <div class=" lime accent-1">
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <div class="divider"></div>
-                              <a class="waves-effect waves-light btn blue white-text">Marcar como atendido</a>
-                              <a class="right-align waves-effect waves-light btn red white-text" style="margin-left: 27%;">Cancelar
-                                  Cita</a>
-                          </div>
-                      </div>
-                  </div>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
               </main>
               <!--FIN DEL CUERPO-->
           </div>
 
       </div>
-
-
       <!--INICIO DEL FOOTER-->
-
+      <div class="modal" id="modal1">
+          <div class="modal-content">
+              <div class="container">
+                  <form action="" id="formCitas">
+                      <input type="text" name="" id="nombre">Nombre
+                      <input type="text" id="paterno">Paterno
+                      <input type="text" id="materno">Materno
+                      <input type="text" id="email">Email
+                      <input type="text" id="telefono">Telefono
+                      <input type="text" id="tratamiento">Tratamiento
+                      <input type="text" id="mensaje">Mensaje
+                      <br><br>
+                      <button class="btn modal-close waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i>
+                      </button>
+                  </form>
+              </div>
+          </div>
+      </div>
       <footer class="page-footer blue">
           <div class="container">
               <div class="row">

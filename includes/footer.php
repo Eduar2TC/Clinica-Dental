@@ -4,6 +4,8 @@
   <script src="<?php echo $path_js; ?>jquery.matchHeight.js" type="text/javascript"></script>
   <script src="<?php echo $path_js; ?>validin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="js/medico.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.8.5/dist/sweetalert2.all.min.js" integrity="sha256-m7hW8Yyirje5pHkEHOZDzM2r8gscxT0nxPDY7rtJwGE=" crossorigin="anonymous"></script>
   <script src="http://www.google.com/recaptcha/api.js"></script>
   <script>

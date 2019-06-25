@@ -120,10 +120,10 @@
               <main id="main-admin-medico">
 
                   <div class="row">
-                      <div class="col s12 m4">
-                          <div class="collection">
+                      <div class="col s12 12">
+                          <!--  <div class="collection">
                               <?php
-
+                                /*
                                 $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
                                 if ($resultado3 = $conexion->query($query2)) {
 
@@ -133,54 +133,48 @@
                                 } else {
                                     echo "Error: " . $query2 . "<br>" . mysqli_error($conexion);
                                 }
+                                */
                                 ?>
                           </div>
-                      </div>
+                      </div>                      
+                            -->
+                          <table>
+                              <thead>
+                                  <tr>
+                                      <th>Id</th>
+                                      <th>Nombre</th>
+                                      <th>Paterno</th>
+                                      <th>Email</th>
+                                      <th>Telefono</th>
+                                      <th>Tratamiento</th>
+                                      <th>Mensaje</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <?php
+                                    $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
+                                    if ($resultado3 = $conexion->query($query2)) {
 
-                      <div class="col s12 m8">
-                          <div class=" lime accent-1">
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <br>
-                              <div class="divider"></div>
-                              <a class="waves-effect waves-light btn blue white-text">Marcar como atendido</a>
-                              <a class="right-align waves-effect waves-light btn red white-text" style="margin-left: 27%;">Cancelar
-                                  Cita</a>
-                          </div>
+                                        while ($fila3 = $resultado3->fetch_assoc()) {
+                                            
+                                            echo "
+                                                <tr>
+                                                   <td>{$fila3['idCita']}</td>
+                                                   <td>{$fila3['nombre']}</td> 
+                                                   <td>{$fila3['paterno']}</td>
+                                                   <td>{$fila3['email']}</td>
+                                                   <td>{$fila3['telefono']}</td>
+                                                   <td>{$fila3['tratamiento']}</td>
+                                                   <td>{$fila3['mensaje']}</td>
+                                                </tr>";
+                                        }
+                                    } else {
+                                        echo "Error: " . $query2 . "<br>" . mysqli_error($conexion);
+                                    }
+                                    ?>
+                              </tbody>
+                          </table>
                       </div>
-                  </div>
               </main>
               <!--FIN DEL CUERPO-->
           </div>
