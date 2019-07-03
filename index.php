@@ -513,30 +513,30 @@ require_once("includes/header.php"); // Solicitud del header
     <div class="container">
       <div class="row">
         <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
-        <form method="POST" action="server/operations/inserta-cita.php">
+        <form id="formulario-cita-form" method="POST" action="server/operations/inserta-cita.php">
           <div class="input-field col s12 l6">
-            <input type="text" id="nombre" class="validate" name="nombre">
+            <input type="text" id="nombre" class="validate" name="nombre" required>
             <label for="nombre">Nombre</label>
           </div>
           <div class="input-field col s12 l6">
-            <input type="text" id="paterno" class="validate" name="paterno">
+            <input type="text" id="paterno" class="validate" name="paterno" required>
             <label for="paterno">Paterno</label>
           </div>
           <div class="input-field col s12 l6">
-            <input type="text" id="materno" class="validate" name="materno">
+            <input type="text" id="materno" class="validate" name="materno" required>
             <label for="materno">Materno</label>
           </div>
           <div class="input-field col s12 l6">
-            <input type="email" id="email-2" class="validate" name="email">
+            <input type="email" id="email-2" class="validate" name="email" required>
             <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
           </div>
 
           <div class="input-field col s12 l6">
-            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate" name="telefono">
+            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate" name="telefono" required>
             <label for="telefono">Telefono</label>
           </div>
 
-          <div class="input-field col s12 l6">
+          <div class="input-field col s12 l6" required>
             <select name="opciones-tratamientos" id="opciones-tratamientos">
               <option value="disabled selected">Selecciona un Tratamiento</option>
               <option value="1">Ortodoncia</option>
@@ -549,12 +549,12 @@ require_once("includes/header.php"); // Solicitud del header
           </div>
 
           <div class="input-field col 12 l6">
-            <input type="text" class="datepicker" id="fecha" name="fecha">
+            <input type="text" class="datepicker" id="fecha" name="fecha" required>
             <label for="fecha">Fecha de la Cita</label>
           </div>
 
           <div class="input-field col 12 l6" id="hora">
-            <input type="text" class="timepicker" name="hora">
+            <input type="text" class="timepicker" name="hora" required>
             <label for="hora">Hora de la Cita</label>
           </div>
 
@@ -562,8 +562,8 @@ require_once("includes/header.php"); // Solicitud del header
             <textarea id="mensaje" class="materialize-textarea" name="mensaje"></textarea>
             <label for="mensaje">Escribenos un Mensaje</label>
           </div>
-
-          <button class="btn waves-effect waves-light blue" type="submit" name="submit" value="submit">Enviar
+          <input type="hidden" name="action" value="submit" />
+          <button class="btn waves-effect waves-light blue" type="submit" >Enviar
             <i class="material-icons right">send</i>
           </button>
           <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->

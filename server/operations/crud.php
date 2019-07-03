@@ -1,8 +1,6 @@
 <?php 
 include_once 'crud-conection.php';
-
-$object = new Connection();
-$connection->$object->Connect();
+$connection = Connection::Connect();
 
 $nombre = (isset($_POST['nombre'])) ? $_POST['nombre']:'';
 $paterno = (isset($_POST['paterno'])) ? $_POST['paterno'] : '';
@@ -13,8 +11,9 @@ $tratamiento = (isset($_POST['tratamiento'])) ? $_POST['tratamiento'] : '';
 $fecha = (isset($_POST['fecha'])) ? $_POST['fecha'] : '';
 $hora = (isset($_POST['hora'])) ? $_POST['hora'] : '';
 $mensaje = (isset($_POST['mensaje'])) ? $_POST['mensaje'] : '';
-$opcionOperacion = (isset($_POST['opcionoperacion'])) ? $_POST['opcionoperacion'] : '';
+$opcionOperacion = (isset($_POST['opcionOperacion'])) ? $_POST['opcionOperacion'] : '';
 $id =(isset($_POST['id'])) ? $_POST['id'] : '';
+
 switch($opcionOperacion){
     case 1: {
         $query = "INSERT INTO cita(nombre, 
@@ -94,17 +93,17 @@ switch($opcionOperacion){
                              tratamiento,
                              fecha,
                              hora,
-                             mensaje FROM citas WHERE id = '$id'";
+                             mensaje FROM cita WHERE id = '$id'";
             $resultado = $connection->prepare($query);
             $resultado->execute();
             $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
-            $query = "DELETE  FROM citas WHERE id = '$id'";
+            $query = "DELETE  FROM cita WHERE idCita = '$id'";
             $resultado = $connection->prepare($query);
             $resultado->execute();
-        brek;
+            //print json_encode($data, JSON_UNESCAPED_UNICODE);
+        break;
     }
 }
-print json_encode($data, JSON_UNESCAPED_UNICODE);
 $connection=null;
 ?>

@@ -150,9 +150,9 @@
                               <tbody>
                                   <?php
                                     foreach ($data as $cita) {
-                                        ?>
+                                    ?>
                                       <tr>
-                                          <td><?php echo $cita['idCita'] ?></td>
+                                          <td id="id"><?php echo $cita['idCita'] ?></td>
                                           <td><?php echo $cita['nombre'] ?></td>
                                           <td><?php echo $cita['paterno'] ?></td>
                                           <td><?php echo $cita['email'] ?></td>

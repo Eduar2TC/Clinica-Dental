@@ -58,25 +58,27 @@ $(document).on("click", ".btnEdit", function () {
 });
 $(document).on("click", ".btnDelete", function () {
     rowTableCita = $(this);
-    id = parseInt(rowTableCita.find('td:eq(0)').text());
-    option=3;
+    //id = parseInt(rowTableCita.find('td:eq(0)').text);
+    var id = parseInt($(this).closest('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').text());
+    //console.log(id);
+    var opcionOperacion=3;
     $.ajax({
-        url: "server/operations/crud.php",
+        url: "./server/operations/crud.php",
         type:"POST",
-        dataType:"json",
+        //contentType: 'application/json; charset=utf-8',
+        //dataType: 'json',
         data:{
-            opcionoperacion:option,
-            idCita:id,
+            opcionOperacion: opcionOperacion,
+            id:id
         },
-        success:function(data){
+        success: function (data, textStatus, jqXHR) {
             console.log(data);
             TableCitas.row(rowTableCita.parents('tr')).remove().draw();
         },
-        error: function(data) {
-            alert(data);
+        error: function (data, textStatus, errorThrown) {
+            console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
         }
     });
 });
 
-$('#form')
 

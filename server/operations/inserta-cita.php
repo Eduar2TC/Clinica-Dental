@@ -75,8 +75,8 @@ class Main{
     {
         // Your "heavy" initialization stuff here
     }
-    public static function main(){
-        if (isset($_POST['submit']) && empty(!$_POST['submit'])) {
+    public static function main(){  //Cambiar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //if (isset($_POST['submit']) && !empty($_POST['submit'])) {
 
             self::$cita = new Cita($_POST['nombre'], 
                                 $_POST['paterno'], 
@@ -89,16 +89,16 @@ class Main{
                                 $_POST['mensaje']);
             if (self::$cita->insertaCita() === TRUE) {
                 echo "cita agregada!";
-                printf("redirigiendo...");
-                header('Refresh:1 ; url=../../index.php');
+                //printf("redirigiendo...");
+                //header('Refresh:1 ; url=../../index.php');
            
             } else {
                 echo "algo paso";
             }
-        }
-        else{
-            echo "datos no enviados";
-        }
+        //}
+       // else{
+          //  echo "datos no enviados";
+        //}
     }
 }
 

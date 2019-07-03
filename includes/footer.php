@@ -183,20 +183,39 @@
               return false;
           });
 
-          /* $('#formulario-cita').submit(function(e) {
-               e.preventDefault();
-               var url = "server/operations/inserta-cita.php";
-               $.ajax({
-                   type: "POST",
-                   url: url,
-                   async: false,
-                   dataType: 'html',
-                   data: $("#formulario-cita").serialize(),
-                   success: function(data) {
-                       alert(data);
-                   }
-               });
-           });*/
+          $('#formulario-cita-form').submit(function(e) {
+              e.preventDefault();
+              $.ajax({
+                  type: $(this).attr('method'),
+                  url: $(this).attr('action'),
+                  dataType: 'html',
+                  data: $("#formulario-cita-form").serialize(),
+                  success: function(data) {
+                      if (data) {
+                          if (data === "cita agregada!") {
+                              Swal.fire(
+                                  data,
+                                  'Aceptar',
+                                  'success'
+                              ).then(function() {
+                                  window.location.reload();
+                              });
+                          } else {
+                              Swal.fire({
+                                  type: 'error',
+                                  title: 'Oops...',
+                                  text: 'Algo ha pasado: ' + data,
+                                  footer: '<a href>¿Alguna sugerencia?</a>'
+                              });
+                          }
+                      }
+
+                  },
+                  error: function(data, textStatus, errorThrown) {
+                      console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
+                  }
+              });
+          });
 
           //Inicializa el selector del formulario de registro de proyectos
           $('select').material_select();
@@ -396,36 +415,30 @@
       var centinela5 = false;
       $(".botonMasInformacion").click(function(event) {
           switch (event.target.id) {
-              case 'expandir-tratamiento-one':
-                  {
-                      centinela1 = dropDownExpand(centinela1, 'expandir-tratamiento-one', $("#colapso-tratamiento-one.colapsoTratamiento").attr('id'));
-                      break;
-                  }
-              case 'expandir-tratamiento-two':
-                  {
-                      centinela2 = dropDownExpand(centinela2, 'expandir-tratamiento-two', $("#colapso-tratamiento-two.colapsoTratamiento").attr('id'));
-                      break;
-                  }
-              case 'expandir-tratamiento-tree':
-                  {
-                      centinela3 = dropDownExpand(centinela3, 'expandir-tratamiento-tree', $("#colapso-tratamiento-tree.colapsoTratamiento").attr('id'));
-                      break;
-                  }
-              case 'expandir-tratamiento-for':
-                  {
-                      centinela4 = dropDownExpand(centinela4, 'expandir-tratamiento-for', $("#colapso-tratamiento-for.colapsoTratamiento").attr('id'));
-                      break;
-                  }
-              case 'expandir-tratamiento-five':
-                  {
-                      centinela5 = dropDownExpand(centinela5, 'expandir-tratamiento-five', $("#colapso-tratamiento-five.colapsoTratamiento").attr('id'));
-                      break;
-                  }
-              default:
-                  {
-                      // centinela = false;
-                      break;
-                  }
+              case 'expandir-tratamiento-one': {
+                  centinela1 = dropDownExpand(centinela1, 'expandir-tratamiento-one', $("#colapso-tratamiento-one.colapsoTratamiento").attr('id'));
+                  break;
+              }
+              case 'expandir-tratamiento-two': {
+                  centinela2 = dropDownExpand(centinela2, 'expandir-tratamiento-two', $("#colapso-tratamiento-two.colapsoTratamiento").attr('id'));
+                  break;
+              }
+              case 'expandir-tratamiento-tree': {
+                  centinela3 = dropDownExpand(centinela3, 'expandir-tratamiento-tree', $("#colapso-tratamiento-tree.colapsoTratamiento").attr('id'));
+                  break;
+              }
+              case 'expandir-tratamiento-for': {
+                  centinela4 = dropDownExpand(centinela4, 'expandir-tratamiento-for', $("#colapso-tratamiento-for.colapsoTratamiento").attr('id'));
+                  break;
+              }
+              case 'expandir-tratamiento-five': {
+                  centinela5 = dropDownExpand(centinela5, 'expandir-tratamiento-five', $("#colapso-tratamiento-five.colapsoTratamiento").attr('id'));
+                  break;
+              }
+              default: {
+                  // centinela = false;
+                  break;
+              }
           }
 
       });
