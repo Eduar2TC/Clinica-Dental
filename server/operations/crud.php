@@ -13,10 +13,10 @@ $hora = (isset($_POST['hora'])) ? $_POST['hora'] : '';
 $mensaje = (isset($_POST['mensaje'])) ? $_POST['mensaje'] : '';
 $opcionOperacion = (isset($_POST['opcionOperacion'])) ? $_POST['opcionOperacion'] : '';
 $id =(isset($_POST['id'])) ? $_POST['id'] : '';
-
+$data ='';
 switch($opcionOperacion){
     case 1: {
-        $query = "INSERT INTO cita(nombre, 
+            $query = "INSERT INTO cita(nombre, 
                                 paterno, 
                                 materno, 
                                 email, 
@@ -24,7 +24,8 @@ switch($opcionOperacion){
                                 tratamiento, 
                                 fecha, 
                                 hora, 
-                                mensaje) 
+                                mensaje,
+                                medico_idMedico)    /*Gestionar el identificador del medico logeado*/ 
                         VALUES ('$nombre',
                                 '$paterno',
                                 '$materno',
@@ -33,10 +34,15 @@ switch($opcionOperacion){
                                 '$tratamiento',
                                 '$fecha',
                                 '$hora',
-                                '$mensaje')";
-            $resultado = $connection->prepare($query);
-            $resultado->execute();
-            
+                                '$mensaje',
+                                '2')";          /*Para pruebas el id del medico es 2 */
+                try{
+                    $resultado = $connection->prepare($query);
+                    $resultado->execute();            
+                }
+            catch(Exception $e){
+                $GLOBALS['data'] = $e->getMessage();
+            }
             //cambiar a la variable de instancia de la peticion principal
             $query = "SELECT idCita, 
                              nombre, 
@@ -47,11 +53,12 @@ switch($opcionOperacion){
                              tratamiento,
                              fecha,
                              hora,
-                             mensaje FROM citas ORDER BY idCita ASC LIMIT 1";
+                             mensaje FROM cita ORDER BY idCita DESC LIMIT 1";
             $resultado = $connection->prepare($query);
             $resultado->execute();
-            $data = $resultado->fetchAll(PDO::FETCH_ASSOC);        
-        break;
+            $GLOBALS['data'] = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            break;
+            
     }
     case 2: { 
         $query = "UPDATE clinica 
@@ -80,7 +87,7 @@ switch($opcionOperacion){
                              mensaje FROM citas WHERE id = '$id'";
             $resultado = $connection->prepare($query);
             $resultado->execute();
-            $data = $resultado->fetchAll(PDO::FETCH_ASSOC); 
+            $GLOBALS['data'] = $resultado->fetchAll(PDO::FETCH_ASSOC); 
             break;
     }
     case 3:{
@@ -105,5 +112,6 @@ switch($opcionOperacion){
         break;
     }
 }
+print json_encode($data, JSON_UNESCAPED_UNICODE);
 $connection=null;
 ?>

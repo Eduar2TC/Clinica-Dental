@@ -131,15 +131,17 @@
                             $result3->execute();
                             $data = $result3->fetchAll(PDO::FETCH_ASSOC);
                             ?>
-                          <!--Contenido del modal tabla-->
-                          <a data-target="modal1" id="new" class="waves-effect waves-light btn" modal-trigger href="#modal1"> Nueva cita<li class="material-icons rigth">add</li></a>
+                          <!--Contenido del modal tabla--> 
+                          <!---Boton Nueva cita-->
+                          <a data-target="modal1" id="new" class="waves-effect waves-light btn modal-trigger" href="#formulario-cita"> Nueva cita<li class="material-icons rigth">add</li></a>
                           <br><br>
+                          <!--Jalando los datos desde la base de datos--->
                           <table id="tableCitas" class="centered">
                               <thead>
                                   <tr>
                                       <th>Id</th>
                                       <th>Nombre</th>
-                                      <th>Paterno</th>
+                                      <th>Paterno</th>B
                                       <th>Email</th>
                                       <th>Telefono</th>
                                       <th>Tratamiento</th>
@@ -150,7 +152,7 @@
                               <tbody>
                                   <?php
                                     foreach ($data as $cita) {
-                                    ?>
+                                        ?>
                                       <tr>
                                           <td id="id"><?php echo $cita['idCita'] ?></td>
                                           <td><?php echo $cita['nombre'] ?></td>
@@ -196,7 +198,7 @@
 
       </div>
       <!--INICIO DEL FOOTER-->
-      <div class="modal" id="modal1">
+      <!--<div class="modal" id="modal1">
           <div class="modal-content">
               <div class="container">
                   <form action="" id="formCitas">
@@ -213,7 +215,136 @@
                   </form>
               </div>
           </div>
+      </div> -->
+      <!--Nueva cita -->
+      <div id="formulario-cita" class="modal" style=" max-height: 100%;">
+          <div class="container">
+              <div class="row">
+                  <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
+                  <form id="formulario-cita-form-new" method="POST">
+                      <div class="input-field col s12 l6">
+                          <input type="text" id="nombre" class="validate" name="nombre" required>
+                          <label for="nombre">Nombre</label>
+                      </div>
+                      <div class="input-field col s12 l6">
+                          <input type="text" id="paterno" class="validate" name="paterno" required>
+                          <label for="paterno">Paterno</label>
+                      </div>
+                      <div class="input-field col s12 l6">
+                          <input type="text" id="materno" class="validate" name="materno" required>
+                          <label for="materno">Materno</label>
+                      </div>
+                      <div class="input-field col s12 l6">
+                          <input type="email" id="email-2" class="validate" name="email" required>
+                          <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
+                      </div>
+
+                      <div class="input-field col s12 l6">
+                          <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate" name="telefono" required>
+                          <label for="telefono">Telefono</label>
+                      </div>
+
+                      <div class="input-field col s12 l6" required>
+                          <select name="opciones-tratamientos" id="opciones-tratamientos">
+                              <option value="disabled selected">Selecciona un Tratamiento</option>
+                              <option value="1">Ortodoncia</option>
+                              <option value="2">Periodoncia</option>
+                              <option value="3">Endodoncia</option>
+                              <option value="4">Cirujía Dental</option>
+                              <option value="5">Estética Dental</option>
+                          </select>
+                          <label>Opciones de tratamientos</label>
+                      </div>
+
+                      <div class="input-field col 12 l6">
+                          <input type="text" class="datepicker" id="fecha" name="fecha" required>
+                          <label for="fecha">Fecha de la Cita</label>
+                      </div>
+
+                      <div class="input-field col 12 l6" id="hora">
+                          <input type="text" class="timepicker" name="hora" required>
+                          <label for="hora">Hora de la Cita</label>
+                      </div>
+
+                      <div class="input-field col s12">
+                          <textarea id="mensaje" class="materialize-textarea" name="mensaje"></textarea>
+                          <label for="mensaje">Escribenos un Mensaje</label>
+                      </div>
+                      <input type="hidden" name="action" value="submit" />
+                      <button class="btn modal-close btn waves-effect waves-light blue" type="submit">Enviar
+                          <i class="material-icons right">send</i>
+                      </button>
+                      <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->
+                  </form>
+
+              </div>
+          </div>
       </div>
+      <!--modificar / Actualizar cita -->
+      <div id="formulario-cita-update" class="modal" style=" max-height: 100%;">
+          <div class="container">
+              <div class="row">
+                  <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
+                  <form id="formulario-cita-form" method="POST" action="server/operations/inserta-cita.php">
+                      <div class="input-field col s12 l6">
+                          <input type="text" id="nombre" class="validate" name="nombre" required>
+                          <label for="nombre">Nombre</label>
+                      </div>
+                      <div class="input-field col s12 l6">
+                          <input type="text" id="paterno" class="validate" name="paterno" required>
+                          <label for="paterno">Paterno</label>
+                      </div>
+                      <div class="input-field col s12 l6">
+                          <input type="text" id="materno" class="validate" name="materno" required>
+                          <label for="materno">Materno</label>
+                      </div>
+                      <div class="input-field col s12 l6">
+                          <input type="email" id="email-2" class="validate" name="email" required>
+                          <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
+                      </div>
+
+                      <div class="input-field col s12 l6">
+                          <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate" name="telefono" required>
+                          <label for="telefono">Telefono</label>
+                      </div>
+
+                      <div class="input-field col s12 l6" required>
+                          <select name="opciones-tratamientos" id="opciones-tratamientos">
+                              <option value="disabled selected">Selecciona un Tratamiento</option>
+                              <option value="1">Ortodoncia</option>
+                              <option value="2">Periodoncia</option>
+                              <option value="3">Endodoncia</option>
+                              <option value="4">Cirujía Dental</option>
+                              <option value="5">Estética Dental</option>
+                          </select>
+                          <label>Opciones de tratamientos</label>
+                      </div>
+
+                      <div class="input-field col 12 l6">
+                          <input type="text" class="datepicker" id="fecha" name="fecha" required>
+                          <label for="fecha">Fecha de la Cita</label>
+                      </div>
+
+                      <div class="input-field col 12 l6" id="hora">
+                          <input type="text" class="timepicker" name="hora" required>
+                          <label for="hora">Hora de la Cita</label>
+                      </div>
+
+                      <div class="input-field col s12">
+                          <textarea id="mensaje" class="materialize-textarea" name="mensaje"></textarea>
+                          <label for="mensaje">Escribenos un Mensaje</label>
+                      </div>
+                      <input type="hidden" name="action" value="submit" />
+                      <button class="btn waves-effect waves-light blue" type="submit">Enviar
+                          <i class="material-icons right">send</i>
+                      </button>
+                      <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->
+                  </form>
+
+              </div>
+          </div>
+      </div>
+
       <footer class="page-footer blue">
           <div class="container">
               <div class="row">
