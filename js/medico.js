@@ -42,23 +42,23 @@ $(document).on("click", ".btnEdit", function () {  //Corregir los campos del for
     materno = rowTableCita.find('td:eq(3)').text();
     email = rowTableCita.find('td:eq(4)').text();
     telefono = rowTableCita.find('td:eq(5)').text();
-    tratamiento = parseInt(rowTableCita.find('td:eq(6)').text());
+    tratamiento = rowTableCita.find('td:eq(6)').text();
     fecha = rowTableCita.find('td:eq(7)').text();
     hora = rowTableCita.find('td:eq(8)').text();
     mensaje = rowTableCita.find('td:eq(9)').text();
     $("input[id=nombre]").val(nombre);
     $("input[id=paterno]").val(paterno);
     $("input[id=materno]").val(materno);
-    $("input[id=email]").val(email);
+    $("input[id=email-2]").val(email);
     $("input[id=telefono]").val(telefono);
-    $("input[id=tratamiento]").val(tratamiento);
+    $("#opciones-tratamientos").val(tratamiento);   //////Pinchi Caca (Sulucionar)
     $("textarea[id=mensaje]").val(mensaje);
     option=2;
 });
 $(document).on("click", ".btnDelete", function () {
     rowTableCita = $(this);
     //id = parseInt(rowTableCita.find('td:eq(0)').text);
-    var id = parseInt($(this).closest('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').text());
+    var id = parseInt( $(this).closest('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').text() );
     //console.log(id);
     var opcionOperacion=3;
     $.ajax({

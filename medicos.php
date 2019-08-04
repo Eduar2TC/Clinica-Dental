@@ -131,7 +131,7 @@
                             $result3->execute();
                             $data = $result3->fetchAll(PDO::FETCH_ASSOC);
                             ?>
-                          <!--Contenido del modal tabla--> 
+                          <!--Contenido del modal tabla-->
                           <!---Boton Nueva cita-->
                           <a data-target="modal1" id="new" class="waves-effect waves-light btn modal-trigger" href="#formulario-cita"> Nueva cita<li class="material-icons rigth">add</li></a>
                           <br><br>
@@ -141,10 +141,13 @@
                                   <tr>
                                       <th>Id</th>
                                       <th>Nombre</th>
-                                      <th>Paterno</th>B
+                                      <th>Paterno</th>
+                                      <th>Materno</th> <!--New -->
                                       <th>Email</th>
                                       <th>Telefono</th>
                                       <th>Tratamiento</th>
+                                      <th>Fecha</th>
+                                      <th>Hora</th>
                                       <th>Mensaje</th>
                                       <th>Operación</th>
                                   </tr>
@@ -157,9 +160,12 @@
                                           <td id="id"><?php echo $cita['idCita'] ?></td>
                                           <td><?php echo $cita['nombre'] ?></td>
                                           <td><?php echo $cita['paterno'] ?></td>
+                                          <td><?php echo $cita['materno'] ?></td><!--New-->
                                           <td><?php echo $cita['email'] ?></td>
                                           <td><?php echo $cita['telefono'] ?></td>
                                           <td><?php echo $cita['tratamiento'] ?></td>
+                                          <td><?php echo $cita['fecha'] ?></td><!--New-->
+                                          <td><?php echo $cita['hora'] ?></td><!--New-->
                                           <td><?php echo $cita['mensaje'] ?></td>
                                           <td style="display:inline-flex"></td>
                                       </tr>
@@ -285,7 +291,7 @@
           <div class="container">
               <div class="row">
                   <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
-                  <form id="formulario-cita-form" method="POST" action="server/operations/inserta-cita.php">
+                  <form id="formulario-cita-form" method="POST" action="server/operations/crud.php">
                       <div class="input-field col s12 l6">
                           <input type="text" id="nombre" class="validate" name="nombre" required>
                           <label for="nombre">Nombre</label>
