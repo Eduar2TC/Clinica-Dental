@@ -1,2 +1,12 @@
 # Clinica
-Creación del proyecto web clínica Odontoló para poder acreditar la materia Ingenieria Web
+Clinica odontológica (Web informativa)
+
+Lenguajes: 
+
+HTML, PHP, jquery
+
+Framework: 
+MaterializeCss
+
+And more...
+
