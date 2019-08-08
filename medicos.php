@@ -142,7 +142,8 @@
                                       <th>Id</th>
                                       <th>Nombre</th>
                                       <th>Paterno</th>
-                                      <th>Materno</th> <!--New -->
+                                      <th>Materno</th>
+                                      <!--New -->
                                       <th>Email</th>
                                       <th>Telefono</th>
                                       <th>Tratamiento</th>
@@ -160,12 +161,15 @@
                                           <td id="id"><?php echo $cita['idCita'] ?></td>
                                           <td><?php echo $cita['nombre'] ?></td>
                                           <td><?php echo $cita['paterno'] ?></td>
-                                          <td><?php echo $cita['materno'] ?></td><!--New-->
+                                          <td><?php echo $cita['materno'] ?></td>
+                                          <!--New-->
                                           <td><?php echo $cita['email'] ?></td>
                                           <td><?php echo $cita['telefono'] ?></td>
                                           <td><?php echo $cita['tratamiento'] ?></td>
-                                          <td><?php echo $cita['fecha'] ?></td><!--New-->
-                                          <td><?php echo $cita['hora'] ?></td><!--New-->
+                                          <td><?php echo $cita['fecha'] ?></td>
+                                          <!--New-->
+                                          <td><?php echo $cita['hora'] ?></td>
+                                          <!--New-->
                                           <td><?php echo $cita['mensaje'] ?></td>
                                           <td style="display:inline-flex"></td>
                                       </tr>
@@ -253,11 +257,11 @@
                       <div class="input-field col s12 l6" required>
                           <select name="opciones-tratamientos" id="opciones-tratamientos">
                               <option value="disabled selected">Selecciona un Tratamiento</option>
-                              <option value="1">Ortodoncia</option>
-                              <option value="2">Periodoncia</option>
-                              <option value="3">Endodoncia</option>
-                              <option value="4">Cirujía Dental</option>
-                              <option value="5">Estética Dental</option>
+                              <option value="Ortodoncia">Ortodoncia</option>
+                              <option value="Peridoncia">Periodoncia</option>
+                              <option value="Endodoncia">Endodoncia</option>
+                              <option value="Cirujía dental">Cirujía Dental</option>
+                              <option value="Estética dental">Estética Dental</option>
                           </select>
                           <label>Opciones de tratamientos</label>
                       </div>
@@ -267,8 +271,8 @@
                           <label for="fecha">Fecha de la Cita</label>
                       </div>
 
-                      <div class="input-field col 12 l6" id="hora">
-                          <input type="text" class="timepicker" name="hora" required>
+                      <div class="input-field col 12 l6">
+                          <input type="text" class="timepicker" id="hora" name="hora" required>
                           <label for="hora">Hora de la Cita</label>
                       </div>
 
@@ -317,11 +321,11 @@
                       <div class="input-field col s12 l6" required>
                           <select name="opciones-tratamientos" id="opciones-tratamientos">
                               <option value="disabled selected">Selecciona un Tratamiento</option>
-                              <option value="1">Ortodoncia</option>
-                              <option value="2">Periodoncia</option>
-                              <option value="3">Endodoncia</option>
-                              <option value="4">Cirujía Dental</option>
-                              <option value="5">Estética Dental</option>
+                              <option value="Ortodoncia">Ortodoncia</option>
+                              <option value="Peridoncia">Periodoncia</option>
+                              <option value="Endodoncia">Endodoncia</option>
+                              <option value="Cirujía dental">Cirujía Dental</option>
+                              <option value="Estética dental">Estética Dental</option>
                           </select>
                           <label>Opciones de tratamientos</label>
                       </div>
@@ -331,8 +335,8 @@
                           <label for="fecha">Fecha de la Cita</label>
                       </div>
 
-                      <div class="input-field col 12 l6" id="hora">
-                          <input type="text" class="timepicker" name="hora" required>
+                      <div class="input-field col 12 l6">
+                          <input type="text" class="timepicker" id="hora" name="hora" required>
                           <label for="hora">Hora de la Cita</label>
                       </div>
 

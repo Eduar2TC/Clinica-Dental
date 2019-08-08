@@ -51,7 +51,9 @@ $(document).on("click", ".btnEdit", function () {  //Corregir los campos del for
     $("input[id=materno]").val(materno);
     $("input[id=email-2]").val(email);
     $("input[id=telefono]").val(telefono);
-    $("#opciones-tratamientos").val(tratamiento);   //////Pinchi Caca (Sulucionar)
+    $(".select-dropdown").val(tratamiento);   //////Pinchi Caca (Sulucionar)
+    $(".datepicker").val(fecha);
+    $(".timepicker").val(hora);
     $("textarea[id=mensaje]").val(mensaje);
     option=2;
 });

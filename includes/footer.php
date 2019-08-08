@@ -94,13 +94,20 @@
           $('.datepicker').on('mousedown', function(event) { //corregie bug de cerrarse
               event.preventDefault();
           })
-          $('.datepicker').pickadate({
+          $('.datepicker').pickadate({ // set lenguaje form datepicker
               selectMonths: true,
               selectYears: 15,
               today: 'Hoy',
               clear: 'Limpiar',
               close: 'Ok',
-              closeOnSelect: false
+              closeOnSelect: false,
+              firstDay: true,
+              format: 'yyyy-mm-dd',
+              monthsFull: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+              monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Dic"],
+              weekdays: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+              weekdaysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+              weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"]
           });
 
           //Hora de la consulta
@@ -108,11 +115,15 @@
               event.preventDefault();
           })
           $('.timepicker').pickatime({
-              default: 'Hoy',
-              twelvehour: false, // change to 12 hour AM/PM clock from 24 hour
+              default: 'now',
+              twelvehour: true, // change to 12 hour AM/PM clock from 24 hour
               donetext: 'OK',
+              canceltext: 'Cancelar',
+              cleartext: 'Limpiar',
               autoclose: false,
-              vibrate: true // vibrate the device when dragging clock hand
+              vibrate: true, // vibrate the device when dragging clock hand
+              ampmclickable: true
+
           });
           /**->Fin: index.php **/
 
