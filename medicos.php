@@ -291,11 +291,11 @@
           </div>
       </div>
       <!--modificar / Actualizar cita -->
-      <div id="formulario-cita-update" class="modal" style=" max-height: 100%;">
+      <div id="formulario-cita-container" class="modal" style=" max-height: 100%;">
           <div class="container">
               <div class="row">
                   <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
-                  <form id="formulario-cita-form" method="POST" action="server/operations/crud.php">
+                  <form id="formulario-cita-form-update" method="POST" action="server/operations/crud.php">
                       <div class="input-field col s12 l6">
                           <input type="text" id="nombre" class="validate" name="nombre" required>
                           <label for="nombre">Nombre</label>

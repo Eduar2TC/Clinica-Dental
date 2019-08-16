@@ -4,7 +4,7 @@ $(document).ready(function(){
             "targets":-1,
             "data":null,
             "defaultContent":
-            "<a href='#formulario-cita-update' data-target='modal1' class='btnEdit modal-trigger btn deep-purple darken-1 waves-effect waves light' type='submit' name='action'><!--Actualizar--><i class='material-icons right'>update</i></a><button' class='btnDelete red darken-1 btn waves-effect waves-light' type = 'submit' name='action'><!--Elimnar--><i class='material-icons right'>delete</i></button>"
+            "<a href='#formulario-cita-container' data-target='modal1' class='btnEdit modal-trigger btn deep-purple darken-1 waves-effect waves light' type='submit' name='action'><!--Actualizar--> <i class='material-icons right'>update</i></a><button' class='btnDelete red darken-1 btn waves-effect waves-light' type = 'submit' name='action'><!--Elimnar--> <i class='material-icons right'>delete</i></button>"
         }]
     });
 });
@@ -55,14 +55,14 @@ $(document).on("click", ".btnEdit", function () {  //Corregir los campos del for
     $(".datepicker").val(fecha);
     $(".timepicker").val(hora);
     $("textarea[id=mensaje]").val(mensaje);
-    option=2;
+    opcionOperacion = 2;
 });
 $(document).on("click", ".btnDelete", function () {
     rowTableCita = $(this);
     //id = parseInt(rowTableCita.find('td:eq(0)').text);
     var id = parseInt( $(this).closest('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').text() );
     //console.log(id);
-    var opcionOperacion=3;
+    var opcionOperacion = 3;
     $.ajax({
         url: "./server/operations/crud.php",
         type:"POST",
@@ -118,7 +118,7 @@ $('#formulario-cita-form-new').submit(
 
             },
             success: function (data, textStatus, jqXHR) {
-                console.log(data);
+    
                 id= data[0].idCita;
                 if(opcionOperacion == 1 ){
                     TableCitas.row.add([id, nombre, paterno, materno, email, telefono, tratamiento, fecha, hora, mensaje]).draw();
@@ -127,6 +127,54 @@ $('#formulario-cita-form-new').submit(
                 else{
                     TableCita.row(rowTableCita).data([id, nombre, paterno, materno, email, telefono, tratamiento, fecha, hora, mensaje]);
                 }
+            },
+            error: function (data, textStatus, errorThrown) {
+                console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
+            }
+        });
+
+    }
+);
+
+$('#formulario-cita-form-update').submit(
+    function (e) {
+        e.preventDefault();
+        let id = parseInt(rowTableCita.find('td:eq(0)').text());
+        let nombre = $.trim($('#formulario-cita-form-update').find('#nombre').val());
+        let paterno = $.trim($('#formulario-cita-form-update').find('#paterno').val());
+        let materno = $.trim($('#formulario-cita-form-update').find('#materno').val());
+        let email = $.trim($('#formulario-cita-form-update').find('#email-2').val());
+        let telefono = $.trim($('#formulario-cita-form-update').find('#telefono').val());
+        let tratamiento = $.trim($('#formulario-cita-form-update').find('#opciones-tratamientos').val());
+        let fecha = $.trim($('#formulario-cita-form-update').find('#fecha').val());
+        let hora = $.trim($('#formulario-cita-form-update').find('#hora').val());
+        let mensaje = $.trim($('#formulario-cita-form-update').find('#mensaje').val());
+
+        console.log(id+ " " + nombre + " " + paterno +
+            " " + materno + " " + email + " " + telefono + " " + tratamiento + " "
+            + fecha + " " + hora + " " + mensaje);
+
+        $.ajax({
+            url: "./server/operations/crud.php",
+            type: "POST",
+            //contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: {
+                id:id,
+                opcionOperacion: opcionOperacion,
+                nombre: nombre,
+                paterno: paterno,
+                materno: materno,
+                email: email,
+                telefono: telefono,
+                tratamiento: tratamiento,
+                fecha: fecha,
+                hora: hora,
+                mensaje: mensaje
+
+            },
+            success: function (data, textStatus, jqXHR) {
+                
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);

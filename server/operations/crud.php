@@ -60,22 +60,37 @@ switch($opcionOperacion){
             break;
             
     }
-    case 2: { 
-        $query = "UPDATE clinica 
-                    SET nombre = '$nombre'
-                        paterno = '$paterno',
-                        materno = '$materno',
-                        email = '$email',
-                        telefono = '$telefono',
-                        tratamiento = '$tratamiento',
-                        fecha = '$fecha',
-                        hora = '$hora',
-                        mensaje = '$mensaje' WHERE idCita = '$id'";
-        $resultado = $connection->prepare($query);
-        $resultado->execute();
+    case 2: {
+            $query = "UPDATE cita
+                        SET nombre =?,
+                            paterno =?,
+                            materno =?,
+                            email = ?,
+                            telefono =?,
+                            tratamiento =?,
+                            fecha =?,
+                            hora =?,
+                            mensaje =?
+                        WHERE idCita =?";
+            $resultado = $connection->prepare($query);
 
-            //cambiar a la variable de instancia de la peticion principal
-            $query = "SELECT idCita, 
+            try {
+                $resultado->execute([
+                    $nombre,
+                    $paterno,
+                    $materno,
+                    $email,
+                    $telefono,
+                    $tratamiento,
+                    $fecha,
+                    $hora,
+                    $mensaje,
+                    $id
+                ]);
+
+                if($resultado){
+                    //cambiar a la variable de instancia de la peticion principal
+                    $query = "SELECT idCita, 
                              nombre, 
                              paterno
                              materno,
@@ -84,10 +99,18 @@ switch($opcionOperacion){
                              tratamiento,
                              fecha,
                              hora,
-                             mensaje FROM citas WHERE id = '$id'";
-            $resultado = $connection->prepare($query);
-            $resultado->execute();
-            $GLOBALS['data'] = $resultado->fetchAll(PDO::FETCH_ASSOC); 
+                             mensaje FROM cita WHERE idCita = '$id'";
+                    $resultado = $connection->prepare($query);
+                    $resultado->execute();
+                    $GLOBALS['data'] = $resultado->fetchAll(PDO::FETCH_ASSOC);
+   
+                }
+                else{
+                    echo "algo paso shit";
+                }
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
             break;
     }
     case 3:{
