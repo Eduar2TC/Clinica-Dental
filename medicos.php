@@ -71,15 +71,15 @@
                                   </div>
                               </li>
                               <li><a class="subheader">Citas</a></li>
-                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Ver Perfil</span></a></li>
-                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Ver Citas</span></a></li>
-                              <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons left">cloud</i><span class="blue-text">Imprimir citas</span></a></li>
+                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">person</i><span class="blue-text">Ver Perfil</span></a></li>
+                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
+                              <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons left">local_printshop</i><span class="blue-text">Imprimir citas</span></a></li>
 
                               <li>
                                   <div class="divider"></div>
                               </li>
                               <li><a class="subheader">Cuenta</a></li>
-                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="Red-text">Salir</span></a></li>
+                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">directions_walk</i><span class="Red-text">Salir</span></a></li>
 
                           </ul>
                       </div>
@@ -103,15 +103,15 @@
                       </div>
                   </li>
                   <li><a class="subheader">Citas</a></li>
-                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Ver Perfil</span></a></li>
-                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Ver Citas</span></a></li>
-                  <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons left">cloud</i><span class="blue-text">Imprimir citas</span></a></li>
+                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">person</i><span class="blue-text">Ver Perfil</span></a></li>
+                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
+                  <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons md-24 left">local_printshop</i><span class="blue-text">Imprimir citas</span></a></li>
 
                   <li>
                       <div class="divider"></div>
                   </li>
                   <li><a class="subheader">Cuenta</a></li>
-                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="Red-text">Salir</span></a></li>
+                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left red-text">directions_walk</i><span class="Red-text">Salir</span></a></li>
 
               </ul>
           </div>
@@ -121,7 +121,8 @@
               <main id="main-admin-medico">
 
                   <div class="row">
-                      <div class="col s12 12">
+
+                      <div class="col s12">
                           <?php
                             //Peticiones CRUD (puede mejorar)
                             $object = new Connection();
@@ -157,22 +158,22 @@
                                   <?php
                                     foreach ($data as $cita) {
                                         ?>
-                                      <tr>
-                                          <td id="id"><?php echo $cita['idCita'] ?></td>
-                                          <td><?php echo $cita['nombre'] ?></td>
-                                          <td><?php echo $cita['paterno'] ?></td>
-                                          <td><?php echo $cita['materno'] ?></td>
-                                          <!--New-->
-                                          <td><?php echo $cita['email'] ?></td>
-                                          <td><?php echo $cita['telefono'] ?></td>
-                                          <td><?php echo $cita['tratamiento'] ?></td>
-                                          <td><?php echo $cita['fecha'] ?></td>
-                                          <!--New-->
-                                          <td><?php echo $cita['hora'] ?></td>
-                                          <!--New-->
-                                          <td><?php echo $cita['mensaje'] ?></td>
-                                          <td style="display:inline-flex"></td>
-                                      </tr>
+                                  <tr>
+                                      <td id="id"><?php echo $cita['idCita'] ?></td>
+                                      <td><?php echo $cita['nombre'] ?></td>
+                                      <td><?php echo $cita['paterno'] ?></td>
+                                      <td><?php echo $cita['materno'] ?></td>
+                                      <!--New-->
+                                      <td><?php echo $cita['email'] ?></td>
+                                      <td><?php echo $cita['telefono'] ?></td>
+                                      <td><?php echo $cita['tratamiento'] ?></td>
+                                      <td><?php echo $cita['fecha'] ?></td>
+                                      <!--New-->
+                                      <td><?php echo $cita['hora'] ?></td>
+                                      <!--New-->
+                                      <td><?php echo $cita['mensaje'] ?></td>
+                                      <td style="display:inline-flex"></td>
+                                  </tr>
                                   <?php } ?>
                               </tbody>
                           </table>
@@ -202,6 +203,7 @@
                       <br>
                       <br>
                       <br>
+                  </div>
               </main>
               <!--FIN DEL CUERPO-->
           </div>
@@ -246,7 +248,7 @@
                       </div>
                       <div class="input-field col s12 l6">
                           <input type="email" id="email-2" class="validate" name="email" required>
-                          <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
+                          <label for="email-2" data-error="Correo Inválido" data-success="Correcto">Email</label>
                       </div>
 
                       <div class="input-field col s12 l6">
@@ -310,7 +312,7 @@
                       </div>
                       <div class="input-field col s12 l6">
                           <input type="email" id="email-2" class="validate" name="email" required>
-                          <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
+                          <label for="email-2" data-error="Correo Inválido" data-success="Correcto">Email</label>
                       </div>
 
                       <div class="input-field col s12 l6">

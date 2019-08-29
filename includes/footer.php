@@ -1,6 +1,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="<?php echo $path_js; ?>jquery.parallaxer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="<?php echo $path_js; ?>jquery.matchHeight.js" type="text/javascript"></script>
   <script src="<?php echo $path_js; ?>validin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
@@ -377,7 +378,7 @@
           //Envia el tamaño obtenido al sidenav
           if ((visibleBottom - visibleTop) > 500) {
               $('#sidenav-navegation').stop().animate({
-                  height: (visibleBottom - visibleTop) - 64
+                  height: (visibleBottom - visibleTop)
               }, 200)
           } else {
               $('#sidenav-navegation').stop().animate({

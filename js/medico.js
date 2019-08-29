@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //Inicializacion de la tabla
     TableCitas = $('#tableCitas').DataTable({
         "columnDefs":[{
             "targets":-1,
@@ -7,6 +8,13 @@ $(document).ready(function(){
             "<a href='#formulario-cita-container' data-target='modal1' class='btnEdit modal-trigger btn deep-purple darken-1 waves-effect waves light' type='submit' name='action'><!--Actualizar--> <i class='material-icons right'>update</i></a><button' class='btnDelete red darken-1 btn waves-effect waves-light' type = 'submit' name='action'><!--Elimnar--> <i class='material-icons right'>delete</i></button>"
         }]
     });
+
+    //ajustando el tamaño de la tabla al ancho del contenedor
+    var table = $('#tableCitas').DataTable();
+
+    $('#container').css( 'display', 'block' );
+    table.columns.adjust().draw();
+
 });
 
 var rowTableCita;
@@ -56,12 +64,21 @@ $(document).on("click", ".btnEdit", function () {  //Corregir los campos del for
     $(".timepicker").val(hora);
     $("textarea[id=mensaje]").val(mensaje);
     opcionOperacion = 2;
+    //fix sobreexposicion on forms values
+    $("label[for='nombre']").addClass('active');
+    $("label[for='paterno']").addClass('active');
+    $("label[for='materno']").addClass('active');
+    $("label[for='email-2']").addClass('active');
+    $("label[for='telefono']").addClass('active');
+    $("label[for='mensaje']").addClass('active');
+    $("label[for='fecha']").addClass('active');
+    $("label[for='hora']").addClass('active');
+
 });
 $(document).on("click", ".btnDelete", function () {
     rowTableCita = $(this);
     //id = parseInt(rowTableCita.find('td:eq(0)').text);
     var id = parseInt( $(this).closest('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').text() );
-    //console.log(id);
     var opcionOperacion = 3;
     $.ajax({
         url: "./server/operations/crud.php",
@@ -73,7 +90,6 @@ $(document).on("click", ".btnDelete", function () {
             id:id
         },
         success: function (data, textStatus, jqXHR) {
-            console.log(data);
             TableCitas.row(rowTableCita.parents('tr')).remove().draw();
         },
         error: function (data, textStatus, errorThrown) {
@@ -138,6 +154,7 @@ $('#formulario-cita-form-new').submit(
 
 $('#formulario-cita-form-update').submit(
     function (e) {
+
         e.preventDefault();
         let id = parseInt(rowTableCita.find('td:eq(0)').text());
         let nombre = $.trim($('#formulario-cita-form-update').find('#nombre').val());
@@ -153,7 +170,6 @@ $('#formulario-cita-form-update').submit(
         console.log(id+ " " + nombre + " " + paterno +
             " " + materno + " " + email + " " + telefono + " " + tratamiento + " "
             + fecha + " " + hora + " " + mensaje);
-
         $.ajax({
             url: "./server/operations/crud.php",
             type: "POST",
@@ -174,12 +190,16 @@ $('#formulario-cita-form-update').submit(
 
             },
             success: function (data, textStatus, jqXHR) {
-                
+                //Cierra el modal
+                $('#formulario-cita-container').modal('close');
+                //refresca los renglones
+                var nuevosDatos = [data[0].idCita, data[0].nombre, data[0].paterno, data[0].materno, data[0].email, data[0].telefono, data[0].tratamiento, data[0].fecha, data[0].hora, data[0].mensaje ];
+                TableCitas.row(rowTableCita).data(nuevosDatos).draw();
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
             }
         });
-
     }
 );
+

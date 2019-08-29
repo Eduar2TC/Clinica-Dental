@@ -92,7 +92,7 @@ switch($opcionOperacion){
                     //cambiar a la variable de instancia de la peticion principal
                     $query = "SELECT idCita, 
                              nombre, 
-                             paterno
+                             paterno,
                              materno,
                              email,
                              telefono,
@@ -106,7 +106,7 @@ switch($opcionOperacion){
    
                 }
                 else{
-                    echo "algo paso shit";
+                    echo "Error: algo paso";
                 }
             } catch (Exception $e) {
                 echo $e->getMessage();

@@ -4,7 +4,9 @@ footer,
 section {
     overflow: auto;
 }
-
+body > .row{
+    margin-bottom: 64px; /*Corrige el problema del desbordamiento del sidenav flotante*/
+}
 #sidenav-overlay{
     z-index: 1;
 }
@@ -16,6 +18,20 @@ a.brand-logo img{
     top: 64px;
     height: auto;
 }
+#tableCitas {
+        width: 100% !important;
+    }
 /*select{
         display: inline-block !important;
 }*/
+
+/*Añade scroll a la tabla del crud*/
+#main-admin-medico > .row{
+    overflow-x: scroll;
+}
+
+ /* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }

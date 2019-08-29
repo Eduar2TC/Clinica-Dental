@@ -539,11 +539,11 @@ require_once("includes/header.php"); // Solicitud del header
           <div class="input-field col s12 l6" required>
             <select name="opciones-tratamientos" id="opciones-tratamientos">
               <option value="disabled selected">Selecciona un Tratamiento</option>
-              <option value="1">Ortodoncia</option>
-              <option value="2">Periodoncia</option>
-              <option value="3">Endodoncia</option>
-              <option value="4">Cirujía Dental</option>
-              <option value="5">Estética Dental</option>
+              <option value="Ortodoncia">Ortodoncia</option>
+              <option value="Peridoncia">Periodoncia</option>
+              <option value="Endodoncia">Endodoncia</option>
+              <option value="Cirujía dental">Cirujía Dental</option>
+              <option value="Estética dental">Estética Dental</option>
             </select>
             <label>Opciones de tratamientos</label>
           </div>
@@ -563,7 +563,7 @@ require_once("includes/header.php"); // Solicitud del header
             <label for="mensaje">Escribenos un Mensaje</label>
           </div>
           <input type="hidden" name="action" value="submit" />
-          <button class="btn waves-effect waves-light blue" type="submit" >Enviar
+          <button class="btn waves-effect waves-light blue" type="submit">Enviar
             <i class="material-icons right">send</i>
           </button>
           <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->
