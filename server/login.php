@@ -59,7 +59,7 @@ class Main{
                 $password = mysqli_real_escape_string($conexion, $_POST['password']);
                 $newUser = new Login($email, $password);
                 
-                if($newUser->searchUser($email, $password) === TRUE){
+                if($newUser->searchUser($email, $password) === TRUE){  //Shittttttttttttttttttttttttt
                    echo '¡Bienvenido!';
                    session_start();
                    $_SESSION['login'] = 'success';

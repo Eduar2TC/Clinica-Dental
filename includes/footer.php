@@ -1,16 +1,29 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="<?php echo $path_js; ?>jquery.parallaxer.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="<?php echo $path_js; ?>jquery.matchHeight.js" type="text/javascript"></script>
   <script src="<?php echo $path_js; ?>validin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-  <script src="js/medico.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.8.5/dist/sweetalert2.all.min.js" integrity="sha256-m7hW8Yyirje5pHkEHOZDzM2r8gscxT0nxPDY7rtJwGE=" crossorigin="anonymous"></script>
   <script src="http://www.google.com/recaptcha/api.js"></script>
+  <script src="
+                                <?php
+                                if (isset($status_page)) {
+
+                                    switch ((string) $status_page) {
+                                        case 'medico': {
+                                                echo "./js/" . $status_page . ".js";
+                                            }
+                                    }
+                                }
+                                ?>
+        ">
+    </script>
+
   <script>
-      /*Funciones que se ejecutan despues de cargar todos los componentes de ka página */
+
+      /*Funciones que se ejecutan despues de cargar todos los componentes de la página */
       $("document").ready(function() {
           /**->Inicio: index.php**/
           //Inicializa sidennav
@@ -366,26 +379,7 @@
           });
 
       });
-      //Cambia el tamaño dinamicamente el sidenav
-      $(window).on('scroll', function() {
-          var $el = $('#main-admin-medico'),
-              scrollTop = $(this).scrollTop(),
-              scrollBot = scrollTop + $(this).height(),
-              elTop = $el.offset().top,
-              elBottom = elTop + $el.outerHeight(),
-              visibleTop = elTop < scrollTop ? scrollTop : elTop,
-              visibleBottom = elBottom > scrollBot ? scrollBot : elBottom;
-          //Envia el tamaño obtenido al sidenav
-          if ((visibleBottom - visibleTop) > 500) {
-              $('#sidenav-navegation').stop().animate({
-                  height: (visibleBottom - visibleTop)
-              }, 200)
-          } else {
-              $('#sidenav-navegation').stop().animate({
-                  height: visibleBottom - visibleTop
-              }, 200)
-          }
-      });
+
       /*Funciones externes no es necesario esperar que la pagina cargue*/
       /**Inicio: index.php**/
       /**Fin: index.php**/

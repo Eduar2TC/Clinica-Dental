@@ -5,8 +5,34 @@ $(document).ready(function(){
             "targets":-1,
             "data":null,
             "defaultContent":
-            "<a href='#formulario-cita-container' data-target='modal1' class='btnEdit modal-trigger btn deep-purple darken-1 waves-effect waves light' type='submit' name='action'><!--Actualizar--> <i class='material-icons right'>update</i></a><button' class='btnDelete red darken-1 btn waves-effect waves-light' type = 'submit' name='action'><!--Elimnar--> <i class='material-icons right'>delete</i></button>"
-        }]
+            "<a href='#formulario-cita-container' data-target='modal1' class='btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light' type='submit' name='action'><!--Actualizar--> <i class='material-icons right'>mode_edit</i></a><button' class='btnDelete btn-floating red waves-effect waves-light' type = 'submit' name='action'><!--Elimnar--> <i class='material-icons right'>delete</i></button>"
+        }],
+        //set lenguaje datatables
+        "language": {
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst": "Primero",
+                "sLast": "Último",
+                "sNext": "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+
     });
 
     //ajustando el tamaño de la tabla al ancho del contenedor
@@ -14,6 +40,27 @@ $(document).ready(function(){
 
     $('#container').css( 'display', 'block' );
     table.columns.adjust().draw();
+
+    //Cambia el tamaño dinamicamente el tamaño de la altura del sidenav de la sección medicos
+    $(window).on('scroll', function () {
+        var $el = $('#main-admin-medico'),
+            scrollTop = $(this).scrollTop(),
+            scrollBot = scrollTop + $(this).height(),
+            elTop = $el.offset().top,
+            elBottom = elTop + $el.outerHeight(),
+            visibleTop = elTop < scrollTop ? scrollTop : elTop,
+            visibleBottom = elBottom > scrollBot ? scrollBot : elBottom;
+        //Envia el tamaño obtenido al sidenav
+        if ((visibleBottom - visibleTop) > 500) {
+            $('#sidenav-navegation').stop().animate({
+                height: (visibleBottom - visibleTop)
+            }, 200)
+        } else {
+            $('#sidenav-navegation').stop().animate({
+                height: visibleBottom - visibleTop
+            }, 200);
+        }
+    });
 
 });
 
@@ -80,20 +127,42 @@ $(document).on("click", ".btnDelete", function () {
     //id = parseInt(rowTableCita.find('td:eq(0)').text);
     var id = parseInt( $(this).closest('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').text() );
     var opcionOperacion = 3;
-    $.ajax({
-        url: "./server/operations/crud.php",
-        type:"POST",
-        //contentType: 'application/json; charset=utf-8',
-        //dataType: 'json',
-        data:{
-            opcionOperacion: opcionOperacion,
-            id:id
-        },
-        success: function (data, textStatus, jqXHR) {
-            TableCitas.row(rowTableCita.parents('tr')).remove().draw();
-        },
-        error: function (data, textStatus, errorThrown) {
-            console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
+
+    //Alert controller
+    Swal.fire({
+        title: 'Esta seguro de hacer esto?',
+        text: "No puedes revertir esto!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Eliminar cita!',
+        cancelButtonText: "No, cancelar!",
+
+    }).then((result) => {  //The user accept delete la cita
+        if (result.value) {
+            //send ajax elimination
+            $.ajax({
+                url: "./server/operations/crud.php",
+                type: "POST",
+                //contentType: 'application/json; charset=utf-8',
+                //dataType: 'json',
+                data: {
+                    opcionOperacion: opcionOperacion,
+                    id: id
+                },
+                success: function (data, textStatus, jqXHR) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'La Cita fué eliminada.',
+                        'success'
+                    );
+                    TableCitas.row(rowTableCita.parents('tr')).remove().draw();
+                },
+                error: function (data, textStatus, errorThrown) {
+                    console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
+                }
+            });
         }
     });
 });

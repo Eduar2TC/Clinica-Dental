@@ -3,7 +3,7 @@
     $path_logo = "img/";
     $path_css = "css/";
     $path_js = "js/";
-    $status_page = "medicos";
+    $status_page = "medico";
     require_once("includes/header.php"); // Solicitud del header
     require_once("server/operations/database-conection.php");
     require_once("server/operations/crud-conection.php");
@@ -73,6 +73,7 @@
                               <li><a class="subheader">Citas</a></li>
                               <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">person</i><span class="blue-text">Ver Perfil</span></a></li>
                               <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
+                              <li><a data-target="modal1" id="new" class="waves-effect waves-yellow modal-trigger" href="#formulario-cita"><i class="material-icons md-24 left">add</i><span class="blue-text">Añadir Cita</span></a></li>
                               <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons left">local_printshop</i><span class="blue-text">Imprimir citas</span></a></li>
 
                               <li>
@@ -105,6 +106,7 @@
                   <li><a class="subheader">Citas</a></li>
                   <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">person</i><span class="blue-text">Ver Perfil</span></a></li>
                   <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
+                  <li><a data-target="modal1" id="new" class="waves-effect waves-yellow modal-trigger" href="#formulario-cita"><i class="material-icons md-24 left">add</i><span class="blue-text">Añadir Cita</span></a></li>
                   <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons md-24 left">local_printshop</i><span class="blue-text">Imprimir citas</span></a></li>
 
                   <li>
@@ -133,9 +135,6 @@
                             $data = $result3->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                           <!--Contenido del modal tabla-->
-                          <!---Boton Nueva cita-->
-                          <a data-target="modal1" id="new" class="waves-effect waves-light btn modal-trigger" href="#formulario-cita"> Nueva cita<li class="material-icons rigth">add</li></a>
-                          <br><br>
                           <!--Jalando los datos desde la base de datos--->
                           <table id="tableCitas" class="centered">
                               <thead>
@@ -158,22 +157,22 @@
                                   <?php
                                     foreach ($data as $cita) {
                                         ?>
-                                  <tr>
-                                      <td id="id"><?php echo $cita['idCita'] ?></td>
-                                      <td><?php echo $cita['nombre'] ?></td>
-                                      <td><?php echo $cita['paterno'] ?></td>
-                                      <td><?php echo $cita['materno'] ?></td>
-                                      <!--New-->
-                                      <td><?php echo $cita['email'] ?></td>
-                                      <td><?php echo $cita['telefono'] ?></td>
-                                      <td><?php echo $cita['tratamiento'] ?></td>
-                                      <td><?php echo $cita['fecha'] ?></td>
-                                      <!--New-->
-                                      <td><?php echo $cita['hora'] ?></td>
-                                      <!--New-->
-                                      <td><?php echo $cita['mensaje'] ?></td>
-                                      <td style="display:inline-flex"></td>
-                                  </tr>
+                                      <tr>
+                                          <td id="id"><?php echo $cita['idCita'] ?></td>
+                                          <td><?php echo $cita['nombre'] ?></td>
+                                          <td><?php echo $cita['paterno'] ?></td>
+                                          <td><?php echo $cita['materno'] ?></td>
+                                          <!--New-->
+                                          <td><?php echo $cita['email'] ?></td>
+                                          <td><?php echo $cita['telefono'] ?></td>
+                                          <td><?php echo $cita['tratamiento'] ?></td>
+                                          <td><?php echo $cita['fecha'] ?></td>
+                                          <!--New-->
+                                          <td><?php echo $cita['hora'] ?></td>
+                                          <!--New-->
+                                          <td><?php echo $cita['mensaje'] ?></td>
+                                          <td style="display:inline-flex"></td>
+                                      </tr>
                                   <?php } ?>
                               </tbody>
                           </table>

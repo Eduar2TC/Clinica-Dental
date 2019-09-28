@@ -4,6 +4,10 @@ footer,
 section {
     overflow: auto;
 }
+header > .container > .row{
+    margin-top: 1%;
+    margin-bottom: 0%;
+}
 /*--Inicio pagina Principal--*/
 /*(Principal) Tarjetas de ofertas*/
 .renglon1 >.col > .card-panel{
