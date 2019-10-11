@@ -155,6 +155,7 @@
                               </thead>
                               <tbody>
                                   <?php
+                                   $contador = 0;  // id row counter
                                     foreach ($data as $cita) {
                                         ?>
                                       <tr>
@@ -171,9 +172,12 @@
                                           <td><?php echo $cita['hora'] ?></td>
                                           <!--New-->
                                           <td><?php echo $cita['mensaje'] ?></td>
-                                          <td style="display:inline-flex"></td>
+                                          <!--Operacion -->
+                                          <td <?php echo "id = operacion_$contador" ?> style="display:inline-flex"></td>
                                       </tr>
-                                  <?php } ?>
+                                  <?php
+                                  $contador++; 
+                                    } ?>
                               </tbody>
                           </table>
                       </div>

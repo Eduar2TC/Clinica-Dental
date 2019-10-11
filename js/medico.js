@@ -5,7 +5,22 @@ $(document).ready(function(){
             "targets":-1,
             "data":null,
             "defaultContent":
-            "<a href='#formulario-cita-container' data-target='modal1' class='btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light' type='submit' name='action'><!--Actualizar--> <i class='material-icons right'>mode_edit</i></a><button' class='btnDelete btn-floating red waves-effect waves-light' type = 'submit' name='action'><!--Elimnar--> <i class='material-icons right'>delete</i></button>"
+            "<!--Marcar Cita Atendida-->" +
+            "<button class = 'btnMark btn-floating green waves-effect-light' type = 'submit' name = 'actionMark'>" +
+                "<i class='material-icons right'>alarm</i>" +
+            "</button>" +
+            "<!--Actualizar-->" +
+            "<a href='#formulario-cita-container'" +
+                "data-target='modal1'" +
+                "class='btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light'"+
+                "type='submit'" +
+                "name='actionUpdate'>" +
+                "<i class='material-icons right'>mode_edit</i>" +
+            "</a>" +
+            "<!--Elimnar-->" + 
+            "<button' class='btnDelete btn-floating red waves-effect waves-light' type = 'submit' name='actionDelete'>" +
+            "<i class='material-icons right'>delete</i>" +
+            "</button>"
         }],
         //set lenguaje datatables
         "language": {
@@ -37,7 +52,6 @@ $(document).ready(function(){
 
     //ajustando el tamaño de la tabla al ancho del contenedor
     var table = $('#tableCitas').DataTable();
-
     $('#container').css( 'display', 'block' );
     table.columns.adjust().draw();
 
@@ -59,6 +73,19 @@ $(document).ready(function(){
             $('#sidenav-navegation').stop().animate({
                 height: visibleBottom - visibleTop
             }, 200);
+        }
+    });
+
+    // On load table this select or unselect row
+    var table = $('#tableCitas').DataTable();
+
+    $('#tableCitas tbody').on('click', 'tr', function () {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
         }
     });
 
@@ -89,6 +116,7 @@ $(document).on("click", "#new", function(){
         opcionOperacion = 1;
     }
 );
+//Editar-Actualizar datos
 $(document).on("click", ".btnEdit", function () {  //Corregir los campos del formulario del modal!!!!
     rowTableCita = $(this).closest("tr");
     id = parseInt(rowTableCita.find('td:eq(0)').text());
@@ -122,6 +150,7 @@ $(document).on("click", ".btnEdit", function () {  //Corregir los campos del for
     $("label[for='hora']").addClass('active');
 
 });
+//Eliminar datos
 $(document).on("click", ".btnDelete", function () {
     rowTableCita = $(this);
     //id = parseInt(rowTableCita.find('td:eq(0)').text);
@@ -130,7 +159,7 @@ $(document).on("click", ".btnDelete", function () {
 
     //Alert controller
     Swal.fire({
-        title: 'Esta seguro de hacer esto?',
+        title: '¿Eliminar Cita?',
         text: "No puedes revertir esto!",
         type: 'warning',
         showCancelButton: true,
@@ -166,7 +195,30 @@ $(document).on("click", ".btnDelete", function () {
         }
     });
 });
+//Marcar cita atendida
+var citaAtendida = false;   // centinela
+$(document).on("click", ".btnMark", function (){
+    rowTableCita = $(this).closest("tr");  ///          SELECCIONA EL RENGLÓN ACTUAL!!!!! 
+    var parent_id = $(this).parent().attr('id');  // Parent (father) selection 
+    //La cita no há sido atendida
+    if(citaAtendida === false){
+        //rowTableCita.removeClass("red darken-3").addClass("green darken-3");
+        $('#' + parent_id + '> button').removeClass("green").addClass("orange");  //set color icon
+        $('#'+parent_id+'> .btnMark i').text('done');  //set icon when acces to child i (icon ) from id
+        citaAtendida = true;
+        
 
+    }
+    //La cita fué atendida
+    else if(citaAtendida === true){
+        //rowTableCita.removeClass("green darken-3").addClass("red darken-3");
+        $('#' + parent_id + '> button').removeClass("orange").addClass("green");  //set color icon
+        $('#' + parent_id + '> .btnMark i').text('alarm');  //set icon when acces to child i (icon ) from id
+        citaAtendida = false;
+    }
+
+});
+//Agregar nuevos datos 
 $('#formulario-cita-form-new').submit(
     function(e){
         e.preventDefault();
@@ -220,7 +272,7 @@ $('#formulario-cita-form-new').submit(
 
     }
 );
-
+//Formulario de Actualización
 $('#formulario-cita-form-update').submit(
     function (e) {
 
