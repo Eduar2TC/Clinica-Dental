@@ -32,16 +32,25 @@
     <!--Tables.net -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="<?php echo $path_css; ?>precios.css">
-    <link rel="stylesheet" href="
                                 <?php
                                 if (isset($status_page)) {
 
                                     switch ((string)$status_page) {
                                         case 'signup': {
-                                                echo "../css/" . $status_page . ".css";
+                                                //echo "../css/" . $status_page . ".css";
+                                                echo '<link rel="stylesheet" href="' . "../css/".$status_page . '.css">';
                                             }
+                                        case 'medico':{
+                                            //Styles this page
+                                            //echo '<link rel="stylesheet" href="' . "../css/" . $status_page . 's.css">';
+                                            echo "\n";
+                                            //Calendary
+                                            //echo '<link rel="stylesheet href='.'"https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.1/fullcalendar.min.css"';
+                                            echo "<link rel='stylesheet' href='css/fullcalendar.min.css' />";  
+                                            echo "\n";
+                                            echo "<link rel='stylesheet' media='print'  href='css/fullcalendar.print.min.css' />";  
+                                        }
                                     }
                                 }
                                 ?>
-        ">
 </head>

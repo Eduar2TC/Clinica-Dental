@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<body>
+ <div class="row">
+     <div class="col s12">
+        <div id="calendar"></div>
+     </div>
+ </div>
+</body>
+
+<script>
+        //Manipulacion de la sección del calendario
+        var calendario = $("#calendar").fullCalendar({
+            header: {
+                language: 'es',
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: true,
+            events: 'load.php',
+            eventColor: '#378006',
+            backgroundColor: "#01b6df",
+            timeFormat: "HH:mm",
+            selectable: true,
+            selectHelper: true,
+            displayEventTime: true,
+
+        });
+</script>
+</html>

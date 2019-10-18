@@ -7,22 +7,26 @@
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.8.5/dist/sweetalert2.all.min.js" integrity="sha256-m7hW8Yyirje5pHkEHOZDzM2r8gscxT0nxPDY7rtJwGE=" crossorigin="anonymous"></script>
   <script src="http://www.google.com/recaptcha/api.js"></script>
-  <script src="
                                 <?php
                                 if (isset($status_page)) {
 
                                     switch ((string) $status_page) {
                                         case 'medico': {
-                                                echo "./js/" . $status_page . ".js";
+                                                echo '<script src="./js/'. "$status_page.js\"". '></script>';
+                                                echo "\n";
+                                                echo '<script src = "./js/lib/moment.min.js"> '. '</script>';
+                                                echo "\n";
+                                                echo '<script src = "./js/fullcalendar.min.js">'.'</script>';
+                                                echo "\n";
+                                                echo '<script src = "./js/gcal.min.js">' . '</script>';
+                                                echo "\n";
+                                                echo '<script src = "./js/locale/es.js">' . '</script>';
                                             }
                                     }
                                 }
                                 ?>
-        ">
-    </script>
 
   <script>
-
       /*Funciones que se ejecutan despues de cargar todos los componentes de la página */
       $("document").ready(function() {
           /**->Inicio: index.php**/
@@ -136,7 +140,7 @@
               cleartext: 'Limpiar',
               autoclose: false,
               vibrate: true, // vibrate the device when dragging clock hand
-              ampmclickable: true
+              ampmclickable: false
 
           });
           /**->Fin: index.php **/

@@ -12,8 +12,9 @@ $fecha = (isset($_POST['fecha'])) ? $_POST['fecha'] : '';
 $hora = (isset($_POST['hora'])) ? $_POST['hora'] : '';
 $mensaje = (isset($_POST['mensaje'])) ? $_POST['mensaje'] : '';
 $opcionOperacion = (isset($_POST['opcionOperacion'])) ? $_POST['opcionOperacion'] : '';
-$id =(isset($_POST['id'])) ? $_POST['id'] : '';
-$data ='';
+$id = (isset($_POST['id'])) ? $_POST['id'] : '';
+$estadoCita = (isset($_POST['estadoCita'])) ? $_POST['estadoCita'] : '';
+$data =''; //JSON format return
 switch($opcionOperacion){
     case 1: {
             $query = "INSERT INTO cita(nombre, 
@@ -88,7 +89,7 @@ switch($opcionOperacion){
                     $id
                 ]);
 
-                if($resultado){
+                if($resultado){  //UPDATE SUCESS
                     //cambiar a la variable de instancia de la peticion principal
                     $query = "SELECT idCita, 
                              nombre, 
@@ -102,8 +103,7 @@ switch($opcionOperacion){
                              mensaje FROM cita WHERE idCita = '$id'";
                     $resultado = $connection->prepare($query);
                     $resultado->execute();
-                    $GLOBALS['data'] = $resultado->fetchAll(PDO::FETCH_ASSOC);
-   
+                    $GLOBALS['data'] = $resultado->fetchAll(PDO::FETCH_ASSOC);   
                 }
                 else{
                     echo "Error: algo paso";
@@ -133,6 +133,20 @@ switch($opcionOperacion){
             $resultado->execute();
             //print json_encode($data, JSON_UNESCAPED_UNICODE);
         break;
+    }
+    //Mark cita atendida
+    case 4:{
+        $data = [
+            'estadoCita' => $estadoCita,
+                    'id' => $id
+        ];
+        try{
+            $sql = "UPDATE cita SET estadoCita=:estadoCita WHERE idCita=:id";
+            $resultado = $connection->prepare($sql);
+            $resultado->execute($data);
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
     }
 }
 print json_encode($data, JSON_UNESCAPED_UNICODE);

@@ -1,12 +1,13 @@
 $(document).ready(function(){
     //Inicializacion de la tabla
     TableCitas = $('#tableCitas').DataTable({
+        "autoWidth": true,
         "columnDefs":[{
             "targets":-1,
             "data":null,
             "defaultContent":
             "<!--Marcar Cita Atendida-->" +
-            "<button class = 'btnMark btn-floating green waves-effect-light' type = 'submit' name = 'actionMark'>" +
+            "<button class = 'btnMark btn-floating orange waves-effect-light' type = 'submit' name = 'actionMark'>" +
                 "<i class='material-icons right'>alarm</i>" +
             "</button>" +
             "<!--Actualizar-->" +
@@ -54,7 +55,6 @@ $(document).ready(function(){
     var table = $('#tableCitas').DataTable();
     $('#container').css( 'display', 'block' );
     table.columns.adjust().draw();
-
     //Cambia el tamaño dinamicamente el tamaño de la altura del sidenav de la sección medicos
     $(window).on('scroll', function () {
         var $el = $('#main-admin-medico'),
@@ -88,6 +88,13 @@ $(document).ready(function(){
             $(this).addClass('selected');
         }
     });
+
+    //Sección de código que activa el cambio en la vista principal
+    $("#ver-citas").click(
+        function(){
+            $("#main-admin-medico").load("calendario.html");
+        }
+    );
 
 });
 
@@ -196,28 +203,68 @@ $(document).on("click", ".btnDelete", function () {
     });
 });
 //Marcar cita atendida
-var citaAtendida = false;   // centinela
+var citaAtendida = false;   // centinela false por defecto
 $(document).on("click", ".btnMark", function (){
+    //get id row    
+    var id = parseInt($(this).closest('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').text());
+    var opcionOperacion = 4; //operation mark cita
+    console.log(id);
     rowTableCita = $(this).closest("tr");  ///          SELECCIONA EL RENGLÓN ACTUAL!!!!! 
     var parent_id = $(this).parent().attr('id');  // Parent (father) selection 
-    //La cita no há sido atendida
+    //Si la cita no há sido atendida
     if(citaAtendida === false){
         //rowTableCita.removeClass("red darken-3").addClass("green darken-3");
-        $('#' + parent_id + '> button').removeClass("green").addClass("orange");  //set color icon
+        $('#' + parent_id + '> button').removeClass("orange").addClass("green");  //set color icon
         $('#'+parent_id+'> .btnMark i').text('done');  //set icon when acces to child i (icon ) from id
+        //Operations mark cita
+        $.ajax({
+            url: "./server/operations/crud.php",
+            type: "POST",
+            //contentType: 'application/json; charset=utf-8',
+            //dataType: 'json',
+            data: {
+                opcionOperacion: opcionOperacion,
+                id: id,
+                estadoCita: 1, //cita atendida
+            },
+            success: function (data, textStatus, jqXHR) {
+                Materialize.toast('Cita atendida!', 2000, 'green rounded');
+            },
+            error: function (data, textStatus, errorThrown) {
+                console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
+            }
+        });
         citaAtendida = true;
-        
-
     }
     //La cita fué atendida
     else if(citaAtendida === true){
         //rowTableCita.removeClass("green darken-3").addClass("red darken-3");
-        $('#' + parent_id + '> button').removeClass("orange").addClass("green");  //set color icon
+        $('#' + parent_id + '> button').removeClass("green").addClass("orange");  //set color icon
         $('#' + parent_id + '> .btnMark i').text('alarm');  //set icon when acces to child i (icon ) from id
+        //Operactions mark cita
+        $.ajax({
+            url: "./server/operations/crud.php",
+            type: "POST",
+            //contentType: 'application/json; charset=utf-8',
+            //dataType: 'json',
+            data: {
+                opcionOperacion: opcionOperacion,
+                id: id,
+                estadoCita: 0, //cita no atendida
+            },
+            success: function (data, textStatus, jqXHR) {
+                Materialize.toast('Cita pendiente', 3000, 'orange rounded')
+            },
+            error: function (data, textStatus, errorThrown) {
+                console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
+            }
+        });
+
         citaAtendida = false;
     }
 
 });
+
 //Agregar nuevos datos 
 $('#formulario-cita-form-new').submit(
     function(e){

@@ -105,7 +105,7 @@
                   </li>
                   <li><a class="subheader">Citas</a></li>
                   <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">person</i><span class="blue-text">Ver Perfil</span></a></li>
-                  <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
+                  <li id="ver-citas"><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
                   <li><a data-target="modal1" id="new" class="waves-effect waves-yellow modal-trigger" href="#formulario-cita"><i class="material-icons md-24 left">add</i><span class="blue-text">Añadir Cita</span></a></li>
                   <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons md-24 left">local_printshop</i><span class="blue-text">Imprimir citas</span></a></li>
 
@@ -119,7 +119,7 @@
           </div>
 
           <div class="col s12 m9 l9">
-              <!--INICIO CUERPO-->
+              <!--INICIO CUERPO PRINCIPAL DONDE SE MUESTRAN LOS DATOS-->
               <main id="main-admin-medico">
 
                   <div class="row">
@@ -155,7 +155,7 @@
                               </thead>
                               <tbody>
                                   <?php
-                                   $contador = 0;  // id row counter
+                                    $contador = 0;  // id row counter
                                     foreach ($data as $cita) {
                                         ?>
                                       <tr>
@@ -176,7 +176,7 @@
                                           <td <?php echo "id = operacion_$contador" ?> style="display:inline-flex"></td>
                                       </tr>
                                   <?php
-                                  $contador++; 
+                                        $contador++;
                                     } ?>
                               </tbody>
                           </table>
@@ -231,6 +231,7 @@
               </div>
           </div>
       </div> -->
+      <!--MODAL -->
       <!--Nueva cita -->
       <div id="formulario-cita" class="modal" style=" max-height: 100%;">
           <div class="container">
@@ -295,6 +296,7 @@
               </div>
           </div>
       </div>
+      <!--MODAL -->
       <!--modificar / Actualizar cita -->
       <div id="formulario-cita-container" class="modal" style=" max-height: 100%;">
           <div class="container">
@@ -359,7 +361,7 @@
               </div>
           </div>
       </div>
-
+      <!--- FOOTER -->
       <footer class="page-footer blue">
           <div class="container">
               <div class="row">
