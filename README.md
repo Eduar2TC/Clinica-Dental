@@ -1,5 +1,5 @@
 # Clinica
-Clinica odontológica (Web informativa)
+Clinica odontológica (Web informativa y gestión)
 
 Lenguajes: 
 
