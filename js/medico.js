@@ -1,9 +1,11 @@
 $(document).ready(function(){
+    console.log(parseInt($(this).attr(' estado'))); //get Value from the column "Operacion"
     //Inicializacion de la tabla
     TableCitas = $('#tableCitas').DataTable({
         "autoWidth": true,
+        /* Codigo que agrega una nueva columna con los iconos ( No de manera dinámica)
         "columnDefs":[{
-            "targets":-1,
+            "targets":10,
             "data":null,
             "defaultContent":
             "<!--Marcar Cita Atendida-->" +
@@ -22,7 +24,7 @@ $(document).ready(function(){
             "<button' class='btnDelete btn-floating red waves-effect waves-light' type = 'submit' name='actionDelete'>" +
             "<i class='material-icons right'>delete</i>" +
             "</button>"
-        }],
+        }],*/
         //set lenguaje datatables
         "language": {
             "sProcessing": "Procesando...",
@@ -50,7 +52,6 @@ $(document).ready(function(){
         }
 
     });
-
     //ajustando el tamaño de la tabla al ancho del contenedor
     var table = $('#tableCitas').DataTable();
     $('#container').css( 'display', 'block' );
@@ -202,20 +203,24 @@ $(document).on("click", ".btnDelete", function () {
         }
     });
 });
+//Initialize the buttons 
+function loadButtons(){
+    
+}
 //Marcar cita atendida
-var citaAtendida = false;   // centinela false por defecto
 $(document).on("click", ".btnMark", function (){
     //get id row    
     var id = parseInt($(this).closest('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').prev('td').text());
     var opcionOperacion = 4; //operation mark cita
     console.log(id);
     rowTableCita = $(this).closest("tr");  ///          SELECCIONA EL RENGLÓN ACTUAL!!!!! 
-    var parent_id = $(this).parent().attr('id');  // Parent (father) selection 
-    //Si la cita no há sido atendida
-    if(citaAtendida === false){
+    var parent_id = $(this).parent().attr('id');  // Parent (father) selection this tag atribute
+    var parent_id_estado = $(this).parent().attr('estado');
+    console.log(parent_id_estado);
+
+    //Si la cita há sido atendida
+    if(parent_id_estado === '0'){
         //rowTableCita.removeClass("red darken-3").addClass("green darken-3");
-        $('#' + parent_id + '> button').removeClass("orange").addClass("green");  //set color icon
-        $('#'+parent_id+'> .btnMark i').text('done');  //set icon when acces to child i (icon ) from id
         //Operations mark cita
         $.ajax({
             url: "./server/operations/crud.php",
@@ -228,19 +233,19 @@ $(document).on("click", ".btnMark", function (){
                 estadoCita: 1, //cita atendida
             },
             success: function (data, textStatus, jqXHR) {
+                $('#' + parent_id + '> .btnMark').removeClass("orange").addClass("green");  //set color icon
+                $('#' + parent_id + '> .btnMark i').text('done');  //set icon when acces to child i (icon ) from id
                 Materialize.toast('Cita atendida!', 2000, 'green rounded');
+                citaAtendida = false;
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
             }
         });
-        citaAtendida = true;
     }
-    //La cita fué atendida
-    else if(citaAtendida === true){
+    //La cita no fué atendida (POR DEFECTO)
+    else if(parent_id_estado === '1'){
         //rowTableCita.removeClass("green darken-3").addClass("red darken-3");
-        $('#' + parent_id + '> button').removeClass("green").addClass("orange");  //set color icon
-        $('#' + parent_id + '> .btnMark i').text('alarm');  //set icon when acces to child i (icon ) from id
         //Operactions mark cita
         $.ajax({
             url: "./server/operations/crud.php",
@@ -253,14 +258,16 @@ $(document).on("click", ".btnMark", function (){
                 estadoCita: 0, //cita no atendida
             },
             success: function (data, textStatus, jqXHR) {
-                Materialize.toast('Cita pendiente', 3000, 'orange rounded')
+                $('#' + parent_id + '> button').removeClass("green").addClass("orange");  //set color icon
+                $('#' + parent_id + '> .btnMark i').text('alarm');  //set icon when acces to child i (icon ) from id
+                Materialize.toast('Cita pendiente', 3000, 'orange rounded');
+                citaAtendida = true;
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
             }
         });
-
-        citaAtendida = false;
+        citaAtendida =false;
     }
 
 });

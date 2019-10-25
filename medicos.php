@@ -173,7 +173,32 @@
                                           <!--New-->
                                           <td><?php echo $cita['mensaje'] ?></td>
                                           <!--Operacion -->
-                                          <td <?php echo "id = operacion_$contador" ?> style="display:inline-flex"></td>
+                                          <td <?php echo 'id' . '=' . '"operacion_' . $contador . '"'; echo ' estado= "' . $cita['estado'] . '"'; ?> style="display:inline-flex">
+                                                    <?php
+                                                        if ($cita['estado'] === "0") {
+                                                        echo "<button class='btnMark btn-floating orange waves-effect-light' type='submit' name='actionMark'>
+                                                                <i class='material-icons right'>alarm</i>
+                                                            </button>";                                                           
+                                                        }
+                                                        else if($cita['estado'] === "1" ){
+                                                        echo "<button class='btnMark btn-floating green waves-effect-light' type='submit' name='actionMark'>
+                                                                <i class='material-icons right'>done</i>
+                                                            </button>";        
+                                                        }                                                 
+                                                    ?>
+                                             <!--Actualizar-->
+                                                <a href="#formulario-cita-container"
+                                                    data-target="modal1"
+                                                    class="btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light"+
+                                                    type="submit"
+                                                    name="actionUpdate">
+                                                    <i class='material-icons right'>mode_edit</i>
+                                                </a>
+                                            <!--Elimnar--> 
+                                                <button class="btnDelete btn-floating red waves-effect waves-light" type = "submit" name="actionDelete">
+                                                    <i class='material-icons right'>delete</i>
+                                                </button>
+                                          </td>
                                       </tr>
                                   <?php
                                         $contador++;
