@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    console.log(parseInt($(this).attr(' estado'))); //get Value from the column "Operacion"
     //Inicializacion de la tabla
     TableCitas = $('#tableCitas').DataTable({
         "autoWidth": true,
@@ -203,10 +202,7 @@ $(document).on("click", ".btnDelete", function () {
         }
     });
 });
-//Initialize the buttons 
-function loadButtons(){
-    
-}
+
 //Marcar cita atendida
 $(document).on("click", ".btnMark", function (){
     //get id row    
@@ -236,7 +232,7 @@ $(document).on("click", ".btnMark", function (){
                 $('#' + parent_id + '> .btnMark').removeClass("orange").addClass("green");  //set color icon
                 $('#' + parent_id + '> .btnMark i').text('done');  //set icon when acces to child i (icon ) from id
                 Materialize.toast('Cita atendida!', 2000, 'green rounded');
-                citaAtendida = false;
+                //$('#tableCitas').DataTable().ajax.reload(); //reload data on table
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
@@ -258,16 +254,15 @@ $(document).on("click", ".btnMark", function (){
                 estadoCita: 0, //cita no atendida
             },
             success: function (data, textStatus, jqXHR) {
-                $('#' + parent_id + '> button').removeClass("green").addClass("orange");  //set color icon
+                $('#' + parent_id + '> .btnMark').removeClass("green").addClass("orange");  //set color icon
                 $('#' + parent_id + '> .btnMark i').text('alarm');  //set icon when acces to child i (icon ) from id
                 Materialize.toast('Cita pendiente', 3000, 'orange rounded');
-                citaAtendida = true;
+                //$('#tableCitas').DataTable().ajax.reload(); //reload data on table
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
             }
         });
-        citaAtendida =false;
     }
 
 });

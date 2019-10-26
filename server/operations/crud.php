@@ -116,14 +116,14 @@ switch($opcionOperacion){
     case 3:{
             $query = "SELECT idCita, 
                              nombre, 
-                             paterno
+                             paterno,
                              materno,
                              email,
                              telefono,
                              tratamiento,
                              fecha,
                              hora,
-                             mensaje FROM cita WHERE id = '$id'";
+                             mensaje FROM cita WHERE idCita = '$id'";
             $resultado = $connection->prepare($query);
             $resultado->execute();
             $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -141,14 +141,37 @@ switch($opcionOperacion){
                     'id' => $id
         ];
         try{
-            $sql = "UPDATE cita SET estadoCita=:estadoCita WHERE idCita=:id";
+            //Update data on checking cita
+            $sql = "UPDATE cita SET estado=:estadoCita WHERE idCita=:id";
             $resultado = $connection->prepare($sql);
             $resultado->execute($data);
+                //return data JSON
+            if ($resultado) {  //UPDATE SUCESS
+                    $query = "SELECT 
+                        idCita, 
+                         nombre, 
+                         paterno,
+                         materno,
+                         email,
+                         telefono,
+                         tratamiento,
+                         fecha,
+                         hora,
+                         mensaje,
+                         estado FROM cita WHERE idCita = '$id'";
+                    $selectDataresult = $connection->prepare($query);
+                    $selectDataresult->execute();
+                    $GLOBALS['data'] = $selectDataresult->fetchAll(PDO::FETCH_ASSOC);
+                    //print json_encode($data, JSON_UNESCAPED_UNICODE);
+            }
+
         }catch(Exception $e){
             echo $e->getMessage();
         }
+        break;
     }
 }
-print json_encode($data, JSON_UNESCAPED_UNICODE);
+//print json_encode($data, JSON_UNESCAPED_UNICODE);
+print json_encode($data);
 $connection=null;
 ?>
