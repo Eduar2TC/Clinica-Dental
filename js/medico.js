@@ -2,12 +2,42 @@ $(document).ready(function(){
     //Inicializacion de la tabla
     TableCitas = $('#tableCitas').DataTable({
         "autoWidth": true,
-        /* Codigo que agrega una nueva columna con los iconos ( No de manera dinámica)
-        "columnDefs":[{
+        "aoColumns": [null, null, null, null, null, null, null, null, null, null, null],
+        "aaData": null,
+        "responsive": true,
+        //"ajax":"js/results.json",
+        //"dataSrc": '',
+        //"mDataProp": "",
+        //"serverSide": true,
+
+        // Codigo que agrega una nueva columna con los iconos ( No de manera dinámica)
+        "columnDefs": [
+            //Ancho de las celdas mensajes
+            { "width": "100%",
+             "targets": 9 },
+            {
             "targets":10,
-            "data":null,
-            "defaultContent":
-            "<!--Marcar Cita Atendida-->" +
+            "data":"",
+            "defaultContent": "",
+            /*"render": function (data, type, row) {
+                /*return "<!--Marcar Cita Atendida-->" +
+                    "<button class = 'btnMark btn-floating orange waves-effect-light' type = 'submit' name = 'actionMark'>" +
+                    "<i class='material-icons right'>alarm</i>" +
+                    "</button>" +
+                    "<!--Actualizar-->" +
+                    "<a href='#formulario-cita-container'" +
+                    "data-target='modal1'" +
+                    "class='btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light'" +
+                    "type='submit'" +
+                    "name='actionUpdate'>" +
+                    "<i class='material-icons right'>mode_edit</i>" +
+                    "</a>" +
+                    "<!--Elimnar-->" +
+                    "<button' class='btnDelete btn-floating red waves-effect waves-light' type = 'submit' name='actionDelete'>" +
+                    "<i class='material-icons right'>delete</i>" +
+                    "</button>";
+            },*/
+            /*"<!--Marcar Cita Atendida-->" +
             "<button class = 'btnMark btn-floating orange waves-effect-light' type = 'submit' name = 'actionMark'>" +
                 "<i class='material-icons right'>alarm</i>" +
             "</button>" +
@@ -22,8 +52,8 @@ $(document).ready(function(){
             "<!--Elimnar-->" + 
             "<button' class='btnDelete btn-floating red waves-effect waves-light' type = 'submit' name='actionDelete'>" +
             "<i class='material-icons right'>delete</i>" +
-            "</button>"
-        }],*/
+            "</button>"*/
+        }],
         //set lenguaje datatables
         "language": {
             "sProcessing": "Procesando...",
@@ -121,8 +151,8 @@ $(document).on("click", "#new", function(){
         $("hora").val(hora);
         $("mensaje").val(mensaje);
         opcionOperacion = 1;
-    }
-);
+});
+
 //Editar-Actualizar datos
 $(document).on("click", ".btnEdit", function () {  //Corregir los campos del formulario del modal!!!!
     rowTableCita = $(this).closest("tr");
@@ -218,6 +248,51 @@ $(document).on("click", ".btnMark", function (){
     if(parent_id_estado === '0'){
         //rowTableCita.removeClass("red darken-3").addClass("green darken-3");
         //Operations mark cita
+
+/*
+        var tabla = $('#tableCitas').DataTable({
+            processing: true,
+            serverSide: true,
+            //"destroy":true,
+            retrieve: true,
+            "ajax": {
+                "url": "./server/operations/crud.php?opcionOperacion=OpcionOperacion&id=id&estadoCita=1",
+                "type": "POST"
+            },
+            "columns": [
+                { "data": "idCita" },
+                { "data": "nombre" },
+                { "data": "paterno" },
+                { "data": "materno" },
+                { "data": "email" },
+                { "data": "telefono" },
+                { "data": "tratamiento" },
+                { "data": "fecha" },
+                { "data": "hora" },
+                { "data": "mensaje" },
+                {"defaultContent":
+                    "<!--Marcar Cita Atendida-->" +
+                    "<button class = 'btnMark btn-floating orange waves-effect-light' type = 'submit' name = 'actionMark'>" +
+                        "<i class='material-icons right'>alarm</i>" +
+                    "</button>" +
+                    "<!--Actualizar-->" +
+                    "<a href='#formulario-cita-container'" +
+                        "data-target='modal1'" +
+                        "class='btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light'"+
+                        "type='submit'" +
+                        "name='actionUpdate'>" +
+                        "<i class='material-icons right'>mode_edit</i>" +
+                    "</a>" +
+                    "<!--Elimnar-->" +
+                    "<button' class='btnDelete btn-floating red waves-effect waves-light' type = 'submit' name='actionDelete'>" +
+                    "<i class='material-icons right'>delete</i>" +
+                    "</button>"
+                }
+            ]
+        });
+        tabla.ajax.reload();
+        //$('#tableCitas').DataTable().clear().rows.add("results.json").draw();
+    */
         $.ajax({
             url: "./server/operations/crud.php",
             type: "POST",
@@ -231,8 +306,29 @@ $(document).on("click", ".btnMark", function (){
             success: function (data, textStatus, jqXHR) {
                 $('#' + parent_id + '> .btnMark').removeClass("orange").addClass("green");  //set color icon
                 $('#' + parent_id + '> .btnMark i').text('done');  //set icon when acces to child i (icon ) from id
+
+                data = JSON.parse(JSON.stringify(data));
+                $('#tableCitas').DataTable({
+                    destroy: true,
+                    //processing: true,
+                    //serverSide: true,
+                    retrieve: true,
+                    //ajax:'js/results.json',
+                    columns: [
+                        { title: "id" },
+                        { title: "Nombre" },
+                        { title: "Paterno" },
+                        { title: "Materno" },
+                        { title: "Email" },
+                        { title: "Telefono" },
+                        { title: "Tratamiento" },
+                        { title: "Fecha" },
+                        { title: "Hora" },
+                        { title: "Mensaje" },
+                        { title: "Operación" }
+                    ]
+                });
                 Materialize.toast('Cita atendida!', 2000, 'green rounded');
-                //$('#tableCitas').DataTable().ajax.reload(); //reload data on table
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
@@ -256,8 +352,30 @@ $(document).on("click", ".btnMark", function (){
             success: function (data, textStatus, jqXHR) {
                 $('#' + parent_id + '> .btnMark').removeClass("green").addClass("orange");  //set color icon
                 $('#' + parent_id + '> .btnMark i').text('alarm');  //set icon when acces to child i (icon ) from id
+                
+                data = JSON.parse(JSON.stringify(data));
+                //$('#tableCitas').DataTable().clear().destroy();
+                $('#tableCitas').DataTable({
+                    //destroy: true,
+                    //processing: true,
+                    //serverSide: true,
+                    retrieve: true,
+                    //ajax: 'js/results.json',
+                    columns: [
+                        { title: "id" },
+                        { title: "nombre" },
+                        { title: "paterno" },
+                        { title: "materno" },
+                        { title: "email" },
+                        { title: "telefono" },
+                        { title: "tratamiento"},
+                        { title: "fecha"},
+                        { title: "hora"},
+                        { title: "mensaje"},
+                        { title: "Operacion"}
+                    ]
+                });
                 Materialize.toast('Cita pendiente', 3000, 'orange rounded');
-                //$('#tableCitas').DataTable().ajax.reload(); //reload data on table
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
@@ -266,7 +384,20 @@ $(document).on("click", ".btnMark", function (){
     }
 
 });
+//Function for reload div of table
+$(document).on('click', '.btnMark', function(){
+    $.ajax({
+        url:'./medicos.php',
+        data:{
+            action:'initializa',
+            type:'post',
+            success: function(){
+                $("#tableCitas").load(location.href + " #tableCitas"); //reload div tableCotas
+            }
+        }
 
+    });
+});
 //Agregar nuevos datos 
 $('#formulario-cita-form-new').submit(
     function(e){

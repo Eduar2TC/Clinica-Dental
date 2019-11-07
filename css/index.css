@@ -47,6 +47,9 @@ header > .container > .row{
 .input-field input[type=email]:focus+label {
     color:rgb(47, 50, 255) !important;
 }
+i.material-icons.prefix.active{
+    color:blue;
+}
 /*Fin menu navegacion*/
 /*Fin del Header*/
 /*Inicio Cuerpo*/
@@ -134,4 +137,12 @@ header > .container > .row{
 	border-bottom-color: white;
 	border-width: 17px;
 	margin-left: 80px;
+}
+
+/*Size of font*/
+.contrasenia-olvidada{
+    font-size: 80%;
+}
+.contrasenia-olvidada a:hover{
+        text-decoration: underline;
 }

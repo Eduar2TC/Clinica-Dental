@@ -157,11 +157,12 @@ switch($opcionOperacion){
                          tratamiento,
                          fecha,
                          hora,
-                         mensaje,
-                         estado FROM cita WHERE idCita = '$id'";
+                         mensaje
+                        FROM cita /*WHERE idCita = '$id'*/";
                     $selectDataresult = $connection->prepare($query);
                     $selectDataresult->execute();
-                    $GLOBALS['data'] = $selectDataresult->fetchAll(PDO::FETCH_ASSOC);
+                    //$GLOBALS['data'] = $selectDataresult->fetchAll(PDO::FETCH_ASSOC);
+                    $arreglo = $selectDataresult->fetchAll(PDO::FETCH_ASSOC);
                     //print json_encode($data, JSON_UNESCAPED_UNICODE);
             }
 
@@ -172,6 +173,10 @@ switch($opcionOperacion){
     }
 }
 //print json_encode($data, JSON_UNESCAPED_UNICODE);
-print json_encode($data);
+header("content-type:application/json");
+print json_encode(array('data' => $arreglo), JSON_PRETTY_PRINT);
+$fp = fopen('../../js/results.json', 'w');
+fwrite($fp, json_encode(array('data' => $arreglo), JSON_PRETTY_PRINT));
+fclose($fp);
 $connection=null;
 ?>

@@ -126,13 +126,14 @@
 
                       <div class="col s12">
                           <?php
+                            /*
                             //Peticiones CRUD (puede mejorar)
                             $object = new Connection();
                             $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
                             $connection = $object->Connect();
                             $result3 = $connection->prepare($query2);
                             $result3->execute();
-                            $data = $result3->fetchAll(PDO::FETCH_ASSOC);
+                            $data = $result3->fetchAll(PDO::FETCH_ASSOC);*/
                             ?>
                           <!--Contenido del modal tabla-->
                           <!--Jalando los datos desde la base de datos--->
@@ -145,64 +146,95 @@
                                       <th>Materno</th>
                                       <!--New -->
                                       <th>Email</th>
-                                      <th>Telefono</th>
+                                      <th class="newWidthPhone">Telefono</th>
                                       <th>Tratamiento</th>
-                                      <th>Fecha</th>
+                                      <th class="newWidthDate">Fecha</th>
                                       <th>Hora</th>
-                                      <th>Mensaje</th>
+                                      <th class="newWidthCellMensaje">Mensaje</th>
                                       <th>Operación</th>
                                   </tr>
                               </thead>
                               <tbody>
                                   <?php
-                                    $contador = 0;  // id row counter
-                                    foreach ($data as $cita) {
+                                    $contador = 0;
+                                    $cita = '';
+                                    $idMedico = $GLOBALS['idMedico'];
+                                    //Peticiones CRUD (puede mejorar)
+                                    $object = new Connection();
+                                    $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
+                                    $connection = $object->Connect();
+                                    $result3 = $connection->prepare($query2);
+                                    $result3->execute();
+                                    $data = $result3->fetchAll(PDO::FETCH_ASSOC);
+                                    ?>
+
+                                  <?php
+                                    function initializa()
+                                    {
                                         ?>
-                                      <tr>
-                                          <td id="id"><?php echo $cita['idCita'] ?></td>
-                                          <td><?php echo $cita['nombre'] ?></td>
-                                          <td><?php echo $cita['paterno'] ?></td>
-                                          <td><?php echo $cita['materno'] ?></td>
-                                          <!--New-->
-                                          <td><?php echo $cita['email'] ?></td>
-                                          <td><?php echo $cita['telefono'] ?></td>
-                                          <td><?php echo $cita['tratamiento'] ?></td>
-                                          <td><?php echo $cita['fecha'] ?></td>
-                                          <!--New-->
-                                          <td><?php echo $cita['hora'] ?></td>
-                                          <!--New-->
-                                          <td><?php echo $cita['mensaje'] ?></td>
-                                          <!--Operacion -->
-                                          <td <?php echo 'id' . '=' . '"operacion_' . $contador . '"'; echo ' estado= "' . $cita['estado'] . '"'; ?> style="display:inline-flex">
-                                                    <?php
-                                                        if ($cita['estado'] === "0") {
-                                                        echo "<button class='btnMark btn-floating orange waves-effect-light' type='submit' name='actionMark'>
+                                      <?php
+                                            //$contador = 0;  // id row counter
+                                            foreach ($GLOBALS['data'] as $GLOBALS['cita']) {
+                                                ?>
+                                          <tr>
+                                              <td id=" id"><?php echo $GLOBALS['cita']['idCita'] ?></td>
+                                              <td><?php echo $GLOBALS['cita']['nombre'] ?></td>
+                                              <td><?php echo $GLOBALS['cita']['paterno'] ?></td>
+                                              <td><?php echo $GLOBALS['cita']['materno'] ?></td>
+                                              <!--New-->
+                                              <td><?php echo $GLOBALS['cita']['email'] ?></td>
+                                              <td><?php echo $GLOBALS['cita']['telefono'] ?></td>
+                                              <td><?php echo $GLOBALS['cita']['tratamiento'] ?></td>
+                                              <td><?php echo $GLOBALS['cita']['fecha'] ?></td>
+                                              <!--New-->
+                                              <td><?php echo $GLOBALS['cita']['hora'] ?></td>
+                                              <!--New-->
+                                              <td><?php echo $GLOBALS['cita']['mensaje'] ?></td>
+                                              <!--Columna Operacion -->
+                                              <?php operacion(); //parametro array cita con  los datos de la bd
+                                                        ?>
+                                          <?php
+                                                    $GLOBALS['contador']++;
+                                                }
+                                                ?>
+                                          </tr>
+                                      <?php
+                                        }
+                                        ?>
+                                      <!--Funcion  de recarga de la columna operacion -->
+                                      <?php
+                                        function operacion()
+                                        {
+                                            echo '<td' . ' id' . '=' . '"operacion_' . $GLOBALS['contador'] . '"';
+                                            echo ' estado= "' . $GLOBALS['cita']['estado'] . '"' . 'style="display:inline-flex">';
+                                            if ($GLOBALS['cita']['estado'] === "0") {
+                                                echo "<button class='btnMark btn-floating orange waves-effect-light' type='submit' name='actionMark'>
                                                                 <i class='material-icons right'>alarm</i>
-                                                            </button>";                                                           
-                                                        }
-                                                        else if($cita['estado'] === "1" ){
-                                                        echo "<button class='btnMark btn-floating green waves-effect-light' type='submit' name='actionMark'>
+                                                            </button>";
+                                            } else if ($GLOBALS['cita']['estado'] === "1") {
+                                                echo "<button class='btnMark btn-floating green waves-effect-light' type='submit' name='actionMark'>
                                                                 <i class='material-icons right'>done</i>
-                                                            </button>";        
-                                                        }                                                 
-                                                    ?>
-                                             <!--Actualizar-->
+                                                            </button>";
+                                            }
+                                            echo '<!--Actualizar-->
                                                 <a href="#formulario-cita-container"
                                                     data-target="modal1"
                                                     class="btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light"+
                                                     type="submit"
                                                     name="actionUpdate">
-                                                    <i class='material-icons right'>mode_edit</i>
+                                                    <i class="material-icons right">mode_edit</i>
                                                 </a>
                                             <!--Elimnar--> 
                                                 <button class="btnDelete btn-floating red waves-effect waves-light" type = "submit" name="actionDelete">
-                                                    <i class='material-icons right'>delete</i>
+                                                    <i class="material-icons right">delete</i>
                                                 </button>
-                                          </td>
-                                      </tr>
-                                  <?php
-                                        $contador++;
-                                    } ?>
+                                          </td>';
+                                        }
+                                        ?>
+                                      <!--Inicializa la carga con los datos de la tabla-->
+                                      <?php
+                                        initializa();
+                                        ?>
                               </tbody>
                           </table>
                       </div>

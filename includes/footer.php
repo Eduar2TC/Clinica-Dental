@@ -115,6 +115,7 @@
           $('.datepicker').pickadate({ // set lenguaje form datepicker
               selectMonths: true,
               selectYears: 15,
+              default: 'now',
               today: 'Hoy',
               clear: 'Limpiar',
               close: 'Ok',
@@ -140,7 +141,7 @@
               cleartext: 'Limpiar',
               autoclose: false,
               vibrate: true, // vibrate the device when dragging clock hand
-              ampmclickable: false
+              ampmclickable: true
 
           });
           /**->Fin: index.php **/

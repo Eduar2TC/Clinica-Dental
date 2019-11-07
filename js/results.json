@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "idCita": "228",
+            "nombre": "Alejandro",
+            "paterno": "leonidas",
+            "materno": "gonzales",
+            "email": "email@email.com",
+            "telefono": "222-222-2222",
+            "tratamiento": "Ortodoncia",
+            "fecha": "2019-10-18",
+            "hora": "04:26:00",
+            "mensaje": "this a test buey :V"
+        },
+        {
+            "idCita": "229",
+            "nombre": "Juan",
+            "paterno": "Lopez",
+            "materno": "Cortez",
+            "email": "medico01@gmail.com",
+            "telefono": "222-222-2222",
+            "tratamiento": "Ortodoncia",
+            "fecha": "2019-10-18",
+            "hora": "02:13:00",
+            "mensaje": "Hola"
+        },
+        {
+            "idCita": "230",
+            "nombre": "Marisol",
+            "paterno": "Reyes",
+            "materno": "Lopez",
+            "email": "email@email3.com",
+            "telefono": "222-222-2222",
+            "tratamiento": "Ortodoncia",
+            "fecha": "2019-01-08",
+            "hora": "03:05:00",
+            "mensaje": "this a test buey :V"
+        },
+        {
+            "idCita": "232",
+            "nombre": "Marisol",
+            "paterno": "Reyes",
+            "materno": "Lopez",
+            "email": "email@email3.com",
+            "telefono": "222-222-2222",
+            "tratamiento": "Ortodoncia",
+            "fecha": "2019-10-01",
+            "hora": "03:05:00",
+            "mensaje": "this a test buey :V"
+        },
+        {
+            "idCita": "233",
+            "nombre": "Pedro",
+            "paterno": "Pica",
+            "materno": "Piedras",
+            "email": "ppiedras@gmail.com",
+            "telefono": "222-222-2222",
+            "tratamiento": "Peridoncia",
+            "fecha": "2019-10-20",
+            "hora": "12:25:00",
+            "mensaje": "Hola shavos"
+        }
+    ]
+}

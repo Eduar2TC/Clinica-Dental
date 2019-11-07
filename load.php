@@ -22,9 +22,9 @@ class DataManage{
             $fecha = $i['fecha'];
             $originalTime = $i['hora'];
             $timeStamp = strtotime($i['hora']) + 60 * 60; //update value time + 1 hour
-            $timeMoreHour = date('H:i', $timeStamp);  //format to new time
+            $timeMoreOneHour = date('H:i', $timeStamp);  //format to new time
             $combineDate1 = date('Y-m-d H:i:s', strtotime("$fecha $originalTime"));
-            $combineDate2 = date('Y-m-d H:i:s', strtotime("$fecha $timeMoreHour"));
+            $combineDate2 = date('Y-m-d H:i:s', strtotime("$fecha $timeMoreOneHour"));
 
             $this->data[] = array(
                 'id'    =>      $i['idCita'],

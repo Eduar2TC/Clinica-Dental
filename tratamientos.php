@@ -590,7 +590,7 @@
               <a href="#!" class="modal-close waves-effect waves-blue btn-flat">Bien</a>
           </div>
       </div>
-      <!--Modal Formulario-citas-->
+      <!--Modal Formulario-citas  (Esto se repite en varios archivos modificar)-->
       <div id="formulario-cita" class="modal" style=" max-height: 100%;">
           <div class="container">
               <div class="row">
@@ -644,17 +644,17 @@
                           <textarea id="mensaje" class="materialize-textarea" name="mensaje"></textarea>
                           <label for="mensaje">Escribenos un Mensaje</label>
                       </div>
-
-                      <button class="btn waves-effect waves-light blue" type="submit" name="submit" value="submit">Enviar
-                          <i class="material-icons right">send</i>
-                      </button>
+                      <div class="center">
+                          <button class="btn waves-effect waves-light blue" type="submit" name="submit" value="submit">Enviar
+                              <i class="material-icons right">send</i>
+                          </button>
+                      </div>
                       <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->
                   </form>
 
               </div>
           </div>
       </div>
-
       <!--Fin Modal-->
       <!--Footer-->
       <?php require_once("includes/footer.php"); ?>

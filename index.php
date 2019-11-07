@@ -10,49 +10,26 @@ require_once("includes/header.php"); // Solicitud del header
 <body>
   <!--INICIO DEL HEADER--->
   <header>
-    <div class="container">
-      <div class="row">
-        <!--LOGO Y NOMBRE -->
-        <div class="col s12 m6 l6">
-          <div class="row">
-            <div class="col s4 m4">
-              <div class="row">
-                <div class="col s12 center">
-                  <span style="color:#13455E;">
-                    <i class="fas fa-tooth fa-7x"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="col s8 m8">
-              <div class="row">
-                <span class="flow-text" style="font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 2.5rem; margin-bottom:0px; color:#13455E">Mi clínica dental</span>
-              </div>
-              <div class="row">
-                <span class="flow-text" style="font-family: Tauri, sans-serif; font-size: 1.3rem;">Por su sonrisa, por su salud</span>
-              </div>
-            </div>
+    <div class="row">
+      <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="index.php"><img src="img/logo01.png" alt="logo.png" class="responsive-img"></a></div>
+      <!--No tocar-->
+      <div class="col s12 m4"></div>
+
+      <div class="col s12 m4 offset-m3">
+        <div class="row">
+          <div id="links-superiores">
+            <ul class="left hide-on-small-and-down">
+              <li><a class="link" href="nosotros.php">Nosotros</a></li>
+              <li><a class="link" href="empleo.php">Empleo</a></li>
+              <li><a class="link" href="contacto.php">Contacto</a></li>
+              <li><a class="link" href="ayuda.php">Ayuda</a></li>
+            </ul>
           </div>
         </div>
-
-        <div class="col s12 m4 offset-m2">
-          <div class="row">
-            <div class="col s12 m12">
-              <div id="links-superiores">
-                <ul class="left hide-on-small-and-down">
-                  <li><a class="link" href="nosotros.php">Nosotros</a></li>
-                  <li><a class="link" href="empleo.php">Empleo</a></li>
-                  <li><a class="link" href="contacto.php">Contacto</a></li>
-                  <li><a class="link" href="ayuda.php">Ayuda</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col s12 m12">
-              <div class="left hide-on-med-and-down">
-                <a href="tel:2228530500"><i class="material-icons" style="font-size: 25px;">phone</i><span id="telefono">Telefono:
-                    2228530500</span></a>
-              </div>
-            </div>
+        <div class="row" style="margin-bottom: 0px; /*Quita espacio entre el div del logo*/">
+          <div class="left hide-on-med-and-down">
+            <a href="tel:2228530500"><i class="material-icons" style="font-size: 25px;">phone</i><span id="telefono">Telefono:
+                2228530500</span></a>
           </div>
         </div>
       </div>
@@ -80,7 +57,7 @@ require_once("includes/header.php"); // Solicitud del header
               <ul class="right hide-on-med-and-down fa-ul">
                 <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                 <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
-                  médico</a></li> -->
+                    médico</a></li> -->
               </ul>
             </div>
         </nav>
@@ -109,19 +86,23 @@ require_once("includes/header.php"); // Solicitud del header
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12">
-              <button id="login" type="submit" name="login" value="accesando" class=" col s12 btn waves-effect waves-light btn-small blue right">Acceder
-                <i class="fas fa-sign-in-alt"></i>
+            <div class="input-field col s12 center">
+              <button id="login" type="submit" name="login" value="accesando" class="blue btn waves-effect waves-light btn-small">Acceder
+                <i class="fas fa-sign-in-alt left"></i>
             </div>
           </div>
           <div class="row contrasenia-olvidada">
-            <div class="input-field col s12 m12 l12">
-              <p class="margin center-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
+            <div class="input-field col s12 m6 l6">
+              <p class="margin center-align medium-small"><a href="#">¿Olvidaste tu contraseña?</a></p>
+            </div>
+            <div class="input-field col s12 m6 l6">
+              <p class="margin center-align medium-small"><a href="#">Registrarse</a></p>
             </div>
           </div>
 
         </form>
       </div>
+
       <!--Menu de navegacion Mobil -->
       <ul class="side-nav" id="mobile-menu">
         <li><a href="index.php" class="blue-text">Inicio</a></li>
@@ -130,6 +111,7 @@ require_once("includes/header.php"); // Solicitud del header
         <li><a href="sucursales.php" class="blue-text">Clínicas</a></li>
         <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
         </li>
+        <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
       </ul>
 
     </div>
@@ -531,7 +513,7 @@ require_once("includes/header.php"); // Solicitud del header
   </footer>
   <!--FIN DEL FOOTER-->
 
-  <!--      MODALES - INICIO-->
+  <!--      MODALES - INICIO  (Esto se repite en varios archivos modificar) -->
   <div id="formulario-cita" class="modal" style=" max-height: 100%;">
     <div class="container">
       <div class="row">
@@ -577,7 +559,7 @@ require_once("includes/header.php"); // Solicitud del header
           </div>
 
           <div class="input-field col 12 l6" id="hora">
-            <input type="text" class="timepicker" name="hora" required>
+            <input type="text" class="timepicker active" name="hora" required>
             <label for="hora">Hora de la Cita</label>
           </div>
 
@@ -586,9 +568,11 @@ require_once("includes/header.php"); // Solicitud del header
             <label for="mensaje">Escribenos un Mensaje</label>
           </div>
           <input type="hidden" name="action" value="submit" />
-          <button class="btn waves-effect waves-light blue" type="submit">Enviar
-            <i class="material-icons right">send</i>
-          </button>
+          <div class="center">
+            <button class="btn waves-effect waves-light blue" type="submit">Enviar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
           <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->
         </form>
 
