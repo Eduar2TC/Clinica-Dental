@@ -4,6 +4,10 @@ footer,
 section {
     overflow: auto;
 }
+/*Estilo para la imagen del logo*/
+#imagenLogo img{
+    padding: 5px 5px; /*Arriba, abajo - Izquierda, Derecha*/
+}
 header > .container > .row{
     margin-top: 1%;
     margin-bottom: 0%;
@@ -38,17 +42,17 @@ header > .container > .row{
 /*Inicio del Header*/
 /*Inicio Menu de navegacion*/
   #boton-registro:hover{
-    color:#0f1ccf;
+    color:rgba(0, 89, 255, 0.918);
   }
   /* label focus color */
 .input-field input[type=password]:focus+label {
-    color:rgb(47, 50, 255) !important;
+    color:rgba(0, 89, 255, 0.918) !important;
 }
 .input-field input[type=email]:focus+label {
-    color:rgb(47, 50, 255) !important;
+    color:rgba(0, 89, 255, 0.918) !important;
 }
 i.material-icons.prefix.active{
-    color:blue;
+    color:rgba(0, 89, 255, 0.918);
 }
 /*Fin menu navegacion*/
 /*Fin del Header*/
@@ -82,8 +86,8 @@ i.material-icons.prefix.active{
     margin: 5%;
 }
 [type="checkbox"]:checked+label:before {
-    border-right: 2px solid #2633a6;
-    border-bottom: 2px solid #2633a6;
+    border-right: 2px solid  rgba(0, 89, 255, 0.918);
+    border-bottom: 2px solid rgba(0, 89, 255, 0.918);
 }
 /*Fin para los estilos del login*/
 /*Caracteristicas de los estilos del Modal GLobal*/

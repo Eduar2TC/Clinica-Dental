@@ -87,7 +87,7 @@ require_once("includes/header.php"); // Solicitud del header
           </div>
           <div class="row">
             <div class="input-field col s12 center">
-              <button id="login" type="submit" name="login" value="accesando" class="blue btn waves-effect waves-light btn-small">Acceder
+              <button id="login" type="submit" name="login" value="accesando" class="waves-effect waves-light btn blue">Acceder
                 <i class="fas fa-sign-in-alt left"></i>
             </div>
           </div>
@@ -558,8 +558,8 @@ require_once("includes/header.php"); // Solicitud del header
             <label for="fecha">Fecha de la Cita</label>
           </div>
 
-          <div class="input-field col 12 l6" id="hora">
-            <input type="text" class="timepicker active" name="hora" required>
+          <div class="input-field col 12 l6">
+            <input id="hora" type="text" class="timepicker" name="hora" required>
             <label for="hora">Hora de la Cita</label>
           </div>
 

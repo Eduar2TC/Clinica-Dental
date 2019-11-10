@@ -635,8 +635,8 @@
                           <label for="fecha">Fecha de la Cita</label>
                       </div>
 
-                      <div class="input-field col 12 l6" id="hora">
-                          <input type="text" class="timepicker" name="hora" required>
+                      <div class="input-field col 12 l6">
+                          <input type="text" id="hora" class="timepicker" name="hora" required>
                           <label for="hora">Hora de la Cita</label>
                       </div>
 

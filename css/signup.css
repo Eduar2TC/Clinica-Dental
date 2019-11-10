@@ -6,48 +6,75 @@ body {
 html {
     display: table;
     margin: auto;
+    background: url('../img/alex-581032-unsplash.jpg') no-repeat center center fixed;  /*background image*/
+    /*background: rgb(60, 83, 131);*/
+    background-size: cover;
+    height: 100%;
 }
-body {
-    display: table-cell;
-    vertical-align: middle;
-    background: rgb(60, 83, 131);
+/*.card .card-content .page-footer{
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}*/
+/*Resize card with
+.card, .card-content{
+    width: 520px;
+}*/
+/*Add padding on link ya tengo cuenta*/
+.ya-tengo-cuenta{
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
-
-@media (max-width: 601px) { 
-    /*Resize form on mobil view*/
-    #login-page{
-        width: 90%!important;
+.ya-tengo-cuenta p{
+    font-size: 20px;
+    color: lemonchiffon;
+}
+.ya-tengo-cuenta a:hover{
+    text-decoration: underline;
+}
+/*Transparent background card-content*/
+.card-content{
+    background: rgba(0, 0, 0, 0.6);
+}
+/*Color inputs*/
+.input-field label{
+    color:rgba(234, 243, 247, 0.719);
+}
+input{
+    color: lemonchiffon;
+}
+i.material-icons.prefix.active{
+    color:rgb(236, 222, 26);
+}
+/*Resize form on mobil view*/
+@media (min-width: 992px) { 
+    .card, .card-content{
+        width: 520px;
     }
-}
-#login-page {  
-   width: 500px;
+
 }
 
 #login-page .row{ /*Espacio entre los elementos de registro*/
     margin-bottom: 5px;
 }
-.card {
-     position: absolute;
-     left: 50%;
-     top: 50%;
-     -moz-transform: translate(-50%, -50%)
-     -webkit-transform: translate(-50%, -50%)
-     -ms-transform: translate(-50%, -50%)
-     -o-transform: translate(-50%, -50%)
-     transform: translate(-50%, -50%);
-}
 
 #acepto-terminos{
     left: 1.5%;
 }
+/*Titles of sections registers*/
 h5{
-    font-family: 'Boogaloo', cursive;
+    font-family: 'Poppins', cursive;
+    color: antiquewhite;
 }
 
 /*Validation of data*/
 .validation_error{
     position: relative;
-    left: 43px !important;
+    text-align: center;
+    vertical-align: middle;
+    color: rgb(235, 81, 10);
 }
 /*nueva posicion del logo*/
 a.brand-logo img{
@@ -57,8 +84,10 @@ a.brand-logo img{
     z-index: 1 !important;
 }
 
-#label-imagen{
-    
+#label-imagen{ 
     left: 200px;
+}
 
+.card{
+    background-color: rgba(33, 149, 243, 0.5) !important;
 }
