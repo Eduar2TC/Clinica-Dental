@@ -69,33 +69,33 @@ require_once("operations/humano.php"); //get operations for google humans verifi
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">account_circle</i>
                             <input class="validate" id="nombre" name="nombre" type="text" validate="name">
-                            <label for="nombre" data-error="wrong" data-success="right">Nombre</label>
+                            <label for="nombre" data-error="¡Error!" data-success="¡Correcto!">Nombre</label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">phone</i>
                             <input class="validate" id="telefono" name="telefono" type="text" validate="phone">
-                            <label for="telefono" data-error="wrong" data-success="right">Telefono</label>
+                            <label for="telefono" data-error="¡Error!" data-success="¡Correcto!">Telefono</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">text_format</i>
                             <input class="validate" id="paterno" name="paterno" type="text" validate="max-min-length">
-                            <label for="paterno" data-error="wrong" data-success="right">Paterno</label>
+                            <label for="paterno" data-error="¡Error!" data-success="¡Correcto!">Paterno</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">text_format</i>
                             <input class="validate" id="materno" name="materno" type="text" validate="max-min-length">
-                            <label for="materno" data-error="wrong" data-success="right">Materno</label>
+                            <label for="materno" data-error="¡Error!" data-success="¡Correcto!">Materno</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">format_list_numbered</i>
                             <input class="validate" id="cedula" name="cedula" type="text" validate="cedula">
-                            <label for="cedula" data-error="wrong" data-success="right">Cédula</label>
+                            <label for="cedula" data-error="¡Error!" data-success="¡Correcto!">Cédula</label>
                         </div>
                     </div>
                     <div class="row">
@@ -121,7 +121,7 @@ require_once("operations/humano.php"); //get operations for google humans verifi
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12 blue">
+                        <div class="col s12 blue subtitulo">
                             <h5 class="center">Datos de Acceso</h5>
                         </div>
                     </div>
@@ -129,14 +129,14 @@ require_once("operations/humano.php"); //get operations for google humans verifi
                         <div class="input-field col s12">
                             <i class="material-icons prefix">person_add</i>
                             <input class="validate" id="usuario-reg" name="usuario" type="text" type="text" validate="username">
-                            <label for="usuario-reg" data-error="wrong" data-success="right">Usuario</label>
+                            <label for="usuario-reg" data-error="¡Error!" data-success="¡Correcto!">Usuario</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">mail_outline</i>
                             <input class="validate" id="email-reg" name="email" type="email" validate="email">
-                            <label for="email-reg" data-error="wrong" data-success="right">Email</label>
+                            <label for="email-reg" data-error="¡Error!" data-success="¡Correcto!">Email</label>
                         </div>
                     </div>
                     <div class="row">
@@ -151,8 +151,8 @@ require_once("operations/humano.php"); //get operations for google humans verifi
                             <label for="re-password-reg">Confirmar contraseña</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col s12 m6 l6  login-text">
+                    <div class="row rowCastroso">
+                        <div class="col s12 m6 l6 login-text">
                             <p>
                                 <input type="checkbox" class="blue" id="acepto-terminos" name="acepto-terminos" value="Si" required />
                                 <label for="acepto-terminos">Acepto los terminos</label>

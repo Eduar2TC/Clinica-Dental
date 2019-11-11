@@ -54,6 +54,45 @@ header > .container > .row{
 i.material-icons.prefix.active{
     color:rgba(0, 89, 255, 0.918);
 }
+/*Succes input correct line color*/
+.input-field input[type].valid,
+.input-field input[type].valid:focus,
+.input-field textarea.valid,
+.input-field textarea.valid:focus {
+    border-bottom: 1px solid rgba(33, 149, 243);
+    box-shadow: 0 1px 0 0 rgba(33, 149, 243);
+}
+ /*Succes input correct label form color*/   
+input:not([type]).valid+label:after, 
+input:not([type]):focus.valid+label:after, 
+input[type=text]:not(.browser-default).valid+label:after,
+ input[type=text]:not(.browser-default):focus.valid+label:after, 
+ input[type=password]:not(.browser-default).valid+label:after, 
+ input[type=password]:not(.browser-default):focus.valid+label:after, 
+ input[type=email]:not(.browser-default).valid+label:after, 
+ input[type=email]:not(.browser-default):focus.valid+label:after, 
+ input[type=url]:not(.browser-default).valid+label:after, 
+ input[type=url]:not(.browser-default):focus.valid+label:after, 
+ input[type=time]:not(.browser-default).valid+label:after, 
+ input[type=time]:not(.browser-default):focus.valid+label:after, 
+ input[type=date]:not(.browser-default).valid+label:after, 
+ input[type=date]:not(.browser-default):focus.valid+label:after,
+ input[type=datetime]:not(.browser-default).valid+label:after, 
+ input[type=datetime]:not(.browser-default):focus.valid+label:after, 
+ input[type=datetime-local]:not(.browser-default).valid+label:after, 
+ input[type=datetime-local]:not(.browser-default):focus.valid+label:after, 
+ input[type=tel]:not(.browser-default).valid+label:after,
+ input[type=tel]:not(.browser-default):focus.valid+label:after,
+ input[type=number]:not(.browser-default).valid+label:after,
+ input[type=number]:not(.browser-default):focus.valid+label:after,
+ input[type=search]:not(.browser-default).valid+label:after,
+ input[type=search]:not(.browser-default):focus.valid+label:after,
+ textarea.materialize-textarea.valid+label:after,
+ textarea.materialize-textarea:focus.valid+label:after,
+ .select-wrapper.valid+label:after{
+    color: rgba(33, 149, 243);
+}
+
 /*Fin menu navegacion*/
 /*Fin del Header*/
 /*Inicio Cuerpo*/
@@ -112,18 +151,18 @@ i.material-icons.prefix.active{
 
 /*ESTILOS para el formulario dezplegable*/
 .login_box {
-	display: none;
-	position: relative;
-	background: white;
-  border-radius: 6px;
-  width: 300px;
-  float: right;
-  padding-top: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
-  margin-right: 10px;
-  margin-top: 5px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    position: relative;
+    background: white;
+    border-radius: 6px;
+    width: 300px;
+    float: right;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 10px;
+    margin-top: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
 .login_box:after, .login_box:before {
 	bottom: 100%;

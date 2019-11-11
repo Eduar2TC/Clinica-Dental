@@ -30,24 +30,25 @@ html {
 .ya-tengo-cuenta p{
     font-size: 20px;
     color: lemonchiffon;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .ya-tengo-cuenta a:hover{
     text-decoration: underline;
 }
+
+/*fIX Margin on row castroso*/
+
+.rowCastroso{
+    margin-bottom: 0%;
+}
+
 /*Transparent background card-content*/
 .card-content{
     background: rgba(0, 0, 0, 0.6);
 }
-/*Color inputs*/
-.input-field label{
-    color:rgba(234, 243, 247, 0.719);
-}
-input{
-    color: lemonchiffon;
-}
-i.material-icons.prefix.active{
-    color:rgb(236, 222, 26);
-}
+
 /*Resize form on mobil view*/
 @media (min-width: 992px) { 
     .card, .card-content{
@@ -87,7 +88,82 @@ a.brand-logo img{
 #label-imagen{ 
     left: 200px;
 }
-
-.card{
+/*Make transparent card and card-titles*/
+.subtitulo, .card{
     background-color: rgba(33, 149, 243, 0.5) !important;
+}
+
+/*cnage color inputs on the form*/
+
+.input-field input[type=text]:focus+label {
+    color:rgba(173, 201, 255, 0.918) !important;
+}
+.input-field input[type=password]:focus+label {
+    color:rgba(173, 201, 255, 0.918) !important;
+}
+.input-field input[type=email]:focus+label {
+    color:rgba(173, 201, 255, 0.918) !important;
+}
+[type="checkbox"]:checked+label:before {
+    border-right: 2px solid  rgb(236, 222, 26);
+    border-bottom: 2px solid rgb(236, 222, 26);
+}
+/*icon active form*/
+i.material-icons.prefix{
+    color:rgb(247, 246, 244);
+}
+i.material-icons.prefix.active{
+    color:rgba(33, 149, 243,0.4)
+}
+
+/*Input colors*/
+/*Color inputs*/
+.input-field label{
+    color:rgba(234, 243, 247, 0.719); /*lemonchiffon to rgba*/
+}
+input{
+    color: lemonchiffon;
+}
+input:focus {
+  border-bottom: 1px solid rgba(33, 149, 243, 0.4) !important;
+  box-shadow: 0 1px 0 0 rgba(33, 149, 243,0.4) !important;
+}
+ /*Succes input correct line color*/
+.input-field input[type].valid,
+.input-field input[type].valid:focus,
+.input-field textarea.valid,
+.input-field textarea.valid:focus {
+    border-bottom: 1px solid rgba(33, 149, 243);
+    box-shadow: 0 1px 0 0 rgba(33, 149, 243);
+}
+
+ /*Succes input correct label form color*/   
+input:not([type]).valid+label:after, 
+input:not([type]):focus.valid+label:after, 
+input[type=text]:not(.browser-default).valid+label:after,
+ input[type=text]:not(.browser-default):focus.valid+label:after, 
+ input[type=password]:not(.browser-default).valid+label:after, 
+ input[type=password]:not(.browser-default):focus.valid+label:after, 
+ input[type=email]:not(.browser-default).valid+label:after, 
+ input[type=email]:not(.browser-default):focus.valid+label:after, 
+ input[type=url]:not(.browser-default).valid+label:after, 
+ input[type=url]:not(.browser-default):focus.valid+label:after, 
+ input[type=time]:not(.browser-default).valid+label:after, 
+ input[type=time]:not(.browser-default):focus.valid+label:after, 
+ input[type=date]:not(.browser-default).valid+label:after, 
+ input[type=date]:not(.browser-default):focus.valid+label:after,
+ input[type=datetime]:not(.browser-default).valid+label:after, 
+ input[type=datetime]:not(.browser-default):focus.valid+label:after, 
+ input[type=datetime-local]:not(.browser-default).valid+label:after, 
+ input[type=datetime-local]:not(.browser-default):focus.valid+label:after, 
+ input[type=tel]:not(.browser-default).valid+label:after,
+ input[type=tel]:not(.browser-default):focus.valid+label:after,
+ input[type=number]:not(.browser-default).valid+label:after,
+ input[type=number]:not(.browser-default):focus.valid+label:after,
+ input[type=search]:not(.browser-default).valid+label:after,
+ input[type=search]:not(.browser-default):focus.valid+label:after,
+ textarea.materialize-textarea.valid+label:after,
+ textarea.materialize-textarea:focus.valid+label:after,
+ .select-wrapper.valid+label:after{
+    color: rgba(33, 149, 243);
 }
