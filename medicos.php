@@ -10,29 +10,20 @@
     session_start();
     $instanciaConexion = new Conexion;
     $conexion = $instanciaConexion->conectarBD();
-    $query = "SELECT * FROM `usuario` WHERE `email` = '{$_SESSION['email']}'";
 
+    $query = "SELECT * FROM `medico` INNER JOIN usuario on medico.usuario_IdUsuario = usuario.idUsuario WHERE `email` = '{$_SESSION['email']}'";
     if ($resultado = $conexion->query($query)) {
 
-        while ($fila = $resultado->fetch_assoc()) {
-            $idUsuario = $fila['idUsuario'];
-            $usuario = $fila['usuario'];
-            $email = $fila['email'];
-            $idMedico = $fila['medico_idMedico'];
+        while ($row = $resultado->fetch_assoc()) {
+            $idUsuario = $row['idUsuario'];
+            $usuario = $row['usuario'];
+            $email = $row['email'];
+            $idMedico = $row['idMedico'];
+            $nombre = $row['nombre'];
+            $paterno = $row['paterno'];
         }
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($conexion);
-    }
-
-    $query2 = "SELECT * FROM `medico` WHERE `idMedico` = '$idMedico'";
-    if ($resultado2 = $conexion->query($query2)) {
-
-        while ($fila2 = $resultado2->fetch_assoc()) {
-            $nombre = $fila2['nombre'];
-            $paterno = $fila2['paterno'];
-        }
-    } else {
-        echo "Error: " . $query2 . "<br>" . mysqli_error($conexion);
     }
 
     ?>
@@ -72,7 +63,8 @@
                               </li>
                               <li><a class="subheader">Citas</a></li>
                               <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">person</i><span class="blue-text">Ver Perfil</span></a></li>
-                              <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
+                              <li class="ver-calendario"><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">av_timer</i><span class="blue-text">Ver Calendario</span></a></li>
+                              <li class="ver-citas"><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
                               <li><a data-target="modal1" id="new" class="waves-effect waves-yellow modal-trigger" href="#formulario-cita"><i class="material-icons md-24 left">add</i><span class="blue-text">Añadir Cita</span></a></li>
                               <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons left">local_printshop</i><span class="blue-text">Imprimir citas</span></a></li>
 
@@ -105,7 +97,8 @@
                   </li>
                   <li><a class="subheader">Citas</a></li>
                   <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">person</i><span class="blue-text">Ver Perfil</span></a></li>
-                  <li id="ver-citas"><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
+                  <li class="ver-calendario"><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">av_timer</i><span class="blue-text">Ver Calendario</span></a></li>
+                  <li class="ver-citas"><a class="waves-effect waves-yellow" href="#"><i class="material-icons md-24 left">assignment</i><span class="blue-text">Ver Citas</span></a></li>
                   <li><a data-target="modal1" id="new" class="waves-effect waves-yellow modal-trigger" href="#formulario-cita"><i class="material-icons md-24 left">add</i><span class="blue-text">Añadir Cita</span></a></li>
                   <li><a class="waves-effect waves-yellow " href="#"><i class="material-icons md-24 left">local_printshop</i><span class="blue-text">Imprimir citas</span></a></li>
 
@@ -117,106 +110,69 @@
 
               </ul>
           </div>
+          <!--initialization of data -->
+          <?php
+            /* Get data from medico */
+            $contador = 0;
+            $cita = '';
+            $idMedico = $GLOBALS['idMedico'];
+            $object = new Connection();
+            $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
+            $connection = $object->Connect();
+            $result3 = $connection->prepare($query2);
+            $result3->execute();
+            $data = $result3->fetchAll(PDO::FETCH_ASSOC);
+            ?>
 
-          <div class="col s12 m9 l9">
-              <!--INICIO CUERPO PRINCIPAL DONDE SE MUESTRAN LOS DATOS-->
-              <main id="main-admin-medico">
-
-                  <div class="row">
-
-                      <div class="col s12">
-                          <?php
-                            /*
-                            //Peticiones CRUD (puede mejorar)
-                            $object = new Connection();
-                            $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
-                            $connection = $object->Connect();
-                            $result3 = $connection->prepare($query2);
-                            $result3->execute();
-                            $data = $result3->fetchAll(PDO::FETCH_ASSOC);*/
-                            ?>
-                          <!--Contenido del modal tabla-->
-                          <!--Jalando los datos desde la base de datos--->
-                          <table id="tableCitas" class="centered">
-                              <thead>
-                                  <tr>
-                                      <th>Id</th>
-                                      <th>Nombre</th>
-                                      <th>Paterno</th>
-                                      <th>Materno</th>
-                                      <!--New -->
-                                      <th>Email</th>
-                                      <th class="newWidthPhone">Telefono</th>
-                                      <th>Tratamiento</th>
-                                      <th class="newWidthDate">Fecha</th>
-                                      <th>Hora</th>
-                                      <th class="newWidthCellMensaje">Mensaje</th>
-                                      <th>Operación</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <?php
-                                    $contador = 0;
-                                    $cita = '';
-                                    $idMedico = $GLOBALS['idMedico'];
-                                    //Peticiones CRUD (puede mejorar)
-                                    $object = new Connection();
-                                    $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
-                                    $connection = $object->Connect();
-                                    $result3 = $connection->prepare($query2);
-                                    $result3->execute();
-                                    $data = $result3->fetchAll(PDO::FETCH_ASSOC);
-                                    ?>
-
-                                  <?php
-                                    function initializa()
-                                    {
-                                        ?>
-                                      <?php
-                                            //$contador = 0;  // id row counter
-                                            foreach ($GLOBALS['data'] as $GLOBALS['cita']) {
-                                                ?>
-                                          <tr>
-                                              <td id=" id"><?php echo $GLOBALS['cita']['idCita'] ?></td>
-                                              <td><?php echo $GLOBALS['cita']['nombre'] ?></td>
-                                              <td><?php echo $GLOBALS['cita']['paterno'] ?></td>
-                                              <td><?php echo $GLOBALS['cita']['materno'] ?></td>
-                                              <!--New-->
-                                              <td><?php echo $GLOBALS['cita']['email'] ?></td>
-                                              <td><?php echo $GLOBALS['cita']['telefono'] ?></td>
-                                              <td><?php echo $GLOBALS['cita']['tratamiento'] ?></td>
-                                              <td><?php echo $GLOBALS['cita']['fecha'] ?></td>
-                                              <!--New-->
-                                              <td><?php echo $GLOBALS['cita']['hora'] ?></td>
-                                              <!--New-->
-                                              <td><?php echo $GLOBALS['cita']['mensaje'] ?></td>
-                                              <!--Columna Operacion -->
-                                              <?php operacion(); //parametro array cita con  los datos de la bd
-                                                        ?>
-                                          <?php
-                                                    $GLOBALS['contador']++;
-                                                }
-                                                ?>
-                                          </tr>
-                                      <?php
-                                        }
-                                        ?>
-                                      <!--Funcion  de recarga de la columna operacion -->
-                                      <?php
-                                        function operacion()
-                                        {
-                                            echo '<td' . ' id' . '=' . '"operacion_' . $GLOBALS['contador'] . '"';
-                                            echo ' estado= "' . $GLOBALS['cita']['estado'] . '"' . 'style="display:inline-flex">';
-                                            if ($GLOBALS['cita']['estado'] === "0") {
-                                                echo "<button class='btnMark btn-floating orange waves-effect-light' type='submit' name='actionMark'>
+          <?php
+            function initializa()
+            {
+                ?>
+              <?php
+                    //$contador = 0;  // id row counter
+                    foreach ($GLOBALS['data'] as $GLOBALS['cita']) {
+                        ?>
+                  <tr>
+                      <td id=" id"><?php echo $GLOBALS['cita']['idCita'] ?></td>
+                      <td><?php echo $GLOBALS['cita']['nombre'] ?></td>
+                      <td><?php echo $GLOBALS['cita']['paterno'] ?></td>
+                      <td><?php echo $GLOBALS['cita']['materno'] ?></td>
+                      <!--New-->
+                      <td><?php echo $GLOBALS['cita']['email'] ?></td>
+                      <td><?php echo $GLOBALS['cita']['telefono'] ?></td>
+                      <td><?php echo $GLOBALS['cita']['tratamiento'] ?></td>
+                      <td><?php echo $GLOBALS['cita']['fecha'] ?></td>
+                      <!--New-->
+                      <td><?php echo $GLOBALS['cita']['hora'] ?></td>
+                      <!--New-->
+                      <td><?php echo $GLOBALS['cita']['mensaje'] ?></td>
+                      <!--Columna Operacion -->
+                      <?php operacion(); //parametro array cita con  los datos de la bd
+                                ?>
+                  <?php
+                            $GLOBALS['contador']++;
+                        }
+                        ?>
+                  </tr>
+              <?php
+                }
+                ?>
+              <!--Funcion  de recarga de la columna operacion -->
+              <?php
+                function operacion()
+                {
+                    echo '<td' . ' id' . '=' . '"operacion_' . $GLOBALS['contador'] . '"';
+                    echo ' estado= "' . $GLOBALS['cita']['estado'] . '"' . 'style="display:inline-flex">';
+                    if ($GLOBALS['cita']['estado'] === "0") {
+                        echo "<button class='btnMark btn-floating orange waves-effect-light' type='submit' name='actionMark'>
                                                                 <i class='material-icons right'>alarm</i>
                                                             </button>";
-                                            } else if ($GLOBALS['cita']['estado'] === "1") {
-                                                echo "<button class='btnMark btn-floating green waves-effect-light' type='submit' name='actionMark'>
+                    } else if ($GLOBALS['cita']['estado'] === "1") {
+                        echo "<button class='btnMark btn-floating green waves-effect-light' type='submit' name='actionMark'>
                                                                 <i class='material-icons right'>done</i>
                                                             </button>";
-                                            }
-                                            echo '<!--Actualizar-->
+                    }
+                    echo '<!--Actualizar-->
                                                 <a href="#formulario-cita-container"
                                                     data-target="modal1"
                                                     class="btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light"+
@@ -229,44 +185,82 @@
                                                     <i class="material-icons right">delete</i>
                                                 </button>
                                           </td>';
-                                        }
-                                        ?>
+                }
+                ?>
+
+              <div class="col s12 m9 l9">
+                  <!--INICIO CUERPO PRINCIPAL DONDE SE MUESTRAN LOS DATOS-->
+                  <main id="main-admin-medico">
+
+                      <div class="row">
+
+                          <div class="col s12">
+                              <?php
+                                /*
+                            //Peticiones CRUD (puede mejorar)
+                            $object = new Connection();
+                            $query2 = "SELECT * FROM `cita` WHERE `medico_idMedico` = '$idMedico'";
+                            $connection = $object->Connect();
+                            $result3 = $connection->prepare($query2);
+                            $result3->execute();
+                            $data = $result3->fetchAll(PDO::FETCH_ASSOC);*/
+                                ?>
+                              <!--Contenido del modal tabla-->
+                              <!--Jalando los datos desde la base de datos--->
+                              <table id="tableCitas" class="centered">
+                                  <thead>
+                                      <tr>
+                                          <th>Id</th>
+                                          <th>Nombre</th>
+                                          <th>Paterno</th>
+                                          <th>Materno</th>
+                                          <!--New -->
+                                          <th>Email</th>
+                                          <th class="newWidthPhone">Telefono</th>
+                                          <th>Tratamiento</th>
+                                          <th class="newWidthDate">Fecha</th>
+                                          <th>Hora</th>
+                                          <th class="newWidthCellMensaje">Mensaje</th>
+                                          <th>Operación</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody id="bodies">
                                       <!--Inicializa la carga con los datos de la tabla-->
                                       <?php
                                         initializa();
                                         ?>
-                              </tbody>
-                          </table>
+                                  </tbody>
+                              </table>
+                          </div>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
                       </div>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                  </div>
-              </main>
-              <!--FIN DEL CUERPO-->
-          </div>
+                  </main>
+                  <!--FIN DEL CUERPO-->
+              </div>
 
       </div>
       <!--INICIO DEL FOOTER-->
@@ -383,7 +377,7 @@
                       </div>
 
                       <div class="input-field col s12 l6" required>
-                          <select name="opciones-tratamientos" id="opciones-tratamientos">
+                          <select name="opciones-tratamientos" id="opciones-tratamientos-update">
                               <option value="disabled selected">Selecciona un Tratamiento</option>
                               <option value="Ortodoncia">Ortodoncia</option>
                               <option value="Peridoncia">Periodoncia</option>

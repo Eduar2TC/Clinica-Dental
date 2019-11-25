@@ -215,12 +215,12 @@
                   return false;
               });
 
-              $('#formulario-cita-form').submit(function(e) {
-                  e.preventDefault();
+              $('#formulario-cita-form').submit(function(eevent) {
+                  event.preventDefault();
                   $.ajax({
                       type: $(this).attr('method'),
                       url: $(this).attr('action'),
-                      dataType: 'html',
+                      dataType: 'json',
                       data: $("#formulario-cita-form").serialize(),
                       success: function(data) {
                           if (data) {
@@ -233,10 +233,26 @@
                                       window.location.reload();
                                   });
                               } else {
+                                  if (data[0].request_validation_type === 'email') {
+                                      $("#email-2").next("label").attr('data-error', data[0].message);
+                                      $("#email-2").removeClass("validate valid");
+                                      $("#email-2").addClass("validate invalid");
+                                  } else if (data[0].request_validation_type === 'tel') {
+                                      $("#telefonos").next("label").attr('data-error', data[0].message);
+                                      $("#telefonos").removeClass("validate valid");
+                                      $("#telefonos").addClass("validate invalid");
+                                  } else if (data[0].request_validation_type === 'email-tel') {
+                                      $("#email-2").next("label").attr('data-error', data[0].message_email);
+                                      $("#email-2").removeClass("validate valid");
+                                      $("#email-2").addClass("validate invalid");
+                                      $("#telefonos").next("label").attr('data-error', data[0].message_telefono);
+                                      $("#telefonos").removeClass("validate valid");
+                                      $("#telefonos").addClass("validate invalid");
+                                  }
                                   Swal.fire({
                                       type: 'error',
                                       title: 'Oops...',
-                                      text: 'Error: ' + data,
+                                      text: 'Error: ' + 'hay errores en el formulario!',
                                       //footer: '<a href="#">Intentarlo otra vez</a>'
                                   });
                               }
@@ -477,5 +493,4 @@
                   x.style.display = "none";
               }
           }*/
-
       </script>

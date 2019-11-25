@@ -24,6 +24,15 @@
             selectable: true,
             selectHelper: true,
             displayEventTime: true,
+            defaultView: 'agendaWeek',
+            eventRender: function (events, element) {
+                if (events.estado === '1') {
+                    element.css('background-color', '#4caf50');
+                }
+                else if(events.estado === '0' ){
+                    element.css('background-color', '#ff9800');
+                }
+            }, 
 
         });
 </script>

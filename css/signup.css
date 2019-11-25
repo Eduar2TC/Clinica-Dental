@@ -136,7 +136,6 @@ input:focus {
     border-bottom: 1px solid rgba(33, 149, 243);
     box-shadow: 0 1px 0 0 rgba(33, 149, 243);
 }
-
  /*Succes input correct label form color*/   
 input:not([type]).valid+label:after, 
 input:not([type]):focus.valid+label:after, 
@@ -166,4 +165,8 @@ input[type=text]:not(.browser-default).valid+label:after,
  textarea.materialize-textarea:focus.valid+label:after,
  .select-wrapper.valid+label:after{
     color: rgba(33, 149, 243);
+}
+/*---Option selection---*/
+ul.dropdown-content.select-dropdown li span {
+    color:rgba(0, 89, 255, 0.918); /* no need for !important :) */
 }

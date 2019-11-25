@@ -5,6 +5,7 @@ $(document).ready(function(){
         "aoColumns": [null, null, null, null, null, null, null, null, null, null, null],
         "aaData": null,
         "responsive": true,
+        
         //"ajax":"js/results.json",
         //"dataSrc": '',
         //"mDataProp": "",
@@ -18,9 +19,36 @@ $(document).ready(function(){
             {
             "targets":10,
             "data":"",
-            "defaultContent": "",
+            "defaultContent": "<!--Marcar Cita Atendida-->" +
+                    "<button class = 'btnMark btn-floating orange waves-effect-light' type = 'submit' name = 'actionMark'>" +
+                    "<i class='material-icons right'>alarm</i>" +
+                    "</button>" +
+                    "<!--Actualizar-->" +
+                    "<a href='#formulario-cita-container'" +
+                    "data-target='modal1'" +
+                    "class='btnEdit modal-trigger btn-floating yellow darken-2 waves-effect waves light'" +
+                    "type='submit'" +
+                    "name='actionUpdate'>" +
+                    "<i class='material-icons right'>mode_edit</i>" +
+                    "</a>" +
+                    "<!--Elimnar-->" +
+                    "<button' class='btnDelete btn-floating red waves-effect waves-light' type = 'submit' name='actionDelete'>" +
+                    "<i class='material-icons right'>delete</i>" +
+                    "</button>",
+            /*"render": function(){
+                var output;
+                    $.ajax({
+                        url: './medicos.php',
+                        data: { action: 'operacion' },
+                        type: 'post',
+                        success: function (output) {
+                            console.log(output);
+                        }
+                    });
+                return output;
+            },
             /*"render": function (data, type, row) {
-                /*return "<!--Marcar Cita Atendida-->" +
+                return "<!--Marcar Cita Atendida-->" +
                     "<button class = 'btnMark btn-floating orange waves-effect-light' type = 'submit' name = 'actionMark'>" +
                     "<i class='material-icons right'>alarm</i>" +
                     "</button>" +
@@ -37,7 +65,7 @@ $(document).ready(function(){
                     "<i class='material-icons right'>delete</i>" +
                     "</button>";
             },*/
-            /*"<!--Marcar Cita Atendida-->" +
+            /*"<!--Marcar Cita Atendida-->":+
             "<button class = 'btnMark btn-floating orange waves-effect-light' type = 'submit' name = 'actionMark'>" +
                 "<i class='material-icons right'>alarm</i>" +
             "</button>" +
@@ -120,7 +148,7 @@ $(document).ready(function(){
     });
 
     //Sección de código que activa el cambio en la vista principal
-    $("#ver-citas").click(
+    $(".ver-calendario").click(
         function(){
             $("#main-admin-medico").load("calendario.html");
         }
@@ -463,10 +491,12 @@ $('#formulario-cita-form-update').submit(
         let materno = $.trim($('#formulario-cita-form-update').find('#materno').val());
         let email = $.trim($('#formulario-cita-form-update').find('#email-2').val());
         let telefono = $.trim($('#formulario-cita-form-update').find('#telefono').val());
-        let tratamiento = $.trim($('#formulario-cita-form-update').find('#opciones-tratamientos').val());
+        //let tratamiento = $('#opciones-tratamientos').find('option:selected').text();
+        let tratamiento = $('#opciones-tratamientos-update').parent(["0"]).children()[1].value;
         let fecha = $.trim($('#formulario-cita-form-update').find('#fecha').val());
         let hora = $.trim($('#formulario-cita-form-update').find('#hora').val());
         let mensaje = $.trim($('#formulario-cita-form-update').find('#mensaje').val());
+        $('#opciones-tratamientos-update').material_select();
 
         console.log(id+ " " + nombre + " " + paterno +
             " " + materno + " " + email + " " + telefono + " " + tratamiento + " "
@@ -494,8 +524,19 @@ $('#formulario-cita-form-update').submit(
                 //Cierra el modal
                 $('#formulario-cita-container').modal('close');
                 //refresca los renglones
-                var nuevosDatos = [data[0].idCita, data[0].nombre, data[0].paterno, data[0].materno, data[0].email, data[0].telefono, data[0].tratamiento, data[0].fecha, data[0].hora, data[0].mensaje ];
-                TableCitas.row(rowTableCita).data(nuevosDatos).draw();
+                var nuevosDatos = [data[0].idCita, 
+                                   data[0].nombre, 
+                                   data[0].paterno, 
+                                   data[0].materno, 
+                                   data[0].email, 
+                                   data[0].telefono, 
+                                   data[0].tratamiento, 
+                                   data[0].fecha, 
+                                   data[0].hora, 
+                                   data[0].mensaje];
+                //TableCitas.row(rowTableCita).data(nuevosDatos).draw();
+                $("#tableCitas").load(location.href + " #tableCitas"); //reload div tableCotas
+                //TableCitas.columns.adjust().draw(); 
             },
             error: function (data, textStatus, errorThrown) {
                 console.log('message=:' + data + ', text status=:' + textStatus + ', error thrown:=' + errorThrown);
@@ -504,3 +545,19 @@ $('#formulario-cita-form-update').submit(
     }
 );
 
+$(document).on('click', '.ver-citas', function () {
+    $.ajax({
+        url: './medicos.php',
+        data: {
+            action: 'initializa',
+            type: 'post',
+            success: function (data) {
+                //alert('caca');
+                $("#main-admin-medico").load(location.href + " #tableCitas");
+                $('#bodies').empty();
+                $("#bodies").load(location.href + data); //reload div tableCotas
+            }
+        }
+
+    });
+});

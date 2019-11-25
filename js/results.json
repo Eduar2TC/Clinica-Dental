@@ -3,14 +3,14 @@
         {
             "idCita": "228",
             "nombre": "Alejandro",
-            "paterno": "leonidas",
-            "materno": "gonzales",
+            "paterno": "Leonidas",
+            "materno": "Gonzales",
             "email": "email@email.com",
             "telefono": "222-222-2222",
-            "tratamiento": "Ortodoncia",
+            "tratamiento": "disabled selected",
             "fecha": "2019-10-18",
             "hora": "04:26:00",
-            "mensaje": "this a test buey :V"
+            "mensaje": "this a test buey :VV"
         },
         {
             "idCita": "229",
@@ -33,18 +33,6 @@
             "telefono": "222-222-2222",
             "tratamiento": "Ortodoncia",
             "fecha": "2019-01-08",
-            "hora": "03:05:00",
-            "mensaje": "this a test buey :V"
-        },
-        {
-            "idCita": "232",
-            "nombre": "Marisol",
-            "paterno": "Reyes",
-            "materno": "Lopez",
-            "email": "email@email3.com",
-            "telefono": "222-222-2222",
-            "tratamiento": "Ortodoncia",
-            "fecha": "2019-10-01",
             "hora": "03:05:00",
             "mensaje": "this a test buey :V"
         },

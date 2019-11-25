@@ -27,7 +27,8 @@ switch($opcionOperacion){
                                 hora, 
                                 mensaje,
                                 medico_idMedico)    /*Gestionar el identificador del medico logeado*/ 
-                        VALUES ('$nombre',
+                        VALUES (
+                                '$nombre',
                                 '$paterno',
                                 '$materno',
                                 '$email',
@@ -54,7 +55,9 @@ switch($opcionOperacion){
                              tratamiento,
                              fecha,
                              hora,
-                             mensaje FROM cita ORDER BY idCita DESC LIMIT 1";
+                             mensaje 
+                        FROM cita 
+                        ORDER BY idCita DESC LIMIT 1";
             $resultado = $connection->prepare($query);
             $resultado->execute();
             $GLOBALS['data'] = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -92,15 +95,17 @@ switch($opcionOperacion){
                 if($resultado){  //UPDATE SUCESS
                     //cambiar a la variable de instancia de la peticion principal
                     $query = "SELECT idCita, 
-                             nombre, 
-                             paterno,
-                             materno,
-                             email,
-                             telefono,
-                             tratamiento,
-                             fecha,
-                             hora,
-                             mensaje FROM cita WHERE idCita = '$id'";
+                                    nombre, 
+                                    paterno,
+                                    materno,
+                                    email,
+                                    telefono,
+                                    tratamiento,
+                                    fecha,
+                                    hora,
+                                    mensaje 
+                             FROM cita 
+                             WHERE idCita = '$id'";
                     $resultado = $connection->prepare($query);
                     $resultado->execute();
                     $GLOBALS['data'] = $resultado->fetchAll(PDO::FETCH_ASSOC);   
@@ -123,7 +128,9 @@ switch($opcionOperacion){
                              tratamiento,
                              fecha,
                              hora,
-                             mensaje FROM cita WHERE idCita = '$id'";
+                             mensaje 
+                        FROM cita 
+                        WHERE idCita = '$id'";
             $resultado = $connection->prepare($query);
             $resultado->execute();
             $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -148,22 +155,29 @@ switch($opcionOperacion){
                 //return data JSON
             if ($resultado) {  //UPDATE SUCESS
                     $query = "SELECT 
-                        idCita, 
-                         nombre, 
-                         paterno,
-                         materno,
-                         email,
-                         telefono,
-                         tratamiento,
-                         fecha,
-                         hora,
-                         mensaje
+                                idCita, 
+                                nombre, 
+                                paterno,
+                                materno,
+                                email,
+                                telefono,
+                                tratamiento,
+                                fecha,
+                                hora,
+                                mensaje
                         FROM cita /*WHERE idCita = '$id'*/";
                     $selectDataresult = $connection->prepare($query);
                     $selectDataresult->execute();
                     //$GLOBALS['data'] = $selectDataresult->fetchAll(PDO::FETCH_ASSOC);
-                    $arreglo = $selectDataresult->fetchAll(PDO::FETCH_ASSOC);
                     //print json_encode($data, JSON_UNESCAPED_UNICODE);
+                    
+                    /*write file json
+                    $arreglo = $selectDataresult->fetchAll(PDO::FETCH_ASSOC);
+                    header("content-type:application/json");
+                    $fp = fopen('../../js/results.json', 'w');
+                    fwrite($fp, json_encode(array('data' => $arreglo), JSON_PRETTY_PRINT));
+                    fclose($fp);
+                    print json_encode(array('data' => $arreglo), JSON_PRETTY_PRINT);*/
             }
 
         }catch(Exception $e){
@@ -172,11 +186,8 @@ switch($opcionOperacion){
         break;
     }
 }
-//print json_encode($data, JSON_UNESCAPED_UNICODE);
-header("content-type:application/json");
-print json_encode(array('data' => $arreglo), JSON_PRETTY_PRINT);
-$fp = fopen('../../js/results.json', 'w');
-fwrite($fp, json_encode(array('data' => $arreglo), JSON_PRETTY_PRINT));
-fclose($fp);
+/* return json to fronted request */
+print json_encode($data, JSON_UNESCAPED_UNICODE);
+
 $connection=null;
 ?>

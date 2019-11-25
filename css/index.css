@@ -44,11 +44,38 @@ header > .container > .row{
   #boton-registro:hover{
     color:rgba(0, 89, 255, 0.918);
   }
-  /* label focus color */
+  /*line default focus tipyng on text*/
+  input:focus {
+  border-bottom: 1px solid rgba(33, 149, 243, 0.4) !important;
+  box-shadow: 0 1px 0 0 rgba(33, 149, 243,0.4) !important;
+}
+/*---textAreas---*/
+/* Inactive/Active Default input field color */
+.input-field textarea:not([readonly]),
+.input-field textarea:focus:not([readonly]) {
+  border-bottom: 1px solid rgba(33, 149, 243, 0.4);
+  box-shadow: 0 1px 0 0 rgba(33, 149, 243,0.4);
+}
+/* Inactive/Active Default input label color */
+.input-field textarea:focus:not([readonly])+label {
+    color:rgba(0, 89, 255, 0.918) !important;
+}
+/*---Option selection---*/
+ul.dropdown-content.select-dropdown li span {
+    color:rgba(0, 89, 255, 0.918); /* no need for !important :) */
+}
+/*---input-fields---*/
+/* label focus color 
+.input-field input[type=text]:focus+label {
+    color:rgba(0, 89, 255, 0.918) !important;
+}*/
 .input-field input[type=password]:focus+label {
     color:rgba(0, 89, 255, 0.918) !important;
 }
 .input-field input[type=email]:focus+label {
+    color:rgba(0, 89, 255, 0.918) !important;
+}
+.input-field input[type=tel]:focus+label { /*---input phone---*/
     color:rgba(0, 89, 255, 0.918) !important;
 }
 i.material-icons.prefix.active{
@@ -56,43 +83,68 @@ i.material-icons.prefix.active{
 }
 /*Succes input correct line color*/
 .input-field input[type].valid,
-.input-field input[type].valid:focus,
-.input-field textarea.valid,
-.input-field textarea.valid:focus {
-    border-bottom: 1px solid rgba(33, 149, 243);
-    box-shadow: 0 1px 0 0 rgba(33, 149, 243);
+.input-field input[type].valid:focus {
+    border-bottom: 1px solid rgba(33, 149, 243) !important;
+    box-shadow: 0 1px 0 0 rgba(33, 149, 243) !important;
 }
  /*Succes input correct label form color*/   
 input:not([type]).valid+label:after, 
 input:not([type]):focus.valid+label:after, 
 input[type=text]:not(.browser-default).valid+label:after,
- input[type=text]:not(.browser-default):focus.valid+label:after, 
- input[type=password]:not(.browser-default).valid+label:after, 
- input[type=password]:not(.browser-default):focus.valid+label:after, 
- input[type=email]:not(.browser-default).valid+label:after, 
- input[type=email]:not(.browser-default):focus.valid+label:after, 
- input[type=url]:not(.browser-default).valid+label:after, 
- input[type=url]:not(.browser-default):focus.valid+label:after, 
- input[type=time]:not(.browser-default).valid+label:after, 
- input[type=time]:not(.browser-default):focus.valid+label:after, 
- input[type=date]:not(.browser-default).valid+label:after, 
- input[type=date]:not(.browser-default):focus.valid+label:after,
- input[type=datetime]:not(.browser-default).valid+label:after, 
- input[type=datetime]:not(.browser-default):focus.valid+label:after, 
- input[type=datetime-local]:not(.browser-default).valid+label:after, 
- input[type=datetime-local]:not(.browser-default):focus.valid+label:after, 
- input[type=tel]:not(.browser-default).valid+label:after,
- input[type=tel]:not(.browser-default):focus.valid+label:after,
- input[type=number]:not(.browser-default).valid+label:after,
- input[type=number]:not(.browser-default):focus.valid+label:after,
- input[type=search]:not(.browser-default).valid+label:after,
- input[type=search]:not(.browser-default):focus.valid+label:after,
- textarea.materialize-textarea.valid+label:after,
- textarea.materialize-textarea:focus.valid+label:after,
- .select-wrapper.valid+label:after{
+input[type=text]:not(.browser-default):focus.valid+label:after, 
+input[type=password]:not(.browser-default).valid+label:after, 
+input[type=password]:not(.browser-default):focus.valid+label:after, 
+input[type=email]:not(.browser-default).valid+label:after, 
+input[type=email]:not(.browser-default):focus.valid+label:after, 
+input[type=url]:not(.browser-default).valid+label:after, 
+input[type=url]:not(.browser-default):focus.valid+label:after, 
+input[type=time]:not(.browser-default).valid+label:after, 
+input[type=time]:not(.browser-default):focus.valid+label:after, 
+input[type=date]:not(.browser-default).valid+label:after, 
+input[type=date]:not(.browser-default):focus.valid+label:after,
+input[type=datetime]:not(.browser-default).valid+label:after, 
+input[type=datetime]:not(.browser-default):focus.valid+label:after, 
+input[type=datetime-local]:not(.browser-default).valid+label:after, 
+input[type=datetime-local]:not(.browser-default):focus.valid+label:after, 
+input[type=tel]:not(.browser-default).valid+label:after,
+input[type=tel]:not(.browser-default):focus.valid+label:after,
+input[type=number]:not(.browser-default).valid+label:after,
+input[type=number]:not(.browser-default):focus.valid+label:after,
+input[type=search]:not(.browser-default).valid+label:after,
+input[type=search]:not(.browser-default):focus.valid+label:after,
+textarea.materialize-textarea.valid+label:after,
+textarea.materialize-textarea:focus.valid+label:after,
+.select-wrapper.valid+label:after{
     color: rgba(33, 149, 243);
 }
-
+/*---Date picker and Clock picker---*/
+/*clock picker background color*/
+.picker__date-display{
+    background-color: rgba(0, 89, 255, 0.918);
+}
+.clockpicker-tick:hover { /*color numbers on hover*/
+    background: rgba(33, 149, 243,0.4) !important; 
+    color: azure;
+}
+.clockpicker-canvas line { /*line selector color*/
+    stroke: rgba(0, 89, 255, 0.918) !important; 
+}
+.clockpicker-canvas-bearing { 
+    fill: rgba(0, 89, 255, 0.918) !important; 
+}
+.clockpicker-canvas-bg { 
+    fill: rgba(0, 89, 255, 0.918) !important; 
+}
+/*--DATE PICKER OPTIONS*/
+.picker__day--infocus.picker__day--selected{
+    background-color: rgba(66, 133, 244, 0.79);
+} 
+.picker__day--selected:hover{
+    background-color: rgba(33, 149, 243,0.4);
+} 
+button.picker__today, button.picker__close {
+        color: rgba(66, 133, 244, 0.79);
+}
 /*Fin menu navegacion*/
 /*Fin del Header*/
 /*Inicio Cuerpo*/
@@ -188,4 +240,9 @@ input[type=text]:not(.browser-default).valid+label:after,
 }
 .contrasenia-olvidada a:hover{
         text-decoration: underline;
+}
+
+.error {
+    color: red;
+    font-size: 0.4rem;
 }

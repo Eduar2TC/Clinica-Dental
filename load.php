@@ -31,6 +31,7 @@ class DataManage{
                 'title' =>   $i['nombre']." ".$i["paterno"]." ".$i["materno"],
                 'start' => $combineDate1,
                 'end' => $combineDate2,
+                'estado' => $i['estado']
             );
         }
     }

@@ -537,8 +537,9 @@ require_once("includes/header.php"); // Solicitud del header
           </div>
 
           <div class="input-field col s12 l6">
-            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate" name="telefono" required>
-            <label for="telefono">Telefono</label>
+            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefonos" class="validate" name="telefono" required>
+            <label for="telefono" data-error="Telefono Inválido" data-success="Correcto">Telefono</label>
+          
           </div>
 
           <div class="input-field col s12 l6" required>
