@@ -9,12 +9,13 @@ $email = (isset($_POST['email'])) ? $_POST['email'] : '';
 $telefono = (isset($_POST['telefono'])) ? $_POST['telefono'] : '';
 $tratamiento = (isset($_POST['tratamiento'])) ? $_POST['tratamiento'] : '';
 $fecha = (isset($_POST['fecha'])) ? $_POST['fecha'] : '';
-$hora = (isset($_POST['hora'])) ? $_POST['hora'] : '';
+$hora = (isset($_POST['hora'])) ? date("h:00:00", strtotime($_POST['hora'])) : ''; //round time for cita
 $mensaje = (isset($_POST['mensaje'])) ? $_POST['mensaje'] : '';
 $opcionOperacion = (isset($_POST['opcionOperacion'])) ? $_POST['opcionOperacion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 $estadoCita = (isset($_POST['estadoCita'])) ? $_POST['estadoCita'] : '';
 $data =''; //JSON format return
+
 switch($opcionOperacion){
     case 1: {
             $query = "INSERT INTO cita(nombre, 

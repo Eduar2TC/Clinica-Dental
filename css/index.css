@@ -65,10 +65,10 @@ ul.dropdown-content.select-dropdown li span {
     color:rgba(0, 89, 255, 0.918); /* no need for !important :) */
 }
 /*---input-fields---*/
-/* label focus color 
+/* label focus color */
 .input-field input[type=text]:focus+label {
     color:rgba(0, 89, 255, 0.918) !important;
-}*/
+}
 .input-field input[type=password]:focus+label {
     color:rgba(0, 89, 255, 0.918) !important;
 }
@@ -87,9 +87,7 @@ i.material-icons.prefix.active{
     border-bottom: 1px solid rgba(33, 149, 243) !important;
     box-shadow: 0 1px 0 0 rgba(33, 149, 243) !important;
 }
- /*Succes input correct label form color*/   
-input:not([type]).valid+label:after, 
-input:not([type]):focus.valid+label:after, 
+ /*Succes input correct label form color*/    
 input[type=text]:not(.browser-default).valid+label:after,
 input[type=text]:not(.browser-default):focus.valid+label:after, 
 input[type=password]:not(.browser-default).valid+label:after, 
@@ -245,4 +243,32 @@ button.picker__today, button.picker__close {
 .error {
     color: red;
     font-size: 0.4rem;
+}
+/*Manejo de error en los inputs dinámicos de las validaciones ajax*/
+.error-input{
+    font-size: 12px;
+    content: attr(data-error);
+    color: #F44336;
+    opacity: 1;
+    margin-bottom: 0px !important;
+}
+form p{
+    margin-bottom: 10px;
+}
+#hora.timepicker{
+    margin-bottom:0;
+}
+/*margenenes entre los inputs y labels del formulario*/
+#email-2{
+    margin-bottom: 20px;
+}
+#telefonos{
+    margin-bottom: 20px;
+}
+ /*Corrige los margenes de los mensajes de error en los inputs de telefono y email*/
+#email-2.validate.invalid{
+    margin-bottom: 2px !important;
+}
+#telefonos.validate.invalid{
+    margin-bottom: 2px !important;
 }

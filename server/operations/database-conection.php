@@ -6,10 +6,10 @@
         private $dabaBase;
 
     function __construct(){
-       $this->host=  "localhost";//"sql213.epizy.com";
-        $this->username = "root";//"epiz_23039482";
-        $this->password = "ACM1PT";//"st62bgrk";
-        $this->dataBase = "clinica_dental";//"epiz_23039482_clinica_dental";
+       $this->host=  "localhost";//"sql202.epizy.com";
+        $this->username = "root";//"epiz_24846798";
+        $this->password = "ACM1PT";//"2c0j3wbh";
+        $this->dataBase = "clinica_dental";//"epiz_24846798_clinica_dental";
     }
         public function conectarBD(){
             $conexion = new mysqli($this->host, $this->username, $this->password, $this->dataBase);

@@ -561,7 +561,7 @@ require_once("includes/header.php"); // Solicitud del header
 
           <div class="input-field col 12 l6">
             <input id="hora" type="text" class="timepicker" name="hora" required>
-            <label for="hora">Hora de la Cita</label>
+            <label for="hora"  >Hora de la Cita</label>
           </div>
 
           <div class="input-field col s12">
