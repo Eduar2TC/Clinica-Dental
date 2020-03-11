@@ -241,15 +241,16 @@
                               }).then(
                                   function() {
                                       if (data[0].request_validation_type === 'email') { //email
-                                          $("#email-2").next("label").attr('data-error', data[0].message);
+                                          $("#email-2").next("label").attr('data-error', data[0].message_email);
                                           $("#email-2").removeClass("validate valid");
                                           $("#email-2").addClass("validate invalid");
                                       } else if (data[0].request_validation_type === 'tel') { // telefono
                                           $("#telefonos").next('p').remove(); //corrige la duplicación del mensaje de error en los inputs
-                                          $("#telefonos").next("label").attr('data-error', data[0].message);
+                                          $("#telefonos").next("label").attr('data-error', data[0].message_telefono);
                                           $("#telefonos").removeClass("validate valid");
                                           $("#telefonos").addClass("validate invalid");
                                           $('#telefonos').after('<p class= "error-input">' + data[0].message_telefono + '</p>');
+                                          $("#email-2").next('p').remove(); // Si anteriormente el email fue validado incorrectamente esto remueve el mensaje de error
                                       } else if (data[0].request_validation_type === 'hora') { // hora
                                           $('#hora').after('<p class= "error-input">' + data[0].message_hora + '</p>');
                                       } else if (data[0].request_validation_type === 'fecha') { //fecha
@@ -258,18 +259,18 @@
                                           /*$('email-2').removeClass("validate valid");
                                           $('email-2').addClass("validate invalid");*/
                                           $("#email-2").next('p').remove(); //corrige la duplicación del mensaje de error en los inputs
-                                          $("#email-2").next("label").attr('data-error', data[0].message);
+                                          $("#email-2").next("label").attr('data-error', data[0].message_email);
                                           $("#email-2").removeClass("validate valid");
                                           $("#email-2").addClass("validate invalid");
                                           $('#email-2').after('<p class= "error-input">' + data[0].message_email + '</p>');
 
                                           $("#telefonos").next('p').remove(); //corrige la duplicación del mensaje de error en los inputs
-                                          $("#telefonos").next("label").attr('data-error', data[0].message);
+                                          $("#telefonos").next("label").attr('data-error', data[0].message_telefono);
                                           $("#telefonos").removeClass("validate valid");
                                           $("#telefonos").addClass("validate invalid");
                                           $('#telefonos').after('<p class= "error-input">' + data[0].message_telefono + '</p>');
 
-                                          $("#email-2").next("label").attr('data-error', data[0].message);
+                                          $("#email-2").next("label").attr('data-error', data[0].message_email);
                                           $("#email-2").removeClass("validate valid");
                                           $("#email-2").addClass("validate invalid");
 

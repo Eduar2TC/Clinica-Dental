@@ -614,7 +614,7 @@
                       </div>
 
                       <div class="input-field col s12 l6">
-                          <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefono" class="validate" name="telefono" required>
+                          <input type="tel" id="telefonos" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' class="validate" name="telefono" required>
                           <label for="telefono">Telefono</label>
                       </div>
 

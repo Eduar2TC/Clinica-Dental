@@ -537,9 +537,9 @@ require_once("includes/header.php"); // Solicitud del header
           </div>
 
           <div class="input-field col s12 l6">
-            <input type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' id="telefonos" class="validate" name="telefono" required>
+            <input type="tel" id="telefonos" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' class="validate" name="telefono" required>
             <label for="telefono" data-error="Telefono Inválido" data-success="Correcto">Telefono</label>
-          
+
           </div>
 
           <div class="input-field col s12 l6" required>
@@ -561,7 +561,7 @@ require_once("includes/header.php"); // Solicitud del header
 
           <div class="input-field col 12 l6">
             <input id="hora" type="text" class="timepicker" name="hora" required>
-            <label for="hora"  >Hora de la Cita</label>
+            <label for="hora">Hora de la Cita</label>
           </div>
 
           <div class="input-field col s12">
