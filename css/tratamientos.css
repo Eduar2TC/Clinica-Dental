@@ -147,4 +147,33 @@ main .row{
 /*Caracteristicas de los estilos del Modal*/
 .modal{
     border-radius: 1%;
+    width: 85% !important; 
+    height: 95% !important ;
+    max-height: 100%; 
+    overflow: hidden;
+}
+/*Modal posicion*/
+#servicio1{
+  top: 5px !important;
+  bottom: 5px !important;
+}
+.image-profile img{
+  width: 100%;
+  height: auto;
+}
+.card-panel{ /*Tamaño del panel de la información*/
+  height: 100%;
+}
+/*Personalizacion de la tarjeta en el modal del médico*/
+.profile-header{
+	background-color: #17a2b8;
+	height:150px;
+}
+.image-profile{
+	margin:-150px 0px 30px 0px;
+}
+.image-profile img{
+  width: 200px;
+  height: auto;
+  border: 5px solid rgb(255, 255, 255); /*Borde de la imagen*/
 }

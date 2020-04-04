@@ -197,7 +197,7 @@
                       <div class="col s12 m4">
                           <div class="card card-resize-height">
                               <div class="card-image">
-                                  <img src="img/rainier-ridao-720108-unsplash.jpg">
+                                  <img src="img/rainier-ridao-cscGEQgrhMY-unsplash.jpg">
                                   <span class="card-title">Ortodoncista</span>
                                   <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">add</i></a>
                               </div>
@@ -205,6 +205,14 @@
                                   <p id="saludo">¡Hola mi nombre es Julia!"</p>
                               </div>
                           </div>
+                          <!-- <div class="card">
+                              <div class="card-image waves-effect waves-block waves-light">
+                                  <a href="https://adbeus.com/montreal/centre-sud/cafe-sfouf-centre-sud-montreal/">
+                                      <img width="305" height="229" src="https://adbeus.com/wp-content/uploads/2016/11/lqxgovsi47sgm7hndkqh-305x229.jpg" class="responsive-img wp-post-image" alt="Café Sfouf / Centre-Sud, Montreal" title="Café Sfouf / Centre-Sud, Montreal" srcset="https://adbeus.com/wp-content/uploads/2016/11/lqxgovsi47sgm7hndkqh-305x229.jpg 305w, https://adbeus.com/wp-content/uploads/2016/11/lqxgovsi47sgm7hndkqh-300x225.jpg 300w, https://adbeus.com/wp-content/uploads/2016/11/lqxgovsi47sgm7hndkqh-768x576.jpg 768w, https://adbeus.com/wp-content/uploads/2016/11/lqxgovsi47sgm7hndkqh.jpg 800w" sizes="(max-width: 305px) 100vw, 305px" /> <span class="card-title home">Café Sfouf</span>
+                                  </a>
+
+                              </div>
+                          </div>-->
                       </div>
                       <div class="col s12 m8">
                           <div class="card-panel hoverable blue darken-3 card-resize-height">
@@ -569,95 +577,156 @@
       <!--                    ->  MODALES   <-               -->
       <div id="servicio1" class="modal modal-fixed-footer">
           <div class="modal-content">
-              <h5 class="center">Hola, mi nombre es Julia y soy especialista en Ortodoncia </h5>
-              <img src="img/rainier-ridao-720108-unsplash.jpg" alt="" class="responsive-img" />
-              <span class="flow-text">Soy especialista en Ortodocia, agenda tu cita para poder llevar a cabo un
-                  pre-análisis. Y Obtener la
-                  valoración de tu condición médica para así poder planear tu tratamiento.</span>
+              <div class="center">
+                  <h3>Información</h3>
+              </div>
+              <div class="col s12 m8 offset-m2 l6 offset-l3">
+                  <div class="card-panel grey lighten-5 z-depth-1">
+                      <div class="row valign-warapper">
+                          <div class="col s12 m4 imagen-mas-datos">
+                              <div class="row profile-header"></div>
+                              <div class="image-profile center">
+                                  <img src="img/rainier-ridao-720108-unsplash.jpg" alt="" class="circle responsive-img" />
+                              </div>
+                              <div class="datos-personales">
+                                  <ul>
+                                      <li>
+                                          <p class="nombre-medico">Nombre: <span>Julia</span></p>
+                                      </li>
+                                      <li>
+                                          <p class="apellido-medico">Apellido Paterno: <span>García</span></p>
+                                      </li>
+                                      <li>
+                                          <p class="especialidad">Especialidad: <span>Ortodoncia</span></p>
+                                      </li>
+                                      <li>
+                                          <p class="formacion">Formación: <span>BUAP</span></p>
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div class="redes-sociales">
+                                  REDES
+                              </div>
+                          </div>
+                          <div class="col s12 m8">
+                              <div class="row">
+                                  <div class="col s6 m6">
+                                      <h5>Educación</h5>
+                                      <div class="educación">
+                                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam praesentium laudantium iusto sint vel quisquam, facilis accusantium numquam neque explicabo rerum perferendis dolorum porro, reiciendis ab quibusdam, error voluptatibus architecto!
+                                      </div>
+                                  </div>
+                                  <div class="col s6 m6">
+                                      <h5>Experiencia laboral</h5>
+                                      <div class="experiencia">
+                                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam praesentium laudantium iusto sint vel quisquam, facilis accusantium numquam neque explicabo rerum perferendis dolorum porro, reiciendis ab quibusdam, error voluptatibus architecto!
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col s12">
+                                      <h5>Visión</h5>
+                                      <div class="vision">
+                                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam soluta nemo explicabo saepe incidunt fugiat quidem accusantium labore! Quos culpa, earum rerum minus nostrum temporibus suscipit quisquam harum nemo. Aspernatur?
+                                      </div>
+                                  </div>
+                                  <div class="col s12 offset-m6">
+                                      <h5>Contacto</h5>
+                                      <ul>
+                                          <li><p>E-mail: <span>julia@gmail.com</span></p></li>
+                                          <li><p>Telefono: <span>2219089809</span></p></li>
+                                          <li><p>Linkedin: <span>julia-garcia-2390</span></p></li>
+                                      </ul>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!--<div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Correcto</a>
+              </div>-->
           </div>
-          <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-blue btn-flat">Bien</a>
-          </div>
-      </div>
 
-      <div id="servicio2" class="modal modal-fixed-footer">
-          <div class="modal-content">
-              <h5 class="center">Hola, mi nombre es Pedro Ramos, especialista en Peridoncia </h5>
-              <img src="img/Periodoncia.jpg" alt="" class="responsive-img" />
-              <span class="flow-text">Ven y te atendemos si sufres de Gengivitis, Placa y problemas derivados de ésta.</span>
-          </div>
-          <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-blue btn-flat">Bien</a>
-          </div>
-      </div>
-      <!--Modal Formulario-citas  (Esto se repite en varios archivos modificar)-->
-      <div id="formulario-cita" class="modal" style=" max-height: 100%;">
-          <div class="container">
-              <div class="row">
-                  <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
-                  <form id="formulario-cita-form" method="POST" action="server/operations/inserta-cita.php">
-                      <div class="input-field col s12 l6">
-                          <input type="text" id="nombre" class="validate" name="nombre" required>
-                          <label for="nombre">Nombre</label>
-                      </div>
-                      <div class="input-field col s12 l6">
-                          <input type="text" id="paterno" class="validate" name="paterno" required>
-                          <label for="paterno">Paterno</label>
-                      </div>
-                      <div class="input-field col s12 l6">
-                          <input type="text" id="materno" class="validate" name="materno" required>
-                          <label for="materno">Materno</label>
-                      </div>
-                      <div class="input-field col s12 l6">
-                          <input type="email" id="email-2" class="validate" name="email" required>
-                          <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
-                      </div>
-
-                      <div class="input-field col s12 l6">
-                          <input type="tel" id="telefonos" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' class="validate" name="telefono" required>
-                          <label for="telefono">Telefono</label>
-                      </div>
-
-                      <div class="input-field col s12 l6" required>
-                          <select name="opciones-tratamientos" id="opciones-tratamientos">
-                              <option value="disabled selected">Selecciona un Tratamiento</option>
-                              <option value="1">Ortodoncia</option>
-                              <option value="2">Periodoncia</option>
-                              <option value="3">Endodoncia</option>
-                              <option value="4">Cirujía Dental</option>
-                              <option value="5">Estética Dental</option>
-                          </select>
-                          <label>Opciones de tratamientos</label>
-                      </div>
-
-                      <div class="input-field col 12 l6">
-                          <input type="text" class="datepicker" id="fecha" name="fecha" required>
-                          <label for="fecha">Fecha de la Cita</label>
-                      </div>
-
-                      <div class="input-field col 12 l6">
-                          <input type="text" id="hora" class="timepicker" name="hora" required>
-                          <label for="hora">Hora de la Cita</label>
-                      </div>
-
-                      <div class="input-field col s12">
-                          <textarea id="mensaje" class="materialize-textarea" name="mensaje"></textarea>
-                          <label for="mensaje">Escribenos un Mensaje</label>
-                      </div>
-                      <div class="center">
-                          <button class="btn waves-effect waves-light blue" type="submit" name="submit" value="submit">Enviar
-                              <i class="material-icons right">send</i>
-                          </button>
-                      </div>
-                      <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->
-                  </form>
-
+          <div id="servicio2" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                  <h5 class="center">Hola, mi nombre es Pedro Ramos, especialista en Peridoncia </h5>
+                  <img src="img/Periodoncia.jpg" alt="" class="responsive-img" />
+                  <span class="flow-text">Ven y te atendemos si sufres de Gengivitis, Placa y problemas derivados de ésta.</span>
+              </div>
+              <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-blue btn-flat">Bien</a>
               </div>
           </div>
-      </div>
-      <!--Fin Modal-->
-      <!--Footer-->
-      <?php require_once("includes/footer.php"); ?>
+          <!--Modal Formulario-citas  (Esto se repite en varios archivos modificar)-->
+          <div id="formulario-cita" class="modal" style=" max-height: 100%;">
+              <div class="container">
+                  <div class="row">
+                      <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
+                      <form id="formulario-cita-form" method="POST" action="server/operations/inserta-cita.php">
+                          <div class="input-field col s12 l6">
+                              <input type="text" id="nombre" class="validate" name="nombre" required>
+                              <label for="nombre">Nombre</label>
+                          </div>
+                          <div class="input-field col s12 l6">
+                              <input type="text" id="paterno" class="validate" name="paterno" required>
+                              <label for="paterno">Paterno</label>
+                          </div>
+                          <div class="input-field col s12 l6">
+                              <input type="text" id="materno" class="validate" name="materno" required>
+                              <label for="materno">Materno</label>
+                          </div>
+                          <div class="input-field col s12 l6">
+                              <input type="email" id="email-2" class="validate" name="email" required>
+                              <label for="email" data-error="Correo Inválido" data-success="Correcto">Email</label>
+                          </div>
+
+                          <div class="input-field col s12 l6">
+                              <input type="tel" id="telefonos" pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Formato de telefono: (Formato: 123-456-7890)' class="validate" name="telefono" required>
+                              <label for="telefono">Telefono</label>
+                          </div>
+
+                          <div class="input-field col s12 l6" required>
+                              <select name="opciones-tratamientos" id="opciones-tratamientos">
+                                  <option value="disabled selected">Selecciona un Tratamiento</option>
+                                  <option value="1">Ortodoncia</option>
+                                  <option value="2">Periodoncia</option>
+                                  <option value="3">Endodoncia</option>
+                                  <option value="4">Cirujía Dental</option>
+                                  <option value="5">Estética Dental</option>
+                              </select>
+                              <label>Opciones de tratamientos</label>
+                          </div>
+
+                          <div class="input-field col 12 l6">
+                              <input type="text" class="datepicker" id="fecha" name="fecha" required>
+                              <label for="fecha">Fecha de la Cita</label>
+                          </div>
+
+                          <div class="input-field col 12 l6">
+                              <input type="text" id="hora" class="timepicker" name="hora" required>
+                              <label for="hora">Hora de la Cita</label>
+                          </div>
+
+                          <div class="input-field col s12">
+                              <textarea id="mensaje" class="materialize-textarea" name="mensaje"></textarea>
+                              <label for="mensaje">Escribenos un Mensaje</label>
+                          </div>
+                          <div class="center">
+                              <button class="btn waves-effect waves-light blue" type="submit" name="submit" value="submit">Enviar
+                                  <i class="material-icons right">send</i>
+                              </button>
+                          </div>
+                          <!-- <input type="submit" class="btn waves-effect waves-light" name="submit" value="submit" /> -->
+                      </form>
+
+                  </div>
+              </div>
+          </div>
+          <!--Fin Modal-->
+          <!--Footer-->
+          <?php require_once("includes/footer.php"); ?>
   </body>
 
   </html>
