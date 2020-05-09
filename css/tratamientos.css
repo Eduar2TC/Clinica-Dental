@@ -148,32 +148,107 @@ main .row{
 .modal{
     border-radius: 1%;
     width: 85% !important; 
-    height: 95% !important ;
+    height: 95% !important;
     max-height: 100%; 
     overflow: hidden;
+}
+@media only screen and (max-width: 601px) {
+
+  .skills .col{
+    padding-right: 0%;
+    padding-left: 0%;
+}
+
+}
+/*Ocultar desplazamiento en modo horizontal*/
+.modal-content{
+  overflow-x: hidden;
 }
 /*Modal posicion*/
 #servicio1{
   top: 5px !important;
   bottom: 5px !important;
 }
+.card-panel{ /*Tamaño del panel de la información*/
+  height: 100%;
+}
+/*Ajust layout information*/
+/*Skills*/
+.skills{
+  padding-right: 0% !important;
+  padding-left: 0% !important;
+}
+/*Cambio de las propiedades del segundo renglon de la colum a Skills*/
+.skills .row:nth-child(2) .col{
+  padding-right: 0%;
+}
+
+.skills .row:nth-child(2) .col .card{
+  margin-bottom: 0%;
+}
+.skills .row .col:nth-child(2){ /*Quita el padding de la column derecha dentro de la columna 2 hija dentro del contenedor skill-> row-> col*/
+  padding-right: 0%;
+}
+
+/**Card data medico*/
+/*.skills{
+  display: flex;
+  flex-direction: column;
+}*/
+/*.skills .row:nth-child(2){
+  margin-top: auto;
+  height: 100%;
+}
+.skills .row:nth-child(2) .col{
+  height: inherit;
+}*/
+.imagen-mas-datos{
+  border: 1px solid #1778b8;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-bottom: 20px;
+  height: auto;
+  /*Mantiene la posicion de los iconos de las redes en el pie de la tarjeta bajo los datos*/
+  display: flex; 
+  flex-direction: column;
+}
+.equal { /*Misma altura para las columnas dentro de los rows*/
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0%;
+}
 .image-profile img{
   width: 100%;
   height: auto;
 }
-.card-panel{ /*Tamaño del panel de la información*/
-  height: 100%;
-}
-/*Personalizacion de la tarjeta en el modal del médico*/
 .profile-header{
-	background-color: #17a2b8;
-	height:150px;
+  background-color: #1778b8;
+  width: 100%;
+  height:150px;
 }
 .image-profile{
-	margin:-150px 0px 30px 0px;
+	margin:-150px 0px 15px 0px;
 }
 .image-profile img{
   width: 200px;
   height: auto;
   border: 5px solid rgb(255, 255, 255); /*Borde de la imagen*/
+}
+/*Personalizacion de la tarjeta en el modal del médico*/
+.datos-personales{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.redes-sociales{
+  padding: 10px 0px 10px 0px;
+  background-color: #4fc3f7;
+  margin-top: auto; /*Mantiene la posicion de los iconos de las redes en el pie de la tarjeta bajo la imagen*/
+}
+.redes-sociales a i{
+	color:#fff;
+	font-size:23px;
+	padding: 0px 8px;
+}
+.redes-sociales a i:hover{
+  color:rgb(33, 106, 201);
 }
