@@ -1,0 +1,183 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+    background: url('../img/alex-581032-unsplash.jpg') no-repeat center center fixed;  /*background image*/
+    /*background: rgb(60, 83, 131);*/
+    background-size: cover;
+    height: 100%;
+}
+/*.card .card-content .page-footer{
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}*/
+/*Resize card with
+.card, .card-content{
+    width: 520px;
+}*/
+/*Add padding on link ya tengo cuenta*/
+.ya-tengo-cuenta{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.ya-tengo-cuenta p{
+    font-size: 20px;
+    color: lemonchiffon;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.ya-tengo-cuenta a:hover{
+    text-decoration: underline;
+}
+
+/*fIX Margin on row castroso*/
+
+.rowCastroso{
+    margin-bottom: 0%;
+}
+
+/*Transparent background card-content*/
+.card-content{
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+/*Resize form on mobil view*/
+@media (min-width: 992px) { 
+    .card, .card-content{
+        width: 520px;
+    }
+
+}
+
+#login-page .row{ /*Espacio entre los elementos de registro*/
+    margin-bottom: 5px;
+}
+
+#acepto-terminos{
+    left: 1.5%;
+}
+/*Titles of sections registers*/
+h5{
+    font-family: 'Poppins', cursive;
+    color: antiquewhite;
+}
+
+/*Validation of data*/
+.validation_error{
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    color: rgb(235, 81, 10);
+}
+/*nueva posicion del logo*/
+a.brand-logo img{
+    height: 63px !important;
+}
+#sidenav-overlay{
+    z-index: 1 !important;
+}
+
+#label-imagen{ 
+    left: 200px;
+}
+/*Make transparent card and card-titles*/
+.subtitulo, .card{
+    background-color: rgba(33, 149, 243, 0.5) !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/*cnage color inputs on the form*/
+
+.input-field input[type=text]:focus+label {
+    color:rgba(173, 201, 255, 0.918) !important;
+}
+.input-field input[type=password]:focus+label {
+    color:rgba(173, 201, 255, 0.918) !important;
+}
+.input-field input[type=email]:focus+label {
+    color:rgba(173, 201, 255, 0.918) !important;
+}
+[type="checkbox"]:checked+label:before {
+    border-right: 2px solid  rgb(236, 222, 26);
+    border-bottom: 2px solid rgb(236, 222, 26);
+}
+/*icon active form*/
+i.material-icons.prefix{
+    color:rgb(247, 246, 244);
+}
+i.material-icons.prefix.active{
+    color:rgba(33, 149, 243,0.4)
+}
+
+/*Input colors*/
+/*Color inputs*/
+.input-field label{
+    color:rgba(234, 243, 247, 0.719); /*lemonchiffon to rgba*/
+}
+input{
+    color: lemonchiffon;
+}
+input:focus {
+  border-bottom: 1px solid rgba(33, 149, 243, 0.4) !important;
+  box-shadow: 0 1px 0 0 rgba(33, 149, 243,0.4) !important;
+}
+ /*Succes input correct line color*/
+.input-field input[type].valid,
+.input-field input[type].valid:focus,
+.input-field textarea.valid,
+.input-field textarea.valid:focus {
+    border-bottom: 1px solid rgba(33, 149, 243);
+    box-shadow: 0 1px 0 0 rgba(33, 149, 243);
+}
+ /*Succes input correct label form color*/   
+input:not([type]).valid+label:after, 
+input:not([type]):focus.valid+label:after, 
+input[type=text]:not(.browser-default).valid+label:after,
+ input[type=text]:not(.browser-default):focus.valid+label:after, 
+ input[type=password]:not(.browser-default).valid+label:after, 
+ input[type=password]:not(.browser-default):focus.valid+label:after, 
+ input[type=email]:not(.browser-default).valid+label:after, 
+ input[type=email]:not(.browser-default):focus.valid+label:after, 
+ input[type=url]:not(.browser-default).valid+label:after, 
+ input[type=url]:not(.browser-default):focus.valid+label:after, 
+ input[type=time]:not(.browser-default).valid+label:after, 
+ input[type=time]:not(.browser-default):focus.valid+label:after, 
+ input[type=date]:not(.browser-default).valid+label:after, 
+ input[type=date]:not(.browser-default):focus.valid+label:after,
+ input[type=datetime]:not(.browser-default).valid+label:after, 
+ input[type=datetime]:not(.browser-default):focus.valid+label:after, 
+ input[type=datetime-local]:not(.browser-default).valid+label:after, 
+ input[type=datetime-local]:not(.browser-default):focus.valid+label:after, 
+ input[type=tel]:not(.browser-default).valid+label:after,
+ input[type=tel]:not(.browser-default):focus.valid+label:after,
+ input[type=number]:not(.browser-default).valid+label:after,
+ input[type=number]:not(.browser-default):focus.valid+label:after,
+ input[type=search]:not(.browser-default).valid+label:after,
+ input[type=search]:not(.browser-default):focus.valid+label:after,
+ textarea.materialize-textarea.valid+label:after,
+ textarea.materialize-textarea:focus.valid+label:after,
+ .select-wrapper.valid+label:after{
+    color: rgba(33, 149, 243);
+}
+/*---Option selection---*/
+ul.dropdown-content.select-dropdown li span {
+    color:rgba(0, 89, 255, 0.918); /* no need for !important :) */
+}
+
+/*card- propities*/
+.card{
+    border-radius: 10px;
+}
+.card .card-action{
+    border-radius: 10px !important;
+}

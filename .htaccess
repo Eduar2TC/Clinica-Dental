@@ -1,0 +1,15 @@
+#RewriteEngine On
+##Si el nombre de archivo solicitado no es un directorio
+#RewriteCond %{REQUEST_FILENAME} !-d
+##Si el nombre de archivo solicitado no es un archivo regular que existe
+#RewriteCond %{REQUEST_FILENAME} !-f
+##si el nombre del archivo solicitado no es un enlace simbólico
+#RewriteCond %{REQUEST_FILENAME} !-l
+#RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+
+#http://localhost/Clinica-Dental/cualquierOtroControlador/ -> http://localhost/Clinica-Dental/
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ public/ [L]
+    RewriteRule (.*) public/$1 [L]
+</IfModule>

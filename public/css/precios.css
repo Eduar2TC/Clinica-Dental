@@ -1,0 +1,243 @@
+/*#contenedor-precios{
+    width: 75% !important;
+}*/
+/*Card panel titulo*/
+.seccion-titulo{
+    border-radius: 10px;
+}
+/*Card panel de los precios*/
+#contenedor-precios .card-panel{
+    height: auto;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 5px;
+
+}
+.titulo-precios{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 26px;
+    font-weight: bold;
+}
+.tipo-tratamiento-adulto .tipo-tratamiento-ninio span{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+}
+
+#columna-adultos{
+    padding-left: 0%;
+}
+.tipo-tratamiento-adulto{
+    border:1px solid #eaf0f5;  
+    border-radius: 5px;
+    margin-top:8px; 
+    margin-left: 0px !important;
+      
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.tipo-tratamiento-precio-adulto{
+    border-radius: 5px;
+    margin-top:8px; 
+    margin-right: 0px !important;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    width: auto;
+
+}
+
+.tipo-tratamiento-ninio-1{
+    border:1px solid #c6ff00;  
+    border-radius: 10px;
+    margin-top:8px; 
+    margin-left: 0px !important;
+      
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+}
+
+.tipo-tratamiento-precio-ninio-1{
+    border-radius: 5px;
+    margin-top:8px; 
+    margin-right: 0px !important;
+      
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+}
+
+.tipo-tratamiento-precio-ninio-1:hover{
+    background-color: #fff !important;
+    border:1px solid #cddc39; 
+}
+.tipo-tratamiento-precio-ninio-1:hover .white-text{
+    color:#cddc39 !important;
+}
+
+.tipo-tratamiento-ninio-2{
+    border:1px solid #ff5722;  
+    border-radius: 10px;
+    margin-top:8px; 
+    margin-left: 0px !important;
+      
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+}
+.tipo-tratamiento-precio-ninio-2{
+    border-radius: 5px;
+    margin-top:8px; 
+    margin-right: 0px !important;
+      
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+}
+
+.tipo-tratamiento-precio-ninio-2:hover{
+    background-color: #fff !important;
+    border:1px solid #ff5722;
+}
+.tipo-tratamiento-precio-ninio-2:hover .white-text{
+    color:#ff5722 !important;
+}
+
+.tipo-tratamiento-ninio-3{
+    border:1px solid #aa00ff; 
+    border-radius: 10px; 
+    margin-top:8px; 
+    margin-left: 0px !important;
+      
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+}
+.tipo-tratamiento-precio-ninio-3{
+    border-radius: 5px;
+    margin-top:8px; 
+    margin-right: 0px !important;
+      
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+}
+
+.tipo-tratamiento-precio-ninio-3:hover{
+    background-color: #fff !important;
+    border:1px solid #aa00ff;
+}
+.tipo-tratamiento-precio-ninio-3:hover .white-text{
+    color:#aa00ff !important;
+}
+
+.tipo-tratamiento-ninio-4{
+    border:1px solid #00bcd4;  
+    border-radius: 10px;
+    margin-top:8px; 
+    margin-left: 0px !important;
+      
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+}
+.tipo-tratamiento-precio-ninio-4{
+    border-radius: 5px;
+    margin-top:8px; 
+    margin-right: 0px !important;
+      
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+}
+.tipo-tratamiento-precio-ninio-4:hover{
+    background-color: #fff !important;
+    border:1px solid #00bcd4;
+}
+.tipo-tratamiento-precio-ninio-4:hover .white-text{
+    color:#00bcd4 !important;
+}
+/*Mensaje Inicio Banner de un medico*/
+.section-anuncio .row{
+    padding: 15px;
+}
+.section-anuncio span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+.section-anuncio h5{
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    margin: 0%;
+}
+
+/*Fondo de imagen del Banner por default*/
+.back-imagen{
+    background-image: url('../img/fondo-mensaje-precios.png');
+    background-repeat: no-repeat;
+    background-size:100% auto;
+    height: auto;
+}
+/*Fondo de imagen del Banner vista movil*/
+@media only screen and (max-width: 601px) {
+    
+    .back-imagen{
+    background-image: url('../img/fondo-mensaje-precios.png');
+    background-repeat: no-repeat;
+    background-size:auto 100%;
+    background-position-x: 85%;
+    height: auto;
+    }
+
+
+}
+/*Fondo de imagen del Banner pantallas medias*/
+@media only screen and (max-width: 835px) {
+
+    .back-imagen{
+    background-image: url('../img/fondo-mensaje-precios.png');
+    background-repeat: no-repeat;
+    background-size:auto 100%;
+    height: auto;
+    }
+
+}
+/*caurusel de imagenes*/
+#carousel-ninios .carousel img{
+    height: 250px !important;
+    width: 100% !important;
+}
+/*Titulo del slider*/
+#carousel-ninios h5{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 26px;
+    font-weight: bold;
+}
+/*Boton transparente del boton de ver mas imágenes*/
+#carousel-ninios a{
+    background-color: #1e59a066 !important;
+}
+.carousel.carousel-slider{
+    border-radius: 10px;
+}

@@ -1,0 +1,463 @@
+header,
+footer,
+section {
+    overflow: auto;
+}
+/*Comportamiento en vista movil Seccion (Tratamienos) en vista mobil*/
+@media only screen and (max-width: 600px) {
+    /*Ajust card position on tratamientos view*/
+    .renglon-ajustar{
+        display: flex;  
+        flex-direction: column;
+    }
+    .col-one{
+        order: 2;
+    }
+    .col-two{
+        order: 1;
+    }
+    /*Corrige tamaño del Card slides en tratamientos*/
+    .carousel-medical{
+      height: 330px;
+      max-height: 420px ;
+    }
+     .carousel-medical .carousel{ 
+      height: 400px !important;
+      margin-bottom: 20px;
+    }
+    .carousel-medical .carousel-item {
+      width: 100% !important;
+    }
+    .card .card-image img {
+     height: auto;
+     width: 100%;
+    }
+    /*Floating button*/
+    .fixed-action-btn{
+      position: absolute;
+      right: 24px;
+      bottom: -20px;
+    }
+    .fixed-action-btn.horizontal ul{
+      right: 30px;
+      top: 15px;
+    }
+    .fixed-action-btn ul a.btn-floating{
+      right: 14px;
+      bottom: 9px;
+    }
+    .fixed-action-btn.horizontal ul li{
+      margin-right: 5px;
+    }
+}
+
+@media only screen and (min-width : 601px) and (max-width : 992px){
+    /*Corrige tamaño del Card slides en tratamientos*/
+     .carousel-medical .carousel { 
+      height: 320px !important;
+    }
+    /*Texto dentro de las Cards*/
+    .card-title{
+      background: linear-gradient( to bottom, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.7));
+      width: 100%;
+    }
+    /*Floating button*/
+    .card-image .fixed-action-btn{
+      position: absolute;
+      right: 24px;
+      bottom: -20px;
+    }
+    .card-image .fixed-action-btn.horizontal ul{
+      right: 30px;
+      top: 15px;
+    }
+    .card-image .fixed-action-btn ul a.btn-floating{
+      right: 14px;
+      bottom: 9px;
+    }
+    .card-image.fixed-action-btn.horizontal ul li{
+      margin-right: 5px;
+    }
+    /*Posición del boton dinámico*/
+    .boton-fijo{
+      position: absolute;
+      left: 92% !important;
+      right: 8%;
+      margin-top: 25px;
+    }
+
+    /*Triangulo para el speech bubble*/
+    .ortodoncia:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 17px solid transparent;
+    border-right: 17px solid #1565C0;
+    border-top: 17px solid #1565C0;
+    border-bottom: 17px solid transparent;
+    left: 33.90%;
+    bottom: 0%;
+    transform: translateY(-100%);
+  }
+    /*Boton en el speech bubble*/
+  .boton-fijo{
+      position: absolute;
+      left: 57% !important;
+      margin-top: 50px;
+    }
+  .boton-fijo .fixed-action-btn {
+    position: absolute;
+    /* top: 135%; */
+    left: 77%;
+    padding-top: 15px;
+    margin-bottom: 0;
+  }
+  .boton-fijo .fixed-action-btn.horizontal ul{
+    right: 35px;
+  }
+  .boton-fijo .fixed-action-btn.horizontal ul li{
+    margin-top: 15px;
+    margin-right: 5px;
+  }
+    
+}
+@media only screen and (min-width: 993px) {
+    /*Corrige tamaño del Card slides en tratamientos*/
+    .carousel-medical .carousel { 
+      height: 337px !important;
+    }
+    /*Boton en el speech bubble*/
+  .boton-fijo{
+      position: absolute;
+      left: 79% !important;
+      margin-top: 50px;
+    }
+  .boton-fijo .fixed-action-btn {
+    position: absolute;
+    /* top: 135%; */
+    left: 79%;
+    padding-top: 15px;
+    margin-bottom: 0;
+  }
+  .boton-fijo .fixed-action-btn.horizontal ul{
+    right: 10px;
+  }
+  .boton-fijo .fixed-action-btn.horizontal ul li{
+    margin-top: 15px;
+    margin-right: 5px;
+  }
+    /*Triangulo para el speech bubble*/
+  .ortodoncia:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 17px solid transparent;
+    border-right: 17px solid #1565C0;
+    border-top: 17px solid #1565C0;
+    border-bottom: 17px solid transparent;
+    left: 36.90%;
+    bottom: 0%;
+    transform: translateY(-100%);
+  }
+
+}
+
+/*Inicio Header*/
+/*Fin Header*/
+/*Inicio del estado de navegación*/
+.navegacion-estado{
+ margin-bottom: 0px !important; 
+}
+.navegacion-estado .container .nav-wrapper > col{
+  height: 30px;
+}
+.navegacion-estado .container nav{
+  background-color: lightblue;
+   height: 30px;
+        line-height: 30px;
+}
+/*Fin del estado de navegación*/
+/*Inicio Menu de navegacion*/
+  #boton-registro:hover{
+    color:#0f1ccf;
+  }
+/*Fin menu navegacion*/
+
+/*Inicio del Cuerpo*/
+/*Tamaño de la imagen parallax como fondo*/
+.parallax-container {
+  height: 200px;
+}
+
+.parallax img {
+  z-index: -1;
+  opacity: 0.5;
+}
+.parallax-container:hover {
+  opacity: 1.0;
+}
+.parallax h1{
+  margin-top: 5%;
+  margin-bottom: 0%;
+  padding: 10px;
+  font-size: 36px;
+  font-weight: bold;
+}
+.parallax span{
+  padding-top: 0px;
+  font-size: 26px;
+}
+/*Card Medico*/
+main .row{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+/*Incio de Tratamiento*/
+.section-tratamientos .card{
+    border-radius: 2%;
+}
+.card .card-image img{
+    border-radius: 2%;
+}
+/* .card .card-title{
+    color: #142b3b !important;
+    text-shadow: 4px 1px 3px rgb(73, 70, 60);
+} */
+/*Saludo del medico*/
+#saludo {
+    font-family: 'Sacramento', cursive;
+    font-size: 23px;
+    font-weight: bold;
+}
+/*Detalles tratamiento*/
+.section-tratamientos .card-panel{
+    height: auto;
+    border-radius: 2%;
+}
+
+/*Necesario para alinear el boton mas informacion*/
+#parrafo {
+    text-align: justify;
+    text-justify: inter-word;
+    display: inherit;
+}
+
+/*Quitar padding del enlace mas informacion*/
+#expandir-tratamiento-one{
+  padding-left: 0px;
+}
+.botonMasinformacion .btn-flat {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*Mayusculas a minusculas*/
+.botonMasInformacion a {
+    text-transform: none;
+    color: #f0ddaa;
+}
+
+.botonMasInformacion a:link {
+  text-decoration: none;
+}
+
+.botonMasInformacion a:visited {
+  text-decoration: none;
+}
+
+.botonMasInformacion a:hover {
+  text-decoration: underline;
+}
+
+.botonMasInformacion a:active {
+  text-decoration: underline;
+}
+/*Eliminar margenes para ocultar los detalles de los tratamientos*/
+.colapsoTratamiento{    
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border-top-width: 0px;
+}
+
+/*Fin de Tratamiento*/
+
+/*Anuncio Mensaje llamar*/
+.section-llamar .col{
+    padding: 15px;
+}
+.section-llamar h5{
+    margin: 0%;
+    padding: 15px;
+    padding-bottom: 0%;
+    font-family: Josefin,sans-serif;
+    font-size: 24px;
+}
+#boton-llamada{
+    padding-bottom: 30px;
+}
+#boton-llamada a:hover {
+  box-shadow: 1px 6px 10px rgba(0, 0, 0, 0.973);
+}
+/*Fin del Cuerpo*/
+
+/*Caracteristicas de los estilos del Modal*/
+.modal{
+    border-radius: 1%;
+    width: 85% !important; 
+    height: 95% !important;
+    max-height: 100%; 
+    overflow: hidden;
+}
+@media only screen and (max-width: 601px) {
+
+  .skills .col{
+    padding-right: 0%;
+    padding-left: 0%;
+}
+
+}
+/*Ocultar desplazamiento en modo horizontal*/
+.modal-content{
+  overflow-x: hidden;
+}
+/*Modal posicion*/
+#servicio1{
+  top: 5px !important;
+  bottom: 5px !important;
+}
+.card-panel{ /*Tamaño del panel de la información*/
+  height: 100%;
+}
+/*Ajust layout information*/
+/*Skills*/
+.skills{
+  padding-right: 0% !important;
+  padding-left: 0% !important;
+}
+/*Cambio de las propiedades del segundo renglon de la colum a Skills*/
+.skills .row:nth-child(2) .col{
+  padding-right: 0%;
+}
+
+.skills .row:nth-child(2) .col .card{
+  margin-bottom: 0%;
+}
+.skills .row .col:nth-child(2){ /*Quita el padding de la column derecha dentro de la columna 2 hija dentro del contenedor skill-> row-> col*/
+  padding-right: 0%;
+}
+
+/**Card data medico*/
+/*.skills{
+  display: flex;
+  flex-direction: column;
+}*/
+/*.skills .row:nth-child(2){
+  margin-top: auto;
+  height: 100%;
+}
+.skills .row:nth-child(2) .col{
+  height: inherit;
+}*/
+.imagen-mas-datos{
+  border: 1px solid #1778b8;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-bottom: 20px;
+  height: auto;
+  /*Mantiene la posicion de los iconos de las redes en el pie de la tarjeta bajo los datos*/
+  display: flex; 
+  flex-direction: column;
+}
+.equal { /*Misma altura para las columnas dentro de los rows*/
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0%;
+}
+.image-profile img{
+  width: 100%;
+  height: auto;
+}
+.profile-header{
+  background-color: #1778b8;
+  width: 100%;
+  height:150px;
+}
+.image-profile{
+	margin:-150px 0px 15px 0px;
+}
+.image-profile img{
+  width: 200px;
+  height: auto;
+  border: 5px solid rgb(255, 255, 255); /*Borde de la imagen*/
+}
+/*Personalizacion de la tarjeta en el modal del médico*/
+.datos-personales{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.redes-sociales{
+  padding: 10px 0px 10px 0px;
+  background-color: #4fc3f7;
+  margin-top: auto; /*Mantiene la posicion de los iconos de las redes en el pie de la tarjeta bajo la imagen*/
+}
+.redes-sociales a i{
+	color:#fff;
+	font-size:23px;
+	padding: 0px 8px;
+}
+.redes-sociales a i:hover{
+  color:rgb(33, 106, 201);
+}
+
+/*Indicadores para el slides*/
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+/*indicadores de los card sliders*/
+.middle-indicator{
+   position:absolute;
+   top: 50%;
+   }
+  .middle-indicator-text{
+   font-size: 3.2rem;
+  }
+  a.middle-indicator-text{
+    color:  rgba(54, 54, 54, 0.747) !important;
+  }
+  .movePrevCarousel{
+    right: 8px;
+  }
+  .moveNextCarousel{
+    left: 8px;
+  }
+.content-indicator{
+    width: 40px;
+    height: 40px;
+    background: none;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px; 
+  }
+  .indicators{
+  	visibility: hidden;
+  }
+/*Espacio entre las tarjetas del Slider*/
+.card {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+/*Card panel tratamientos (ortodoncia)*/

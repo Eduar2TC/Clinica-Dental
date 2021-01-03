@@ -1,0 +1,137 @@
+/*Links superiores del Header*/
+#links-superiores li {
+  display: inline;
+  margin-right: 1em;
+}
+
+.link {
+  font-family: 'K2D', sans-serif;
+  display: inline-block;
+  position: relative;
+}
+
+.link span {
+  color: #707070;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 5px;
+  display: block;
+  transition: all 0.3s cubic-bezier(0.815, 1.400, 0.600, 0.180);
+}
+
+.link:hover span {
+  color: #66a3ff;
+}
+
+.link:before,
+.link:after {
+  content: '';
+  height: 3px;
+  width: 0;
+  background-color: #66a3ff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s cubic-bezier(0.815, 1.400, 0.600, 0.180);
+}
+
+.link:after {
+  left: auto;
+  right: 0;
+}
+
+.link:hover:before,
+.link:hover:after {
+  width: 50%;
+}
+
+@media only screen and (max-width: 990px) {
+  .link span {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .link {
+    margin-bottom: 20px;
+  }
+}
+
+/*Fin links superiores*/
+
+/*Quita el espcio entre la navBar y el Slider*/
+#navegacionPrincipal {
+  margin-bottom: 0%;
+}
+
+/*Contenedor despues del menu principal*/
+.slider{
+  background-color: #f5f5f5;
+  height: 256px !important;
+}
+
+/*Opacidad en las imagenes del slider*/
+.slides li::before{
+  content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0,0,0,.55);
+}
+.slides li > * {
+    z-index: 1;
+}
+/*Propiedades del Slider*/
+.slider .indicators {
+  bottom: 25px;
+  z-index: 10;
+  /* text-align: left; */
+}
+
+/*.slider .slides li img {
+    max-width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    opacity: 0.9;
+}*/
+.slider .indicators .indicator-item.active {
+  background-color: #66ccff;
+}
+
+/*Telefono font*/
+#telefono {
+  font-family: 'Tauri', sans-serif;
+  font-size: 23px;
+}
+
+/*Caso de alineacion del icono telefono con el texto*/
+.material-icons {
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: bottom;
+}
+
+/*Manda al frente el contenido del parallax*/
+.parallax-container{
+z-index: 1;
+}
+
+/*Corrige el error del navbar  de la sobrposicion de las imagenes*/
+.tarjetaPushpin {
+  z-index: 10;
+}
+
+/*
+@media only screen and (max-width: 601px) {
+  #imagenLogo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}*/
