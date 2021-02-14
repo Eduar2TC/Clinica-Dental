@@ -19,10 +19,10 @@
                   <div class="row">
                       <div id="links-superiores">
                           <ul class="left hide-on-small-and-down">
-                              <li><a class="link" href="nosotros">Nosotros</a></li>
-                              <li><a class="link" href="empleo">Empleo</a></li>
-                              <li><a class="link" href="contacto">Contacto</a></li>
-                              <li><a class="link" href="ayuda">Ayuda</a></li>
+                              <li><a class="link" href="<?php echo URL_ROOT ?>/pages/nosotros">Nosotros</a></li>
+                              <li><a class="link" href="<?php echo URL_ROOT ?>/pages/empleo">Empleo</a></li>
+                              <li><a class="link" href="<?php echo URL_ROOT ?>/pages/contacto">Contacto</a></li>
+                              <li><a class="link" href="<?php echo URL_ROOT ?>/pages/ayuda">Ayuda</a></li>
                           </ul>
                       </div>
                   </div>
@@ -42,8 +42,7 @@
                       <div class="nav-wrapper blue lighten-2">
                           <div class="container">
                               <div class="nav-wrapper">
-
-                                  <a href="main" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                                  <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                                   <ul class="hide-on-small-and-down">
                                       <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos">Tratamientos</a></li>
                                       <li><a href="<?php echo URL_ROOT ?>/pages/precios">Precios</a></li>
@@ -53,18 +52,43 @@
                                       </li>
                                   </ul>
                               </div>
-
                               <ul class="right hide-on-med-and-down fa-ul">
+                                  <!--Search box -->
+                                  <li class="search-box">
+                                      <nav>
+                                          <div class="nav-wrapper">
+                                              <form method='post' action="#">
+                                                  <div class="input-field">
+                                                      <input id="search" type="search" required>
+                                                      <label class="label-icon" for="search">
+                                                          <i class="material-icons">search</i>
+                                                      </label>
+                                                      <i class="close material-icons">close</i>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      </nav>
+                                  </li>
                                   <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                                   <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                     médico</a></li> -->
                               </ul>
                           </div>
                   </nav>
+                  <!--Menu de navegacion Mobil -->
+                  <ul id="mobile-menu" class="sidenav">
+                      <li><a href="main" class="blue-text">Inicio</a></li>
+                      <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos" class="blue-text">Tratamientos</a></li>
+                      <li><a href="<?php echo URL_ROOT ?>/pages/precios" class="blue-text">Precios</a></li>
+                      <li><a href="<?php echo URL_ROOT ?>/pages/sucursales" class="blue-text">Clínicas</a></li>
+                      <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
+                      </li>
+                      <li><a id="login" href="<?php echo URL_ROOT ?>/users/login"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
+                  </ul>
               </div>
               <!--Formulario para logearse -->
               <div id="login-form" class="webui-popover-content">
-                  <form id="formulario-login" method="POST" action="server/login.php">
+                  <form id="formulario-login" method="POST" action="users/login">
                       <div class="row">
                           <div class="input-field col s12">
                               <i class="material-icons prefix">mail_outline</i>
@@ -86,14 +110,17 @@
                           </div>
                       </div>
                       <div class="row">
-                          <div class="input-field col s12">
-                              <button id="login" type="submit" name="login" value="accesando" class=" col s12 btn waves-effect waves-light btn-small blue right">Acceder
-                                  <i class="fas fa-sign-in-alt"></i>
+                          <div class="input-field col s12 center">
+                              <button id="login" type="submit" name="login" value="accesando" class="waves-effect waves-light btn blue">Acceder
+                                  <i class="fas fa-sign-in-alt left"></i>
                           </div>
                       </div>
                       <div class="row contrasenia-olvidada">
-                          <div class="input-field col s12 m12 l12">
-                              <p class="margin center-align medium-small"><a href="#">¿Contraseña olvidada?</a></p>
+                          <div class="input-field col s12 m6 l6">
+                              <p class="margin center-align medium-small"><a href="<?php echo URL_ROOT . '/users/recuperar' ?>">¿Olvidaste tu contraseña?</a></p>
+                          </div>
+                          <div class="input-field col s12 m6 l6">
+                              <p class="margin center-align medium-small"><a href="<?php echo URL_ROOT . '/users/register' ?>">Registrarse</a></p>
                           </div>
                       </div>
 
@@ -101,8 +128,8 @@
               </div>
 
               <!--Menu de navegacion Mobil -->
-              <ul class="side-nav" id="mobile-menu">
-                  <li><a href="<?php echo URL_ROOT ?>" class="blue-text">Inicio</a></li>
+              <ul class="sidenav" id="mobile-menu">
+                  <li><a href="main" class="blue-text">Inicio</a></li>
                   <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos" class="blue-text">Tratamientos</a></li>
                   <li><a href="<?php echo URL_ROOT ?>/pages/precios" class="blue-text">Precios</a></li>
                   <li><a href="<?php echo URL_ROOT ?>/pages/sucursales" class="blue-text">Clínicas</a></li>
@@ -147,7 +174,7 @@
                           <h3 class="blue-text text-lighten-5">Gran variedad de servicios</h3>
                           <h5 class="light-blue-text text-lighten-4">Consulta nuestro Catalogo de Servicios</h5>
                           <div class="hide-on-med-and-down">
-                              <a href="tratamientos.php#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
+                              <a href="tratamientos#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
                                   mas...</a>
                           </div>
                       </div>
@@ -301,11 +328,15 @@
                                   de las alteraciones del desarrollo dental​, trabajando entorno a tres áreas, el
                                   diagnóstico​, la prevención y el tratamiento​, para corregir la posición de los
                                   dientes y mandíbula​.
-                                  <div class="botonMasInformacion">
-                                      <a class="btn-flat waves-effect waves-yellow" id="expandir-tratamiento-one">Mas
+                                  <div id="boton-dentro-del-parrafo">
+                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="link-expandir-tratamiento-one">Mas
                                           informacion...</a>
                                   </div>
                               </span>
+                              <div class="card-action right-align">
+                                  <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
+                                      cita</a>
+                              </div>
                               <div class="boton-fijo">
                                   <!--                                   <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
                                       cita</a> -->
@@ -323,7 +354,7 @@
                           </div>
                       </div>
                   </div>
-                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-one" data-collapsible="accordion">
+                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-one">
                       <li>
                           <div class="collapsible-header" style="display: none;">
                           </div>
@@ -339,7 +370,6 @@
 
                                       En Dentimex podemos ofrecerle desde la solución tradicional de ortodoncia metálica básica hasta los últimos tratamientos de ortodoncia estética, con la que apenas nadie percibirá que la lleva.
                                   </div>
-
                               </div>
                               <div class="row">
                                   <div class="col m6 s12 l4">
@@ -373,23 +403,24 @@
                       </li>
                   </ul>
                   <div class="row renglon-ajustar">
-                      <div class="col s12 m8 col-one">
+                      <div class="col s12 m8 col-one peridoncia">
                           <div class="card-panel hoverable blue darken-3 card-resize-height">
-                              <h5 class="white-text">Peridoncia</h5>
-
-                              <span class="white-text valign-wrapper" id="parrafo">
-                                  La falta de higiene bucal puede provocar enfermedades.
-                                  En nuestra Clínica
-                                  ratamos y
-                                  solucionamos estos problemas para mantener la salud de sus dientes. No descuide
-                                  su
-                                  sonrisa y venga a visitarnos, podemos ayudarle.
+                              <div class="card-content">
+                                  <h5 class="card-title white-text">Peridoncia</h5>
+                                  <p class="white-text valign-wrapper" id="parrafo">
+                                      La falta de higiene bucal puede provocar enfermedades.
+                                      En nuestra Clínica
+                                      ratamos y
+                                      solucionamos estos problemas para mantener la salud de sus dientes. No descuide
+                                      su
+                                      sonrisa y venga a visitarnos, podemos ayudarle.
                                   <div id="boton-dentro-del-parrafo">
-                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-two">Mas
+                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="link-expandir-tratamiento-two">Mas
                                           informacion...</a>
                                   </div>
-                              </span>
-                              <div class="right-align">
+                                  </p>
+                              </div>
+                              <div class="card-action right-align">
                                   <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
                                       cita</a>
                               </div>
@@ -408,7 +439,7 @@
                           </div>
                       </div>
                   </div>
-                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-two" data-collapsible="accordion">
+                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-two">
                       <li>
                           <div class="collapsible-header" style="display: none;">
                           </div>
@@ -441,7 +472,7 @@
                               </div>
                           </div>
                       </div>
-                      <div class="col s12 m8">
+                      <div class="col s12 m8 endodoncia">
                           <div class="card-panel hoverable blue darken-3 card-resize-height">
                               <h5 class="white-text">Endodoncia</h5>
                               <span class="white-text valign-wrapper" id="parrafo">
@@ -450,7 +481,7 @@
                                   dental Dentimex y no pierda su pieza dental. Conservará la apariencia de su
                                   dentadura mientras que el dolor desaparece por completo.
                                   <div id="boton-dentro-del-parrafo">
-                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-tree">Mas
+                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="link-expandir-tratamiento-tree">Mas
                                           informacion...</a>
                                   </div>
                               </span>
@@ -463,7 +494,7 @@
                       </div>
 
                   </div>
-                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-tree" data-collapsible="accordion">
+                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-tree">
                       <li>
                           <div class="collapsible-header" style="display: none;">
                           </div>
@@ -480,21 +511,23 @@
                       </li>
                   </ul>
                   <div class="row renglon-ajustar">
-                      <div class="col s12 m8 col-one">
+                      <div class="col s12 m8 col-one estetica-dental">
                           <div class="card-panel hoverable blue darken-3 card-resize-height">
-                              <h5 class="white-text">Estetica Dental</h5>
-                              <span class="white-text valign-wrapper" id="parrafo">
-                                  La endodoncia es la solución inmediata y definitiva ante las molestias
-                                  dolorosas provocadas por la afectación del nervio. Acuda a cualquier
-                                  clínica
-                                  dental Dentimex y no pierda su pieza dental. Conservará la apariencia de su
-                                  dentadura mientras que el dolor desaparece por completo.
+                              <div class="card-content">
+                                  <h5 class="card-title white-text">Estetica Dental</h5>
+                                  <p class="white-text valign-wrapper" id="parrafo">
+                                      La endodoncia es la solución inmediata y definitiva ante las molestias
+                                      dolorosas provocadas por la afectación del nervio. Acuda a cualquier
+                                      clínica
+                                      dental Dentimex y no pierda su pieza dental. Conservará la apariencia de su
+                                      dentadura mientras que el dolor desaparece por completo.
                                   <div id="boton-dentro-del-parrafo">
-                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-for">Mas
+                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="link-expandir-tratamiento-four">Mas
                                           informacion...</a>
                                   </div>
-                              </span>
-                              <div class="right-align">
+                                  </p>
+                              </div>
+                              <div class="card-action right-align">
                                   <a href="#formulario-cita" class="waves-effect waves-light btn blue modal-trigger">Reservar
                                       cita</a>
                               </div>
@@ -513,7 +546,7 @@
                           </div>
                       </div>
                   </div>
-                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-for" data-collapsible="accordion">
+                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-four">
                       <li>
                           <div class="collapsible-header" style="display: none;">
                           </div>
@@ -534,7 +567,7 @@
                       </li>
                   </ul>
                   <div class="row">
-                      <div class="col s12 m4">
+                      <div class="col s12 m4 cirujia">
                           <div class="card card-resize-height">
                               <div class="card-image">
                                   <img src="<?php echo $path_img ?>doctor-1.jpg">
@@ -561,7 +594,7 @@
                                   aumentar su adhesión al hueso (osteointegración si es de titanio y
                                   biointegración si se trata de un material cerámico).
                                   <div id="boton-dentro-del-parrafo">
-                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="expandir-tratamiento-five">Mas
+                                      <a class="left-align botonMasInformacion btn-flat waves-effect waves-yellow" id="link-expandir-tratamiento-five">Mas
                                           informacion...</a>
                                   </div>
                               </span>
@@ -573,7 +606,7 @@
                           </div>
                       </div>
                   </div>
-                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-five" data-collapsible="accordion">
+                  <ul class="collapsible colapsoTratamiento" id="colapso-tratamiento-five">
                       <li>
                           <div class="collapsible-header" style="display: none;">
                           </div>
@@ -597,9 +630,25 @@
               </div>
           </section>
           <!--Fin tratamientos-->
+          <!--Paginacion -->
+          <div class="section paginacion-llamar grey lighten-4">
+              <div class="container">
+                  <div class="center">
+                      <ul class="pagination">
+                          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                          <li class="active"><a href="#!">1</a></li>
+                          <li class="waves-effect"><a href="#!">2</a></li>
+                          <li class="waves-effect"><a href="#!">3</a></li>
+                          <li class="waves-effect"><a href="#!">4</a></li>
+                          <li class="waves-effect"><a href="#!">5</a></li>
+                          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
           <!---Anuncio llamar-->
           <div class="section section-llamar grey lighten-4">
-              <div class="container blue accent-1">
+              <div class="container">
                   <div class="row">
                       <div class="col s12 m12 l12 center">
                           <h5 class="white-text text-darken-4">Tu salud dental es lo más importante para nosotros.

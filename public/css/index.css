@@ -62,12 +62,13 @@ header > .container > .row{
 @media only screen and (max-width: 601px) {
     /*Ajust on Principal page*/
     .renglon3{
-        display: flex;  flex-direction: column;
+        display: flex;  
+        flex-direction: column;
     }
-    #col1{
+    .col1{
         order: 2;
     }
-    #col2{
+    .col2{
         order: 1;
     }
 
@@ -208,7 +209,10 @@ button.picker__today, button.picker__close {
 #formulario-login .row{
     margin: 5%;
 }
-[type="checkbox"]:checked+label:before {
+#formulario-login .row span{
+    left: 10px;
+}
+[type="checkbox"]:checked+span:not(.lever):before {
     border-right: 2px solid  rgba(0, 89, 255, 0.918);
     border-bottom: 2px solid rgba(0, 89, 255, 0.918);
 }
@@ -306,6 +310,10 @@ form p{
 #telefonos.validate.invalid{
     margin-bottom: 2px !important;
 }
+/*ajuste del margen vertical del la tarjeta*/
+.card-panel .valign-wrapper{
+    margin-top: 10px;
+}
 /*contenedor de la imagen movible*/
 .image-testimonial-container{
     position:relative; 
@@ -330,4 +338,30 @@ form p{
     position:absolute; 
     z-index:2;
     height: 150px;
+}
+/*search-box*/
+.search-box{
+    right: 50px;
+    margin-top: 10px;
+}
+.search-box nav{
+    height: 44px;
+}
+.input-field #search{
+    margin-bottom: 0px;
+}
+/*align middle icons in searchbox */
+.search-box .material-icons:nth-child(1){
+    margin-top: -10px;
+}
+.search-box .close{
+    margin-top: -10px !important;
+    font-size: 1.5rem;
+}
+.search-box nav{
+    border-radius: 20px;
+    background-color: #72a8e6;
+}
+.input-field #search{
+    border-radius: 20px;
 }

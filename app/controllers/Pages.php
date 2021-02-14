@@ -7,7 +7,7 @@ class Pages extends Controller {
 
     public function index(){
         $data = [
-            'title' => 'Welcome'
+            'title' => 'Clinica Dental - Principal'
         ];
         $this->view('pages/index/index', $data);
     }

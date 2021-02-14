@@ -42,8 +42,7 @@ require_once HEADER;
                     <div class="nav-wrapper blue lighten-2">
                         <div class="container">
                             <div class="nav-wrapper">
-
-                                <a href="<?php echo URL_ROOT ?>" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                                 <ul class="hide-on-small-and-down">
                                     <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos">Tratamientos</a></li>
                                     <li><a href="<?php echo URL_ROOT ?>/pages/precios">Precios</a></li>
@@ -53,14 +52,39 @@ require_once HEADER;
                                     </li>
                                 </ul>
                             </div>
-
                             <ul class="right hide-on-med-and-down fa-ul">
+                                <!--Search box -->
+                                <li class="search-box">
+                                    <nav>
+                                        <div class="nav-wrapper">
+                                            <form method='post' action="#">
+                                                <div class="input-field">
+                                                    <input id="search" type="search" required>
+                                                    <label class="label-icon" for="search">
+                                                        <i class="material-icons">search</i>
+                                                    </label>
+                                                    <i class="close material-icons">close</i>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </nav>
+                                </li>
                                 <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                                 <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                     médico</a></li> -->
                             </ul>
                         </div>
                 </nav>
+                <!--Menu de navegacion Mobil -->
+                <ul id="mobile-menu" class="sidenav">
+                    <li><a href="main" class="blue-text">Inicio</a></li>
+                    <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos" class="blue-text">Tratamientos</a></li>
+                    <li><a href="<?php echo URL_ROOT ?>/pages/precios" class="blue-text">Precios</a></li>
+                    <li><a href="<?php echo URL_ROOT ?>/pages/sucursales" class="blue-text">Clínicas</a></li>
+                    <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
+                    </li>
+                    <li><a id="login" href="<?php echo URL_ROOT ?>/users/login"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
+                </ul>
             </div>
             <!--Formulario para logearse -->
             <div id="login-form" class="webui-popover-content">
@@ -393,39 +417,45 @@ require_once HEADER;
                                 <a class="carousel-item" href="#two!"><img src="<?php echo $path_img ?>ninio02.jpg"></a>
                                 <a class="carousel-item" href="#three!"><img src="<?php echo $path_img ?>ninio03.jpg"></a>
                                 <a class="carousel-item" href="#four!"><img src="<?php echo $path_img ?>ninio04.jpg"></a>
-                                <a class="carousel-item" href="#four!"><img src="<?php echo $path_img ?>ninio05.jpg"></a </div> </div> </div> </div> </div> </section> <!--Fin Precios-->
-                                <!--Anuncio--->
-                                <div class="section section-anuncio">
-                                    <div class="container">
-                                        <div class="row card-panel back-imagen">
-                                            <!--Mensaje anuncio-->
-                                            <div class="col s12 m10 l10">
-                                                <div class="row">
-                                                    <div class="col s12">
-                                                        <div class="left-align">
-                                                            <h5 class="center white-text">Contactanos</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--boton anuncio-->
-                                            <div class="col s12 m10 l10 ">
-                                                <div class="row">
-                                                    <div class="col s12 m10 l10">
-                                                        <div class="center">
-                                                            <span class="blue-text text-darken-4">Contamos con todas las especialidades en un mismo lugar y tres socursales en esl estado de Puebla.</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s12 center">
-                                                        <a class="waves-effect waves-light btn blue"><i class="material-icons right white-text">contact_mail</i>Reservar cita</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <a class="carousel-item" href="#four!"><img src="<?php echo $path_img ?>ninio05.jpg"></a </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!--Fin Precios-->
+        <!--Anuncio--->
+        <div class="section section-anuncio">
+            <div class="container">
+                <div class="row card-panel back-imagen">
+                    <!--Mensaje anuncio-->
+                    <div class="col s12 m10 l10">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="left-align">
+                                    <h5 class="center white-text">Contactanos</h5>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--boton anuncio-->
+                    <div class="col s12 m10 l10 ">
+                        <div class="row">
+                            <div class="col s12 m10 l10">
+                                <div class="center">
+                                    <span class="blue-text text-darken-4">Contamos con todas las especialidades en un mismo lugar y tres socursales en esl estado de Puebla.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 center">
+                                <a class="waves-effect waves-light btn blue"><i class="material-icons right white-text">contact_mail</i>Reservar cita</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <!--FIN DEL CUERPO-->
 

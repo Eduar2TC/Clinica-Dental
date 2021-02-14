@@ -1,7 +1,7 @@
 <?php
 /*
     * Clase PDO
-    * Conección a la base de datos
+    * Conexión a la base de datos
     * Creación de sentencias
     * Retorno de datos en rows y results
 */
@@ -27,9 +27,9 @@ class Database {
         //Creacion Intancia PDO
         try {
             $this->controladorDb = new PDO( $dsn, 
-                                              $this->user, 
-                                              $this->pass, 
-                                              $options 
+                                            $this->user, 
+                                            $this->pass, 
+                                            $options 
             );
         } catch (PDOException $e) {
             $this->error = $e->getMessage();

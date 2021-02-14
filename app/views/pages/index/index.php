@@ -1,10 +1,10 @@
 <?php
-  $tituloPagina = "Clínica Principal"; //Nombre de la pági
-  $path_img = URL_ROOT . '/public/img/';
-  $path_css = URL_ROOT . '/public/css/';
-  $path_js = URL_ROOT . '/public/js/';
-  $status_page = "inicio";
-  require_once HEADER;
+$tituloPagina = $data['title']; //Nombre de la página desde el controlador
+$path_img = URL_ROOT . '/public/img/';
+$path_css = URL_ROOT . '/public/css/';
+$path_js = URL_ROOT . '/public/js/';
+$status_page = "inicio";
+require_once HEADER;
 ?>
 
 <body>
@@ -42,8 +42,7 @@
           <div class="nav-wrapper blue lighten-2">
             <div class="container">
               <div class="nav-wrapper">
-
-                <a href="main" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="hide-on-small-and-down">
                   <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos">Tratamientos</a></li>
                   <li><a href="<?php echo URL_ROOT ?>/pages/precios">Precios</a></li>
@@ -53,23 +52,63 @@
                   </li>
                 </ul>
               </div>
-
               <ul class="right hide-on-med-and-down fa-ul">
+                <!--Search box -->
+                <li class="search-box">
+                  <nav>
+                    <div class="nav-wrapper">
+                      <form method='post' action="#">
+                        <div class="input-field">
+                          <input id="search" type="search" required>
+                          <label class="label-icon" for="search">
+                            <i class="material-icons">search</i>
+                          </label>
+                          <i class="close material-icons">close</i>
+                        </div>
+                      </form>
+                    </div>
+                  </nav>
+                </li>
                 <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                 <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                     médico</a></li> -->
               </ul>
             </div>
         </nav>
+        <!--Menu de navegacion Mobil -->
+        <ul id="mobile-menu" class="sidenav">
+          <li class="search-box">
+            <nav>
+              <div class="nav-wrapper">
+                <form method='post' action="#">
+                  <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search">
+                      <i class="material-icons">search</i>
+                    </label>
+                    <i class="close material-icons">close</i>
+                  </div>
+                </form>
+              </div>
+            </nav>
+          </li>
+          <li><a href="main" class="blue-text">Inicio</a></li>
+          <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos" class="blue-text">Tratamientos</a></li>
+          <li><a href="<?php echo URL_ROOT ?>/pages/precios" class="blue-text">Precios</a></li>
+          <li><a href="<?php echo URL_ROOT ?>/pages/sucursales" class="blue-text">Clínicas</a></li>
+          <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
+          </li>
+          <li><a id="login" href="<?php echo URL_ROOT ?>/users/login"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
+        </ul>
       </div>
       <!--Formulario para logearse -->
       <div id="login-form" class="webui-popover-content">
-        <form id="formulario-login" method="POST" action="server/login.php">
+        <form id="formulario-login" method="POST" action="users/login">
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mail_outline</i>
-              <input class="validate" id="email-1" type="email" name="email" required>
-              <label for="email" data-error="Ingresa un email válido" data-success="Correcto">Email</label>
+              <input id="email-1" type="email" class="validate" required>
+              <label for="email-1" data-error="Ingresa un email válido" data-success="Correcto">e-mail</label>
             </div>
           </div>
           <div class="row">
@@ -81,38 +120,34 @@
           </div>
           <div class="row">
             <div class="col s12 m12 l12">
-              <input type="checkbox" id="remember-me" name="recordarme" value="Si" required>
-              <label for="remember-me">Recordarme</label>
+              <p>
+                <label>
+                  <input type="checkbox" id="remember-me" name="recordarme" value="Si" required />
+                  <span>Recordarme</span>
+                </label>
+              </p>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12 center">
-              <button id="login" type="submit" name="login" value="accesando" class="waves-effect waves-light btn blue">Acceder
-                <i class="fas fa-sign-in-alt left"></i>
+            <div class="col s12 m12 l12">
             </div>
-          </div>
-          <div class="row contrasenia-olvidada">
-            <div class="input-field col s12 m6 l6">
-              <p class="margin center-align medium-small"><a href="#">¿Olvidaste tu contraseña?</a></p>
+            <div class="row">
+              <div class="input-field col s12 center">
+                <button id="login" type="submit" name="login" value="accesando" class="waves-effect waves-light btn blue">Acceder
+                  <i class="fas fa-sign-in-alt left"></i>
+              </div>
             </div>
-            <div class="input-field col s12 m6 l6">
-              <p class="margin center-align medium-small"><a href="<?php echo URL_ROOT . '/users/register' ?>">Registrarse</a></p>
+            <div class="row contrasenia-olvidada">
+              <div class="input-field col s12 m6 l6">
+                <p class="margin center-align medium-small"><a href="<?php echo URL_ROOT . '/users/recuperar' ?>">¿Olvidaste tu contraseña?</a></p>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <p class="margin center-align medium-small"><a href="<?php echo URL_ROOT . '/users/register' ?>">Registrarse</a></p>
+              </div>
             </div>
-          </div>
 
         </form>
       </div>
-
-      <!--Menu de navegacion Mobil -->
-      <ul class="side-nav" id="mobile-menu">
-        <li><a href="main" class="blue-text">Inicio</a></li>
-        <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos" class="blue-text">Tratamientos</a></li>
-        <li><a href="<?php echo URL_ROOT ?>/pages/precios" class="blue-text">Precios</a></li>
-        <li><a href="<?php echo URL_ROOT ?>/pages/sucursales" class="blue-text">Clínicas</a></li>
-        <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
-        </li>
-        <li><a id="login" href="<?php echo URL_ROOT ?>/users/login"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
-      </ul>
 
     </div>
 
@@ -180,9 +215,9 @@
     <section class="section grey lighten-4 center ">
       <div class="container">
 
-        <div class="row renglon1">
+        <div class="row renglon1 widget-list">
 
-          <div class="col s12 m4">
+          <div class="col s12 m4 widget">
             <div class="card-panel z-depth-3">
               <div class="icon-block">
 
@@ -191,10 +226,11 @@
                 <p class="ligth">Servicio gratuito en tu primera visita, anímate a visitarnos <br><br></p>
 
               </div>
+              
             </div>
           </div>
 
-          <div class="col s12 m4">
+          <div class="col s12 m4 widget">
             <div class="card-panel z-depth-3">
               <div class="icon-block">
 
@@ -206,7 +242,7 @@
             </div>
           </div>
 
-          <div class="col s12 m4">
+          <div class="col s12 m4 widget">
             <div class="card-panel z-depth-3">
               <div class="icon-block">
 
@@ -238,37 +274,37 @@
     <!--Ventajas-->
     <section class="section section-ventajas grey lighten-4">
       <div class="container">
-        <div class="row renglon2">
+        <div class="row valign-wrapper renglon2">
           <div class="col s12 m6">
-            <h5>Equipo de <span class="blue-text text-darken-1">alta tecnología</span></h5>
-            <p class="flow-text">Contamos con lo último en materiales para garantizar el mejor servicio y al mejor
+            <h5 class="headline">Equipo de <span class="blue-text text-darken-1">alta tecnología</span></h5>
+            <p class="flow-text tagline">Contamos con lo último en materiales para garantizar el mejor servicio y al mejor
               precio.</p>
           </div>
-          <div class="col s12 m6">
+          <div class="col s12 m6 punchline">
             <img src="<?php echo $path_img ?>michael-browning-40733-unsplash.jpg" class="circle responsive-img" alt="" />
           </div>
 
         </div>
 
-        <div class="row renglon3">
+        <div class="row valign-wrapper">
 
-          <div class="col s12 m6" id="col1">
-            <img src="<?php echo $path_img ?>dental-checkup_4460x4460.jpg" alt="" class="circle responsive-img" />
+          <div class="col s12 m6 punchline">
+            <img src="<?php echo $path_img ?>dental-checkup_4460x4460.jpg" class="circle responsive-img" alt="" />
           </div>
-          <div class="col s12 m6" id="col2">
-            <h5><span class="blue-text text-darken-1">Tratamientos</span> personalizados</h5>
-            <p class="flow-text">Seguimiento y atención personalizada para su mejor comodidad.</p>
+          <div class="col s12 m6">
+            <h5 class="headline"><span class="blue-text text-darken-1">Tratamientos</span> personalizados</h5>
+            <p class="flow-text tagline">Seguimiento y atención personalizada para su mejor comodidad.</p>
           </div>
 
         </div>
 
-        <div class="row renglon4">
+        <div class="row valign-wrapper renglon4">
 
           <div class="col s12 m6">
-            <h5>Servicio de <span class="blue-text text-darken-1">Calidad</span></h5>
-            <p class="flow-text">Personal especialistas capacitados para darte la mejor atención en cada visita.</p>
+            <h5 class="headline">Servicio de <span class="blue-text text-darken-1">Calidad</span></h5>
+            <p class="flow-text tagline">Personal especialistas capacitados para darte la mejor atención en cada visita.</p>
           </div>
-          <div class="col s12 m6">
+          <div class="col s12 m6 punchline">
             <img src="<?php echo $path_img ?>ani-kolleshi-684082-unsplash.jpg" class="circle responsive-img" alt="" />
           </div>
 
@@ -282,7 +318,7 @@
     <!--Titulo de la seccion -->
     <div class="row grey lighten-4">
       <div class="container">
-        <div class="col s12 m12 l12 blue white-text darken-4 center seccion-titulo">
+        <div class="col s12 m12 l12 blue blue-text darken-5 grey lighten-5 z-depth-1 center seccion-titulo">
           <h4>
             Casos
           </h4>

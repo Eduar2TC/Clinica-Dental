@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="<?php echo URL_ROOT ?>/public/img/favicon.png" />
     <title><?php echo $tituloPagina; ?></title>
-    <!--<link rel="stylesheet" href="css/materialize.min.css">-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+    <!--Materializecss-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Fonts-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!--Import Google Icon Font-->
@@ -34,7 +34,7 @@
             case 'register': {
                     echo "<!--register-->";
                     echo "\n";
-                    echo '<link rel="stylesheet"'. 'href="' . $path_css . 'register.css">';
+                    echo '<link rel="stylesheet"' . 'href="' . $path_css . 'register.css">';
                 }
             case 'medico': {
                     echo "<!--medicos-->";

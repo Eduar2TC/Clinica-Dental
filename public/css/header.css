@@ -66,6 +66,9 @@
 #navegacionPrincipal {
   margin-bottom: 0%;
 }
+.navbar{ /*corrige error pulsante del navbar al hacer scrolling*/
+  height: 64px;
+}
 
 /*Contenedor despues del menu principal*/
 .slider{
@@ -128,10 +131,16 @@ z-index: 1;
   z-index: 10;
 }
 
-/*
+.slider h3{
+  font-size: 2rem;
+}
+.slider h5{
+  font-size: 1.5rem;
+}
+/*search-box en vista movil*/
 @media only screen and (max-width: 601px) {
-  #imagenLogo {
-    margin-left: auto;
-    margin-right: auto;
+  .search-box{
+    padding-left: 25px;
+    padding-right: 10px;
   }
-}*/
+}

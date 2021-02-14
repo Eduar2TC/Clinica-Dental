@@ -49,15 +49,19 @@ section {
     .fixed-action-btn.horizontal ul li{
       margin-right: 5px;
     }
+    .skills .col{
+      padding-right: 0%;
+      padding-left: 0%;
+  }
 }
-
-@media only screen and (min-width : 601px) and (max-width : 992px){
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px){
     /*Corrige tamaño del Card slides en tratamientos*/
      .carousel-medical .carousel { 
       height: 320px !important;
     }
     /*Texto dentro de las Cards*/
-    .card-title{
+    .card-image .card-title{
       background: linear-gradient( to bottom, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.7));
       width: 100%;
     }
@@ -85,21 +89,6 @@ section {
       right: 8%;
       margin-top: 25px;
     }
-
-    /*Triangulo para el speech bubble*/
-    .ortodoncia:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 17px solid transparent;
-    border-right: 17px solid #1565C0;
-    border-top: 17px solid #1565C0;
-    border-bottom: 17px solid transparent;
-    left: 33.90%;
-    bottom: 0%;
-    transform: translateY(-100%);
-  }
     /*Boton en el speech bubble*/
   .boton-fijo{
       position: absolute;
@@ -122,7 +111,8 @@ section {
   }
     
 }
-@media only screen and (min-width: 993px) {
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
     /*Corrige tamaño del Card slides en tratamientos*/
     .carousel-medical .carousel { 
       height: 337px !important;
@@ -148,7 +138,7 @@ section {
     margin-right: 5px;
   }
     /*Triangulo para el speech bubble*/
-  .ortodoncia:before {
+ .ortodoncia::before {
     content: "";
     width: 0px;
     height: 0px;
@@ -157,26 +147,93 @@ section {
     border-right: 17px solid #1565C0;
     border-top: 17px solid #1565C0;
     border-bottom: 17px solid transparent;
-    left: 36.90%;
-    bottom: 0%;
-    transform: translateY(-100%);
-  }
-
+    left: 37%;
+    transform: translate(-3%, 500%);
+ }
+  .peridoncia:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 17px solid #1565C0;
+    border-right: 17px solid transparent;
+    border-top: 17px solid #1565C0;
+    border-bottom: 17px solid transparent;
+    left: 60.7%;
+    transform: translate(-4%, 500%);
+    /*right: 37%;
+    top: 1200px;*/
 }
+ .endodoncia::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 17px solid transparent;
+    border-right: 17px solid #1565C0;
+    border-top: 17px solid #1565C0;
+    border-bottom: 17px solid transparent;
+    left: 37%;
+    transform: translate(-3%, 500%);
+    /*left: 37%;
+    top: 1520px;
+    transform: translateY(-100%);*/
+ }
+  .cirujia::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 17px solid transparent;
+    border-right: 17px solid #1565C0;
+    border-top: 17px solid #1565C0;
+    border-bottom: 17px solid transparent;
+    left: 37%;
+    transform: translate(-3%, 500%);
+    /*left: 37%;
+    top: 2300px;
+    transform: translateY(-500%);*/
+ }
+
+.estetica-dental:before{
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 17px solid #1565C0;
+  border-right: 17px solid transparent;
+  border-top: 17px solid #1565C0;
+  border-bottom: 17px solid transparent;
+  left: 60.7%;
+  transform: translate(-4%, 500%);
+  /*right: 37%;
+  top: 1800px;*/
+}
+.peridoncia .card-action, .estetica-dental .card-action{
+  transform: translate(0%, 50%);
+}
+ 
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
 
 /*Inicio Header*/
 /*Fin Header*/
 /*Inicio del estado de navegación*/
 .navegacion-estado{
- margin-bottom: 0px !important; 
+ margin-bottom: 0px !important;
 }
 .navegacion-estado .container .nav-wrapper > col{
   height: 30px;
 }
 .navegacion-estado .container nav{
   background-color: lightblue;
-   height: 30px;
-        line-height: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+.navegacion-estado .container nav, .navegacion-estado .container nav .nav-wrapper{
+  border-top-left-radius:20px;
+  border-top-right-radius: 20px;
 }
 /*Fin del estado de navegación*/
 /*Inicio Menu de navegacion*/
@@ -234,7 +291,9 @@ main .row{
 /*Detalles tratamiento*/
 .section-tratamientos .card-panel{
     height: auto;
-    border-radius: 2%;
+    border-radius: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 /*Necesario para alinear el boton mas informacion*/
@@ -284,6 +343,9 @@ main .row{
 /*Fin de Tratamiento*/
 
 /*Anuncio Mensaje llamar*/
+.section-llamar .container{
+  background-color: #518FD6;
+}
 .section-llamar .col{
     padding: 15px;
 }
@@ -309,14 +371,6 @@ main .row{
     height: 95% !important;
     max-height: 100%; 
     overflow: hidden;
-}
-@media only screen and (max-width: 601px) {
-
-  .skills .col{
-    padding-right: 0%;
-    padding-left: 0%;
-}
-
 }
 /*Ocultar desplazamiento en modo horizontal*/
 .modal-content{
@@ -461,3 +515,16 @@ main .row{
   margin-right: 5px;
 }
 /*Card panel tratamientos (ortodoncia)*/
+/*Seccion paginacion*/
+/*Paginacion color active*/
+.pagination .active{
+  background-color: #f0ddaa !important;
+}
+
+/*.peridoncia .card-action, .estetica-dental .card-action{
+  transform: translate(0%, 135%);
+}*/
+/*estilos de los botones*/
+.right-align a{
+  border-radius: 20px;
+}

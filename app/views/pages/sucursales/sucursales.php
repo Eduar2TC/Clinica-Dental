@@ -11,7 +11,7 @@ require_once HEADER;
     <!--INICIO DEL HEADER--->
     <header>
         <div class="row">
-            <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="main"><img src="<?php echo $path_img?>logo01.png" alt="logo.png" class="responsive-img"></a></div>
+            <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="main"><img src="<?php echo $path_img ?>logo01.png" alt="logo.png" class="responsive-img"></a></div>
             <!--No tocar-->
             <div class="col s12 m4"></div>
 
@@ -42,25 +42,49 @@ require_once HEADER;
                     <div class="nav-wrapper blue lighten-2">
                         <div class="container">
                             <div class="nav-wrapper">
-
-                                <a href="main" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                                 <ul class="hide-on-small-and-down">
-                                    <li><a href="tratamientos">Tratamientos</a></li>
-                                    <li><a href="precios">Precios</a></li>
-                                    <li><a href="sucursales">Clínicas</a></li>
+                                    <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos">Tratamientos</a></li>
+                                    <li><a href="<?php echo URL_ROOT ?>/pages/precios">Precios</a></li>
+                                    <li><a href="<?php echo URL_ROOT ?>/pages/sucursales">Clínicas</a></li>
                                     <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar
                                                 Cita</span></a>
                                     </li>
                                 </ul>
                             </div>
-
                             <ul class="right hide-on-med-and-down fa-ul">
+                                <!--Search box -->
+                                <li class="search-box">
+                                    <nav>
+                                        <div class="nav-wrapper">
+                                            <form method='post' action="#">
+                                                <div class="input-field">
+                                                    <input id="search" type="search" required>
+                                                    <label class="label-icon" for="search">
+                                                        <i class="material-icons">search</i>
+                                                    </label>
+                                                    <i class="close material-icons">close</i>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </nav>
+                                </li>
                                 <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
                                 <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
                     médico</a></li> -->
                             </ul>
                         </div>
                 </nav>
+                <!--Menu de navegacion Mobil -->
+                <ul id="mobile-menu" class="sidenav">
+                    <li><a href="main" class="blue-text">Inicio</a></li>
+                    <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos" class="blue-text">Tratamientos</a></li>
+                    <li><a href="<?php echo URL_ROOT ?>/pages/precios" class="blue-text">Precios</a></li>
+                    <li><a href="<?php echo URL_ROOT ?>/pages/sucursales" class="blue-text">Clínicas</a></li>
+                    <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
+                    </li>
+                    <li><a id="login" href="<?php echo URL_ROOT ?>/users/login"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
+                </ul>
             </div>
             <!--Formulario para logearse -->
             <div id="login-form" class="webui-popover-content">
@@ -117,7 +141,7 @@ require_once HEADER;
         <div class="slider">
             <ul class="slides z-depth-1">
                 <li>
-                    <img class="responsive-img" src="<?php echo $path_img?>dentista.jpg">
+                    <img class="responsive-img" src="<?php echo $path_img ?>dentista.jpg">
 
                     <div class="caption center-align">
                         <h3 class="blue-text accent-4">Evaluación sin costo en tu primera cita</h3>
@@ -129,7 +153,7 @@ require_once HEADER;
 
                 </li>
                 <li>
-                    <img class="responsive-img" src="<?php echo $path_img?>doctor.jpg">
+                    <img class="responsive-img" src="<?php echo $path_img ?>doctor.jpg">
 
                     <div class="caption left-align">
                         <h3 class="blue-text accent-4">Médicos capacitados</h3>
@@ -141,7 +165,7 @@ require_once HEADER;
 
                 </li>
                 <li>
-                    <img class="responsive-img" src="<?php echo $path_img?>ani-kolleshi-640938-unsplash.jpg">
+                    <img class="responsive-img" src="<?php echo $path_img ?>ani-kolleshi-640938-unsplash.jpg">
 
                     <div class="caption right-align">
                         <h3 class="blue-text accent-4">Gran variedad de servicios.</h3>
@@ -154,7 +178,7 @@ require_once HEADER;
 
                 </li>
                 <li>
-                    <img class="responsive-img" src="<?php echo $path_img?>yingpis-kalayom-133680-unsplash.jpg">
+                    <img class="responsive-img" src="<?php echo $path_img ?>yingpis-kalayom-133680-unsplash.jpg">
 
                     <div class="caption center-align">
                         <h3 class="blue-text accent-4">Tratamientos a tu medida</h3>
@@ -180,7 +204,7 @@ require_once HEADER;
 
                         <ul class="collapsible" data-collapsible="accordion">
 
-                            <li onclick="cambiaRutaImagen('<?php echo $path_img?>localizacion1.jpg')">
+                            <li onclick="cambiaRutaImagen('<?php echo $path_img ?>localizacion1.jpg')">
                                 <div class="collapsible-header">
                                     <i class="material-icons red-text text-accent-4">place</i>
                                     Las Margaritas
@@ -190,7 +214,7 @@ require_once HEADER;
                                         Av. Las margaritas 1207, Bugambilias.</em>
                                 </div>
                             </li>
-                            <li onclick="cambiaRutaImagen('<?php echo $path_img?>localizacion2.jpg')">
+                            <li onclick="cambiaRutaImagen('<?php echo $path_img ?>localizacion2.jpg')">
                                 <div class="collapsible-header"><i class="material-icons red-text text-accent-4">place</i>San
                                     Manuel</div>
                                 <div class="collapsible-body"><span>¡Visitanos ahora!</span>
@@ -198,7 +222,7 @@ require_once HEADER;
                                         907, Col. San Baltazar</em>
                                 </div>
                             </li>
-                            <li onclick="cambiaRutaImagen('<?php echo $path_img?>localizacion3.jpg')">
+                            <li onclick="cambiaRutaImagen('<?php echo $path_img ?>localizacion3.jpg')">
                                 <div class="collapsible-header"><i class="material-icons red-text text-accent-4">place</i>Centro</div>
                                 <div class="collapsible-body"><span>¡Visitanos ahora!</span>
                                     <div class="divider"></div><em class="blue-text text-darken-2">Reforma
@@ -215,7 +239,7 @@ require_once HEADER;
 
                 <div class="row">
                     <div class="col s12 m4 center-align">
-                        <img src="<?php echo $path_img?>localizacion1.jpg" alt="" class="circle responsive-img change-imagen" style="height:200px" />
+                        <img src="<?php echo $path_img ?>localizacion1.jpg" alt="" class="circle responsive-img change-imagen" style="height:200px" />
                     </div>
                     <div class="col s12 m8">
                         <div>
