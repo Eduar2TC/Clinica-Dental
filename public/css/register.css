@@ -43,14 +43,17 @@ html {
 .rowCastroso{
     margin-bottom: 0%;
 }
-
 /*Transparent background card-content*/
 .card-content{
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
-/*Resize form on mobil view*/
+
+/*RCambia el ancho en vista tables para aabajo*/
 @media (min-width: 992px) { 
     .card, .card-content{
         width: 520px;

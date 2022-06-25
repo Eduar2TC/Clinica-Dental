@@ -1,19 +1,8 @@
-/*Liks del footer*/
-:root {
-    --mainColor: #0d47a1;
+.page-footer .container .offset-l5 > *{
+    text-align: right;
 }
-
-
+/*Liks del footer*/
 #idListaLinksFooter li a a {
-    background:
-        linear-gradient(to right,
-        var(--mainColor) 0%,
-        var(--mainColor) 5px,
-        transparent 5px);
-    background-repeat: repeat-x;
-    background-size: 100%;
-    color: #000;
-    padding-left: 10px;
     text-decoration: none;
 }
 
@@ -26,8 +15,13 @@
 }
 
 /*Iconos redes sociales*/
+#social{
+    text-align: right;
+}
 #social a {
     padding: 0px 10px;
+    margin-top: 5px;
+    margin-left: 5px;
     word-wrap: normal;
     display: inline-block;
 }

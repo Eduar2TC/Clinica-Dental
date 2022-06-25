@@ -33,13 +33,19 @@ if (isset($status_page)) {
         /*Corrige el error de sidenav*/
         /*var elem = document.querySelector('.sidenav');
         /*var instance = new M.Sidenav(elem);*/
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems);
+        const sideNav = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(sideNav, {});
         //Collapsible
-        var colapsible = document.querySelectorAll('.collapsible');
-        var instanceCollapsible = M.Collapsible.init(colapsible, {
+        const colapsible = document.querySelectorAll('.collapsible');
+        M.Collapsible.init(colapsible, {
             accordion: false
         });
+        //Floating button actions
+        const floatActionBtn = document.querySelectorAll('.fixed-action-btn');
+        M.FloatingActionButton.init(floatActionBtn, {});
+        //Toltip floating button
+        const toltip = document.querySelectorAll('.tooltipped', {});
+        M.Tooltip.init(toltip, {});
         /* ScrollReveal */
         ScrollReveal().reveal('.widget', {
             interval: 400
@@ -52,6 +58,23 @@ if (isset($status_page)) {
         });
         ScrollReveal().reveal('.punchline', {
             delay: 2000
+        });
+        //Autocomplete
+        const aut = document.querySelectorAll('.autocomplete');
+        M.Autocomplete.init(aut, {
+            data: {
+                'Tratamieto': null,
+                'Ortodoncia': null,
+                'Clinicas': null,
+                'Registrarse': null,
+                'Login': null
+            }
+        });
+
+        const carousel_precios = document.querySelectorAll('#carousel-ninios .carousel');
+        M.Carousel.init(carousel_precios, {
+            indicators:false,
+            fullWidth: true
         });
 
     });
@@ -89,53 +112,47 @@ if (isset($status_page)) {
         }
 
         //Inicializa modal
-        $('.modal').modal();
-
+        const modal = document.querySelectorAll('.modal');
+        M.Modal.init(modal, {});
+        //Fecha de la consulta
+        //Inicia date picker
+        const datepicker = document.querySelectorAll('.datepicker');
+        M.Datepicker.init(datepicker, {
+            i18n: {
+                cancel: 'Cancelar',
+                clear: 'Limpiar',
+                done: 'OK',
+                close: 'Cerrar',
+                default: 'now',
+                today: 'Hoy',
+                closeOnSelect: false,
+                format: 'yyyy-mm-dd',
+                selectMonths: true,
+                previousMonth: '<',
+                nextMonth: '>',
+                months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthsShort: ['Ene', 'Feb', 'Mar', 'Ab', 'May', 'Jun', 'Jul', 'Ag', 'Sept', 'Oct', 'Nov', 'Dic'],
+                firstDay: true,
+                weekdays: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+                weekdaysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+                weekdaysAbbrev: ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+            }
+        });
+        //Hora de la consulta
+        const timepicker = document.querySelectorAll('.timepicker');
+        M.Timepicker.init(timepicker, {
+            i18n: {
+                cancel: 'Cancelar',
+                done: 'Ok',
+                clear: 'Limpiar'
+            }
+        });
         //Inicializa el selector de opciones de tratamiento
         $('#opciones-tratamientos').formSelect();
-
-        //Fecha de la consulta
-
-        $('.datepicker').on('mousedown', function(event) { //corregie bug de cerrarse
-            event.preventDefault();
-        })
-        $('.datepicker').datepicker({ // set lenguaje form datepicker
-            selectMonths: true,
-            selectYears: 15,
-            default: 'now',
-            today: 'Hoy',
-            clear: 'Limpiar',
-            close: 'Ok',
-            closeOnSelect: false,
-            firstDay: true,
-            format: 'yyyy-mm-dd',
-            monthsFull: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-            monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Dic"],
-            weekdays: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
-            weekdaysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
-            weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"]
-        });
-
-        //Hora de la consulta
-        $('.timepicker').on('mousedown', function(event) { //corregie bug de cerrarse
-            event.preventDefault();
-        })
-        $('.timepicker').timepicker({
-            default: 'now',
-            twelvehour: true, // change to 12 hour AM/PM clock from 24 hour
-            donetext: 'OK',
-            canceltext: 'Cancelar',
-            cleartext: 'Limpiar',
-            autoclose: false,
-            vibrate: true, // vibrate the device when dragging clock hand
-            ampmclickable: true
-
-        });
         /**->Fin: index.php **/
 
         /**->Inicio: precios.php**/
-        //Inicializacion del Collapsible
-        //$('.collapsible').collapsible();
+
         /**->Fin: precios.php**/
 
         /**->Inicio: tratamientos.php**/
@@ -180,7 +197,7 @@ if (isset($status_page)) {
                                 'Aceptar',
                                 'success'
                             ).then(function() {
-                                window.location.href = "medicos.php";
+                                window.location.href = "users/medicos";
                             });
                         } else {
                             Swal.fire({
@@ -419,7 +436,27 @@ if (isset($status_page)) {
                 }
             }
         });
-
+        //Expandir Search input
+        var trig = false;
+        $(document).on('click', '.search_expand', function(e) {
+            if (trig == false) {
+                $('.formSearch').animate({
+                    width: '+=100'
+                }, 400);
+                trig = true;
+            }
+            //controla la visibilidad de los elementos del nav
+            //$('.container .left').addClass('hide');
+        });
+        //regresa el form a la anchura original
+        $(".search_expand").focusout(function() {
+            $('.formSearch').animate({
+                width: '-=100'
+            }, 400);
+            trig = false;
+            // regresa la visibilidad de los elementos previamente ocultos
+            //$('.container .left').removeClass('hide');
+        });
     });
 
     /*Funciones externes no es necesario esperar que la pagina cargue*/

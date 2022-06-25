@@ -1,5 +1,5 @@
 <?php
-include_once( "operations/database-conection.php");
+include_once('operations/database-conection.php');
 
 class Login{
     private $email;
@@ -41,10 +41,14 @@ class Login{
 
 }
 
-class Main{
+class MainLogin{
 
-    public function __construct()
-    {
+    public function __construct(){
+        if (isset($_POST['login'])) {
+            $this->main();
+        } else {
+            echo "Datos no enviados";
+        }
 
     }
     public function creaConexionBd(){
@@ -64,7 +68,7 @@ class Main{
                    session_start();
                    $_SESSION['login'] = 'success';
                    $_SESSION['email'] = $email;
-                   header('Refresh:1 ; url=../../medicos.php');
+                   header('Refresh:1 ; url='.URL_ROOT.'/users/medicos');
                 }
                 else{
                     echo "usuario o contraseña inválida";
@@ -72,7 +76,7 @@ class Main{
                 }
     }
 }
-if (!empty($_POST)) {
+/*if (!empty($_POST)) {
 
     if (isset($_POST['login'])) {
         $main = new Main();
@@ -80,5 +84,5 @@ if (!empty($_POST)) {
     } else {
         echo "Datos no enviados";
     }
-}
+}*/
 ?>

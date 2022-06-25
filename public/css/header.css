@@ -1,10 +1,40 @@
-/*Links superiores del Header*/
-#links-superiores li {
-  display: inline;
-  margin-right: 1em;
+/*Logo*/
+header>.row:nth-of-type(1){
+  margin-bottom:0px;
+}
+.logo-img-container{
+  padding: 15.250px !important;
+}
+.logo{
+  background-color:#f4f7f0;
+  border-radius:50%;
+  padding: 1.5rem !important;
+  border-style: solid;
+  border-color: rgb(2, 48, 146);
+  border-width: 3px;
+}
+.logo img{
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+}
+.logo img:hover{
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+/*Titulo y logo*/
+.titulo h1{
+  font-family: 'Lato', sans-serif;
+  font-size: 3.3rem;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+.eslogan{
+  font-family: 'Lato', sans-serif;
 }
 
 .link {
+  margin-left: 0.9rem;
   font-family: 'K2D', sans-serif;
   display: inline-block;
   position: relative;
@@ -47,11 +77,11 @@
 .link:hover:after {
   width: 50%;
 }
-
-@media only screen and (max-width: 990px) {
-  .link span {
-    font-size: 20px;
-  }
+/*Telefono*/
+.right span#telefono {
+    font-size: 1.3rem;
+    font-family: 'Tauri', sans-serif;
+    font-weight:bold;
 }
 
 @media only screen and (max-width: 767px) {
@@ -59,7 +89,41 @@
     margin-bottom: 20px;
   }
 }
+@media only screen and (max-width: 601px) {
+    /*Titulo y logo*/
+  .titulo h1 {
+      font-size: 2.5rem;
+  }
+}
+@media only screen and (min-width: 768px){
 
+}
+@media only screen and (max-width: 990px) {
+  /*Links superiores del Header*/
+  #links-superiores li {
+    display: inline;
+    font-size: 1.150rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /*Titulo y logo*/
+  .titulo h1 {
+      font-size: 2.8rem;
+  }
+  /*Links superiores del Header*/
+  #links-superiores li {
+    display: inline;
+    font-size: 1rem;
+  }
+
+}
+@media only screen and (min-width: 1400px) {
+  /*Links superiores del Header*/
+  #links-superiores li {
+    display: inline;
+    font-size: 1.178rem;
+  }
+}
 /*Fin links superiores*/
 
 /*Quita el espcio entre la navBar y el Slider*/
@@ -95,30 +159,9 @@
 .slider .indicators {
   bottom: 25px;
   z-index: 10;
-  /* text-align: left; */
 }
-
-/*.slider .slides li img {
-    max-width: 100%;
-    height: 100%;
-    vertical-align: middle;
-    opacity: 0.9;
-}*/
 .slider .indicators .indicator-item.active {
   background-color: #66ccff;
-}
-
-/*Telefono font*/
-#telefono {
-  font-family: 'Tauri', sans-serif;
-  font-size: 23px;
-}
-
-/*Caso de alineacion del icono telefono con el texto*/
-.material-icons {
-  font-size: inherit;
-  line-height: inherit;
-  vertical-align: bottom;
 }
 
 /*Manda al frente el contenido del parallax*/
@@ -130,17 +173,56 @@ z-index: 1;
 .tarjetaPushpin {
   z-index: 10;
 }
-
+/*Slider Titles*/
 .slider h3{
   font-size: 2rem;
 }
 .slider h5{
   font-size: 1.5rem;
 }
+.caption .btn{
+  border-radius: 13px;
+}
+/*search-box*/
+.search-box{
+    right: 50px;
+    margin-top: 10px;
+}
+.search-box nav{
+    height: 44px;
+}
+/*align middle icons in searchbox */
+nav .input-field label {
+    top: -50%;
+    left: 3%;
+}
+nav .label-icon.active .material-icons {
+	  color: #039be5;
+}
+.search-box .close{
+    margin-top: -10px !important;
+    font-size: 1.5rem;
+}
+.search-box nav{
+    border-radius: 20px;
+    background-color: #8faed1;
+}
+.search-box input[type=search]{
+  color: whitesmoke;
+}
+.search-box input[type=search]:focus{
+    border-radius: 20px;
+}
+
 /*search-box en vista movil*/
 @media only screen and (max-width: 601px) {
   .search-box{
     padding-left: 25px;
     padding-right: 10px;
+  }
+/*Aliniacion a la mitad en searchbox */
+  nav .input-field label {
+      top: -10%;
+      left: 3%;
   }
 }

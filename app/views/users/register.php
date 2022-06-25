@@ -6,7 +6,7 @@ $path_css = URL_ROOT . '/public/css/';
 $path_js = URL_ROOT . '/public/js/';
 $status_page = "register";
 require_once(APP_ROOT . '/helpers/humano.php'); //get operations for google humans verifications
-require_once HEADER;
+require_once HEAD;
 ?>
 
 <body>
@@ -21,9 +21,9 @@ require_once HEADER;
                             <h5 style="display:inline;">Registro de Usuarios</h5>
                         </span>
                         <a href="#" class="brand-logo center"><img src="<?php $path_img ?>logo01.png" alt="" class="circle responsive-img" /></a>
-                        <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-                        <ul class="side-nav white" id="mobile-menu">
+                        <ul class="sidenav white" id="mobile-menu">
                             <li><a class="subheader">Acción</a></li>
                             <li><a class="waves-effect waves-yellow" href="#"><i class="material-icons left">cloud</i><span class="blue-text">Visitar pagina Principal</span></a></li>
                             <div class="divider"></div>
@@ -48,7 +48,7 @@ require_once HEADER;
                 </div>
             </div>
             <div class="card-content">
-                <form action="operations/insert-medico.php" method="POST" id="formulario-registro" enctype="multipart/form-data">
+                <form action="<?php echo URL_ROOT ?>/users/register" method="POST" id="formulario-registro" enctype="multipart/form-data">
                     <!--action="operations/insert-medico.php"-->
                     <div class="row">
                         <div class="col s12 blue subtitulo">
@@ -154,8 +154,10 @@ require_once HEADER;
                     <div class="row rowCastroso">
                         <div class="col s12 m6 l6 login-text">
                             <p>
-                                <input type="checkbox" class="blue" id="acepto-terminos" name="acepto-terminos" value="Si" required />
-                                <label for="acepto-terminos">Acepto los terminos</label>
+                                <label>
+                                    <input type="checkbox" class="blue" id="acepto-terminos" name="acepto-terminos" value="Si" required />
+                                    <span>Acepto los terminos</span>
+                                </label>
                             </p>
                         </div>
                         <div class="col s12 m6 l6">
@@ -183,12 +185,12 @@ require_once HEADER;
     <footer class="page-footer blue">
         <div class="container">
             <div class="row">
-                <p class="flow-text center">&copy; 2018 Copyright Clínica dental</p>
+                <p class="flow-text center">&copy; 2021 Copyright Clínica dental</p>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2018 Copyright Todos los derechos reservados
+                © 2021 Copyright Todos los derechos reservados
                 <a class="grey-text text-lighten-4 right" href="#!">Mas links</a>
             </div>
         </div>

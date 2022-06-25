@@ -1,202 +1,13 @@
   <?php
     $tituloPagina = "Clinica-Tratamientos"; //Nombre de la página 
-    $path_img = URL_ROOT . '/public/img/';
-    $path_css = URL_ROOT . '/public/css/';
-    $path_js = URL_ROOT . '/public/js/';
+    $PATH_IMG = URL_ROOT . '/public/img/';
+    $PATH_CSS = URL_ROOT . '/public/css/';
+    $PATH_JS = URL_ROOT . '/public/js/';
     $status_page = "tratamientos";
-    require_once HEADER;
     ?>
-
+  <?php require_once HEADER; ?>
+  <!--CUERPO-->
   <body>
-      <!--INICIO DEL HEADER--->
-      <header>
-          <div class="row">
-              <div id="imagenLogo" class="col s12 m4 offset-m1"><a href="<?php echo URL_ROOT ?>"><img src="<?php echo $path_img ?>logo01.png" alt="logo.png" class="responsive-img"></a></div>
-              <!--No tocar-->
-              <div class="col s12 m4"></div>
-
-              <div class="col s12 m4 offset-m3">
-                  <div class="row">
-                      <div id="links-superiores">
-                          <ul class="left hide-on-small-and-down">
-                              <li><a class="link" href="<?php echo URL_ROOT ?>/pages/nosotros">Nosotros</a></li>
-                              <li><a class="link" href="<?php echo URL_ROOT ?>/pages/empleo">Empleo</a></li>
-                              <li><a class="link" href="<?php echo URL_ROOT ?>/pages/contacto">Contacto</a></li>
-                              <li><a class="link" href="<?php echo URL_ROOT ?>/pages/ayuda">Ayuda</a></li>
-                          </ul>
-                      </div>
-                  </div>
-                  <div class="row" style="margin-bottom: 0px; /*Quita espacio entre el div del logo*/">
-                      <div class="left hide-on-med-and-down">
-                          <a href="tel:2228530500"><i class="material-icons" style="font-size: 25px;">phone</i><span id="telefono">Telefono:
-                                  2228530500</span></a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!--Menu de navegación principal-->
-          <div class="row" id="navegacionPrincipal">
-              <div class="navbar">
-                  <nav class="tarjetaPushpin">
-
-                      <div class="nav-wrapper blue lighten-2">
-                          <div class="container">
-                              <div class="nav-wrapper">
-                                  <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                                  <ul class="hide-on-small-and-down">
-                                      <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos">Tratamientos</a></li>
-                                      <li><a href="<?php echo URL_ROOT ?>/pages/precios">Precios</a></li>
-                                      <li><a href="<?php echo URL_ROOT ?>/pages/sucursales">Clínicas</a></li>
-                                      <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar
-                                                  Cita</span></a>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <ul class="right hide-on-med-and-down fa-ul">
-                                  <!--Search box -->
-                                  <li class="search-box">
-                                      <nav>
-                                          <div class="nav-wrapper">
-                                              <form method='post' action="#">
-                                                  <div class="input-field">
-                                                      <input id="search" type="search" required>
-                                                      <label class="label-icon" for="search">
-                                                          <i class="material-icons">search</i>
-                                                      </label>
-                                                      <i class="close material-icons">close</i>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </nav>
-                                  </li>
-                                  <li><a id="login" href="#"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
-                                  <!--<li><a href="index.php"><i class="fas fa-sign-in-alt" style=" vertical-align: middle;"></i>Login
-                    médico</a></li> -->
-                              </ul>
-                          </div>
-                  </nav>
-                  <!--Menu de navegacion Mobil -->
-                  <ul id="mobile-menu" class="sidenav">
-                      <li><a href="main" class="blue-text">Inicio</a></li>
-                      <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos" class="blue-text">Tratamientos</a></li>
-                      <li><a href="<?php echo URL_ROOT ?>/pages/precios" class="blue-text">Precios</a></li>
-                      <li><a href="<?php echo URL_ROOT ?>/pages/sucursales" class="blue-text">Clínicas</a></li>
-                      <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
-                      </li>
-                      <li><a id="login" href="<?php echo URL_ROOT ?>/users/login"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
-                  </ul>
-              </div>
-              <!--Formulario para logearse -->
-              <div id="login-form" class="webui-popover-content">
-                  <form id="formulario-login" method="POST" action="users/login">
-                      <div class="row">
-                          <div class="input-field col s12">
-                              <i class="material-icons prefix">mail_outline</i>
-                              <input class="validate" id="email-1" type="email" name="email" required>
-                              <label for="email" data-error="Ingresa un email válido" data-success="Correcto">Email</label>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field col s12">
-                              <i class="material-icons prefix">lock_outline</i>
-                              <input class="validate" id="password" type="password" name="password" required>
-                              <label for="password">Contraseña</label>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col s12 m12 l12">
-                              <input type="checkbox" id="remember-me" name="recordarme" value="Si" required>
-                              <label for="remember-me">Recordarme</label>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field col s12 center">
-                              <button id="login" type="submit" name="login" value="accesando" class="waves-effect waves-light btn blue">Acceder
-                                  <i class="fas fa-sign-in-alt left"></i>
-                          </div>
-                      </div>
-                      <div class="row contrasenia-olvidada">
-                          <div class="input-field col s12 m6 l6">
-                              <p class="margin center-align medium-small"><a href="<?php echo URL_ROOT . '/users/recuperar' ?>">¿Olvidaste tu contraseña?</a></p>
-                          </div>
-                          <div class="input-field col s12 m6 l6">
-                              <p class="margin center-align medium-small"><a href="<?php echo URL_ROOT . '/users/register' ?>">Registrarse</a></p>
-                          </div>
-                      </div>
-
-                  </form>
-              </div>
-
-              <!--Menu de navegacion Mobil -->
-              <ul class="sidenav" id="mobile-menu">
-                  <li><a href="main" class="blue-text">Inicio</a></li>
-                  <li><a href="<?php echo URL_ROOT ?>/pages/tratamientos" class="blue-text">Tratamientos</a></li>
-                  <li><a href="<?php echo URL_ROOT ?>/pages/precios" class="blue-text">Precios</a></li>
-                  <li><a href="<?php echo URL_ROOT ?>/pages/sucursales" class="blue-text">Clínicas</a></li>
-                  <li><a href="#formulario-cita" class=" blue-text waves-effect waves-yellow blue lighten-5 btn modal-trigger"><span id="boton-registro">Reservar Cita</span></a>
-                  </li>
-                  <li><a id="login" href="<?php echo URL_ROOT ?>/users/login"><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>Acceso</a></li>
-              </ul>
-
-          </div>
-
-          <!--Inicio del Slider-->
-          <div class="slider">
-              <ul class="slides z-depth-1">
-                  <li>
-                      <img class="responsive-img" src="<?php echo $path_img ?>dentista.jpg">
-
-                      <div class="caption left-align">
-                          <h3 class="blue-text text-lighten-5">Evaluación sin costo en tu primera cita</h3>
-                          <h5 class="light-blue-text text-lighten-4">Aplica a niños menores de 15 años</h5>
-                          <div class="hide-on-med-and-down">
-                              <a href="#" class="btn btn-medium blue darken-1 ">Saber mas...</a>
-                          </div>
-                      </div>
-
-                  </li>
-                  <li>
-                      <img class="responsive-img" src="<?php echo $path_img ?>doctor.jpg">
-
-                      <div class="caption right-align">
-                          <h3 class="blue-text text-lighten-5">Médicos capacitados</h3>
-                          <h5 class="light-blue-text text-lighten-4">Hospitalidad, buena atención de nuestro personal</h5>
-                          <div class="hide-on-med-and-down">
-                              <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
-                          </div>
-                      </div>
-
-                  </li>
-                  <li>
-                      <img class="responsive-img" src="<?php echo $path_img ?>ani-kolleshi-640938-unsplash.jpg">
-
-                      <div class="caption left-align">
-                          <h3 class="blue-text text-lighten-5">Gran variedad de servicios</h3>
-                          <h5 class="light-blue-text text-lighten-4">Consulta nuestro Catalogo de Servicios</h5>
-                          <div class="hide-on-med-and-down">
-                              <a href="tratamientos#seccion-tratamientos" class="btn btn-medium blue darken-1">Saber
-                                  mas...</a>
-                          </div>
-                      </div>
-
-                  </li>
-                  <li>
-                      <img class="responsive-img" src="<?php echo $path_img ?>yingpis-kalayom-133680-unsplash.jpg">
-
-                      <div class="caption center-align">
-                          <h3 class="blue-text text-lighten-5">Tratamientos a tu medida</h3>
-                          <h5 class="light-blue-text text-lighten-4">Ortodocia a tus necesidades</h5>
-                          <div class="hide-on-med-and-down">
-                              <a href="#" class="btn btn-medium blue darken-1">Saber mas...</a>
-                          </div>
-                      </div>
-
-                  </li>
-              </ul>
-          </div>
-          <!--Fin del Slider-->
-      </header>
-      <!--FIN DEL HEADER-->
       <!-- ESTADO DE LA NAVEGACIÓN -->
       <div class="row navegacion-estado grey lighten-4">
           <div class="container">
@@ -217,7 +28,7 @@
               <div class="container">
                   <div class="parallax-container center valign-wrapper">
                       <div class="parallax">
-                          <img class="responsive-img" src="<?php echo $path_img ?>chair-1920.jpg">
+                          <img class="responsive-img" src="<?php echo $data['PATH_IMG'] ?>doctores.png">
                           <div class="container">
                               <div class="row">
                                   <div class="col s12">
@@ -249,7 +60,7 @@
                               <div class="carousel-item" href="#one!">
                                   <div class="card card-resize-height">
                                       <div class="card-image">
-                                          <img src="<?php echo $path_img ?>rainier-ridao-cscGEQgrhMY-unsplash.jpg">
+                                          <img src="<?php echo $data['PATH_IMG']; ?>rainier-ridao-cscGEQgrhMY-unsplash.jpg">
                                           <span class="card-title">Ortodoncista</span>
                                           <div class="fixed-action-btn horizontal click-to-toggle">
                                               <a class="btn-floating red">
@@ -280,7 +91,7 @@
                               <div class="carousel-item" href="#two!">
                                   <div class="card card-resize-height">
                                       <div class="card-image">
-                                          <img src="<?php echo $path_img ?>rainier-ridao-cscGEQgrhMY-unsplash.jpg">
+                                          <img src="<?php echo $data['PATH_IMG']; ?>rainier-ridao-cscGEQgrhMY-unsplash.jpg">
                                           <span class="card-title">Ortodoncista</span>
                                           <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">add</i></a>
                                           <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">date_range</i></a>
@@ -293,7 +104,7 @@
                               <div class="carousel-item" href="#three!">
                                   <div class="card card-resize-height">
                                       <div class="card-image">
-                                          <img src="<?php echo $path_img ?>rainier-ridao-cscGEQgrhMY-unsplash.jpg">
+                                          <img src="<?php echo $data['PATH_IMG']; ?>rainier-ridao-cscGEQgrhMY-unsplash.jpg">
                                           <span class="card-title">Ortodoncista</span>
                                           <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">add</i></a>
                                           <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">date_range</i></a>
@@ -306,7 +117,7 @@
                               <div class="carousel-item" href="#four!">
                                   <div class="card card-resize-height">
                                       <div class="card-image">
-                                          <img src="<?php echo $path_img ?>rainier-ridao-cscGEQgrhMY-unsplash.jpg">
+                                          <img src="<?php echo $data['PATH_IMG']; ?>rainier-ridao-cscGEQgrhMY-unsplash.jpg">
                                           <span class="card-title">Ortodoncista</span>
                                           <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">add</i></a>
                                           <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">date_range</i></a>
@@ -394,7 +205,7 @@
                                   </div>
                                   <div class="col s12 right-align">
                                       <div class="chip chip-autor">
-                                          <img src="<?php echo $path_img ?>rainier-ridao-720108-unsplash.jpg" alt="Contact Person">
+                                          <img src="<?php echo $data['PATH_IMG']; ?>rainier-ridao-720108-unsplash.jpg" alt="Contact Person">
                                           Dra. Julia
                                       </div>
                                   </div>
@@ -429,7 +240,7 @@
                       <div class="col s12 m4 col-two">
                           <div class="card card-resize-height">
                               <div class="card-image">
-                                  <img src="<?php echo $path_img ?>dentist-in-office_4460x4460.jpg">
+                                  <img src="<?php echo $data['PATH_IMG']; ?>dentist-in-office_4460x4460.jpg">
                                   <span class="card-title">Peridontista</span>
                                   <a href="#servicio2" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">add</i></a>
                               </div>
@@ -463,7 +274,7 @@
                       <div class="col s12 m4">
                           <div class="card card-resize-height">
                               <div class="card-image">
-                                  <img class="circle" src="<?php echo $path_img ?>woman-doctor-with-gloves_4460x4460.jpg">
+                                  <img class="circle" src="<?php echo $data['PATH_IMG']; ?>woman-doctor-with-gloves_4460x4460.jpg">
                                   <span class="card-title">Endodoncista</span>
                                   <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">add</i></a>
                               </div>
@@ -536,7 +347,7 @@
                       <div class="col s12 m4 col-two">
                           <div class="card card-resize-height">
                               <div class="card-image">
-                                  <img class="circle" src="<?php echo $path_img ?>female-dentist-at-work_4460x4460.jpg">
+                                  <img class="circle" src="<?php echo $data['PATH_IMG']; ?>female-dentist-at-work_4460x4460.jpg">
                                   <span class="card-title">Especialista en Etética Dental</span>
                                   <a href="#servicio1" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">add</i></a>
                               </div>
@@ -570,7 +381,7 @@
                       <div class="col s12 m4 cirujia">
                           <div class="card card-resize-height">
                               <div class="card-image">
-                                  <img src="<?php echo $path_img ?>doctor-1.jpg">
+                                  <img src="<?php echo $data['PATH_IMG']; ?>doctor-1.jpg">
                                   <span class="card-title">Cirujano Dental</span>
                                   <a href="#servicio2" class="btn-floating halfway-fab waves-effect waves-light blue modal-trigger"><i class="material-icons">add</i></a>
                               </div>
@@ -711,7 +522,7 @@
           </div>
           <div class="footer-copyright">
               <div class="container">
-                  © 2018 Copyright Todos los derechos reservados
+                  © 20xx Copyright Todos los derechos reservados
                   <a class="grey-text text-lighten-4 right" href="#!">Mas links</a>
               </div>
           </div>
@@ -729,7 +540,7 @@
                           <div class="col s12 m4 imagen-mas-datos blue lighten-5 hoverable">
                               <div class="row profile-header"></div>
                               <div class="image-profile center">
-                                  <img src="<?php echo $path_img ?>rainier-ridao-720108-unsplash.jpg" alt="" class="circle responsive-img" />
+                                  <img src="<?php echo $data['PATH_IMG']; ?>rainier-ridao-720108-unsplash.jpg" alt="" class="circle responsive-img" />
                               </div>
                               <div class="datos-personales center">
                                   <ul>
@@ -807,7 +618,7 @@
               <div id="servicio2" class="modal modal-fixed-footer">
                   <div class="modal-content">
                       <h5 class="center">Hola, mi nombre es Pedro Ramos, especialista en Peridoncia </h5>
-                      <img src="<?php echo $path_img ?>Periodoncia.jpg" alt="" class="responsive-img" />
+                      <img src="<?php echo $data['PATH_IMG']; ?>Periodoncia.jpg" alt="" class="responsive-img" />
                       <span class="flow-text">Ven y te atendemos si sufres de Gengivitis, Placa y problemas derivados de ésta.</span>
                   </div>
                   <div class="modal-footer">
@@ -815,7 +626,7 @@
                   </div>
               </div>
               <!--Modal Formulario-citas  (Esto se repite en varios archivos modificar)-->
-              <div id="formulario-cita" class="modal" style=" max-height: 100%;">
+              <div id="formulario-cita" class="modal">
                   <div class="container">
                       <div class="row">
                           <h5 class="center-align">Llene los <span class="blue-text text-darken-1">Datos de la Cita</span></h5>
@@ -881,9 +692,7 @@
               </div>
               <!--Fin Modal-->
               <!--Footer-->
-              <?php
-                require_once FOOTER;
-                ?>
+<?php require_once FOOTER;?>
   </body>
 
   </html>

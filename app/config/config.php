@@ -14,8 +14,9 @@
     //Http
     define('SOLICITUD_HTTP', 'http://' . $_SERVER['HTTP_HOST'] . '/Clinica-Dental/');
     define('CHARSET', 'utf8mb4');
-    define('HEADER', APP_ROOT.'/views/includes/header.php'); //HEADER
-    define('FOOTER', APP_ROOT.'/views/includes/footer.php'); //FOOTER
+    define('HEAD',   APP_ROOT . '/views/inc/head.php'); //HEADER
+    define('HEADER', APP_ROOT.'/views/inc/header.php'); //HEADER
+    define('FOOTER', APP_ROOT.'/views/inc/footer.php'); //FOOTER
     //define('PATH_CSS', 'public/css/'); //Path absolute
      
 ?>

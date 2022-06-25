@@ -138,17 +138,7 @@ main .row{
 #boton-dentro-del-parrafo a:active {
   text-decoration: underline;
 }
-
 /*--Fin tratamientos*/
-
-/*Modal pantalla completa
-.modal.open {
-    width: 100%;
-    max-height: 100%;
-    height: 100%;
-    top: 0 !important;
-}*/
-
 
 /*Quita el espacio entre cada elemento seccion*/
 header,
@@ -181,6 +171,66 @@ section {
 }
 
 /*Caracteristicas de los estilos del Modal*/
+#formulario-cita .container{
+    width: 80%;
+}
 .modal{
     border-radius: 1%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #fafafa;
+    background-image: linear-gradient( 270deg, #eee 50%, #eee 0%, #beccf8 50%, #f4f7f0 45%);
+    padding: 0;
+    max-height: 90%;
+    width: 55%;
+    margin: auto;
+    will-change: top, opacity;
+}
+/*Date picker*/
+.modal .datepicker-modal{ /*Ancho del modal*/
+    width: fit-content;
+}
+.datepicker-date-display{ /*Background color Fecha*/
+    background-color: cornflowerblue;
+}
+.datepicker-table td.is-selected{ /*Color Fecha seleccionada*/
+  background-color: cornflowerblue;  
+}
+.datepicker-table td.is-today{ /*Color texto Hoy en el calendario*/
+    color:teal;
+}
+.datepicker-cancel, .datepicker-done{ /*Color del texto cancelar y done*/
+    color:cornflowerblue;
+}
+/*Time picker*/
+.modal .timepicker-modal{ /*Ancho del calendario*/
+    width: auto;
+}
+.timepicker-digital-display{ /*Background color del relo*/
+    background-color:cornflowerblue;
+}
+/*Color de la manecilla y manecilla seleccionada*/
+.timepicker-canvas line {
+    stroke: cornflowerblue;
+}
+.timepicker-canvas-bg, .timepicker-canvas-bearing {
+    fill: cornflowerblue;
+}
+.timepicker-close{ /*Texto Cancelar y Ok*/
+    color: cornflowerblue;
+}
+/*Mapa*/
+.maps, .maps .col{
+    padding: 0px;
+}
+/*svg en el footer*/
+.svg-wave-container{
+    height: 100px;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+.svg-wave-container> svg{
+    width: 100%;
+    display: block;
 }

@@ -365,7 +365,7 @@ main .row{
 /*Fin del Cuerpo*/
 
 /*Caracteristicas de los estilos del Modal*/
-.modal{
+/*.modal{
     border-radius: 1%;
     width: 85% !important; 
     height: 95% !important;
@@ -373,19 +373,20 @@ main .row{
     overflow: hidden;
 }
 /*Ocultar desplazamiento en modo horizontal*/
-.modal-content{
+/*.modal-content{
   overflow-x: hidden;
 }
 /*Modal posicion*/
-#servicio1{
+/*#servicio1{
   top: 5px !important;
   bottom: 5px !important;
 }
-.card-panel{ /*Tamaño del panel de la información*/
+.card-panel{ /*Tamaño del panel de la información
   height: 100%;
-}
+}*/
 /*Ajust layout information*/
 /*Skills*/
+
 .skills{
   padding-right: 0% !important;
   padding-left: 0% !important;
@@ -506,9 +507,9 @@ main .row{
     -webkit-border-radius: 20px;
     border-radius: 20px; 
   }
-  .indicators{
+  /*.indicators{
   	visibility: hidden;
-  }
+  }*/
 /*Espacio entre las tarjetas del Slider*/
 .card {
   margin-left: 5px;

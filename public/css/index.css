@@ -1,35 +1,19 @@
 /*Quita el espacio entre cada elemento seccion*/
-header,
-footer,
-section {
-    overflow: auto;
-}
-/*Estilo para la imagen del logo*/
-#imagenLogo img{
-    padding: 5px 5px; /*Arriba, abajo - Izquierda, Derecha*/
-}
-header > .container > .row{
-    margin-top: 1%;
-    margin-bottom: 0%;
-}
 /*--Inicio pagina Principal--*/
 /*(Principal) Tarjetas de ofertas*/
 .renglon1 >.col > .card-panel{
     height: 250px;
     overflow: hidden;
+    position: relative;
 }
-
-.renglon1 >.col > .card-panel::after{
-  content: "";
-  display: block;
-  border-radius: 100% 70%;
-  width: 350px;
-  height: 70px;
-  background-color: #1fb8df;
-  top: 27px;
+.waves{
+    position: absolute;
+    overflow: hidden;
+    left: 0px;
+    top: 187px;
 }
 .renglon1>.col> .card-panel>p::after{
-    background-image: url("../img/woman-dentist.png");
+    background-image: url('../img/woman-dentist.png');
 }
 /*(Principal) Caurusel de tarjetas (anchura)*/
 .carousel-casos {
@@ -42,9 +26,18 @@ header > .container > .row{
 .carousel.carousel-casos .carousel-item p{
     text-overflow: ellipsis !important;
 }
-/*Posicion del boton en el csrousel*/
+/*Posicion del boton en el carousel*/
 .carousel.carousel-casos .carousel-fixed-item{
     bottom: 60px;
+}
+@media only screen and (max-width: 601px) {
+    /*Casos en la seccion del slider movil*/
+    .carousel.carousel-casos {
+        height: 300px !important;
+    }
+    .image-testimonial-container{
+        width: 37% !important;
+    }
 }
 /*(Principal) Anchura del panel de tarjetas de testimonios*/
 .card-panel{
@@ -60,7 +53,6 @@ header > .container > .row{
 }
 /*Comportamiento en vista movil (Principal)*/
 @media only screen and (max-width: 601px) {
-    /*Ajust on Principal page*/
     .renglon3{
         display: flex;  
         flex-direction: column;
@@ -71,12 +63,12 @@ header > .container > .row{
     .col2{
         order: 1;
     }
-
 }
 /*Inicio del Header*/
 /*Inicio Menu de navegacion*/
   #boton-registro:hover{
     color:rgba(0, 89, 255, 0.918);
+    font-weight: bold;
   }
   /*line default focus tipyng on text*/
   input:focus {
@@ -149,56 +141,19 @@ textarea.materialize-textarea:focus.valid+label:after,
 .select-wrapper.valid+label:after{
     color: rgba(33, 149, 243);
 }
-/*---Date picker and Clock picker---*/
-/*clock picker background color*/
-.picker__date-display{
-    background-color: rgba(0, 89, 255, 0.918);
-}
-.clockpicker-tick:hover { /*color numbers on hover*/
-    background: rgba(33, 149, 243,0.4) !important; 
-    color: azure;
-}
-.clockpicker-canvas line { /*line selector color*/
-    stroke: rgba(0, 89, 255, 0.918) !important; 
-}
-.clockpicker-canvas-bearing { 
-    fill: rgba(0, 89, 255, 0.918) !important; 
-}
-.clockpicker-canvas-bg { 
-    fill: rgba(0, 89, 255, 0.918) !important; 
-}
-/*--DATE PICKER OPTIONS*/
-.picker__day--infocus.picker__day--selected{
-    background-color: rgba(66, 133, 244, 0.79);
-} 
-.picker__day--selected:hover{
-    background-color: rgba(33, 149, 243,0.4);
-} 
-button.picker__today, button.picker__close {
-        color: rgba(66, 133, 244, 0.79);
-}
 /*Fin menu navegacion*/
 /*Fin del Header*/
 /*Inicio Cuerpo*/
 /*Inicio Titulo de las secciones*/
-.seccion-titulo{
-    padding: 1% !important;
-    border-radius: 10px;
+.encabezado-seccion{
+    margin: 0px auto 25px auto;
 }
-.seccion-titulo h4{
-    font-family: Josefin,sans-serif;;
-    font-size: 26px;
-    font-weight: bold;
-    padding: 1%;
-    margin: 0%;
+.encabezado-seccion .underline{
+    width: 60px;
+    height: 3px;
+    margin: 10px auto;
+    background-color: #1fb8df;
 }
-.seccion-titulo span{
-    font-family: Tauri, sans-serif;;
-    font-size: 20px;
-    padding: 1%;
-    margin: 0%;
-}
-
 /*Fin Titulo de las secciones*/
 
 /*Fin del Cuerpo*/
@@ -217,25 +172,6 @@ button.picker__today, button.picker__close {
     border-bottom: 2px solid rgba(0, 89, 255, 0.918);
 }
 /*Fin para los estilos del login*/
-/*Caracteristicas de los estilos del Modal GLobal*/
-.modal{
-    border-radius: 1%;
-}
-/*Fin de las caracteristicas del modal*/
-
-/*Incio de las caracteristicas del boton flotante del chat*/
-@media only screen and (max-width: 601px) {  /*NOT WORKS ON PLUGIN THIS*/
-    .mylivechat_buttonround {
-        position: relative !important;
-        top:0px !important;
-        bottom: 100px !important;
-        
-        background-color: rgb(224, 20, 20) !important;
-    }
-
-
-}
-/*Fin de las caracteristicas del boton flotante del chat*/
 
 /*ESTILOS para el formulario dezplegable*/
 .login_box {
@@ -326,7 +262,7 @@ form p{
     position:absolute; 
     z-index:4;
 }
-/*contenedor de la imagen sgv movible*/
+/*contenedor de la imagen svg mobil*/
 .blob-container{
     position:relative; 
     z-index:1; 
@@ -339,29 +275,51 @@ form p{
     z-index:2;
     height: 150px;
 }
-/*search-box*/
-.search-box{
-    right: 50px;
-    margin-top: 10px;
+.promo {
+    background: linear-gradient(rgba(5, 4, 4, 0.69), rgba(5, 4, 4, 0.74)), url('../img/dentist-and-patient_4460x4460.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #eeeeee;
 }
-.search-box nav{
-    height: 44px;
+/*Seccion Ventajas*/
+.section-ventajas{
+    z-index: 1;   
 }
-.input-field #search{
-    margin-bottom: 0px;
+.background-section{
+    position: relative;
 }
-/*align middle icons in searchbox */
-.search-box .material-icons:nth-child(1){
-    margin-top: -10px;
+.background-section:after{
+  z-index: 0;
+  content: '';
+  position: absolute;
+  background-repeat: no-repeat;
+  background-image: url("../img/blob_19-8-8637.svg");
+  height: 350px;
+  width: 350px; 
+   transform: scale(4, 4);
 }
-.search-box .close{
-    margin-top: -10px !important;
-    font-size: 1.5rem;
+/*Background texto Ventajas*/
+.renglon2 .col:nth-child(1){
+  z-index: 1;
 }
-.search-box nav{
-    border-radius: 20px;
-    background-color: #72a8e6;
+.background-col{
+  position: relative;
 }
-.input-field #search{
-    border-radius: 20px;
+.background-col::after{
+  z-index: 0;
+  content: '';
+  position: absolute;
+  background-repeat: no-repeat;
+  background-image: url("../img/blob_10-8-1018.svg");
+  height: 350px;
+  width: 350px;
+  top: -150px;
+  right: 125px;
+  transform: scale(1.5, 1);
+}
+/* Pantallas grandes 1200px hacia rriba */
+@media only screen and (min-width: 1200px) {
+    .waves{
+        top: 77%;
+    }
 }

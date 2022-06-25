@@ -72,8 +72,9 @@ class Medico
             echo "Error: " . $query . "<br>" . mysqli_error($conection);
         }
     }
-    public function getIdMedico($nombreUsuario){
- 
+    public function getIdMedico($nombreUsuario)
+    {
+
         $conection = $this->createConectionDb();
         $query = "SELECT idMedico FROM `medico` WHERE `nombre` = '$nombreUsuario'";
         //$query2 = "SELECT * from medico med INNER JOIN usuario user ON med.idMedico = user.medico_idMedico";
@@ -146,35 +147,33 @@ class Main
 
     public function main()
     {
-       // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            if (  isset($_POST[ 'acepto-terminos']) && $_POST['acepto-terminos'] == "Si" && isset($_FILES['image']) ) {
-                //imagen 
-                $check = getimagesize( $_FILES["image"]["tmp_name"]);
-                if ($check !== false) {
-                    $image = $_FILES['image']['tmp_name'];
-                    $imgContent = addslashes(file_get_contents($image));
-                }
-
-                $this->medico = new Medico( $imgContent, $_POST['nombre'], $_POST['paterno'], $_POST['materno'], $_POST['telefono'], $_POST['especialidad'],  $_POST['cedula'],  $_POST['id-sucursal']);     
-                $fk_medico = $this->medico->getIdMedico($_POST['nombre']);
-        
-                $this->usuario = new Usuario($_POST['usuario'], $_POST['email'], $_POST['password'], $fk_medico );
-        
-                if ($this->medico->InsertarDatos() == true && $this->usuario->InsertarDatos() == true) {
-                    echo "Agregado exitosamente";
-                    printf("redirigiendo...");
-                    header('Refresh:1 ; url=../signup.php');
-
-                } else {
-                    echo "Error al intentar agregar nuevo usuario";
-                }
-            } else  {
-                echo "No es posible el registro";
+        if (isset($_POST['acepto-terminos']) && $_POST['acepto-terminos'] == "Si" && isset($_FILES['image'])) {
+            //imagen 
+            $check = getimagesize($_FILES["image"]["tmp_name"]);
+            if ($check !== false) {
+                $image = $_FILES['image']['tmp_name'];
+                $imgContent = addslashes(file_get_contents($image));
             }
+
+            $this->medico = new Medico($imgContent, $_POST['nombre'], $_POST['paterno'], $_POST['materno'], $_POST['telefono'], $_POST['especialidad'],  $_POST['cedula'],  $_POST['id-sucursal']);
+            $fk_medico = $this->medico->getIdMedico($_POST['nombre']);
+
+            $this->usuario = new Usuario($_POST['usuario'], $_POST['email'], $_POST['password'], $fk_medico);
+
+            if ($this->medico->InsertarDatos() == true && $this->usuario->InsertarDatos() == true) {
+                echo "Agregado exitosamente";
+                printf("redirigiendo...");
+                header('Refresh:1 ; url=../signup.php');
+            } else {
+                echo "Error al intentar agregar nuevo usuario";
+            }
+        } else {
+            echo "No es posible el registro";
         }
-   // }
+    }
+    // }
 }
 
-(new Main)->main();
-
+//(new Main)->main();
